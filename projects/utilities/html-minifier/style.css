@@ -1,9 +1,0 @@
-body { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-.utility-container { padding: 2rem; border-radius: 20px; width: 100%; max-width: 900px; }
-.grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: center; margin-bottom: 2rem; }
-.panel { display: flex; flex-direction: column; gap: 0.5rem; }
-label { color: #aaa; font-size: 0.9rem; }
-textarea { height: 300px; padding: 1rem; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-family: monospace; border-radius: 8px; resize: none; font-size: 0.85rem; }
-.actions button { transform: rotate(0); }
-.stats { font-size: 0.8rem; color: #00ff41; margin-top: 5px; text-align: right; }
-@media (max-width: 700px) { .grid { grid-template-columns: 1fr; } .actions button { transform: rotate(90deg); width: 100%; } }
