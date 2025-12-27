@@ -1,9 +1,0 @@
-body { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-.utility-container { padding: 3rem; border-radius: 20px; width: 100%; max-width: 500px; text-align: center; }
-.check-box { display: flex; gap: 0.5rem; margin-bottom: 2rem; }
-input { flex: 1; padding: 1rem; background: rgba(0,0,0,0.3); border: 1px solid #333; color: #fff; border-radius: 8px; font-size: 1.1rem; }
-.result { padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 12px; }
-.status-icon { font-size: 3rem; margin-bottom: 1rem; }
-.valid { color: #00ff41; }
-.invalid { color: #ff0055; }
-.hidden { display: none; }

@@ -1,8 +1,0 @@
-body { display: flex; justify-content: center; padding: 50px 0; min-height: 100vh; }
-.utility-container { padding: 3rem; border-radius: 20px; width: 100%; max-width: 800px; }
-input { width: 100%; padding: 1rem; margin-bottom: 2rem; background: rgba(0,0,0,0.3); border: 1px solid #333; color: #fff; border-radius: 8px; font-size: 1.1rem; }
-.command-item { background: rgba(255,255,255,0.05); padding: 1.5rem; margin-bottom: 1rem; border-radius: 8px; border-left: 3px solid var(--primary); transition: 0.2s; }
-.command-item:hover { background: rgba(255,255,255,0.08); }
-.cmd { font-family: monospace; color: var(--primary); font-size: 1.1rem; margin-bottom: 0.5rem; display: block; }
-.desc { color: #aaa; font-size: 0.9rem; margin-bottom: 0.5rem; }
-.copyme { cursor: pointer; text-decoration: underline; font-size: 0.8rem; color: #666; }
