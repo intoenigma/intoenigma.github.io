@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Filters | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Utilities</a>
+
+    <div class="utility-container glass">
+        <header>
+            <h2>Vibe <span class="highlight">Studio</span></h2>
+        </header>
+
+        <div class="upload-section">
+            <input type="file" id="upload" accept="image/*" hidden>
+            <button onclick="document.getElementById('upload').click()" class="cta-btn secondary">Upload Image</button>
+        </div>
+
+        <div class="canvas-wrap">
+            <canvas id="canvas"></canvas>
+        </div>
+
+        <div class="filters">
+            <button onclick="applyFilter('none')">Normal</button>
+            <button onclick="applyFilter('grayscale')">B&W</button>
+            <button onclick="applyFilter('sepia')">Vintage</button>
+            <button onclick="applyFilter('invert')">X-Ray</button>
+            <button onclick="applyFilter('contrast')">Punch</button>
+            <button onclick="applyFilter('blur')">Soft</button>
+        </div>
+
+        <button id="download-btn" class="cta-btn primary full-width">Save Photo</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

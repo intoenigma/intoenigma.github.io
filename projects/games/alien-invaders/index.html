@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alien Invaders | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Back to Games</a>
+
+    <div class="game-container">
+        <div class="game-header">
+            <div class="score-board glass">
+                <span>SCORE</span>
+                <span id="score">00000</span>
+            </div>
+            <h1 class="game-title">Alien <span class="highlight">Invaders</span></h1>
+            <div class="level-board glass">
+                <span>WAVE</span>
+                <span id="level">1</span>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+        <div class="controls-hint glass">
+            <p><span>&larr; &rarr;</span> to Move</p>
+            <p><span>SPACE</span> to Fire</p>
+        </div>
+
+        <div id="game-over-screen" class="overlay hidden glass">
+            <h2>System <span class="highlight" style="color: #ff0055 !important;">Compromised</span></h2>
+            <p>Final Score: <span id="final-score">0</span></p>
+            <button id="restart-btn" class="cta-btn primary">Reboot System</button>
+        </div>
+
+        <div id="start-screen" class="overlay glass">
+            <h2>Defend The <span class="highlight">Core</span></h2>
+            <p>Neutralize incoming threats.</p>
+            <button id="start-btn" class="cta-btn primary">Initialize</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

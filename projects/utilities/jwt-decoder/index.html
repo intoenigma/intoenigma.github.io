@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JWT Decoder | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Utilities</a>
+
+    <div class="utility-container glass">
+        <header>
+            <h2>Token <span class="highlight">Inspector</span></h2>
+        </header>
+
+        <textarea id="token-input" placeholder="Paste JWT String here (eyJ...)"></textarea>
+
+        <div class="result-sections">
+            <div class="section">
+                <h3>Header</h3>
+                <pre id="header-out">{}</pre>
+            </div>
+            <div class="section">
+                <h3>Payload</h3>
+                <pre id="payload-out">{}</pre>
+            </div>
+        </div>
+
+        <p class="note">Signature is NOT verified here. Only decoding.</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

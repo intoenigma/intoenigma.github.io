@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binaural Beats | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Utilities</a>
+
+    <div class="utility-container glass">
+        <header>
+            <h2>Brainwave <span class="highlight">Sync</span></h2>
+            <p>Use headphones for best effect.</p>
+        </header>
+
+        <div class="freq-controls">
+            <div class="control-group">
+                <label>Left Ear (Hz)</label>
+                <input type="number" id="left-freq" value="200">
+            </div>
+            <div class="control-group">
+                <label>Right Ear (Hz)</label>
+                <input type="number" id="right-freq" value="210">
+            </div>
+        </div>
+
+        <div class="presets">
+            <button onclick="setFreq(200, 204)">Theta (Relax)</button>
+            <button onclick="setFreq(200, 210)">Alpha (Focus)</button>
+            <button onclick="setFreq(200, 230)">Beta (Alert)</button>
+        </div>
+
+        <button id="toggle-btn" class="cta-btn primary full-width">Play Signal</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

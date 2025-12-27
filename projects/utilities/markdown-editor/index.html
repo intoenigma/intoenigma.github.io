@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Editor | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Utilities</a>
+
+    <div class="utility-container glass">
+        <header>
+            <h2>MD <span class="highlight">Writer</span></h2>
+        </header>
+
+        <div class="editor-grid">
+            <textarea id="editor" placeholder="# Hello World&#10;&#10;Type markdown here..."></textarea>
+            <div id="preview" class="preview-area">
+                <!-- Preview content -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

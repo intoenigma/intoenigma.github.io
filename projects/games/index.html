@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .hub-header {
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .hub-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            padding-bottom: 4rem;
+        }
+
+        .hub-card {
+            display: block;
+            text-decoration: none;
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .hub-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--secondary);
+            /* Games use secondary color hover */
+            box-shadow: 0 0 15px rgba(157, 0, 255, 0.2);
+        }
+
+        .hub-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+            /* Games use purple accent */
+        }
+
+        .hub-card p {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 1001;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../../index.html" class="back-link">&larr; Main System</a>
+
+    <div class="container">
+        <header class="hub-header">
+            <h1 class="hub-title">Interactive <span class="highlight"
+                    style="color: var(--secondary);">Simulations</span></h1>
+            <p>Engage with digital entertainment protocols.</p>
+        </header>
+
+        <div class="hub-grid">
+            <a href="alien-invaders/index.html" class="hub-card">
+                <h3>Alien Invaders</h3>
+                <p>Classic space shooter defense game.</p>
+            </a>
+            <a href="breakout-game/index.html" class="hub-card">
+                <h3>Breakout</h3>
+                <p>Destroy bricks with physics-based mechanics.</p>
+            </a>
+            <a href="car-racing-2d/index.html" class="hub-card">
+                <h3>Car Racing 2D</h3>
+                <p>High-speed obstacle avoidance.</p>
+            </a>
+            <a href="coin-flip-3d/index.html" class="hub-card">
+                <h3>Coin Flip 3D</h3>
+                <p>Physics-based probability simulation.</p>
+            </a>
+            <a href="connect-four/index.html" class="hub-card">
+                <h3>Connect Four</h3>
+                <p>Strategic vertical alignment game.</p>
+            </a>
+            <a href="crossword-mini/index.html" class="hub-card">
+                <h3>Crossword Mini</h3>
+                <p>Daily word puzzle challenges.</p>
+            </a>
+            <a href="dino-run-clone/index.html" class="hub-card">
+                <h3>Dino Run</h3>
+                <p>Infinite runner avoiding obstacles.</p>
+            </a>
+            <a href="dodge-ball/index.html" class="hub-card">
+                <h3>Dodge Ball</h3>
+                <p>Reflex-based survival arena.</p>
+            </a>
+            <a href="flappy-bird/index.html" class="hub-card">
+                <h3>Flappy Bird</h3>
+                <p>Navigate gaps with precision timing.</p>
+            </a>
+            <a href="hangman/index.html" class="hub-card">
+                <h3>Hangman</h3>
+                <p>Word guessing logic puzzle.</p>
+            </a>
+            <a href="minesweeper/index.html" class="hub-card">
+                <h3>Minesweeper</h3>
+                <p>Logic-based mine detection grid.</p>
+            </a>
+            <a href="number-guessing/index.html" class="hub-card">
+                <h3>Number Guess</h3>
+                <p>Binary search logic trainer.</p>
+            </a>
+            <a href="platformer-game/index.html" class="hub-card">
+                <h3>Platformer</h3>
+                <p>Jump and run through levels.</p>
+            </a>
+            <a href="pong/index.html" class="hub-card">
+                <h3>Pong</h3>
+                <p>The original digital tennis.</p>
+            </a>
+            <a href="rock-paper-scissors/index.html" class="hub-card">
+                <h3>RPS</h3>
+                <p>Classic hand game simulation.</p>
+            </a>
+            <a href="simon-says/index.html" class="hub-card">
+                <h3>Simon Says</h3>
+                <p>Memory pattern matching.</p>
+            </a>
+            <a href="sudoku-generator/index.html" class="hub-card">
+                <h3>Sudoku</h3>
+                <p>Number placement logic puzzle.</p>
+            </a>
+            <a href="tetris/index.html" class="hub-card">
+                <h3>Tetris</h3>
+                <p>Block stacking strategy game.</p>
+            </a>
+            <a href="tile-slide/index.html" class="hub-card">
+                <h3>Tile Slide</h3>
+                <p>Reorder image segments.</p>
+            </a>
+            <a href="trivia-crack/index.html" class="hub-card">
+                <h3>Trivia Crack</h3>
+                <p>General knowledge quiz interface.</p>
+            </a>
+            <a href="whack-a-mole/index.html" class="hub-card">
+                <h3>Whack-a-Mole</h3>
+                <p>Reflex speed test.</p>
+            </a>
+            <a href="wordle-clone/index.html" class="hub-card">
+                <h3>Wordle Clone</h3>
+                <p>5-letter word deduction game.</p>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

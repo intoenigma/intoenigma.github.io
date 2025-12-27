@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.utility-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.note {
+    margin-top: 2rem;
+    color: #666;
+    font-size: 0.9rem;
+}

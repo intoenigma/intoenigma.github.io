@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converters | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .hub-container {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #aaa);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            display: block;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.1);
+        }
+
+        .card h3 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: #888;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+        }
+
+        .back-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+        }
+
+        .back-nav a:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+
+    <div class="back-nav">
+        <a href="../../index.html">&larr; Main Terminal</a>
+    </div>
+
+    <div class="hub-container">
+        <div class="section-header">
+            <h1>Data <span class="highlight">Converters</span></h1>
+            <p>Transform formats, signals, and assets.</p>
+        </div>
+
+        <div class="grid">
+            <!-- Binary -->
+            <a href="binary-to-decimal/index.html" class="card">
+                <div class="card-icon">101</div>
+                <h3>Binary Translator</h3>
+                <p>Convert decimal numbers to binary strings and vice versa.</p>
+            </a>
+
+            <!-- Case -->
+            <a href="case-converter/index.html" class="card">
+                <div class="card-icon">Aa</div>
+                <h3>Case Transformer</h3>
+                <p>Switch between camelCase, SNAKE_CASE, PascalCase, and more.</p>
+            </a>
+
+            <!-- Emoji -->
+            <a href="emoji-translator/index.html" class="card">
+                <div class="card-icon">😎</div>
+                <h3>Emoji Translator</h3>
+                <p>Convert plain text into fun emoji-rich sentences.</p>
+            </a>
+
+            <!-- Image Base64 -->
+            <a href="image-to-base64/index.html" class="card">
+                <div class="card-icon">🖼️</div>
+                <h3>Image Encoder</h3>
+                <p>Turn image files into Base64 data strings for embedding.</p>
+            </a>
+
+            <!-- JSON CSV -->
+            <a href="json-to-csv/index.html" class="card">
+                <div class="card-icon">{}</div>
+                <h3>Format Shifter</h3>
+                <p>Convert JSON arrays to CSV format for spreadsheets.</p>
+            </a>
+
+            <!-- Morse -->
+            <a href="morse-code/index.html" class="card">
+                <div class="card-icon">••-</div>
+                <h3>Morse Encoder</h3>
+                <p>Translate text to Morse code signals with audio playback.</p>
+            </a>
+
+            <!-- Multi Unit -->
+            <a href="multi-unit-converter/index.html" class="card">
+                <div class="card-icon">📏</div>
+                <h3>Universal Converter</h3>
+                <p>Convert Length, Weight, and Temperature units instantly.</p>
+            </a>
+
+            <!-- Roman -->
+            <a href="roman-numeral/index.html" class="card">
+                <div class="card-icon">IV</div>
+                <h3>Roman Numerals</h3>
+                <p>Translate modern numbers into ancient Roman format.</p>
+            </a>
+
+            <!-- Speech to Text -->
+            <a href="speech-to-text/index.html" class="card">
+                <div class="card-icon">🎙️</div>
+                <h3>Voice Logger</h3>
+                <p>Convert spoken words into written text using the microphone.</p>
+            </a>
+
+            <!-- Text to Speech -->
+            <a href="text-to-speech/index.html" class="card">
+                <div class="card-icon">🔊</div>
+                <h3>Vocal Synthesizer</h3>
+                <p>Turn written text into spoken audio with customizable voices.</p>
+            </a>
+
+            <!-- Time Zone -->
+            <a href="time-zone-converter/index.html" class="card">
+                <div class="card-icon">🌍</div>
+                <h3>World Clock</h3>
+                <p>Compare local time against major global timezones.</p>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

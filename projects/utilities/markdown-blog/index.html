@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Blog | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Utilities</a>
+
+    <div class="utility-container">
+        <header>
+            <h2>Static <span class="highlight">Blog</span></h2>
+        </header>
+
+        <div id="blog-posts" class="blog-grid">
+            <!-- JS Injection -->
+        </div>
+
+        <div id="post-viewer" class="post-viewer hidden glass">
+            <button onclick="closePost()" class="close-btn">&times;</button>
+            <div id="post-content" class="content"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

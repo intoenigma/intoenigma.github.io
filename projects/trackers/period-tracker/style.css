@@ -1,0 +1,54 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.tracker-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.status-card {
+    background: linear-gradient(135deg, #ff0055, #9d00ff);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(255, 0, 85, 0.3);
+}
+
+.status-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.status-card p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.controls label {
+    display: block;
+    color: #888;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+    color: #fff;
+    padding: 0.8rem;
+    border-radius: 8px;
+}
+
+.full-width {
+    width: 100%;
+    margin-top: 1.5rem;
+}

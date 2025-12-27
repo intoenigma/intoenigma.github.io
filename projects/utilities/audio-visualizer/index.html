@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Visualizer | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Utilities</a>
+
+    <div class="utility-container glass">
+        <header>
+            <h2>Sonic <span class="highlight">Wave</span></h2>
+            <p>Upload audio to visualize frequencies.</p>
+        </header>
+
+        <div class="upload-area" id="drop-zone">
+            <input type="file" id="audio-file" accept="audio/*" hidden>
+            <p>Drop audio file or click to upload</p>
+        </div>
+
+        <canvas id="visualizer" width="800" height="400"></canvas>
+        <audio id="audio-player" controls></audio>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

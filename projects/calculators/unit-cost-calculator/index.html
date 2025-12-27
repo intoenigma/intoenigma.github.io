@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Cost Calculator | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../age-calculator/style.css">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Back to Calculators</a>
+
+    <div class="calc-container glass" style="max-width: 700px;">
+        <header class="calc-header">
+            <h2>Value <span class="highlight">Comparator</span></h2>
+            <p>Compare two items to find the best deal.</p>
+        </header>
+
+        <div class="input-section" style="flex-direction: row; gap: 2rem;">
+            <!-- Item A -->
+            <div style="flex: 1;">
+                <h3 style="margin-bottom: 1rem; color: #fff;">Item A</h3>
+                <div class="input-group">
+                    <label>Price ($)</label>
+                    <input type="number" id="price-a">
+                </div>
+                <div class="input-group">
+                    <label>Qty/Weight</label>
+                    <input type="number" id="qty-a">
+                </div>
+            </div>
+
+            <!-- Item B -->
+             <div style="flex: 1;">
+                <h3 style="margin-bottom: 1rem; color: #fff;">Item B</h3>
+                <div class="input-group">
+                    <label>Price ($)</label>
+                    <input type="number" id="price-b">
+                </div>
+                <div class="input-group">
+                    <label>Qty/Weight</label>
+                    <input type="number" id="qty-b">
+                </div>
+            </div>
+        </div>
+        
+        <button id="calculate-btn" class="cta-btn primary full-width" style="margin-top: 1.5rem;">Compare</button>
+
+        <div class="result-section hidden" id="result-section">
+            <div class="result-grid" style="grid-template-columns: 1fr 1fr;">
+                 <div class="result-card" id="card-a">
+                    <span id="unit-a" class="number">0</span>
+                    <span class="label">Item A / Unit</span>
+                </div>
+                 <div class="result-card" id="card-b">
+                    <span id="unit-b" class="number">0</span>
+                    <span class="label">Item B / Unit</span>
+                </div>
+            </div>
+            <p id="verdict" style="text-align: center; color: var(--primary); margin-top: 1rem; font-size: 1.2rem;"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

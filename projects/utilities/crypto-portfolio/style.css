@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.utility-container {
+    padding: 3rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.ticker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.ticker-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+}
+
+.ticker-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-3px);
+}
+
+.ticker-card h3 {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.ticker-card .price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.ticker-card .change {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.loader {
+    grid-column: 1 / -1;
+    color: #888;
+}
+
+.up {
+    color: #00ff41;
+}
+
+.down {
+    color: #ff0055;
+}

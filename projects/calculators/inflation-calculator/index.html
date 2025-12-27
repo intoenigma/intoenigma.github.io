@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inflation Calculator | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../age-calculator/style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Back to Calculators</a>
+
+    <div class="calc-container glass">
+        <header class="calc-header">
+            <h2>Future <span class="highlight">Value</span></h2>
+            <p>Estimate the impact of inflation over time.</p>
+        </header>
+
+        <div class="input-section">
+            <div class="input-group">
+                <label>Current Cost ($)</label>
+                <input type="number" id="current-cost" placeholder="e.g. 100">
+            </div>
+            <div class="input-group">
+                <label>Inflation Rate (%)</label>
+                <input type="number" id="inflation-rate" placeholder="e.g. 3.5">
+            </div>
+            <div class="input-group">
+                <label>Years in Future</label>
+                <input type="number" id="years" placeholder="e.g. 10">
+            </div>
+            <button id="calculate-btn" class="cta-btn primary full-width">Project Value</button>
+        </div>
+
+        <div class="result-section hidden" id="result-section">
+            <div class="result-grid">
+                <div class="result-card">
+                    <span id="future-value" class="number">0</span>
+                    <span class="label">Future Cost</span>
+                </div>
+                <div class="result-card">
+                    <span id="change-percent" class="number">0</span>
+                    <span class="label">Price Increase</span>
+                </div>
+            </div>
+            <p style="text-align: center; color: #888; margin-top: 1rem;">
+                What costs <span style="color:white">$100</span> today will cost almost double in 20 years at 3.5%.
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

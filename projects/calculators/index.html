@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculators | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .hub-header {
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .hub-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            padding-bottom: 4rem;
+        }
+
+        .hub-card {
+            display: block;
+            text-decoration: none;
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .hub-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary);
+        }
+
+        .hub-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .hub-card p {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 1001;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../../index.html" class="back-link">&larr; Main System</a>
+
+    <div class="container">
+        <header class="hub-header">
+            <h1 class="hub-title">Calculation <span class="highlight">Nodes</span></h1>
+            <p>Precise tools for data processing and analysis.</p>
+        </header>
+
+        <div class="hub-grid">
+            <a href="age-calculator/index.html" class="hub-card">
+                <h3>Age Calculator</h3>
+                <p>Calculate precise chronological age.</p>
+            </a>
+            <a href="bmi-calculator/index.html" class="hub-card">
+                <h3>BMI Calculator</h3>
+                <p>Body Mass Index analysis tool.</p>
+            </a>
+            <a href="car-loan-calculator/index.html" class="hub-card">
+                <h3>Car Loan</h3>
+                <p>Estimate monthly car payments.</p>
+            </a>
+            <a href="fixed-deposit-calculator/index.html" class="hub-card">
+                <h3>Fixed Deposit</h3>
+                <p>FD maturity and interest calculator.</p>
+            </a>
+            <a href="gratuity-calculator/index.html" class="hub-card">
+                <h3>Gratuity</h3>
+                <p>Calculate employee gratuity benefits.</p>
+            </a>
+            <a href="home-loan-calculator/index.html" class="hub-card">
+                <h3>Home Loan</h3>
+                <p>Mortgage EMI and interest estimator.</p>
+            </a>
+            <a href="inflation-calculator/index.html" class="hub-card">
+                <h3>Inflation</h3>
+                <p>Calculate purchasing power over time.</p>
+            </a>
+            <a href="loan-emi-calculator/index.html" class="hub-card">
+                <h3>Loan EMI</h3>
+                <p>Generic Equated Monthly Installment tool.</p>
+            </a>
+            <a href="rule-of-72-calculator/index.html" class="hub-card">
+                <h3>Rule of 72</h3>
+                <p>Estimate investment doubling time.</p>
+            </a>
+            <a href="salary-splitter/index.html" class="hub-card">
+                <h3>Salary Splitter</h3>
+                <p>Budget allocation optimization.</p>
+            </a>
+            <a href="sleep-cycle-calculator/index.html" class="hub-card">
+                <h3>Sleep Cycle</h3>
+                <p>Optimize wake up times for REM cycles.</p>
+            </a>
+            <a href="tax-calculator/index.html" class="hub-card">
+                <h3>Tax Calculator</h3>
+                <p>Estimate income tax liabilities.</p>
+            </a>
+            <a href="unit-cost-calculator/index.html" class="hub-card">
+                <h3>Unit Cost</h3>
+                <p>Compare product value by weight/volume.</p>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

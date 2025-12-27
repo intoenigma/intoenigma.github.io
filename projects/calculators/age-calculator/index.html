@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Back to Calculators</a>
+
+    <div class="calc-container glass">
+        <header class="calc-header">
+            <h2>Age <span class="highlight">Decoder</span></h2>
+            <p>Enter your origin date to calculate elapsed time.</p>
+        </header>
+
+        <div class="input-section">
+            <div class="date-input-group">
+                <input type="date" id="dob" required>
+                <label for="dob">Date of Birth</label>
+            </div>
+            <button id="calculate-btn" class="cta-btn primary full-width">Calculate Age</button>
+        </div>
+
+        <div class="result-section hidden" id="result-section">
+            <div class="result-grid">
+                <div class="result-card">
+                    <span id="years" class="number">0</span>
+                    <span class="label">Years</span>
+                </div>
+                <div class="result-card">
+                    <span id="months" class="number">0</span>
+                    <span class="label">Months</span>
+                </div>
+                <div class="result-card">
+                    <span id="days" class="number">0</span>
+                    <span class="label">Days</span>
+                </div>
+            </div>
+            <p class="next-bday-text">Next milestone in <span id="next-birthday-days" class="highlight">0</span> days.
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

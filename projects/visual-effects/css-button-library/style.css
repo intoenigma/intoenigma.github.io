@@ -1,0 +1,163 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.effect-container {
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 3rem;
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    background: transparent;
+    position: relative;
+    transition: 0.3s;
+    width: 160px;
+}
+
+/* Neon */
+.neon {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    box-shadow: 0 0 5px var(--primary), inset 0 0 5px var(--primary);
+    text-shadow: 0 0 5px var(--primary);
+}
+
+.neon:hover {
+    background: var(--primary);
+    color: #000;
+    box-shadow: 0 0 20px var(--primary), inset 0 0 10px var(--primary);
+}
+
+/* Glass */
+.glass-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+}
+
+.glass-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Slide */
+.slide {
+    border: 2px solid var(--secondary);
+    color: #fff;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--secondary);
+    transition: 0.3s;
+    z-index: -1;
+}
+
+.slide:hover::after {
+    width: 100%;
+}
+
+/* Border Anim */
+.border-anim {
+    color: #fff;
+}
+
+.border-anim::before,
+.border-anim::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.border-anim::before {
+    top: 0;
+    left: 0;
+}
+
+.border-anim::after {
+    bottom: 0;
+    right: 0;
+}
+
+.border-anim:hover::before,
+.border-anim:hover::after {
+    width: 100%;
+}
+
+/* Jelly */
+.jelly {
+    background: #ff0055;
+    border-radius: 50px;
+}
+
+.jelly:hover {
+    animation: jelly 0.5s;
+}
+
+@keyframes jelly {
+
+    0%,
+    100% {
+        transform: scale(1, 1);
+    }
+
+    25% {
+        transform: scale(0.9, 1.1);
+    }
+
+    50% {
+        transform: scale(1.1, 0.9);
+    }
+
+    75% {
+        transform: scale(0.95, 1.05);
+    }
+}
+
+/* Gradient */
+.gradient {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    border-radius: 4px;
+    border: none;
+}
+
+.gradient:hover {
+    filter: brightness(1.2);
+    letter-spacing: 1px;
+}
+
+@media(max-width: 600px) {
+    .btn-grid {
+        grid-template-columns: 1fr;
+    }
+}

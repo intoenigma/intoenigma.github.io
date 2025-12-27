@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON to CSV | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Converters</a>
+
+    <div class="converter-container glass">
+        <header>
+            <h2>Format <span class="highlight">Shifter</span></h2>
+        </header>
+
+        <div class="io-grid">
+            <div class="io-box">
+                <label>JSON</label>
+                <textarea id="json-input" placeholder='[{"name": "Neo", "id": 1}]'></textarea>
+            </div>
+
+            <div class="controls">
+                <button id="convert-btn" class="cta-btn primary">&rarr;</button>
+            </div>
+
+            <div class="io-box">
+                <label>CSV</label>
+                <textarea id="csv-output" placeholder="name,id&#10;Neo,1" readonly></textarea>
+            </div>
+        </div>
+
+        <p id="error-msg" class="error-msg"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

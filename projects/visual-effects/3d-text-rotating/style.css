@@ -1,0 +1,76 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.scene {
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+    position: relative;
+}
+
+.carousel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    animation: rotate 15s infinite linear;
+}
+
+.face {
+    position: absolute;
+    width: 250px;
+    height: 120px;
+    left: 25px;
+    top: 40px;
+    background: rgba(0, 243, 255, 0.1);
+    border: 2px solid var(--primary);
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px var(--primary);
+    text-transform: uppercase;
+    backface-visibility: visible;
+}
+
+/* Arithmetic for 6 faces in hexagon roughly */
+.face:nth-child(1) {
+    transform: rotateY(0deg) translateZ(300px);
+}
+
+.face:nth-child(2) {
+    transform: rotateY(60deg) translateZ(300px);
+}
+
+.face:nth-child(3) {
+    transform: rotateY(120deg) translateZ(300px);
+}
+
+.face:nth-child(4) {
+    transform: rotateY(180deg) translateZ(300px);
+}
+
+.face:nth-child(5) {
+    transform: rotateY(240deg) translateZ(300px);
+}
+
+.face:nth-child(6) {
+    transform: rotateY(300deg) translateZ(300px);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}

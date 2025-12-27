@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Dashboard | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Utilities</a>
+
+    <div class="utility-container glass">
+        <header>
+            <h2>Session <span class="highlight">Manager</span></h2>
+        </header>
+
+        <div class="input-line">
+            <input type="text" id="tab-name" placeholder="Page Title">
+            <input type="text" id="tab-url" placeholder="URL (https://...)">
+            <button id="add-btn" class="cta-btn primary small">Add</button>
+        </div>
+
+        <div id="tab-grid" class="tab-grid">
+            <!-- Items -->
+        </div>
+
+        <p class="note">This is a Simulation. Browser extensions are needed to manage real tabs.</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

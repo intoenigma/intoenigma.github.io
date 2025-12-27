@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    background: #000;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.canvas-container {
+    position: relative;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+    border: 1px solid #333;
+}
+
+canvas {
+    background: #111;
+    cursor: crosshair;
+    display: block;
+}
+
+.controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 8px;
+}
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+input[type=color] {
+    border: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}

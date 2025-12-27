@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Utilities</a>
+
+    <div class="utility-container glass">
+        <div class="time-display" id="display">00:00:000</div>
+        
+        <div class="controls">
+            <button id="start-btn" class="cta-btn primary">Start</button>
+            <button id="lap-btn" class="cta-btn secondary">Lap</button>
+            <button id="reset-btn" class="cta-btn outline">Reset</button>
+        </div>
+
+        <div class="laps-container">
+            <table id="laps-table">
+                <thead><tr><th>#</th><th>Time</th><th>Split</th></tr></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

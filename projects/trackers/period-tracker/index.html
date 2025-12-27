@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cycles | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Trackers</a>
+
+    <div class="tracker-container glass">
+        <header>
+            <h2>Cycle <span class="highlight">Tracker</span></h2>
+        </header>
+
+        <div class="status-card">
+            <h3 id="status-text">Next Period in 12 days</h3>
+            <p id="date-text">Approx Oct 24</p>
+        </div>
+
+        <div class="controls">
+            <label>Last Period Start:</label>
+            <input type="date" id="date-in">
+            <label>Cycle Length (Days):</label>
+            <input type="number" id="cycle-len" value="28">
+            <button class="cta-btn small full-width" onclick="updateCycle()">Update</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

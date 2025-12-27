@@ -1,0 +1,41 @@
+body {
+    overflow: hidden;
+    background: #000;
+}
+
+.utility-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.ball {
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 20px var(--primary);
+    display: none;
+}
+
+.center-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.instruction {
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    text-align: center;
+    color: #888;
+    font-size: 1.5rem;
+    display: none;
+}

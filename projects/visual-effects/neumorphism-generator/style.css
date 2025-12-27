@@ -1,0 +1,45 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #e0e5ec;
+    color: #333;
+}
+
+.noise-overlay {
+    display: none;
+}
+
+/* Disable dark noise for light theme neumorphism usually, or do dark neumorphism? User preferred Dark. Let's do Dark Neumorphism */
+body {
+    background: #1b1b1f;
+    color: #fff;
+}
+
+.effect-container {
+    text-align: center;
+}
+
+.preview-box {
+    width: 250px;
+    height: 250px;
+    background: #1b1b1f;
+    border-radius: 30px;
+    margin: 0 auto 3rem;
+}
+
+.controls {
+    background: #222;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+}
+
+input {
+    width: 100%;
+}

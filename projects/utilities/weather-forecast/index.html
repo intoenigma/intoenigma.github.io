@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Utilities</a>
+
+    <div class="utility-container glass">
+        <header>
+            <h2>Sky <span class="highlight">Cast</span></h2>
+        </header>
+
+        <div class="input-box">
+            <input type="text" id="city" placeholder="Enter City (e.g. London)">
+            <button id="search-btn" class="cta-btn primary">Get Weather</button>
+        </div>
+
+        <div id="weather-card" class="weather-card hidden">
+            <h1 id="temp">--°C</h1>
+            <p id="desc">Condition</p>
+            <div class="details">
+                <span id="wind">Wind: --</span>
+                <span id="humid">Humidity: --</span>
+            </div>
+        </div>
+        
+        <p class="note">Uses Open-Meteo API (Geocoding + Weather)</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

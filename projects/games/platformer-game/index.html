@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platformer | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Games</a>
+
+    <div class="game-container">
+        <canvas id="gameCanvas" width="800" height="500"></canvas>
+        <div class="hud glass">
+            <span>LEVEL <span id="level">1</span></span>
+        </div>
+        <div id="msg-overlay" class="overlay glass">
+            <h2>Neon <span class="highlight">Jump</span></h2>
+            <p>Arrows to Move. Reach the Green Portal.</p>
+            <button id="start-btn" class="cta-btn primary">Enter</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

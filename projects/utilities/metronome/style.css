@@ -1,0 +1,73 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.utility-container {
+    padding: 3rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.bpm-display {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+.bpm-display .label {
+    font-size: 1rem;
+    color: #888;
+    font-weight: 400;
+}
+
+input[type=range] {
+    width: 100%;
+    margin-bottom: 2rem;
+    accent-color: var(--primary);
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.adj-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #222;
+    border: 1px solid #444;
+    color: #fff;
+    cursor: pointer;
+}
+
+.play-btn {
+    padding: 1rem 3rem;
+    border-radius: 30px;
+    font-size: 1.2rem;
+}
+
+.beat-indicator {
+    width: 20px;
+    height: 20px;
+    background: #333;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 0 0 0 transparent;
+    transition: 0.1s;
+}
+
+.beat-indicator.active {
+    background: var(--secondary);
+    box-shadow: 0 0 20px var(--secondary);
+    transform: scale(1.5);
+}

@@ -1,0 +1,100 @@
+body {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+.utility-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.sticky-header {
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: sticky;
+    top: 2rem;
+    z-index: 10;
+    backdrop-filter: blur(20px);
+}
+
+.timeline {
+    position: relative;
+    padding-left: 20px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary), #9d00ff);
+    border-radius: 2px;
+}
+
+.event-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    position: relative;
+    transition: 0.3s;
+    margin-left: 2rem;
+}
+
+.event-card:hover {
+    transform: translateX(10px);
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.event-card::before {
+    content: '';
+    position: absolute;
+    left: -34px;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    background: #000;
+    border: 3px solid var(--primary);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    transition: 0.3s;
+}
+
+.event-card:hover::before {
+    background: var(--primary);
+    box-shadow: 0 0 15px var(--primary);
+}
+
+.year {
+    color: var(--primary);
+    font-weight: 800;
+    font-size: 1.5rem;
+    position: absolute;
+    top: -15px;
+    left: 1rem;
+    background: #05050a;
+    padding: 0 10px;
+}
+
+.event-title {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.event-desc {
+    color: #aaa;
+    line-height: 1.5;
+}

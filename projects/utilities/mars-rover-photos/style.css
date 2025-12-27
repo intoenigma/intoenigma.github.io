@@ -1,0 +1,8 @@
+body { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.utility-container { width: 100%; max-width: 900px; padding: 2rem; border-radius: 20px; text-align: center; }
+.controls { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
+select { padding: 0.8rem; background: #222; border: 1px solid #444; color: #fff; border-radius: 8px; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; max-height: 500px; overflow-y: auto; background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 12px; }
+.gallery img { width: 100%; border-radius: 8px; transition: 0.3s; cursor: pointer; border: 1px solid transparent; }
+.gallery img:hover { transform: scale(1.05); border-color: var(--primary); z-index: 2; }
+.placeholder { grid-column: 1 / -1; color: #666; padding: 2rem; }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal Bar | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Trackers</a>
+
+    <div class="tracker-container">
+        <h2>Goal <span class="highlight">Visualizer</span></h2>
+        
+        <div class="goal-container">
+            <div class="goal-bar">
+                <div class="fill" id="fill"></div>
+                <div class="marker" style="left: 0%">0%</div>
+                <div class="marker" style="left: 50%">50%</div>
+                <div class="marker" style="left: 100%">100%</div>
+            </div>
+        </div>
+
+        <input type="range" id="slider" min="0" max="100" value="0">
+        <p>Drag to visualize progress</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio Link | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Utilities</a>
+
+    <div class="utility-container glass">
+        <header>
+            <h2>Bio <span class="highlight">Builder</span></h2>
+        </header>
+
+        <div class="editor">
+            <input type="text" id="name" placeholder="Profile Name">
+            <input type="text" id="bio" placeholder="Short Bio">
+            <div id="links-container"></div>
+            <button id="add-link-btn" class="cta-btn small">+ Add Link</button>
+        </div>
+
+        <div class="preview glass">
+            <div class="avatar-circle"></div>
+            <h3 id="p-name">Name</h3>
+            <p id="p-bio">Bio goes here</p>
+            <div id="p-links" class="p-links"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

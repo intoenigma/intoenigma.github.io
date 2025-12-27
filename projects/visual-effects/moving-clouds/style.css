@@ -1,0 +1,21 @@
+body { margin: 0; background: linear-gradient(#00b4ff, #87CEEB); overflow: hidden; height: 100vh; }
+.sky { position: relative; width: 100%; height: 100%; }
+.cloud { position: absolute; background: #fff; border-radius: 50%; opacity: 0.8; box-shadow: 0 0 20px #fff; }
+/* Creating clouds with pseudo elements */
+.cloud::after, .cloud::before { content: ''; position: absolute; background: inherit; border-radius: 50%; }
+
+.alpha { width: 100px; height: 40px; top: 20%; left: -100px; animation: float 20s linear infinite; }
+.alpha::after { width: 50px; height: 50px; top: -25px; left: 25px; }
+.alpha::before { width: 40px; height: 40px; top: -15px; left: 10px; }
+
+.beta { width: 150px; height: 60px; top: 40%; left: -150px; animation: float 35s linear infinite; animation-delay: 5s; }
+.beta::after { width: 70px; height: 70px; top: -35px; left: 30px; }
+.beta::before { width: 50px; height: 50px; top: -20px; left: 10px; }
+
+.gamma { width: 120px; height: 50px; top: 10%; left: -120px; animation: float 25s linear infinite; animation-delay: 10s; }
+.gamma::after { width: 60px; height: 60px; top: -30px; left: 20px; }
+
+@keyframes float {
+    from { transform: translateX(0); left: -200px; }
+    to { transform: translateX(0); left: 100%; }
+}

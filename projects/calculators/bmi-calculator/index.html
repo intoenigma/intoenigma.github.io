@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../age-calculator/style.css"> <!-- Reusing Age Calc Styles -->
+    <style>
+        /* Specific overrides */
+        .gauge-container {
+            width: 100%;
+            height: 20px;
+            background: #333;
+            border-radius: 10px;
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gauge-fill {
+            height: 100%;
+            width: 0%;
+            transition: width 1s ease-out, background-color 0.5s;
+        }
+
+        .category-text {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Back to Calculators</a>
+
+    <div class="calc-container glass">
+        <header class="calc-header">
+            <h2>Body <span class="highlight">Mass</span> Index</h2>
+            <p>Analyze physical metrics against standard protocols.</p>
+        </header>
+
+        <div class="input-section">
+            <div class="input-group">
+                <label>Height (cm)</label>
+                <input type="number" id="height" placeholder="e.g. 175" class="glass-input">
+            </div>
+            <div class="input-group">
+                <label>Weight (kg)</label>
+                <input type="number" id="weight" placeholder="e.g. 70" class="glass-input">
+            </div>
+            <button id="calculate-btn" class="cta-btn primary full-width">Analyze</button>
+        </div>
+
+        <div class="result-section hidden" id="result-section">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <span style="font-size: 1rem; color: #888;">YOUR BMI</span>
+                <span id="bmi-value" class="number" style="font-size: 4rem; display: block; color: #fff;">0.0</span>
+            </div>
+
+            <div class="gauge-container">
+                <div id="gauge-bar" class="gauge-fill"></div>
+            </div>
+            <p id="category-text" class="category-text">Normal</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

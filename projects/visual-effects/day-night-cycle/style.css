@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    transition: background 1s;
+}
+
+.scene {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #87CEEB;
+    /* Day Blue */
+    transition: 1s;
+}
+
+.scene.night {
+    background: #0b0b1a;
+}
+
+.celestial-body {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    transition: 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.sun {
+    background: #ffee00;
+    top: 10%;
+    left: 10%;
+    box-shadow: 0 0 50px #ffee00;
+}
+
+.moon {
+    background: #ddd;
+    top: 10%;
+    left: 110%;
+    box-shadow: 0 0 30px #ffffff;
+}
+
+.scene.night .sun {
+    left: -20%;
+}
+
+.scene.night .moon {
+    left: 10%;
+}
+
+.landscape {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    background: #2e8b57;
+    transition: 1s;
+}
+
+.scene.night .landscape {
+    background: #1a2a22;
+}
+
+.toggle-btn {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 2rem;
+    background: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars Rovers | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Utilities</a>
+
+    <div class="utility-container glass">
+        <header>
+            <h2>Red Planet <span class="highlight">Gallery</span></h2>
+        </header>
+
+        <div class="controls">
+            <select id="rover">
+                <option value="curiosity">Curiosity</option>
+                <option value="perseverance" disabled>Perseverance (Key Required)</option>
+                <option value="opportunity">Opportunity</option>
+            </select>
+            <button id="fetch-btn" class="cta-btn primary">Load New Photos</button>
+        </div>
+
+        <div id="gallery" class="gallery">
+            <div class="placeholder">Select a rover to view Mars surface...</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

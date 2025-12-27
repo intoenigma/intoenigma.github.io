@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditation Timer | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Utilities</a>
+
+    <div class="utility-container glass">
+        <header>
+            <h2>Mindful <span class="highlight">Moments</span></h2>
+        </header>
+
+        <div class="timer-display">
+            <svg class="progress-ring" width="300" height="300">
+                <circle class="progress-ring__circle" stroke="var(--primary)" stroke-width="8" fill="transparent"
+                    r="140" cx="150" cy="150" />
+            </svg>
+            <div id="time-text" class="time-text">05:00</div>
+        </div>
+
+        <div class="controls">
+            <button class="time-select" onclick="setTime(300)">5m</button>
+            <button class="time-select" onclick="setTime(600)">10m</button>
+            <button class="time-select" onclick="setTime(1200)">20m</button>
+        </div>
+
+        <button id="toggle-btn" class="cta-btn primary full-width">Begin Session</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glass Gen | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Visual Effects</a>
+
+    <div class="effect-container">
+        <div class="preview-area">
+            <div class="bg-shape"></div>
+            <div class="glass-object" id="glass">Preview</div>
+        </div>
+
+        <div class="controls">
+            <label>Blur</label>
+            <input type="range" id="blur" min="0" max="20" value="10">
+            <label>Transparency</label>
+            <input type="range" id="transparency" min="0" max="100" value="10">
+            <label>Color</label>
+            <input type="color" id="col" value="#ffffff">
+
+            <div class="code-box">
+                <code id="css-code">...</code>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Says | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Games</a>
+
+    <div class="game-container">
+        <div class="simon-board glass">
+            <div class="pad top-left" id="green" data-color="green"></div>
+            <div class="pad top-right" id="red" data-color="red"></div>
+            <div class="pad bottom-left" id="yellow" data-color="yellow"></div>
+            <div class="pad bottom-right" id="blue" data-color="blue"></div>
+            <div class="center-controls">
+                <h2>LEVEL <span id="level-indicator">1</span></h2>
+            </div>
+        </div>
+        <div id="start-overlay" class="overlay glass">
+            <h2>Memory <span class="highlight">Matrix</span></h2>
+            <p>Repeat the sequence.</p>
+            <button id="start-btn" class="cta-btn primary">Start</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

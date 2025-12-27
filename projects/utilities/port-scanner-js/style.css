@@ -1,0 +1,10 @@
+body { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.utility-container { padding: 3rem; border-radius: 20px; width: 100%; max-width: 600px; text-align: center; }
+.input-group { display: flex; gap: 0.5rem; margin-bottom: 2rem; }
+input { flex: 1; padding: 1rem; background: rgba(0,0,0,0.3); border: 1px solid #333; color: #fff; border-radius: 8px; }
+.results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.port-card { background: #222; padding: 1rem; border-radius: 8px; border: 1px solid #333; }
+.port-card.open { border-color: #00ff41; color: #00ff41; }
+.port-card.closed { border-color: #ff0055; opacity: 0.5; }
+.note { font-size: 0.7rem; color: #666; margin-top: 1rem; line-height: 1.4; }
+.placeholder { grid-column: 1 / -1; color: #666; }

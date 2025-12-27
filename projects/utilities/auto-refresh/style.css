@@ -1,0 +1,46 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.utility-container {
+    padding: 3rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+input {
+    padding: 1rem;
+    width: 100px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #555;
+    color: #fff;
+    font-size: 1.5rem;
+    border-radius: 8px;
+}
+
+.countdown {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin: 2rem 0;
+    font-family: monospace;
+}
+
+.note {
+    color: #888;
+    font-size: 0.8rem;
+    margin-top: 2rem;
+}

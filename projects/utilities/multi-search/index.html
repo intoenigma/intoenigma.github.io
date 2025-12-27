@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Search | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Utilities</a>
+
+    <div class="utility-container glass">
+        <header>
+            <h2>Omni <span class="highlight">Search</span></h2>
+        </header>
+
+        <input type="text" id="query" placeholder="Type your search here...">
+
+        <div class="engine-grid">
+            <button onclick="search('google')" class="engine-btn">Google</button>
+            <button onclick="search('bing')" class="engine-btn">Bing</button>
+            <button onclick="search('duck')" class="engine-btn">DuckDuckGo</button>
+            <button onclick="search('youtube')" class="engine-btn">YouTube</button>
+            <button onclick="search('reddit')" class="engine-btn">Reddit</button>
+            <button onclick="search('wiki')" class="engine-btn">Wikipedia</button>
+        </div>
+
+        <button onclick="searchAll()" class="cta-btn primary full-width" style="margin-top: 2rem;">Open All</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

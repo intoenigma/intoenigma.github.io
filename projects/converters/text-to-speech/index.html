@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text To Speech | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Converters</a>
+
+    <div class="converter-container glass">
+        <header>
+            <h2>Vocal <span class="highlight">Synthesizer</span></h2>
+        </header>
+
+        <textarea id="input-text" placeholder="Enter text to synthesize..."></textarea>
+
+        <div class="settings-grid">
+            <div class="setting">
+                <label>Voice</label>
+                <select id="voice-select"></select>
+            </div>
+            <div class="setting">
+                <label>Rate (Speed)</label>
+                <input type="range" id="rate" min="0.5" max="2" step="0.1" value="1">
+            </div>
+            <div class="setting">
+                <label>Pitch</label>
+                <input type="range" id="pitch" min="0" max="2" step="0.1" value="1">
+            </div>
+        </div>
+
+        <button id="speak-btn" class="cta-btn primary full-width">Speak</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blob Builder | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Visual Effects</a>
+
+    <div class="effect-container">
+        <div class="blob-display" id="blob"></div>
+
+        <div class="controls">
+            <label>Morph X</label>
+            <input type="range" id="x-slider" min="0" max="100" value="50">
+            <label>Morph Y</label>
+            <input type="range" id="y-slider" min="0" max="100" value="50">
+
+            <div class="output-code">
+                <code id="css-out">border-radius: 50%;</code>
+                <button id="copy-btn" class="cta-btn small">Copy</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

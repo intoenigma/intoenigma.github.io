@@ -1,0 +1,7 @@
+body { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.converter-container { padding: 3rem; border-radius: 20px; width: 100%; max-width: 500px; text-align: center; }
+.zone-block { text-align: left; margin-bottom: 1.5rem; }
+.zone-block label { display: block; color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem; }
+input[type=datetime-local], select { width: 100%; padding: 1rem; background: #111; color: #fff; border: 1px solid #333; border-radius: 8px; margin-bottom: 0.5rem; outline: none; }
+.target-display { padding: 1rem; background: rgba(0,243,255,0.1); border: 1px solid var(--primary); color: #fff; font-size: 1.5rem; font-weight: 800; border-radius: 8px; margin-bottom: 0.5rem; text-align: center; }
+.arrow { font-size: 2rem; color: #aaa; margin: -1rem 0 1rem; }

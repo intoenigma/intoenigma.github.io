@@ -1,0 +1,13 @@
+body { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.effect-container { text-align: center; }
+.shadow-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 3rem; }
+.box { width: 120px; height: 120px; background: #1a1a1f; display: flex; justify-content: center; align-items: center; border-radius: 12px; color: #aaa; font-size: 0.9rem; transition: 0.3s; }
+.soft { box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+.hard { box-shadow: 10px 10px 0px #000; }
+.neon-shadow { border: 1px solid var(--primary); box-shadow: 0 0 15px var(--primary); color: #fff; }
+.inner { box-shadow: inset 0 0 20px #000; }
+.neumorph { background: #1a1a1f; box-shadow: 5px 5px 10px #0b0b0d, -5px -5px 10px #292931; }
+.colored { box-shadow: 0 10px 30px rgba(157, 0, 255, 0.4); }
+
+.box:hover { transform: translateY(-5px); color: #fff; }
+@media(max-width:600px) { .shadow-grid { grid-template-columns: 1fr; } }

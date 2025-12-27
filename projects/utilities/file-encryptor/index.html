@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Encryptor | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <a href="../index.html" class="back-link">&larr; Utilities</a>
+
+    <div class="utility-container glass">
+        <header>
+            <h2>Secure <span class="highlight">Vault</span></h2>
+        </header>
+
+        <textarea id="data" placeholder="Enter sensitive text to encrypt..."></textarea>
+
+        <input type="password" id="key" placeholder="Enter Secret Key">
+
+        <div class="actions">
+            <button onclick="process('encrypt')" class="cta-btn primary">Encrypt</button>
+            <button onclick="process('decrypt')" class="cta-btn secondary">Decrypt</button>
+        </div>
+
+        <div id="output" class="output hidden">
+            <h3>Result:</h3>
+            <p id="result-text"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
