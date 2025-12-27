@@ -5,40 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Binaural Beats | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Brainwave <span class="highlight">Sync</span></h2>
-            <p>Use headphones for best effect.</p>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div class="freq-controls">
-            <div class="control-group">
-                <label>Left Ear (Hz)</label>
-                <input type="number" id="left-freq" value="200">
+    <div class="container">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Brainwave <span class="highlight">Sync</span></h2>
+                <p style="color: var(--text-muted);">Neural frequency harmonization protocol.</p>
+            </header>
+
+            <div class="freq-controls glass" style="padding: 2rem; border-radius: 16px; margin-bottom: 2rem;">
+                <div class="control-group">
+                    <label>Left Ear (Hz)</label>
+                    <input type="number" id="left-freq" value="200" class="glass">
+                </div>
+                <div class="control-group" style="margin-top: 1.5rem;">
+                    <label>Right Ear (Hz)</label>
+                    <input type="number" id="right-freq" value="210" class="glass">
+                </div>
             </div>
-            <div class="control-group">
-                <label>Right Ear (Hz)</label>
-                <input type="number" id="right-freq" value="210">
+
+            <div class="presets" style="display: flex; gap: 1rem; margin-top: 2rem;">
+                <button onclick="setFreq(200, 204)" class="cta-btn magnetic" style="flex: 1;">Theta (Relax)</button>
+                <button onclick="setFreq(200, 210)" class="cta-btn magnetic" style="flex: 1;">Alpha (Focus)</button>
+                <button onclick="setFreq(200, 230)" class="cta-btn magnetic" style="flex: 1;">Beta (Alert)</button>
             </div>
-        </div>
 
-        <div class="presets">
-            <button onclick="setFreq(200, 204)">Theta (Relax)</button>
-            <button onclick="setFreq(200, 210)">Alpha (Focus)</button>
-            <button onclick="setFreq(200, 230)">Beta (Alert)</button>
-        </div>
+            <button id="toggle-btn" class="cta-btn primary full-width magnetic"
+                style="width: 100%; margin-top: 2rem;">Initiate Signal</button>
 
-        <button id="toggle-btn" class="cta-btn primary full-width">Play Signal</button>
+            <p style="color: var(--text-muted); font-size: 0.8rem; text-align: center; margin-top: 2rem;">Use
+                high-fidelity headphones for neurological effectiveness.</p>
+        </div>
     </div>
+
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
 

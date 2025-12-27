@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metronome | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Rhythm <span class="highlight">Keeper</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div class="bpm-display">
-            <span id="bpm-val">100</span> <span class="label">BPM</span>
+    <div class="container" style="max-width: 600px;">
+        <div class="utility-card glass" style="text-align: center; padding: 4rem 2rem;">
+            <header class="utility-header" style="margin-top: 0;">
+                <h2 class="scramble-text">Rhythm <span class="highlight">Sync</span></h2>
+                <p style="color: var(--text-muted); margin-top: 1rem;">Coordinate temporal pulses with high-fidelity precision.</p>
+            </header>
+
+            <div class="bpm-display glass" style="display: inline-block; padding: 1.5rem 3rem; border-radius: 24px; margin-bottom: 2.5rem; background: rgba(0,0,0,0.2);">
+                <span id="bpm-val" class="highlight" style="font-size: 5rem; font-family: 'Space Grotesk', sans-serif; font-weight: 800; line-height: 1;">100</span>
+                <span style="display: block; font-size: 0.8rem; color: var(--text-muted); letter-spacing: 4px; margin-top: -5px;">BPM PROTOCOL</span>
+            </div>
+
+            <div class="slider-wrap" style="padding: 0 2rem; margin-bottom: 3rem;">
+                <input type="range" id="bpm-slider" min="40" max="220" value="100" style="height: 6px; border: none; border-radius: 10px;">
+            </div>
+
+            <div class="controls" style="display: flex; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 3rem;">
+                <button id="minus-btn" class="cta-btn glass magnetic" style="width: 60px; height: 60px; border-radius: 50%; font-size: 1.5rem;">-</button>
+                <button id="toggle-btn" class="cta-btn primary magnetic" style="width: 100px; height: 100px; border-radius: 50%; font-size: 1.2rem; font-weight: 700;">START</button>
+                <button id="plus-btn" class="cta-btn glass magnetic" style="width: 60px; height: 60px; border-radius: 50%; font-size: 1.5rem;">+</button>
+            </div>
+
+            <div class="beat-indicator" id="dot" style="width: 15px; height: 15px; border-radius: 50%; background: var(--accent); margin: 0 auto; box-shadow: 0 0 15px var(--accent); opacity: 0.2; transition: all 0.1s;"></div>
         </div>
-
-        <input type="range" id="bpm-slider" min="40" max="220" value="100">
-
-        <div class="controls">
-            <button id="minus-btn" class="adj-btn">-</button>
-            <button id="toggle-btn" class="cta-btn primary play-btn">Start</button>
-            <button id="plus-btn" class="adj-btn">+</button>
-        </div>
-
-        <div class="beat-indicator" id="dot"></div>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

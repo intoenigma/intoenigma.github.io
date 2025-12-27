@@ -4,30 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checklist to PDF | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <title>Checklist PDF | IntoEnigma</title>
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
-    <!-- Using jsPDF via CDN as it's standard for this. Assuming user ok with CDN for utility -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Export <span class="highlight">Tasks</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div class="input-area">
-            <input type="text" id="pdf-title" placeholder="Checklist Title (e.g. Shopping List)">
-            <textarea id="pdf-content" placeholder="Enter items (one per line)"></textarea>
+    <div class="container" style="max-width: 700px;">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Export <span class="highlight">Intelligence</span></h2>
+                <p style="color: var(--text-muted);">Transform raw data into formatted PDF documentation.</p>
+            </header>
+
+            <div class="input-area glass"
+                style="padding: 2rem; border-radius: 20px; display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="field">
+                    <label>Document Title</label>
+                    <input type="text" id="pdf-title" placeholder="Operation Log Alpha" class="glass">
+                </div>
+                <div class="field">
+                    <label>List Entries (One per line)</label>
+                    <textarea id="pdf-content" placeholder="Objective 1&#10;Objective 2&#10;Objective 3" class="glass"
+                        rows="8"></textarea>
+                </div>
+            </div>
+
+            <button id="generate-btn" class="cta-btn primary full-width magnetic" style="width: 100%;">Generate Protocol
+                PDF</button>
         </div>
-
-        <button id="generate-btn" class="cta-btn primary full-width">Download PDF</button>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
 

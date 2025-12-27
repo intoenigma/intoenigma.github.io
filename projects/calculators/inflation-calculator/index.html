@@ -4,55 +4,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inflation Calculator | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Inflation Tracker | IntoEnigma</title>
+    <!-- Google Fonts: Outfit & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
-    <link rel="stylesheet" href="../age-calculator/style.css">
+    <link rel="stylesheet" href="../calculator-base.css">
 </head>
 
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+
+    <!-- Background Elements -->
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Back to Calculators</a>
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
+    <div class="bg-glow g3"></div>
 
-    <div class="calc-container glass">
-        <header class="calc-header">
-            <h2>Future <span class="highlight">Value</span></h2>
-            <p>Estimate the impact of inflation over time.</p>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Back to Calculators</a>
 
-        <div class="input-section">
-            <div class="input-group">
-                <label>Current Cost ($)</label>
-                <input type="number" id="current-cost" placeholder="e.g. 100">
-            </div>
-            <div class="input-group">
-                <label>Inflation Rate (%)</label>
-                <input type="number" id="inflation-rate" placeholder="e.g. 3.5">
-            </div>
-            <div class="input-group">
-                <label>Years in Future</label>
-                <input type="number" id="years" placeholder="e.g. 10">
-            </div>
-            <button id="calculate-btn" class="cta-btn primary full-width">Project Value</button>
-        </div>
+    <div class="main-content">
+        <div class="calc-container glass magnetic-card">
+            <header class="calc-header">
+                <h2 class="scramble-text" data-value="INFLATION TRACKER">INFLATION <span class="highlight">TRACKER</span></h2>
+                <p>Estimate the erosion of purchasing power over time.</p>
+            </header>
 
-        <div class="result-section hidden" id="result-section">
-            <div class="result-grid">
-                <div class="result-card">
-                    <span id="future-value" class="number">0</span>
-                    <span class="label">Future Cost</span>
+            <div class="input-section">
+                <div class="input-group">
+                    <label>Current Cost ($)</label>
+                    <input type="number" id="current-cost" placeholder="e.g. 100" class="glass-input">
                 </div>
-                <div class="result-card">
-                    <span id="change-percent" class="number">0</span>
-                    <span class="label">Price Increase</span>
+                <div class="input-group">
+                    <label>Inflation Rate (%)</label>
+                    <input type="number" id="inflation-rate" placeholder="e.g. 3.5" class="glass-input" step="0.1">
                 </div>
+                <div class="input-group">
+                    <label>Years in Future</label>
+                    <input type="number" id="years" placeholder="e.g. 10" class="glass-input">
+                </div>
+                <button id="calculate-btn" class="cta-btn primary full-width magnetic">Project Value</button>
             </div>
-            <p style="text-align: center; color: #888; margin-top: 1rem;">
-                What costs <span style="color:white">$100</span> today will cost almost double in 20 years at 3.5%.
-            </p>
+
+            <div class="result-section hidden" id="result-section">
+                <div class="result-grid">
+                    <div class="result-card glass">
+                        <span id="future-value" class="number">0</span>
+                        <span class="label">Future Cost</span>
+                    </div>
+                    <div class="result-card glass">
+                        <span id="change-percent" class="number">0</span>
+                        <span class="label">Price Increase</span>
+                    </div>
+                </div>
+                <p style="text-align: center; color: #888; margin-top: 2rem; font-size: 0.9rem;">
+                    Compounded annual inflation drastically alters value protocols over decades.
+                </p>
+            </div>
         </div>
     </div>
 
+    <section class="join-section hidden-scroll">
+        <div class="container">
+            <div class="glass glass-panel magnetic-card">
+                <h2 class="scramble-text" data-value="JOIN THE ENIGMA">JOIN THE ENIGMA</h2>
+                <p>Submerge into the digital void. New protocols added daily.</p>
+                <div class="social-links">
+                    <a href="#" class="social-btn magnetic"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-btn magnetic"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="social-btn magnetic"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 INTOENIGMA // [SYSTEM_NOMINAL]</p>
+                <div class="footer-stats">
+                    <span>UPTIME: 99.9%</span>
+                    <span>LATENCY: 12ms</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 

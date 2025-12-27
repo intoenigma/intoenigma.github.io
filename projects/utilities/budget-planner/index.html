@@ -1,38 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Planner | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Cash <span class="highlight">Flow</span></h2>
-            <div class="balance-display">
-                Balance: <span id="balance">$0.00</span>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+
+    <div class="container" style="max-width: 800px;">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Cash <span class="highlight">Flow</span></h2>
+                <div class="balance-display glass" style="display: inline-block; padding: 1rem 2.5rem; border-radius: 50px; margin-top: 1.5rem; font-size: 2.2rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700; background: rgba(255,255,255,0.05);">
+                    <span style="font-size: 1rem; color: var(--text-muted); display: block; margin-bottom: -5px; font-weight: 400;">Current Liquidity</span>
+                    <span id="balance" class="highlight">$0.00</span>
+                </div>
+            </header>
+
+            <div class="transaction-form glass" style="padding: 2rem; border-radius: 20px; display: grid; grid-template-columns: 1fr 120px 100px; gap: 1rem; margin-bottom: 2rem;">
+                <input type="text" id="desc" placeholder="Transaction Link/Label" class="glass">
+                <input type="number" id="amount" placeholder="Value" class="glass">
+                <button id="add-btn" class="cta-btn primary magnetic" style="padding: 0;">Add</button>
             </div>
-        </header>
 
-        <div class="transaction-form">
-            <input type="text" id="desc" placeholder="Description">
-            <input type="number" id="amount" placeholder="Amount (- for expense)">
-            <button id="add-btn" class="cta-btn primary">Add</button>
+            <div class="history-container glass" style="padding: 1.5rem; border-radius: 20px; min-height: 200px;">
+                <h4 class="font-space" style="margin-bottom: 1.5rem; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">Ledger History</h4>
+                <ul id="history" class="history-list" style="list-style: none; display: flex; flex-direction: column; gap: 0.8rem;">
+                    <!-- Items dynamic -->
+                </ul>
+            </div>
         </div>
-
-        <ul id="history" class="history-list">
-            <!-- Items -->
-        </ul>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

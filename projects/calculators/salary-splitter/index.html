@@ -1,49 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salary Splitter | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Budget Optimizer | IntoEnigma</title>
+    <!-- Google Fonts: Outfit & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
-    <link rel="stylesheet" href="../age-calculator/style.css">
+    <link rel="stylesheet" href="../calculator-base.css">
 </head>
+
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+
+    <!-- Background Elements -->
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Back to Calculators</a>
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
+    <div class="bg-glow g3"></div>
 
-    <div class="calc-container glass">
-        <header class="calc-header">
-            <h2>Budget <span class="highlight">Optimizer</span></h2>
-            <p>50/30/20 Rule Allocation.</p>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Back to Calculators</a>
 
-        <div class="input-section">
-            <div class="input-group">
-                <label>Monthly Income ($)</label>
-                <input type="number" id="income" placeholder="e.g. 4000">
+    <div class="main-content">
+        <div class="calc-container glass magnetic-card">
+            <header class="calc-header">
+                <h2 class="scramble-text" data-value="BUDGET OPTIMIZER">BUDGET <span class="highlight">OPTIMIZER</span>
+                </h2>
+                <p>Execute 50/30/20 budget allocation protocols for financial stability.</p>
+            </header>
+
+            <div class="input-section">
+                <div class="input-group">
+                    <label>Monthly Net Income ($)</label>
+                    <input type="number" id="income" placeholder="e.g. 4000" class="glass-input">
+                </div>
+                <button id="calculate-btn" class="cta-btn primary full-width magnetic">Initialize Allocation</button>
             </div>
-            <button id="calculate-btn" class="cta-btn primary full-width">Split Salary</button>
-        </div>
 
-        <div class="result-section hidden" id="result-section">
-            <div class="result-grid">
-                <div class="result-card">
-                    <span id="needs" class="number">0</span>
-                    <span class="label">Needs (50%)</span>
-                </div>
-                <div class="result-card">
-                    <span id="wants" class="number">0</span>
-                    <span class="label">Wants (30%)</span>
-                </div>
-                <div class="result-card">
-                    <span id="savings" class="number">0</span>
-                    <span class="label">Savings (20%)</span>
+            <div class="result-section hidden" id="result-section">
+                <div class="result-grid">
+                    <div class="result-card glass">
+                        <span id="needs" class="number">0</span>
+                        <span class="label">Needs (50%)</span>
+                    </div>
+                    <div class="result-card glass">
+                        <span id="wants" class="number">0</span>
+                        <span class="label">Wants (30%)</span>
+                    </div>
+                    <div class="result-card glass">
+                        <span id="savings" class="number">0</span>
+                        <span class="label">Savings (20%)</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <section class="join-section hidden-scroll">
+        <div class="container">
+            <div class="glass glass-panel magnetic-card">
+                <h2 class="scramble-text" data-value="JOIN THE ENIGMA">JOIN THE ENIGMA</h2>
+                <p>Submerge into the digital void. New protocols added daily.</p>
+                <div class="social-links">
+                    <a href="#" class="social-btn magnetic"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-btn magnetic"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="social-btn magnetic"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 INTOENIGMA // [SYSTEM_NOMINAL]</p>
+                <div class="footer-stats">
+                    <span>UPTIME: 99.9%</span>
+                    <span>LATENCY: 12ms</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

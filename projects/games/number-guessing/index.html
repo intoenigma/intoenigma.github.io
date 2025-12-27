@@ -4,33 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number Guess | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Binary Search | IntoEnigma</title>
+    <!-- Google Fonts: Outfit & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../game-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+
+    <!-- Background Elements -->
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Games</a>
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
+    <div class="bg-glow g3"></div>
 
-    <div class="game-container glass">
-        <h2>Binary <span class="highlight">Search</span></h2>
-        <p>System has generated a number between 1 and 100.</p>
+    <a href="../index.html" class="back-link magnetic">&larr; Back to Games</a>
 
-        <div class="input-area">
-            <input type="number" id="guess-input" placeholder="#" min="1" max="100">
-            <button id="guess-btn" class="cta-btn primary">Input</button>
+    <div class="main-content">
+        <div class="game-container glass magnetic-card fade-in">
+            <header class="game-header">
+                <h2 class="scramble-text" data-value="BINARY SEARCH">BINARY <span class="highlight">SEARCH</span></h2>
+                <p>Identify the generated numerical constant within the (1-100) range.</p>
+            </header>
+
+            <div class="input-section glass">
+                <div class="input-group">
+                    <input type="number" id="guess-input" placeholder="INPUT VALUE" min="1" max="100" class="glass-input">
+                    <button id="guess-btn" class="cta-btn primary magnetic">Execute Search</button>
+                </div>
+            </div>
+
+            <div class="feedback-area">
+                <div id="message" class="message glass">System standby...</div>
+                
+                <div class="stats-display">
+                    <div class="stat-card glass">
+                        <span class="stat-label">Iterations</span>
+                        <span id="attempts" class="stat-value">0</span>
+                    </div>
+                </div>
+
+                <div class="log-area glass">
+                    <span class="stat-label">Sequence Log</span>
+                    <div id="prev-guesses" class="guess-log"></div>
+                </div>
+            </div>
+
+            <footer class="game-info">
+                <button id="reset-btn" class="cta-btn secondary magnetic hidden full-width">Reboot Matrix</button>
+            </footer>
         </div>
-
-        <div id="message" class="message">Waiting for input...</div>
-        <div class="history">
-            <p>Attempts: <span id="attempts">0</span></p>
-            <div id="prev-guesses"></div>
-        </div>
-
-        <button id="reset-btn" class="cta-btn secondary hidden">Reboot</button>
     </div>
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 

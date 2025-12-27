@@ -1,57 +1,71 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.gen-container {
-    width: 100%;
-    max-width: 500px;
-    padding: 2rem;
-    border-radius: 20px;
-    text-align: center;
+.joke-display-wrapper {
+    margin-bottom: 3rem;
 }
 
 .joke-card {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 2rem;
-    border-radius: 12px;
-    margin-bottom: 2rem;
-    min-height: 150px;
+    padding: 3rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    text-align: center;
+    min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: relative;
+    gap: 1.5rem;
+    transition: 0.5s;
 }
 
-#setup {
-    font-size: 1.2rem;
-    color: #fff;
+.joke-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 1rem;
+    color: var(--primary);
+    font-size: 1.2rem;
 }
 
-#punchline {
-    font-weight: bold;
-    color: var(--primary);
+.joke-setup {
+    font-family: var(--font-head);
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: #fff;
+}
+
+.punchline-wrapper {
+    padding: 1.5rem;
+    background: rgba(var(--primary-rgb), 0.1);
+    border-radius: 12px;
+    border: 1px dashed var(--primary);
+    transition: 0.5s;
+}
+
+.joke-punchline {
     font-size: 1.4rem;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.reveal-btn {
+    align-self: center;
+    padding: 0.8rem 2rem;
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: none;
     transition: 0.3s;
 }
 
+.reveal-btn:hover {
+    background: var(--primary);
+    color: var(--bg);
+}
+
 .hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-#reveal-btn {
-    margin: 0 auto;
-    display: block;
-}
-
-#reveal-btn.hidden {
     display: none;
-}
-
-.full-width {
-    width: 100%;
 }

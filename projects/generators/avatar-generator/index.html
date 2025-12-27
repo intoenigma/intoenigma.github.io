@@ -4,37 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avatars | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Avatar Synthesizer | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../generator-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+    <canvas id="particle-canvas"></canvas>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Generators</a>
 
-    <div class="gen-container glass">
-        <h2>Avatar <span class="highlight">Synthesizer</span></h2>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
 
-        <div class="avatar-display">
-            <img id="avatar-img" src="" alt="Avatar">
-        </div>
+    <div class="back-nav">
+        <a href="../index.html" class="back-btn magnetic">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Generators</span>
+        </a>
+    </div>
 
-        <div class="controls">
-            <input type="text" id="seed" placeholder="Enter seed (e.g., username)">
-            <div class="style-select">
-                <select id="style-sel">
-                    <option value="adventurer">Adventurer</option>
-                    <option value="avataaars">Avataaars</option>
-                    <option value="bottts">Bottts</option>
-                    <option value="fun-emoji">Fun Emoji</option>
-                    <option value="lorelei">Lorelei</option>
-                </select>
+    <div class="generator-container animate-in">
+        <div class="glass-panel" style="padding: 3rem;">
+            <header class="generator-header">
+                <div class="system-tag">PROTOCOL :: AVATAR_SYNTHESIS</div>
+                <h1 class="generator-title scramble-text" data-value="AVATAR SYNTHESIZER">AVATAR SYNTHESIZER</h1>
+                <p class="generator-desc">Generate unique cryptographic identities based on input seeds.</p>
+            </header>
+
+            <div class="avatar-display-wrapper">
+                <div class="avatar-frame">
+                    <img id="avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=Enigma" alt="Generated Identity">
+                </div>
             </div>
-            <button class="cta-btn primary full-width" onclick="generate()">Generate</button>
+
+            <div class="controls-grid">
+                <div class="input-group">
+                    <label class="input-label" for="seed">Identity Seed</label>
+                    <input type="text" id="seed" placeholder="Enter unique identifier..." class="magnetic">
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label" for="style-sel">Protocol Type</label>
+                    <select id="style-sel" class="magnetic">
+                        <option value="adventurer">Adventurer</option>
+                        <option value="avataaars">Avataaars</option>
+                        <option value="bottts" selected>Bottts (Robotic)</option>
+                        <option value="fun-emoji">Fun Emoji</option>
+                        <option value="lorelei">Lorelei</option>
+                        <option value="pixel-art">Pixel Art</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="gen-btn magnetic" onclick="generate()" id="gen-trigger">
+                <i class="fas fa-sync-alt"></i> Execute Synthesis
+            </button>
         </div>
     </div>
+
+    <footer class="footer container">
+        <div class="footer-bottom">
+            <p>&copy; 2025 INTOENIGMA :: IDENTITY_SERVICE</p>
+            <div class="footer-stats">
+                <span>ENCRYPTION: AES-256</span>
+                <span>STATUS: READY</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 

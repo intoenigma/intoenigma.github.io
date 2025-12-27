@@ -1,67 +1,77 @@
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    min-height: 100vh;
 }
 
 .effect-container {
-    width: 100%;
-    max-width: 800px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    width: 90%;
+    max-width: 1000px;
+    height: calc(100vh - 150px);
+    display: flex;
+    justify-content: center;
     align-items: center;
+    gap: 4rem;
 }
 
 .preview-box {
-    width: 300px;
-    height: 300px;
-    background: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600') center/cover;
-    margin: 0 auto;
-    transition: 0.3s;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    box-shadow: 0 0 50px rgba(0, 243, 255, 0.2);
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .controls {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2rem;
-    border-radius: 12px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    padding: 3rem;
+    border-radius: 24px;
+    width: 350px;
 }
 
 .presets {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
     margin-bottom: 2rem;
 }
 
-button {
-    padding: 0.5rem 1rem;
-    background: #222;
-    border: 1px solid #444;
+.btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
     color: #fff;
-    border-radius: 4px;
+    padding: 0.8rem;
+    border-radius: 12px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.3s;
+    font-size: 0.9rem;
 }
 
-button:hover {
+.btn:hover {
+    background: var(--glass-hover);
     border-color: var(--primary);
-    background: #333;
 }
 
-.code-box {
-    background: #111;
-    padding: 1rem;
-    border-radius: 4px;
+.output-code {
+    margin-top: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+}
+
+code {
     font-family: monospace;
-    color: #00ff41;
-    word-break: break-all;
+    font-size: 0.8rem;
+    color: var(--primary);
 }
 
-@media(max-width:700px) {
+@media (max-width: 900px) {
     .effect-container {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        height: auto;
+        padding: 4rem 0;
     }
 }

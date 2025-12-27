@@ -4,29 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Validator | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Address <span class="highlight">Check</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div class="check-box">
-            <input type="email" id="email-input" placeholder="user@example.com">
-            <button id="check-btn" class="cta-btn primary">Validate</button>
-        </div>
+    <div class="container" style="max-width: 700px;">
+        <div class="utility-card glass" style="padding: 4rem 2rem;">
+            <header class="utility-header" style="margin-top: 0;">
+                <h2 class="scramble-text">Address <span class="highlight">Validation</span></h2>
+                <p style="color: var(--text-muted);">Verify communication channel integrity through syntax analysis.</p>
+            </header>
 
-        <div id="result" class="result hidden">
-            <div id="icon" class="status-icon"></div>
-            <h3 id="message">Valid Email</h3>
+            <div class="check-box glass" style="display: flex; gap: 0.5rem; padding: 0.5rem; border-radius: 15px; margin-bottom: 2.5rem;">
+                <input type="email" id="email-input" placeholder="intercept@protocol.net" class="glass" style="border: none; background: transparent;">
+                <button id="check-btn" class="cta-btn primary magnetic" style="padding: 0 2rem;">Verify</button>
+            </div>
+
+            <div id="result" class="result hidden glass" style="padding: 2.5rem; border-radius: 20px; text-align: center; border: 1px solid var(--border);">
+                <div id="icon" class="status-icon" style="font-size: 3rem; margin-bottom: 1rem;"></div>
+                <h3 id="message" class="font-space" style="font-size: 1.5rem;">Valid Communication Link</h3>
+            </div>
         </div>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

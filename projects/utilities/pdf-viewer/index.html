@@ -5,35 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDF Viewer | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 </head>
 
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Doc <span class="highlight">Reader</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div class="controls">
-            <input type="file" id="file-in" accept="application/pdf">
-            <div class="page-controls">
-                <button id="prev">Prev</button>
-                <span id="page-num">0 / 0</span>
-                <button id="next">Next</button>
+    <div class="container" style="max-width: 1000px;">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Document <span class="highlight">Intelligence</span></h2>
+                <p style="color: var(--text-muted);">Visualize and analyze portable document protocols.</p>
+            </header>
+
+            <div class="controls glass"
+                style="padding: 1.5rem; border-radius: 20px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem;">
+                <input type="file" id="file-in" accept="application/pdf" class="glass" style="max-width: 250px;">
+                <div class="page-controls" style="display: flex; align-items: center; gap: 1rem;">
+                    <button id="prev" class="cta-btn glass magnetic" style="padding: 0.5rem 1.2rem;">&larr;</button>
+                    <span id="page-num" class="font-space" style="font-size: 0.9rem; color: var(--text-muted);">0 /
+                        0</span>
+                    <button id="next" class="cta-btn glass magnetic" style="padding: 0.5rem 1.2rem;">&rarr;</button>
+                </div>
+            </div>
+
+            <div class="canvas-container glass"
+                style="width: 100%; min-height: 600px; background: #000; border-radius: 20px; text-align: center; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
+                <canvas id="pdf-render" style="max-width: 100%;"></canvas>
+                <div id="placeholder"
+                    style="color: var(--text-muted); text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem;">
+                    Initialize PDF Stream...</div>
             </div>
         </div>
-
-        <div class="canvas-container">
-            <canvas id="pdf-render"></canvas>
-            <div id="placeholder">Upload PDF to view</div>
-        </div>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
 

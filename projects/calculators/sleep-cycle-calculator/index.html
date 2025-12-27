@@ -4,56 +4,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sleep Cycle Calculator | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>REM Cycles | IntoEnigma</title>
+    <!-- Google Fonts: Outfit & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
-    <link rel="stylesheet" href="../age-calculator/style.css">
+    <link rel="stylesheet" href="../calculator-base.css">
 </head>
 
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+
+    <!-- Background Elements -->
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Back to Calculators</a>
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
+    <div class="bg-glow g3"></div>
 
-    <div class="calc-container glass">
-        <header class="calc-header">
-            <h2>REM <span class="highlight">Cycles</span></h2>
-            <p>Optimize your wake up time.</p>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Back to Calculators</a>
 
-        <div class="input-section">
-            <div class="input-group">
-                <label>I want to wake up at:</label>
-                <input type="time" id="wake-time">
+    <div class="main-content">
+        <div class="calc-container glass magnetic-card">
+            <header class="calc-header">
+                <h2 class="scramble-text" data-value="REM CYCLES">REM <span class="highlight">CYCLES</span></h2>
+                <p>Optimize your wake up protocols for peak cognitive performance.</p>
+            </header>
+
+            <div class="input-section">
+                <div class="input-group">
+                    <label>Target Wake Up Time</label>
+                    <input type="time" id="wake-time" class="glass-input">
+                </div>
+                <button id="calculate-btn" class="cta-btn primary full-width magnetic">Optimize Sleep</button>
             </div>
-            <button id="calculate-btn" class="cta-btn primary full-width">Calculate Bedtime</button>
-        </div>
 
-        <div class="result-section hidden" id="result-section">
-            <p style="text-align: center; color: #aaa; margin-bottom: 1rem;">You should fall asleep at one of these
-                times:</p>
-            <div class="result-grid" style="grid-template-columns: repeat(2, 1fr);">
-                <div class="result-card">
-                    <span id="time-1" class="number" style="font-size: 1.8rem">00:00</span>
-                    <span class="label">6 Cycles (9h)</span>
+            <div class="result-section hidden" id="result-section">
+                <p style="text-align: center; color: #a0a0aa; margin-bottom: 2rem; letter-spacing: 1px;">Initialize sleep at one of these optimal windows:</p>
+                <div class="result-grid">
+                    <div class="result-card glass">
+                        <span id="time-1" class="number highlight" style="font-size: 2rem;">00:00</span>
+                        <span class="label">6 Cycles (9h)</span>
+                    </div>
+                    <div class="result-card glass">
+                        <span id="time-2" class="number highlight" style="font-size: 2rem;">00:00</span>
+                        <span class="label">5 Cycles (7.5h)</span>
+                    </div>
+                    <div class="result-card glass">
+                        <span id="time-3" class="number highlight" style="font-size: 2rem;">00:00</span>
+                        <span class="label">4 Cycles (6h)</span>
+                    </div>
+                    <div class="result-card glass">
+                        <span id="time-4" class="number highlight" style="font-size: 2rem;">00:00</span>
+                        <span class="label">3 Cycles (4.5h)</span>
+                    </div>
                 </div>
-                <div class="result-card">
-                    <span id="time-2" class="number" style="font-size: 1.8rem">00:00</span>
-                    <span class="label">5 Cycles (7.5h)</span>
-                </div>
-                <div class="result-card">
-                    <span id="time-3" class="number" style="font-size: 1.8rem">00:00</span>
-                    <span class="label">4 Cycles (6h)</span>
-                </div>
-                <div class="result-card">
-                    <span id="time-4" class="number" style="font-size: 1.8rem">00:00</span>
-                    <span class="label">3 Cycles (4.5h)</span>
-                </div>
+                <p style="text-align: center; color: #80808a; font-size: 0.8rem; margin-top: 2rem;">
+                    Calculations include a 15-minute standard sleep induction protocol.
+                </p>
             </div>
-            <p style="text-align: center; color: #888; font-size: 0.8rem; margin-top: 1rem;">Calculations include 15 min
-                to fall asleep.</p>
         </div>
     </div>
 
+    <section class="join-section hidden-scroll">
+        <div class="container">
+            <div class="glass glass-panel magnetic-card">
+                <h2 class="scramble-text" data-value="JOIN THE ENIGMA">JOIN THE ENIGMA</h2>
+                <p>Submerge into the digital void. New protocols added daily.</p>
+                <div class="social-links">
+                    <a href="#" class="social-btn magnetic"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-btn magnetic"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="social-btn magnetic"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 INTOENIGMA // [SYSTEM_NOMINAL]</p>
+                <div class="footer-stats">
+                    <span>UPTIME: 99.9%</span>
+                    <span>LATENCY: 12ms</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 

@@ -4,49 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Country Hub | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Global <span class="highlight">Atlas</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div class="search-box">
-            <input type="text" id="search-input" placeholder="Enter country name (e.g. Japan)">
-            <button id="search-btn" class="cta-btn primary">Search</button>
-        </div>
+    <div class="container" style="max-width: 900px;">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Global <span class="highlight">Atlas</span></h2>
+                <p style="color: var(--text-muted);">Coordinate intelligence across all terrestrial regions.</p>
+            </header>
 
-        <div id="result" class="result-card hidden">
-            <div class="flag-container">
-                <img id="flag" src="" alt="Flag">
+            <div class="search-box glass" style="display: flex; gap: 0.5rem; padding: 0.5rem; border-radius: 15px; margin-bottom: 3rem;">
+                <input type="text" id="search-input" placeholder="Search geopolitical entity..." class="glass" style="border: none; background: transparent;">
+                <button id="search-btn" class="cta-btn primary magnetic" style="padding: 0 2rem;">Query</button>
             </div>
-            <h2 id="country-name">Country Name</h2>
-            <div class="info-grid">
-                <div class="info-item">
-                    <h4>Capital</h4>
-                    <span id="capital">--</span>
+
+            <div id="result" class="result-card hidden glass" style="padding: 3rem; border-radius: 20px; text-align: center;">
+                <div class="flag-container" style="margin-bottom: 2rem;">
+                    <img id="flag" src="" alt="Flag" style="width: 200px; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid var(--border);">
                 </div>
-                <div class="info-item">
-                    <h4>Population</h4>
-                    <span id="population">--</span>
-                </div>
-                <div class="info-item">
-                    <h4>Region</h4>
-                    <span id="region">--</span>
-                </div>
-                <div class="info-item">
-                    <h4>Currency</h4>
-                    <span id="currency">--</span>
+                <h3 id="country-name" class="font-space" style="font-size: 2.5rem; margin-bottom: 2.5rem;">Country Name</h3>
+                <div class="info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem;">
+                    <div class="info-item glass" style="padding: 1.5rem; border-radius: 12px;">
+                        <h4 style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Capital</h4>
+                        <span id="capital" class="highlight" style="font-size: 1.2rem; font-weight: 600;">--</span>
+                    </div>
+                    <div class="info-item glass" style="padding: 1.5rem; border-radius: 12px;">
+                        <h4 style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Population</h4>
+                        <span id="population" class="highlight" style="font-size: 1.2rem; font-weight: 600;">--</span>
+                    </div>
+                    <div class="info-item glass" style="padding: 1.5rem; border-radius: 12px;">
+                        <h4 style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Region</h4>
+                        <span id="region" class="highlight" style="font-size: 1.2rem; font-weight: 600;">--</span>
+                    </div>
+                    <div class="info-item glass" style="padding: 1.5rem; border-radius: 12px;">
+                        <h4 style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Currency</h4>
+                        <span id="currency" class="highlight" style="font-size: 1.2rem; font-weight: 600;">--</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

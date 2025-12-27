@@ -5,28 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emoji Translator | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Premium Typography -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../converter-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+
+    <!-- Background Elements -->
+    <canvas id="particle-canvas"></canvas>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Converters</a>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
+    <div class="bg-glow g3"></div>
 
-    <div class="converter-container glass">
-        <header>
-            <h2>Emojify <span class="highlight">Text</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Converters</a>
 
-        <textarea id="input-text" placeholder="Type here (e.g. I love pizza and cats)"></textarea>
+    <main class="main-content">
+        <div class="converter-container glass hidden-scroll">
+            <header class="converter-header">
+                <div class="system-tag">PROTOCOL_EMOJI // VISUAL</div>
+                <h2 class="scramble-text">Emoji <span class="highlight">Translator</span></h2>
+                <p>Natural language projection.</p>
+            </header>
 
-        <div class="arrow">&darr;</div>
+            <div class="input-section">
+                <div class="input-group">
+                    <label>Source Text</label>
+                    <textarea id="input-text" class="glass-input magnetic"
+                        placeholder="Type here (e.g. I love pizza and cats)"></textarea>
+                </div>
 
-        <textarea id="output-text" placeholder="Translation will appear here..." readonly></textarea>
+                <div class="exchange-icon magnetic">&darr;</div>
 
-        <button id="copy-btn" class="cta-btn primary full-width">Copy Translation</button>
-    </div>
+                <div class="input-group">
+                    <label>Translated Output</label>
+                    <textarea id="output-text" class="glass-input magnetic"
+                        placeholder="Translation will appear here..." readonly></textarea>
+                </div>
+
+                <button id="copy-btn" class="cta-btn primary full-width magnetic">Copy Translation</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 

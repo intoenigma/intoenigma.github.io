@@ -1,39 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Encryptor | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <title>Cryptographic Vault | IntoEnigma</title>
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Secure <span class="highlight">Vault</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <textarea id="data" placeholder="Enter sensitive text to encrypt..."></textarea>
+    <div class="container" style="max-width: 800px;">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Secure <span class="highlight">Vault</span></h2>
+                <p style="color: var(--text-muted);">Military-grade text obscuration protocol.</p>
+            </header>
 
-        <input type="password" id="key" placeholder="Enter Secret Key">
+            <div class="io-area glass" style="padding: 2rem; border-radius: 20px; display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="field">
+                    <label>Data Payload</label>
+                    <textarea id="data" placeholder="Intercepted information to be secured..." class="glass" style="height: 200px;"></textarea>
+                </div>
+                
+                <div class="field">
+                    <label>Cryptographic Key</label>
+                    <input type="password" id="key" placeholder="••••••••••••" class="glass">
+                </div>
+            </div>
 
-        <div class="actions">
-            <button onclick="process('encrypt')" class="cta-btn primary">Encrypt</button>
-            <button onclick="process('decrypt')" class="cta-btn secondary">Decrypt</button>
-        </div>
+            <div class="actions" style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+                <button onclick="process('encrypt')" class="cta-btn primary magnetic" style="flex: 1;">Secure Flow</button>
+                <button onclick="process('decrypt')" class="cta-btn magnetic" style="flex: 1;">Release Flow</button>
+            </div>
 
-        <div id="output" class="output hidden">
-            <h3>Result:</h3>
-            <p id="result-text"></p>
+            <div id="output" class="output hidden glass" style="padding: 2rem; border-radius: 12px; border: 1px solid var(--border);">
+                <h4 class="font-space" style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 1rem;">Processed Signal</h4>
+                <p id="result-text" style="word-break: break-all; font-family: monospace; color: var(--accent);"></p>
+            </div>
         </div>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

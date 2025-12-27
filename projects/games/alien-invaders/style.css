@@ -1,97 +1,29 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 0;
-    overflow: hidden;
-    /* Prevent scrolling while playing */
-}
-
-.game-container {
+.canvas-wrapper {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-}
-
-.game-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 800px;
-}
-
-.game-title {
-    font-size: 2rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.score-board,
-.level-board {
-    padding: 0.5rem 1.5rem;
-    border-radius: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 120px;
-}
-
-.score-board span:first-child,
-.level-board span:first-child {
-    font-size: 0.7rem;
-    color: #888;
-    letter-spacing: 1px;
-}
-
-.score-board span:last-child {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary);
-    font-family: monospace;
-}
-
-.level-board span:last-child {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--secondary);
-    font-family: monospace;
+    padding: 1rem;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    margin-bottom: 2rem;
 }
 
 canvas {
-    background: rgba(0, 0, 0, 0.6);
-    border: 2px solid var(--glass-border);
+    display: block;
+    max-width: 100%;
+    height: auto;
     border-radius: 12px;
-    box-shadow: 0 0 50px rgba(0, 243, 255, 0.05);
+    background: radial-gradient(circle at center, #111 0%, #000 100%);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
 }
 
-.controls-hint {
-    padding: 0.8rem 2rem;
-    border-radius: 50px;
-    display: flex;
-    gap: 2rem;
-}
-
-.controls-hint p {
-    font-size: 0.9rem;
-    color: #ccc;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.controls-hint span {
+.key-cap {
     background: rgba(255, 255, 255, 0.1);
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 700;
     font-size: 0.8rem;
-    color: #fff;
+    color: var(--primary);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 0 rgba(255, 255, 255, 0.05);
 }
 
 .overlay {
@@ -99,16 +31,16 @@ canvas {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
-    max-width: 400px;
-    padding: 3rem;
-    border-radius: 20px;
+    width: calc(100% - 4rem);
+    max-width: 500px;
+    padding: 4rem;
+    border-radius: 32px;
     text-align: center;
-    z-index: 10;
-    /* Glass effect already applied via class 'glass' but ensuring specific overrides */
-    background: rgba(5, 5, 10, 0.95);
+    z-index: 100;
+    background: rgba(5, 5, 8, 0.95);
+    backdrop-filter: blur(20px);
     border: 1px solid var(--primary);
-    box-shadow: 0 0 100px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.9);
 }
 
 .overlay.hidden {
@@ -116,26 +48,23 @@ canvas {
 }
 
 .overlay h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .overlay p {
-    color: #aaa;
-    margin-bottom: 2rem;
-}
-
-.back-link {
-    position: fixed;
-    top: 2rem;
-    left: 2rem;
-    color: rgba(255, 255, 255, 0.6);
-    font-weight: 600;
+    color: #80808a;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
 }
 
 @media (max-width: 850px) {
-    canvas {
-        width: 95vw;
-        height: auto;
+    .game-header {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .stat-panel {
+        margin-bottom: 0;
     }
 }

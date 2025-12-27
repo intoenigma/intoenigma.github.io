@@ -1,69 +1,78 @@
-body {
+.board-wrapper {
+    padding: 2rem;
+    border-radius: 24px;
+    background: rgba(0, 0, 0, 0.4);
+    margin-bottom: 2rem;
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .sudoku-board {
     display: grid;
-    grid-template-columns: repeat(9, 40px);
-    grid-template-rows: repeat(9, 40px);
+    grid-template-columns: repeat(9, 45px);
+    grid-template-rows: repeat(9, 45px);
     gap: 1px;
-    border: 2px solid #555;
-    background: #000;
-    padding: 5px;
+    background: #40404a;
+    border: 2px solid #40404a;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .cell {
-    width: 40px;
-    height: 40px;
-    background: #222;
-    border: 1px solid #333;
+    width: 45px;
+    height: 45px;
+    background: #050508;
     color: #fff;
-    font-size: 1.2rem;
+    font-family: var(--font-head);
+    font-size: 1.25rem;
+    font-weight: 600;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+    cursor: none;
 }
 
 .cell:focus {
-    background: #333;
-    outline: 2px solid var(--primary);
-    z-index: 2;
+    background: rgba(var(--primary-rgb), 0.1);
+    box-shadow: inset 0 0 15px rgba(var(--primary-rgb), 0.2);
 }
 
 .cell.fixed {
-    color: #888;
-    cursor: default;
-    background: #1a1a1a;
+    color: var(--primary);
+    opacity: 0.6;
+    background: #0a0a0f;
 }
 
-/* Borders for 3x3 blocks */
-.cell:nth-child(3n) {
-    border-right: 2px solid #555;
+/* 3x3 block borders */
+.cell:nth-child(3n):not(:nth-child(9n)) {
+    border-right: 2px solid #40404a;
 }
 
-.cell:nth-child(9n) {
-    border-right: none;
+.cell:nth-child(n+19):nth-child(-n+27),
+.cell:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 2px solid #40404a;
 }
 
-/* This CSS grid gap handles most borders, but 3x3 highlighting is tricky without complex nth-child or wrapper divs. Basic grid is fine for MVP */
-.controls {
-    margin-top: 2rem;
+.controls-row {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
+    width: 100%;
 }
 
-input.cell {
-    border: none;
-    padding: 0;
+.controls-row button {
+    flex: 1;
+}
+
+@media (max-width: 500px) {
+    .sudoku-board {
+        grid-template-columns: repeat(9, 35px);
+        grid-template-rows: repeat(9, 35px);
+    }
+
+    .cell {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
 }

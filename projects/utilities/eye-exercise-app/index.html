@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eye Trainer | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
-<body>
+<body style="overflow: hidden;">
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container">
-        <div id="ball" class="ball"></div>
-        <div id="instruction" class="instruction">Follow the Ball</div>
-        <button id="start-btn" class="cta-btn primary center-overlay">Start Session</button>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+
+    <div class="container" style="height: 100vh; display: flex; align-items: center; justify-content: center; position: relative;">
+        <div id="ball" class="ball" style="position: absolute; width: 30px; height: 30px; background: radial-gradient(circle, var(--accent), var(--primary)); border-radius: 50%; box-shadow: 0 0 20px var(--accent); z-index: 10; cursor: none;"></div>
+        
+        <div id="ui-container" style="text-align: center; z-index: 5;">
+            <div class="utility-card glass" style="padding: 3rem; background: rgba(5,5,8,0.8);">
+                <header class="utility-header" style="margin-top: 0;">
+                    <h2 class="scramble-text">Ocular <span class="highlight">Sync</span></h2>
+                    <p id="instruction" style="color: var(--text-muted); margin-top: 1rem;">Initialize session to relieve optical strain.</p>
+                </header>
+                <button id="start-btn" class="cta-btn primary magnetic" style="padding: 1rem 3rem;">Start Protocol</button>
+            </div>
+        </div>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

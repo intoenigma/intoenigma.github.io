@@ -4,29 +4,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake Profile | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Identity Forge | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../generator-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+    <canvas id="particle-canvas"></canvas>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Generators</a>
 
-    <div class="gen-container glass">
-        <h2>Identity <span class="highlight">Forge</span></h2>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
 
-        <div class="profile-card" id="profile">
-            <img id="p-img" src="" alt="Profile">
-            <h3 id="p-name">Loading...</h3>
-            <p id="p-loc" class="detail">Location</p>
-            <p id="p-email" class="detail">Email</p>
-            <p id="p-login" class="code">Username</p>
-        </div>
-
-        <button class="cta-btn primary full-width" onclick="getProfile()">New Identity</button>
+    <div class="back-nav">
+        <a href="../index.html" class="back-btn magnetic">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Generators</span>
+        </a>
     </div>
+
+    <div class="generator-container animate-in">
+        <div class="glass-panel" style="padding: 3rem;">
+            <header class="generator-header">
+                <div class="system-tag">PROTOCOL :: IDENTITY_FABRICATION</div>
+                <h1 class="generator-title scramble-text" data-value="IDENTITY FORGE">IDENTITY FORGE</h1>
+                <p class="generator-desc">Forge comprehensive personal data for secondary cryptographic personas.</p>
+            </header>
+
+            <div class="profile-card-wrapper">
+                <div class="profile-card glass" id="profile">
+                    <div class="profile-header">
+                        <div class="p-img-frame">
+                            <img id="p-img" src="" alt="Subject Visual">
+                        </div>
+                        <div class="p-main-info">
+                            <h3 id="p-name" class="scramble-text">Subject Alpha</h3>
+                            <p id="p-login" class="system-tag">@username</p>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="p-loc">Location Unknown</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span id="p-email">encrypted@enigma.com</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-phone"></i>
+                            <span id="p-phone">+0 000 000 0000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="gen-btn magnetic" onclick="getProfile()" id="gen-trigger">
+                <i class="fas fa-user-secret"></i> Forge New Identity
+            </button>
+        </div>
+    </div>
+
+    <footer class="footer container">
+        <div class="footer-bottom">
+            <p>&copy; 2025 INTOENIGMA :: DATA_SYNTHESIS_UNIT</p>
+            <div class="footer-stats">
+                <span>RELIABILITY: 99.8%</span>
+                <span>STATUS: ONLINE</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 

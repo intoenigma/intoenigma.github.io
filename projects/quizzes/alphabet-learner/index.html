@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphabet Learner | IntoEnigma</title>
+    <link rel="stylesheet" href="../shared/quiz-base.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="bg-visuals">
+        <canvas class="particle-canvas"></canvas>
+        <div class="bg-glow one"></div>
+        <div class="bg-glow two"></div>
+    </div>
+
+    <nav class="top-nav">
+        <a href="../index.html" class="back-btn magnetic-wrap"><i class="fas fa-arrow-left"></i> Hub</a>
+        <div class="logo">ALPHABET <span style="color: var(--primary);">LEARNER</span></div>
+    </nav>
+
+    <main class="container">
+        <div class="display-base glass-container">
+            <div id="letter-display" class="scramble-text">A</div>
+            <div id="word-hint">Apple</div>
+        </div>
+
+        <div class="controls glass-container">
+            <button id="prev-btn" class="ctrl-btn magnetic-wrap"><i class="fas fa-chevron-left"></i></button>
+            <button id="speak-btn" class="ctrl-btn main magnetic-wrap"><i class="fas fa-volume-up"></i></button>
+            <button id="next-btn" class="ctrl-btn magnetic-wrap"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <div class="alphabet-grid" id="alphabet-grid">
+            <!-- Letters will be generated here -->
+        </div>
+    </main>
+
+    <script src="../shared/quiz-base.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

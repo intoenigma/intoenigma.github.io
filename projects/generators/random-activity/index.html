@@ -4,26 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activity | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Active Protocol | IntoEnigma</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../generator-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+    <canvas id="particle-canvas"></canvas>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Generators</a>
 
-    <div class="gen-container glass">
-        <h2>Boredom <span class="highlight">Buster</span></h2>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
 
-        <div class="activity-card">
-            <h3 id="activity">Loading...</h3>
-            <span class="tag" id="type">Type</span>
-        </div>
-
-        <button class="cta-btn primary full-width" onclick="getActivity()">Find Activity</button>
+    <div class="back-nav">
+        <a href="../index.html" class="back-btn magnetic">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Generators</span>
+        </a>
     </div>
+
+    <div class="generator-container animate-in">
+        <div class="glass-panel" style="padding: 3rem;">
+            <header class="generator-header">
+                <div class="system-tag">PROTOCOL :: ACTIVITY_ASSIGNMENT</div>
+                <h1 class="generator-title scramble-text" data-value="BOREDOM BUSTER">BOREDOM BUSTER</h1>
+                <p class="generator-desc">Assign meaningful operations to alleviate cognitive stagnation.</p>
+            </header>
+
+            <div class="activity-display-wrapper">
+                <div class="activity-card glass">
+                    <div class="activity-icon-frame">
+                        <i class="fas fa-bolt" id="a-icon"></i>
+                    </div>
+                    <h2 id="activity" class="activity-text">Initializing Assignment Sequence...</h2>
+                    <div class="activity-meta">
+                        <span class="system-tag">TYPE:</span>
+                        <span class="activity-type" id="type">SYSTEM_IDLE</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="gen-btn magnetic" onclick="getActivity()" id="gen-trigger">
+                <i class="fas fa-random"></i> Generate Assignment
+            </button>
+        </div>
+    </div>
+
+    <footer class="footer container">
+        <div class="footer-bottom">
+            <p>&copy; 2025 INTOENIGMA :: LIFE_OPTIMIZATION</p>
+            <div class="footer-stats">
+                <span>LOAD: MINIMAL</span>
+                <span>STATUS: ACTIVE</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 

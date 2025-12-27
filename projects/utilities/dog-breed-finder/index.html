@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dog Breeds | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Canine <span class="highlight">Finder</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div class="control-bar">
-            <select id="breed-select">
-                <option value="">Select a Breed</option>
-            </select>
-            <button id="fetch-btn" class="cta-btn primary">Fetch!</button>
-        </div>
+    <div class="container" style="max-width: 800px;">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Canine <span class="highlight">Intelligence</span></h2>
+                <p style="color: var(--text-muted);">Coordinate visual data of various biological subspecies.</p>
+            </header>
 
-        <div id="image-container" class="image-box">
-            <div class="placeholder">Select a breed to see a photo</div>
+            <div class="control-bar glass" style="padding: 2rem; border-radius: 20px; display: flex; gap: 1rem; margin-bottom: 2rem;">
+                <select id="breed-select" class="glass" style="flex: 1;">
+                    <option value="">Query Subspecies...</option>
+                </select>
+                <button id="fetch-btn" class="cta-btn primary magnetic" style="min-width: 150px;">Initialize Scan</button>
+            </div>
+
+            <div id="image-container" class="image-box glass" style="width: 100%; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 20px; border: 1px solid var(--border); background: #000;">
+                <div class="placeholder" style="color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Awaiting Data Input...</div>
+            </div>
         </div>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clip-Path | IntoEnigma</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../visual-effects-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Visual Effects</a>
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="container" style="padding: 2rem;">
+        <a href="../index.html" class="back-link magnetic">&larr; Back to Effects</a>
+    </div>
 
     <div class="effect-container">
         <div class="preview-box" id="preview"></div>
-        
+
         <div class="controls">
             <h3>Presets</h3>
             <div class="presets">
@@ -23,12 +33,14 @@
                 <button onclick="setClip('polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)')">Rhombus</button>
                 <button onclick="setClip('polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)')">Trapezoid</button>
             </div>
-            
+
             <div class="code-box">
                 <code id="code-out">clip-path: polygon(...);</code>
             </div>
         </div>
     </div>
+    <script src="../visual-effects-base.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

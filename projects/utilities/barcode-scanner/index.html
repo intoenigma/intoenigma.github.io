@@ -5,37 +5,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barcode Scanner | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Product <span class="highlight">Scanner</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div class="viewport">
-            <video id="video" autoplay></video>
-            <div class="scan-line"></div>
+    <div class="container">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Product <span class="highlight">Scanner</span></h2>
+                <p style="color: var(--text-muted);">Real-time high-fidelity optical detection.</p>
+            </header>
+
+            <div class="viewport glass"
+                style="position: relative; overflow: hidden; border-radius: 20px; border: 1px solid var(--border); background: #000; aspect-ratio: 4/3; margin-bottom: 2rem;">
+                <video id="video" autoplay style="width: 100%; height: 100%; object-fit: cover;"></video>
+                <div class="scan-line"
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--primary); box-shadow: 0 0 15px var(--primary); animation: scan 2s infinite linear;">
+                </div>
+            </div>
+
+            <style>
+                @keyframes scan {
+                    0% {
+                        top: 0;
+                    }
+
+                    100% {
+                        top: 100%;
+                    }
+                }
+            </style>
+
+            <div class="result glass"
+                style="padding: 1.5rem; border-radius: 12px; text-align: center; font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem;">
+                Detected Code: <span id="result-code" class="highlight" style="font-weight: 700;">--</span>
+            </div>
+
+            <p class="note" style="color: var(--text-muted); font-size: 0.8rem; text-align: center; margin-top: 2rem;">
+                Requires Camera Access. Optimized for standard 1D industrial barcodes.</p>
         </div>
-
-        <div class="result">
-            Code: <span id="result-code">--</span>
-        </div>
-
-        <p class="note">Requires Camera Access. Supports standard 1D barcodes.</p>
     </div>
 
-    <!-- Using a library is standard for Barcode. We'll use a placeholder or assume a library script is needed, 
-         but per constraints I can't fetch external libs easily without user permission. 
-         I will write a mock interface or standard getUserMedia setup. 
-         Real barcode detection needs complex logic (e.g. QuaggaJS). 
-         I will simulate the UI and camera feed setup. -->
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
 

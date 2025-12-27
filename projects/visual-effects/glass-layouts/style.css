@@ -1,19 +1,17 @@
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
+    background: #050510;
 }
 
 .circles {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    position: fixed;
     top: 0;
     left: 0;
-    pointer-events: none;
-    z-index: -1;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
 .circle {
@@ -24,60 +22,84 @@ body {
 .c1 {
     width: 300px;
     height: 300px;
-    background: linear-gradient(#00f3ff, #9d00ff);
+    background: var(--primary);
     top: 10%;
-    right: 20%;
-    animation: move 10s infinite alternate;
+    left: 10%;
+    opacity: 0.2;
+    filter: blur(50px);
 }
 
 .c2 {
-    width: 200px;
-    height: 200px;
-    background: linear-gradient(#ff0055, #ffee00);
+    width: 400px;
+    height: 400px;
+    background: var(--secondary);
     bottom: 10%;
-    left: 20%;
-    animation: move 8s infinite alternate-reverse;
+    right: 10%;
+    opacity: 0.15;
+    filter: blur(70px);
 }
 
-@keyframes move {
-    from {
-        transform: translate(0, 0);
-    }
-
-    to {
-        transform: translate(50px, 50px);
-    }
-}
-
-.glass-card {
-    width: 350px;
+.c3 {
+    width: 250px;
     height: 250px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+    background: var(--accent);
+    top: 50%;
+    left: 50%;
+    opacity: 0.1;
+    filter: blur(60px);
+}
+
+.layout-preview {
+    width: 100%;
+    height: calc(100vh - 100px);
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+.glass-card {
+    width: 80%;
+    max-width: 500px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px);
+    border: 1px solid var(--glass-border);
+    padding: 4rem;
+    border-radius: 30px;
     text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.glass-card h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
     color: #fff;
-    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.glass-card p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 3rem;
 }
 
 .join-btn {
-    margin-top: 1rem;
-    padding: 0.8rem 2rem;
-    border-radius: 30px;
-    background: #fff;
+    background: var(--primary);
     color: #000;
     border: none;
-    font-weight: bold;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
 }
 
 .join-btn:hover {
-    background: var(--primary);
-    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(0, 243, 255, 0.6);
 }

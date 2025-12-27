@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto Refresh | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Loop <span class="highlight">Reload</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div class="controls">
-            <label>Interval (Seconds)</label>
-            <input type="number" id="seconds" value="5" min="2">
+    <div class="container">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Loop <span class="highlight">Reload</span></h2>
+                <p style="color: var(--text-muted);">Keep your workspace perpetually fresh.</p>
+            </header>
 
-            <div id="countdown" class="countdown">--</div>
+            <div class="controls glass" style="padding: 2rem; border-radius: 16px; margin-bottom: 2rem;">
+                <label>Interval (Seconds)</label>
+                <input type="number" id="seconds" value="5" min="2" class="glass">
 
-            <button id="start-btn" class="cta-btn primary">Start</button>
-            <button id="stop-btn" class="cta-btn secondary" disabled>Stop</button>
+                <div id="countdown" class="countdown font-space" style="font-size: 3rem; text-align: center; margin: 2rem 0; color: var(--accent);">--</div>
+
+                <div style="display: flex; gap: 1rem;">
+                    <button id="start-btn" class="cta-btn primary magnetic" style="flex: 1;">Start Protocol</button>
+                    <button id="stop-btn" class="cta-btn magnetic" style="flex: 1;" disabled>Deactivate</button>
+                </div>
+            </div>
+
+            <p class="note" style="color: var(--text-muted); font-size: 0.8rem; text-align: center;">This will reload the current page. Use with caution in active production environments.</p>
         </div>
-
-        <p class="note">This will reload the current page. Use cautiously.</p>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,127 @@
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.back-btn {
+    text-decoration: none;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition-fast);
+}
+
+.back-btn:hover {
+    color: var(--primary);
+}
+
+.logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.container {
+    padding-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.display-base {
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#letter-display {
+    font-size: 15rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--primary);
+    text-shadow: 0 0 30px rgba(0, 242, 255, 0.5);
+}
+
+#word-hint {
+    font-size: 2rem;
+    color: var(--text-dim);
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.controls {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem 2rem;
+}
+
+.ctrl-btn {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition-fast);
+}
+
+.ctrl-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+}
+
+.ctrl-btn.main {
+    width: 80px;
+    height: 80px;
+    font-size: 1.8rem;
+    background: var(--glass-bg);
+}
+
+.alphabet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 10px;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.letter-tile {
+    aspect-ratio: 1;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.letter-tile:hover, .letter-tile.active {
+    background: rgba(0, 242, 255, 0.1);
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: scale(1.1);
+}

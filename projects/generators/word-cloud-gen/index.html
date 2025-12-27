@@ -4,27 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Word Cloud | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Semantic Cluster | IntoEnigma</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../generator-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+    <canvas id="particle-canvas"></canvas>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Generators</a>
 
-    <div class="gen-container glass">
-        <h2>Word <span class="highlight">Cloud</span></h2>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
 
-        <textarea id="text-input" placeholder="Paste your text here to generate a cloud..."></textarea>
-
-        <div class="canvas-wrapper">
-            <div id="cloud-output"></div>
-        </div>
-
-        <button class="cta-btn primary full-width" onclick="generateCloud()">Generate Cloud</button>
+    <div class="back-nav">
+        <a href="../index.html" class="back-btn magnetic">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Generators</span>
+        </a>
     </div>
+
+    <div class="generator-container animate-in" style="max-width: 1000px;">
+        <div class="glass-panel" style="padding: 3rem;">
+            <header class="generator-header">
+                <div class="system-tag">PROTOCOL :: SEMANTIC_CLUSTERING</div>
+                <h1 class="generator-title scramble-text" data-value="SEMANTIC CLUSTER">SEMANTIC CLUSTER</h1>
+                <p class="generator-desc">Visualize linguistic density and keyword frequency in a multi-dimensional
+                    cloud.</p>
+            </header>
+
+            <div class="input-group">
+                <label class="input-label" for="text-input">Raw Text Data</label>
+                <textarea id="text-input" placeholder="Paste semantic payload for analysis..."
+                    class="magnetic glass-input"></textarea>
+            </div>
+
+            <div class="cloud-display-wrapper">
+                <div id="cloud-output" class="cloud-output glass">
+                    <div class="system-tag">CLUSTER_VISUALIZATION</div>
+                    <div id="cloud-container" class="cloud-container">
+                        <p class="placeholder">Awaiting text payload...</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="gen-btn magnetic" onclick="generateCloud()" id="gen-trigger">
+                <i class="fas fa-project-diagram"></i> Execute Clustering
+            </button>
+        </div>
+    </div>
+
+    <footer class="footer container">
+        <div class="footer-bottom">
+            <p>&copy; 2025 INTOENIGMA :: LINGUISTIC_AI</p>
+            <div class="footer-stats">
+                <span>DENSITY: CALCULATING</span>
+                <span>STATUS: STANDBY</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 

@@ -5,29 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audio Visualizer | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Sonic <span class="highlight">Wave</span></h2>
-            <p>Upload audio to visualize frequencies.</p>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div class="upload-area" id="drop-zone">
-            <input type="file" id="audio-file" accept="audio/*" hidden>
-            <p>Drop audio file or click to upload</p>
+    <div class="container">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Sonic <span class="highlight">Wave</span></h2>
+                <p style="color: var(--text-muted);">Upload audio to visualize frequencies.</p>
+            </header>
+
+            <div class="upload-area glass magnetic" id="drop-zone"
+                style="padding: 3rem; border: 2px dashed var(--border); border-radius: 16px; text-align: center; margin-bottom: 2rem;">
+                <input type="file" id="audio-file" accept="audio/*" hidden>
+                <p>Drop audio file or click to upload</p>
+            </div>
+
+            <canvas id="visualizer" width="800" height="400" class="glass"
+                style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 1rem;"></canvas>
+            <audio id="audio-player" controls style="width: 100%; margin-top: 1rem;"></audio>
         </div>
-
-        <canvas id="visualizer" width="800" height="400"></canvas>
-        <audio id="audio-player" controls></audio>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
 

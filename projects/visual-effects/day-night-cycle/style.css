@@ -2,75 +2,86 @@ body {
     margin: 0;
     overflow: hidden;
     height: 100vh;
-    transition: background 1s;
+    font-family: var(--font-body);
 }
 
 .scene {
     width: 100%;
     height: 100%;
     position: relative;
-    background: #87CEEB;
-    /* Day Blue */
-    transition: 1s;
+    background: linear-gradient(to bottom, #1e528e, #728a7c);
+    transition: 1.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scene.night {
-    background: #0b0b1a;
+    background: linear-gradient(to bottom, #050510, #1a1a2e);
 }
 
 .celestial-body {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     position: absolute;
-    transition: 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transition: 1.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sun {
-    background: #ffee00;
-    top: 10%;
-    left: 10%;
-    box-shadow: 0 0 50px #ffee00;
+    background: radial-gradient(circle, #fff700, #ffaa00);
+    top: 15%;
+    left: 15%;
+    box-shadow: 0 0 80px #fff700;
 }
 
 .moon {
-    background: #ddd;
-    top: 10%;
-    left: 110%;
-    box-shadow: 0 0 30px #ffffff;
+    background: radial-gradient(circle, #e0e0e0, #888);
+    top: 15%;
+    left: 120%;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
 }
 
 .scene.night .sun {
-    left: -20%;
+    left: -30%;
 }
 
 .scene.night .moon {
-    left: 10%;
+    left: 15%;
 }
 
 .landscape {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 30%;
-    background: #2e8b57;
-    transition: 1s;
+    height: 35%;
+    background: #234d35;
+    transition: 1.5s;
+    clip-path: polygon(0 100%, 100% 100%, 100% 20%, 80% 50%, 60% 10%, 40% 60%, 20% 0, 0 40%);
 }
 
 .scene.night .landscape {
-    background: #1a2a22;
+    background: #0d1a13;
 }
 
 .toggle-btn {
     position: absolute;
-    bottom: 2rem;
+    bottom: 4rem;
     left: 50%;
     transform: translateX(-50%);
-    padding: 1rem 2rem;
-    background: #fff;
-    border: none;
-    border-radius: 30px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
     cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.toggle-btn:hover {
+    background: var(--glass-hover);
+    border-color: var(--primary);
+    box-shadow: var(--neon-shadow);
 }

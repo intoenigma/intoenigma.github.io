@@ -1,7 +1,32 @@
-body { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-.converter-container { padding: 3rem; border-radius: 20px; width: 100%; max-width: 500px; text-align: center; }
-.zone-block { text-align: left; margin-bottom: 1.5rem; }
-.zone-block label { display: block; color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem; }
-input[type=datetime-local], select { width: 100%; padding: 1rem; background: #111; color: #fff; border: 1px solid #333; border-radius: 8px; margin-bottom: 0.5rem; outline: none; }
-.target-display { padding: 1rem; background: rgba(0,243,255,0.1); border: 1px solid var(--primary); color: #fff; font-size: 1.5rem; font-weight: 800; border-radius: 8px; margin-bottom: 0.5rem; text-align: center; }
-.arrow { font-size: 2rem; color: #aaa; margin: -1rem 0 1rem; }
+/* World Clock Specific Styles */
+.zone-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.target-display {
+    padding: 2rem;
+    background: rgba(var(--primary-rgb), 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    text-align: center;
+    font-family: var(--font-head);
+    text-shadow: 0 0 20px rgba(var(--primary-rgb), 0.3);
+}
+
+input[type="datetime-local"] {
+    color-scheme: dark;
+}
+
+select.glass-input {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+    padding-right: 2.5rem;
+}

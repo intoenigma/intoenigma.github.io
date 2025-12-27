@@ -5,189 +5,336 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visual Effects | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/style.css">
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Explore a collection of high-end, immersive visual effects including 3D animations, particle systems, and glassmorphism experiments.">
+    
+    <link rel="stylesheet" href="visual-effects-base.css">
     <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 5rem;
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .hero-visual {
+            width: 100%;
+            height: 300px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        header h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            transition: 0.3s;
+            padding: 0.5rem 1rem;
+            border: 1px solid transparent;
+        }
+
+        .back-link:hover {
+            color: #fff;
+            background: rgba(0, 243, 255, 0.1);
+            border-color: var(--primary);
+            border-radius: 8px;
+        }
+
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
             padding: 2rem 0;
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
             text-decoration: none;
-            color: #fff;
+            color: inherit;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding: 2.5rem 1.5rem;
+            min-height: 180px;
             text-align: center;
-            height: 120px;
+            justify-content: center;
+            cursor: pointer;
             position: relative;
             overflow: hidden;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--primary);
-            box-shadow: 0 5px 15px rgba(0, 243, 255, 0.2);
-        }
-
         .project-card h3 {
-            font-size: 1.1rem;
+            font-size: 1.5rem;
             margin: 0;
             z-index: 2;
+            color: #fff;
+            transition: 0.3s;
         }
 
-        .project-card::before {
-            content: '';
+        .project-card .card-glow {
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 50%;
+            left: 50%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
-            transform: translateX(-100%);
-            transition: 0.5s;
+            background: radial-gradient(circle at center, var(--primary), transparent 70%);
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            pointer-events: none;
+            z-index: 0;
         }
 
-        .project-card:hover::before {
-            transform: translateX(100%);
+        .project-card:hover .card-glow {
+            transform: translate(-50%, -50%) scale(1.5);
+            opacity: 0.1;
+        }
+
+        .project-card:hover h3 {
+            color: var(--primary);
+            text-shadow: 0 0 15px var(--primary);
+        }
+
+        .footer-cta {
+            margin-top: 8rem;
+            text-align: center;
+            padding: 4rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--primary);
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 243, 255, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 3rem; }
         }
     </style>
 </head>
 
 <body>
     <div class="noise-overlay"></div>
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
 
     <div class="container">
-        <header style="padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 2rem;">
-            <a href="../../index.html" class="back-link">&larr; Home</a>
-            <h1>Visual <span class="highlight">Effects</span></h1>
-            <p>A collection of pure CSS, Canvas, and JS visual experiments.</p>
+        <header class="hero-section">
+            <div class="hero-visual"></div>
+            <a href="../../index.html" class="back-link magnetic">&larr; Back to Enigma</a>
+            <h1 class="text-scramble">Visual Effects</h1>
+            <p>Quantum-grade interface experiments, physics-based simulations, and advanced CSS protocols. Designed to push the boundaries of modern web aesthetics.</p>
         </header>
 
         <div class="project-grid">
-            <a href="3d-card-hover/index.html" class="project-card">
+            <!-- Project Cards -->
+            <a href="3d-card-hover/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>3D Card Hover</h3>
             </a>
-            <a href="3d-text-rotating/index.html" class="project-card">
+            <a href="3d-text-rotating/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>3D Text Rotating</h3>
             </a>
-            <a href="border-radius-ui/index.html" class="project-card">
+            <a href="border-radius-ui/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Border Radius UI</h3>
             </a>
-            <a href="bouncing-balls/index.html" class="project-card">
+            <a href="bouncing-balls/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Bouncing Balls</h3>
             </a>
-            <a href="color-harmony/index.html" class="project-card">
+            <a href="color-harmony/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Color Harmony</h3>
             </a>
-            <a href="confetti-pop/index.html" class="project-card">
+            <a href="confetti-pop/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Confetti Pop</h3>
             </a>
-            <a href="css-art-gallery/index.html" class="project-card">
+            <a href="css-art-gallery/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>CSS Art Gallery</h3>
             </a>
-            <a href="css-button-library/index.html" class="project-card">
+            <a href="css-button-library/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>CSS Button Library</h3>
             </a>
-            <a href="css-clip-path-maker/index.html" class="project-card">
+            <a href="css-clip-path-maker/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>CSS Clip Path Maker</h3>
             </a>
-            <a href="css-shadow-lib/index.html" class="project-card">
+            <a href="css-shadow-lib/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>CSS Shadow Library</h3>
             </a>
-            <a href="day-night-cycle/index.html" class="project-card">
+            <a href="day-night-cycle/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Day/Night Cycle</h3>
             </a>
-            <a href="firework-sim/index.html" class="project-card">
+            <a href="firework-sim/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Firework Simulation</h3>
             </a>
-            <a href="fog-effect/index.html" class="project-card">
+            <a href="fog-effect/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Fog Effect</h3>
             </a>
-            <a href="glass-layouts/index.html" class="project-card">
+            <a href="glass-layouts/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Glass Layouts</h3>
             </a>
-            <a href="glassmorphism-generator/index.html" class="project-card">
+            <a href="glassmorphism-generator/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Glassmorphism Gen</h3>
             </a>
-            <a href="glitch-effect/index.html" class="project-card">
+            <a href="glitch-effect/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Glitch Effect</h3>
             </a>
-            <a href="gradient-text/index.html" class="project-card">
+            <a href="gradient-text/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Gradient Text</h3>
             </a>
-            <a href="gravitational-art/index.html" class="project-card">
+            <a href="gravitational-art/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Gravitational Art</h3>
             </a>
-            <a href="interactive-globe/index.html" class="project-card">
+            <a href="interactive-globe/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Interactive Globe</h3>
             </a>
-            <a href="kaleidoscope/index.html" class="project-card">
+            <a href="kaleidoscope/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Kaleidoscope</h3>
             </a>
-            <a href="liquid-loader/index.html" class="project-card">
+            <a href="liquid-loader/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Liquid Loader</h3>
             </a>
-            <a href="matrix-rain/index.html" class="project-card">
+            <a href="matrix-rain/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Matrix Rain</h3>
             </a>
-            <a href="mirror-drawing/index.html" class="project-card">
+            <a href="mirror-drawing/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Mirror Drawing</h3>
             </a>
-            <a href="moving-clouds/index.html" class="project-card">
+            <a href="moving-clouds/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Moving Clouds</h3>
             </a>
-            <a href="neon-text-maker/index.html" class="project-card">
+            <a href="neon-text-maker/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Neon Text Maker</h3>
             </a>
-            <a href="neumorphism-generator/index.html" class="project-card">
+            <a href="neumorphism-generator/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Neumorphism Gen</h3>
             </a>
-            <a href="parallax-scroll/index.html" class="project-card">
+            <a href="parallax-scroll/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Parallax Scroll</h3>
             </a>
-            <a href="particle-text/index.html" class="project-card">
+            <a href="particle-text/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Particle Text</h3>
             </a>
-            <a href="rainy-mood/index.html" class="project-card">
+            <a href="rainy-mood/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Rainy Mood</h3>
             </a>
-            <a href="simple-paint/index.html" class="project-card">
+            <a href="simple-paint/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Simple Paint</h3>
             </a>
-            <a href="snowfall-animation/index.html" class="project-card">
+            <a href="snowfall-animation/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Snowfall Animation</h3>
             </a>
-            <a href="sorting-visualizer/index.html" class="project-card">
+            <a href="sorting-visualizer/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Sorting Visualizer</h3>
             </a>
-            <a href="spirograph-generator/index.html" class="project-card">
+            <a href="spirograph-generator/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Spirograph Gen</h3>
             </a>
-            <a href="starfield-warp/index.html" class="project-card">
+            <a href="starfield-warp/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Starfield Warp</h3>
             </a>
-            <a href="svg-path-builder/index.html" class="project-card">
+            <a href="svg-path-builder/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>SVG Path Builder</h3>
             </a>
-            <a href="vanta-bg/index.html" class="project-card">
+            <a href="vanta-bg/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Vanta BG</h3>
             </a>
-            <a href="wave-animation/index.html" class="project-card">
+            <a href="wave-animation/index.html" class="project-card glass-panel magnetic">
+                <div class="card-glow"></div>
                 <h3>Wave Animation</h3>
             </a>
         </div>
+
+        <section class="footer-cta glass-panel">
+            <h2 class="text-scramble">Ready for more?</h2>
+            <p style="margin-bottom: 2rem;">Explore the depths of our digital laboratory.</p>
+            <a href="../../index.html" class="cta-button magnetic">Join the Enigma</a>
+        </section>
     </div>
+
+    <script src="visual-effects-base.js"></script>
 </body>
 
 </html>

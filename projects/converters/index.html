@@ -4,193 +4,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Converters | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Protocol Hub: Converters | IntoEnigma</title>
+    <!-- Premium Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
     <style>
         .hub-container {
-            padding: 100px 5%;
+            padding: 120px 5%;
             max-width: 1400px;
             margin: 0 auto;
+            position: relative;
+            z-index: 10;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 6rem;
         }
 
         .section-header h1 {
-            font-size: 3rem;
+            font-family: var(--font-head);
+            font-size: 5rem;
+            font-weight: 800;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, #fff, #aaa);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
+        }
+
+        .section-header p {
+            color: #a0a0aa;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 1.5rem auto 0;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
+            padding: 3rem 2.5rem;
+            border-radius: 24px;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px);
             text-decoration: none;
-            display: block;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: 0.5s;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
             border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+                        0 0 20px rgba(var(--primary-rgb), 0.1);
         }
 
-        .card h3 {
-            color: #fff;
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-        }
-
-        .card p {
-            color: #888;
-            font-size: 0.9rem;
-            line-height: 1.5;
+        .card:hover::before {
+            opacity: 1;
         }
 
         .card-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--secondary);
+            width: 60px;
+            height: 60px;
+            background: rgba(var(--primary-rgb), 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            transition: 0.5s;
+        }
+
+        .card:hover .card-icon {
+            background: var(--primary);
+            color: var(--bg);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        .card h3 {
+            font-family: var(--font-head);
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: #80808a;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         .back-nav {
             position: fixed;
-            top: 2rem;
-            left: 2rem;
-            z-index: 100;
+            top: 40px;
+            left: 40px;
+            z-index: 1000;
         }
 
         .back-nav a {
             color: #fff;
             text-decoration: none;
             font-weight: 600;
+            font-family: var(--font-head);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 20px;
+            gap: 0.8rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: 0.3s;
         }
 
         .back-nav a:hover {
             border-color: var(--primary);
-            color: var(--primary);
+            background: var(--primary);
+            color: var(--bg);
+            box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.4);
+        }
+
+        /* Hero Visual for Hub */
+        .hero-visual-hub {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .section-header h1 { font-size: 3rem; }
+            .back-nav { top: 20px; left: 20px; }
         }
     </style>
 </head>
 
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+
+    <!-- Background Elements -->
+    <canvas id="particle-canvas"></canvas>
     <div class="noise-overlay"></div>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
+    <div class="bg-glow g3"></div>
 
     <div class="back-nav">
-        <a href="../../index.html">&larr; Main Terminal</a>
+        <a href="../../index.html" class="magnetic">&larr; Main Terminal</a>
     </div>
 
     <div class="hub-container">
-        <div class="section-header">
-            <h1>Data <span class="highlight">Converters</span></h1>
-            <p>Transform formats, signals, and assets.</p>
+        <div class="section-header hidden-scroll">
+            <div class="system-tag">PROTOCOL_HUB // CONVERTERS</div>
+            <h1 class="scramble-text">Data <span class="highlight">Synthesizers</span></h1>
+            <p>Advanced transformation protocols for digital assets, signals, and multi-format data structures.</p>
+        </div>
+
+        <div class="hero-visual-hub">
+            <div class="main-orb">
+                <div class="glowing-orb"></div>
+                <div class="orb-ring"></div>
+                <div class="orb-ring"></div>
+                <div class="orb-ring"></div>
+            </div>
         </div>
 
         <div class="grid">
             <!-- Binary -->
-            <a href="binary-to-decimal/index.html" class="card">
+            <a href="binary-to-decimal/index.html" class="card glass magnetic hidden-scroll">
                 <div class="card-icon">101</div>
                 <h3>Binary Translator</h3>
-                <p>Convert decimal numbers to binary strings and vice versa.</p>
+                <p>Bi-directional conversion between base-2 and base-10 numerical systems.</p>
             </a>
 
             <!-- Case -->
-            <a href="case-converter/index.html" class="card">
+            <a href="case-converter/index.html" class="card glass magnetic hidden-scroll">
                 <div class="card-icon">Aa</div>
                 <h3>Case Transformer</h3>
-                <p>Switch between camelCase, SNAKE_CASE, PascalCase, and more.</p>
+                <p>Semantic reformatting of string identifiers across programming conventions.</p>
             </a>
 
             <!-- Emoji -->
-            <a href="emoji-translator/index.html" class="card">
+            <a href="emoji-translator/index.html" class="card glass magnetic hidden-scroll">
                 <div class="card-icon">😎</div>
                 <h3>Emoji Translator</h3>
-                <p>Convert plain text into fun emoji-rich sentences.</p>
+                <p>Natural language projection onto visual ideographic symbols.</p>
             </a>
 
             <!-- Image Base64 -->
-            <a href="image-to-base64/index.html" class="card">
+            <a href="image-to-base64/index.html" class="card glass magnetic hidden-scroll">
                 <div class="card-icon">🖼️</div>
                 <h3>Image Encoder</h3>
-                <p>Turn image files into Base64 data strings for embedding.</p>
+                <p>Bitstream encoding of visual assets into ASCII-compatible text strings.</p>
             </a>
 
             <!-- JSON CSV -->
-            <a href="json-to-csv/index.html" class="card">
+            <a href="json-to-csv/index.html" class="card glass magnetic hidden-scroll">
                 <div class="card-icon">{}</div>
                 <h3>Format Shifter</h3>
-                <p>Convert JSON arrays to CSV format for spreadsheets.</p>
+                <p>Structural flattening of hierarchical JSON into tabular CSV datasets.</p>
             </a>
 
             <!-- Morse -->
-            <a href="morse-code/index.html" class="card">
+            <a href="morse-code/index.html" class="card glass magnetic hidden-scroll">
                 <div class="card-icon">••-</div>
                 <h3>Morse Encoder</h3>
-                <p>Translate text to Morse code signals with audio playback.</p>
+                <p>Signal modulation of textual data into rhythmic pulse sequences.</p>
             </a>
 
             <!-- Multi Unit -->
-            <a href="multi-unit-converter/index.html" class="card">
+            <a href="multi-unit-converter/index.html" class="card glass magnetic hidden-scroll">
                 <div class="card-icon">📏</div>
                 <h3>Universal Converter</h3>
-                <p>Convert Length, Weight, and Temperature units instantly.</p>
+                <p>Dimensional analysis across global measurement standards and metrics.</p>
             </a>
 
             <!-- Roman -->
-            <a href="roman-numeral/index.html" class="card">
+            <a href="roman-numeral/index.html" class="card glass magnetic hidden-scroll">
                 <div class="card-icon">IV</div>
                 <h3>Roman Numerals</h3>
-                <p>Translate modern numbers into ancient Roman format.</p>
+                <p>Classical numeral system mapping for modern numerical inputs.</p>
             </a>
 
             <!-- Speech to Text -->
-            <a href="speech-to-text/index.html" class="card">
+            <a href="speech-to-text/index.html" class="card glass magnetic hidden-scroll">
                 <div class="card-icon">🎙️</div>
                 <h3>Voice Logger</h3>
-                <p>Convert spoken words into written text using the microphone.</p>
+                <p>Neural processing of acoustic signals into digital text representations.</p>
             </a>
 
             <!-- Text to Speech -->
-            <a href="text-to-speech/index.html" class="card">
+            <a href="text-to-speech/index.html" class="card glass magnetic hidden-scroll">
                 <div class="card-icon">🔊</div>
                 <h3>Vocal Synthesizer</h3>
-                <p>Turn written text into spoken audio with customizable voices.</p>
+                <p>Algorithmic generation of human-like speech from text streams.</p>
             </a>
 
             <!-- Time Zone -->
-            <a href="time-zone-converter/index.html" class="card">
+            <a href="time-zone-converter/index.html" class="card glass magnetic hidden-scroll">
                 <div class="card-icon">🌍</div>
                 <h3>World Clock</h3>
-                <p>Compare local time against major global timezones.</p>
+                <p>Temporal alignment across planetary longitudinal coordinates.</p>
             </a>
         </div>
     </div>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
 </body>
 
 </html>

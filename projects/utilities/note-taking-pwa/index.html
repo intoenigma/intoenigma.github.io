@@ -1,31 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <title>Enigma Notes | IntoEnigma</title>
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <div class="sidebar">
-            <h2>Notes</h2>
-            <button id="new-btn" class="cta-btn secondary small full-width">+ New Note</button>
-            <div id="note-list" class="note-list">
-                <!-- Items -->
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+
+    <div class="container" style="max-width: 1200px;">
+        <div class="utility-card glass"
+            style="display: grid; grid-template-columns: 280px 1fr; gap: 2rem; padding: 2rem; height: 700px;">
+            <div class="sidebar glass"
+                style="display: flex; flex-direction: column; padding: 1.5rem; border-radius: 20px;">
+                <h2 class="font-space"
+                    style="font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem;">
+                    Archives</h2>
+                <button id="new-btn" class="cta-btn primary full-width magnetic" style="margin-bottom: 2rem;">+ New
+                    Entry</button>
+                <div id="note-list" class="note-list"
+                    style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 0.5rem; padding-right: 0.5rem;">
+                    <!-- Note objects injected here -->
+                </div>
+            </div>
+
+            <div class="editor glass"
+                style="display: flex; flex-direction: column; padding: 2rem; border-radius: 24px; position: relative;">
+                <input type="text" id="title-in" placeholder="Entry Label..." class="glass"
+                    style="font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem; border: none; background: transparent; padding: 0.5rem 0;">
+                <textarea id="body-in" placeholder="Initialize data logging..." class="glass"
+                    style="flex: 1; border: none; background: transparent; padding: 0.5rem 0; resize: none; font-size: 1.1rem; line-height: 1.6;"></textarea>
+                <div style="text-align: right; margin-top: 1.5rem;">
+                    <button id="save-btn" class="cta-btn primary magnetic" style="padding: 0.8rem 2.5rem;">Commit to
+                        Archive</button>
+                </div>
             </div>
         </div>
-        <div class="editor">
-            <input type="text" id="title-in" placeholder="Note Title...">
-            <textarea id="body-in" placeholder="Write something..."></textarea>
-            <button id="save-btn" class="cta-btn primary">Save Note</button>
-        </div>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

@@ -5,24 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News Feed | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Daily <span class="highlight">Brief</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div id="articles" class="article-grid">
-            <div class="loader">Loading headlines...</div>
+    <div class="container" style="max-width: 1100px;">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Global <span class="highlight">Intelligence</span></h2>
+                <p style="color: var(--text-muted);">Coordinate real-time news packets from global communication
+                    networks.</p>
+            </header>
+
+            <div id="articles" class="article-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; min-height: 400px;">
+                <div class="loader"
+                    style="grid-column: 1/-1; text-align: center; padding-top: 6rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 3px;">
+                    Intercepting Satellite Transmissions...</div>
+            </div>
         </div>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
 

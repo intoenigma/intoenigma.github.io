@@ -1,37 +1,45 @@
 body {
-    margin: 0;
     overflow: hidden;
-    height: 100vh;
-    background: #000;
+    display: flex;
+    flex-direction: column;
 }
 
 .fs-canvas-container {
     width: 100%;
-    height: 100%;
-    position: relative;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
-canvas {
+#canvas {
+    width: 100%;
+    height: 100%;
     display: block;
 }
 
-.overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+.controls-overlay {
+    position: fixed;
+    top: 5rem;
+    left: 2rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    padding: 1.5rem;
+    border-radius: 16px;
+    z-index: 5;
     pointer-events: none;
 }
 
-h1 {
-    font-size: 4rem;
-    color: #fff;
-    text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+.controls-overlay h2 {
+    font-family: var(--font-heading);
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
 }
 
-p {
-    color: #fff;
-    font-size: 1.2rem;
-    opacity: 0.8;
+.controls-overlay p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
 }

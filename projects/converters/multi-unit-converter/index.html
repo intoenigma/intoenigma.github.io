@@ -4,41 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit Converter | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Universal Converter | IntoEnigma</title>
+    <!-- Premium Typography -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../converter-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+
+    <!-- Background Elements -->
+    <canvas id="particle-canvas"></canvas>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Converters</a>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
+    <div class="bg-glow g3"></div>
 
-    <div class="converter-container glass">
-        <header>
-            <h2>Universal <span class="highlight">Converter</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Converters</a>
 
-        <div class="category-select">
-            <button class="cat-btn active" onclick="setCategory('length')">Length</button>
-            <button class="cat-btn" onclick="setCategory('weight')">Weight</button>
-            <button class="cat-btn" onclick="setCategory('temp')">Temp</button>
-        </div>
+    <main class="main-content">
+        <div class="converter-container glass hidden-scroll">
+            <header class="converter-header">
+                <div class="system-tag">PROTOCOL_UNIT // METRIC</div>
+                <h2 class="scramble-text">Universal <span class="highlight">Converter</span></h2>
+                <p>Dimensional analysis protocol.</p>
+            </header>
 
-        <div class="conversion-box">
-            <div class="input-group">
-                <input type="number" id="from-val" value="1">
-                <select id="from-unit"></select>
+            <div class="category-select hidden-scroll">
+                <button class="cat-btn active magnetic" onclick="setCategory('length')">Length</button>
+                <button class="cat-btn magnetic" onclick="setCategory('weight')">Weight</button>
+                <button class="cat-btn magnetic" onclick="setCategory('temp')">Temp</button>
             </div>
 
-            <div class="arrow">=</div>
+            <div class="input-section">
+                <div class="input-group">
+                    <label>From</label>
+                    <div class="unit-row">
+                        <input type="number" id="from-val" class="glass-input magnetic" value="1">
+                        <select id="from-unit" class="glass-input unit-select magnetic"></select>
+                    </div>
+                </div>
 
-            <div class="input-group">
-                <input type="number" id="to-val" readonly>
-                <select id="to-unit"></select>
+                <div class="exchange-icon magnetic">=</div>
+
+                <div class="input-group">
+                    <label>To</label>
+                    <div class="unit-row">
+                        <input type="number" id="to-val" class="glass-input magnetic" readonly>
+                        <select id="to-unit" class="glass-input unit-select magnetic"></select>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
+
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 

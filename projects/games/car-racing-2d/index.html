@@ -5,27 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neon Racer | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Outfit & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../game-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Games</a>
+    <!-- Custom Cursor -->
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
 
-    <div class="game-container">
-        <canvas id="gameCanvas" width="400" height="600"></canvas>
-        <div class="hud glass">
-            SCORE: <span id="score">0</span>
-        </div>
-        <div id="start-overlay" class="overlay glass">
-            <h2>Neon <span class="highlight">Racer</span></h2>
-            <p>Avoid the traffic. High Speed Protocol.</p>
-            <p style="font-size:0.8rem; color:#aaa;">Arrow Keys to Steer</p>
-            <button id="start-btn" class="cta-btn primary">Ignite</button>
+    <!-- Background Elements -->
+    <div class="noise-overlay"></div>
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
+    <div class="bg-glow g3"></div>
+
+    <a href="../index.html" class="back-link magnetic">&larr; Back to Games</a>
+
+    <div class="main-content">
+        <div class="game-container glass magnetic-card fade-in">
+            <header class="game-header">
+                <div class="stat-panel">
+                    <div class="stat-item">
+                        <span class="stat-label">Velocity Score</span>
+                        <span id="score" class="stat-value">0</span>
+                    </div>
+                </div>
+                <h2 class="scramble-text" data-value="NEON RACER">NEON <span class="highlight">RACER</span></h2>
+            </header>
+
+            <div class="canvas-wrapper glass">
+                <canvas id="gameCanvas" width="400" height="600"></canvas>
+            </div>
+
+            <footer class="game-info">
+                <div class="controls-hint glass">
+                    <p><span class="key-cap">&larr;</span> <span class="key-cap">&rarr;</span> to Steer</p>
+                    <p>Maintain high-velocity flow.</p>
+                </div>
+            </footer>
+
+            <div id="start-overlay" class="overlay glass">
+                <h2 class="scramble-text" data-value="IGNITE SYSTEM">IGNITE <span class="highlight">SYSTEM</span></h2>
+                <p>Avoid traffic protocols. Extreme velocity required.</p>
+                <button id="start-btn" class="cta-btn primary magnetic">Ignite</button>
+            </div>
         </div>
     </div>
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 

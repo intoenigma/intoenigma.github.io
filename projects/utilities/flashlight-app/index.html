@@ -4,18 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flashlight | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <title>Lumina | IntoEnigma</title>
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <div id="screen" class="screen"></div>
-    <div class="controls">
-        <button id="toggle-btn" class="power-btn">🔌</button>
-        <a href="../index.html" class="back-link">Exit</a>
+<body style="overflow: hidden;">
+    <div id="screen" class="screen"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; transition: background 0.3s; z-index: 1;">
     </div>
+
+    <div class="noise-overlay"></div>
+    <div class="bg-glow"></div>
+
+    <div class="controls"
+        style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; text-align: center;">
+        <button id="toggle-btn" class="power-btn magnetic"
+            style="width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--primary); background: rgba(0,0,0,0.5); font-size: 3rem; box-shadow: 0 0 30px rgba(99, 102, 241, 0.5); transition: all 0.3s;">⚡</button>
+        <p
+            style="margin-top: 2rem; font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: 3px; color: var(--text-muted);">
+            Lumina Output</p>
+    </div>
+
+    <a href="../index.html" class="back-link magnetic" style="z-index: 20;">&larr; Exit Protocol</a>
+
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
 

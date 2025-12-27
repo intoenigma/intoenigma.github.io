@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Cheatsheet | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Git <span class="highlight">Commands</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <input type="text" id="search" placeholder="Search commands (e.g. commit, branch, log)...">
+    <div class="container" style="max-width: 900px;">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Version <span class="highlight">Intelligence</span></h2>
+                <p style="color: var(--text-muted);">Repository synchronization and maintenance protocols.</p>
+            </header>
 
-        <div class="command-list" id="list">
-            <!-- Loop JS -->
+            <div class="search-box glass" style="display: flex; gap: 0.5rem; padding: 0.5rem; border-radius: 15px; margin-bottom: 2.5rem;">
+                <input type="text" id="search" placeholder="Query command (e.g. commit, branch, push)..." class="glass" style="border: none; background: transparent;">
+            </div>
+
+            <div class="command-list" id="list" style="display: grid; grid-template-columns: 1fr; gap: 1rem; max-height: 500px; overflow-y: auto; padding-right: 0.5rem;">
+                <!-- Command components injected here -->
+            </div>
         </div>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

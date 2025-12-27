@@ -1,7 +1,77 @@
-body { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-.gen-container { width: 100%; max-width: 500px; padding: 2rem; border-radius: 20px; text-align: center; }
-.card-display { background: rgba(0,0,0,0.5); padding: 3rem 2rem; border-radius: 12px; margin-bottom: 2rem; position: relative; border: 1px solid rgba(255,255,255,0.1); min-height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-.badge { position: absolute; top: 1rem; right: 1rem; background: var(--primary); color: #000; font-weight: bold; padding: 0.2rem 0.8rem; border-radius: 4px; text-transform: uppercase; font-size: 0.8rem; }
-.badge.dare { background: var(--secondary); color: #fff; }
-#prompt { font-size: 1.5rem; line-height: 1.4; }
-.controls { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.td-display-wrapper {
+    margin-bottom: 3rem;
+}
+
+.td-card {
+    padding: 3rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.5s;
+    position: relative;
+    overflow: hidden;
+}
+
+.td-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    color: var(--primary);
+}
+
+.td-badge {
+    font-family: monospace;
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    background: rgba(var(--primary-rgb), 0.1);
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.td-prompt {
+    font-family: var(--font-head);
+    font-size: 1.8rem;
+    line-height: 1.4;
+    color: #fff;
+    text-align: center;
+}
+
+.truth-trigger {
+    background: rgba(var(--primary-rgb), 0.2) !important;
+    border: 1px solid var(--primary) !important;
+    color: var(--primary) !important;
+}
+
+.truth-trigger:hover {
+    background: var(--primary) !important;
+    color: var(--bg) !important;
+}
+
+.dare-trigger {
+    background: rgba(255, 0, 123, 0.2) !important;
+    border: 1px solid #ff007b !important;
+    color: #ff007b !important;
+}
+
+.dare-trigger:hover {
+    background: #ff007b !important;
+    color: #fff !important;
+    box-shadow: 0 0 30px rgba(255, 0, 123, 0.5) !important;
+}
+
+.truth-mode {
+    border-color: var(--primary);
+    box-shadow: 0 0 30px rgba(var(--primary-rgb), 0.1);
+}
+
+.dare-mode {
+    border-color: #ff007b;
+    box-shadow: 0 0 30px rgba(255, 0, 123, 0.1);
+}

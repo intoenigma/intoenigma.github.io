@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard Core | IntoEnigma</title>
+    <link rel="stylesheet" href="../shared/quiz-base.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="bg-visuals">
+        <canvas class="particle-canvas"></canvas>
+        <div class="bg-glow one"></div>
+        <div class="bg-glow two"></div>
+    </div>
+
+    <nav class="top-nav">
+        <a href="../index.html" class="back-btn magnetic-wrap"><i class="fas fa-arrow-left"></i> Hub</a>
+        <div class="logo">FLASHCARD <span style="color: var(--primary);">CORE</span></div>
+    </nav>
+
+    <main class="container">
+        <div class="card-stack">
+            <div id="flashcard" class="flashcard interactive">
+                <div class="card-inner-3d">
+                    <div class="card-front glass-container">
+                        <div class="side-label">QUESTION</div>
+                        <h2 id="question-text">Click to start</h2>
+                    </div>
+                    <div class="card-back glass-container">
+                        <div class="side-label">ANSWER</div>
+                        <p id="answer-text">Answer will appear here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls glass-container">
+            <button id="prev-btn" class="ctrl-btn magnetic-wrap"><i class="fas fa-undo"></i></button>
+            <button id="next-btn" class="ctrl-btn main magnetic-wrap">NEXT CARD</button>
+            <button id="add-btn" class="ctrl-btn magnetic-wrap"><i class="fas fa-plus"></i></button>
+        </div>
+    </main>
+
+    <!-- Simple Add Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content glass-container">
+            <h3>Add Protocol</h3>
+            <input type="text" id="new-q" placeholder="Question">
+            <input type="text" id="new-a" placeholder="Answer">
+            <div class="modal-btns">
+                <button onclick="closeModal()">CANCEL</button>
+                <button onclick="saveCard()" class="primary">SAVE</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../shared/quiz-base.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

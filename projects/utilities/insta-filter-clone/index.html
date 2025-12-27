@@ -5,40 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photo Filters | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Vibe <span class="highlight">Studio</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div class="upload-section">
-            <input type="file" id="upload" accept="image/*" hidden>
-            <button onclick="document.getElementById('upload').click()" class="cta-btn secondary">Upload Image</button>
+    <div class="container" style="max-width: 1000px;">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Vibe <span class="highlight">Studio</span></h2>
+                <p style="color: var(--text-muted);">Atmospheric visual re-synchronization studio.</p>
+            </header>
+
+            <div class="upload-section glass"
+                style="padding: 2rem; border-radius: 20px; text-align: center; margin-bottom: 2rem; border: 1px dashed var(--border);">
+                <input type="file" id="upload" accept="image/*" hidden>
+                <button onclick="document.getElementById('upload').click()" class="cta-btn magnetic"
+                    style="border-style: dashed;">Import Visual Data</button>
+            </div>
+
+            <div class="canvas-wrap glass"
+                style="width: 100%; aspect-ratio: 4/3; background: #000; border-radius: 20px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; border: 1px solid var(--border);">
+                <canvas id="canvas" style="max-width: 100%; max-height: 100%;"></canvas>
+            </div>
+
+            <div class="filters-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 1rem; margin-bottom: 2.5rem;">
+                <button onclick="applyFilter('none')" class="cta-btn glass magnetic"
+                    style="font-size: 0.8rem; padding: 0.8rem;">Protocol: 0</button>
+                <button onclick="applyFilter('grayscale')" class="cta-btn glass magnetic"
+                    style="font-size: 0.8rem; padding: 0.8rem;">B&W Scan</button>
+                <button onclick="applyFilter('sepia')" class="cta-btn glass magnetic"
+                    style="font-size: 0.8rem; padding: 0.8rem;">Vintage</button>
+                <button onclick="applyFilter('invert')" class="cta-btn glass magnetic"
+                    style="font-size: 0.8rem; padding: 0.8rem;">X-Ray</button>
+                <button onclick="applyFilter('contrast')" class="cta-btn glass magnetic"
+                    style="font-size: 0.8rem; padding: 0.8rem;">High-Punch</button>
+                <button onclick="applyFilter('blur')" class="cta-btn glass magnetic"
+                    style="font-size: 0.8rem; padding: 0.8rem;">Soft-Blur</button>
+            </div>
+
+            <button id="download-btn" class="cta-btn primary full-width magnetic" style="width: 100%;">Export
+                Synthesized Visual</button>
         </div>
-
-        <div class="canvas-wrap">
-            <canvas id="canvas"></canvas>
-        </div>
-
-        <div class="filters">
-            <button onclick="applyFilter('none')">Normal</button>
-            <button onclick="applyFilter('grayscale')">B&W</button>
-            <button onclick="applyFilter('sepia')">Vintage</button>
-            <button onclick="applyFilter('invert')">X-Ray</button>
-            <button onclick="applyFilter('contrast')">Punch</button>
-            <button onclick="applyFilter('blur')">Soft</button>
-        </div>
-
-        <button id="download-btn" class="cta-btn primary full-width">Save Photo</button>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
 

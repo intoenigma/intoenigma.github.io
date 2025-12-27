@@ -5,35 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checklist Maker | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Task <span class="highlight">Master</span></h2>
-            <div id="progress-bar-container">
-                <div id="progress-bar"></div>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+
+    <div class="container" style="max-width: 700px;">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Task <span class="highlight">Protocol</span></h2>
+                <div id="progress-bar-container"
+                    style="width: 100%; height: 6px; background: var(--border); border-radius: 10px; margin: 1.5rem 0; overflow: hidden;">
+                    <div id="progress-bar"
+                        style="width: 0%; height: 100%; background: linear-gradient(to right, var(--primary), var(--secondary)); transition: width 0.4s ease;">
+                    </div>
+                </div>
+                <p id="stats"
+                    style="color: var(--text-muted); font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem;">0 / 0
+                    Completed</p>
+            </header>
+
+            <div class="input-area glass"
+                style="display: flex; gap: 0.5rem; padding: 0.5rem; border-radius: 15px; margin-bottom: 2rem;">
+                <input type="text" id="task-input" placeholder="Initialize new objective..." class="glass"
+                    style="border: none; background: transparent;">
+                <button id="add-btn" class="cta-btn primary magnetic" style="padding: 0 1.5rem;">Add</button>
             </div>
-            <p id="stats">0 / 0 Done</p>
-        </header>
 
-        <div class="input-area">
-            <input type="text" id="task-input" placeholder="Add a new task...">
-            <button id="add-btn" class="cta-btn primary">+</button>
+            <ul id="task-list"
+                style="list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 2rem;">
+                <!-- Tasks dynamic -->
+            </ul>
+
+            <button id="clear-btn" class="cta-btn magnetic"
+                style="width: 100%; background: rgba(255,50,50,0.05); color: #ff5555; border-color: rgba(255,50,50,0.2);">Purge
+                All Objectives</button>
         </div>
-
-        <ul id="task-list">
-            <!-- Items -->
-        </ul>
-
-        <button id="clear-btn" class="cta-btn secondary small">Clear All</button>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
 

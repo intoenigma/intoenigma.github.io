@@ -4,42 +4,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lorem Img | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Visual Synthesis | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../generator-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+    <canvas id="particle-canvas"></canvas>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Generators</a>
 
-    <div class="gen-container glass">
-        <h2>Lorem <span class="highlight">Picsum</span></h2>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
 
-        <div class="img-frame">
-            <img id="lorem-img" src="" alt="Lorem Image">
-        </div>
+    <div class="back-nav">
+        <a href="../index.html" class="back-btn magnetic">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Generators</span>
+        </a>
+    </div>
 
-        <div class="controls">
-            <div class="size-inputs">
-                <input type="number" id="w" placeholder="W" value="400">
-                <span>x</span>
-                <input type="number" id="h" placeholder="H" value="300">
+    <div class="generator-container animate-in">
+        <div class="glass-panel" style="padding: 3rem;">
+            <header class="generator-header">
+                <div class="system-tag">PROTOCOL :: VISUAL_SYNTHESIS</div>
+                <h1 class="generator-title scramble-text" data-value="LOREM PICSUM">LOREM PICSUM</h1>
+                <p class="generator-desc">Fetch high-fidelity placeholders from the central visual cluster.</p>
+            </header>
+
+            <div class="visual-display-wrapper">
+                <div class="visual-frame">
+                    <img id="lorem-img" src="https://picsum.photos/400/300" alt="Synthesized Visual">
+                    <div class="loading-overlay" id="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
             </div>
-            <label>
-                <input type="checkbox" id="gray"> Grayscale
-            </label>
-            <label>
-                <input type="checkbox" id="blur"> Blur
-            </label>
-            <button class="cta-btn primary full-width" onclick="fetchImage()">Fetch</button>
-        </div>
 
-        <div class="url-box">
-            <code id="url-out">...</code>
+            <div class="controls-grid">
+                <div class="input-group">
+                    <label class="input-label">Dimensions (W x H)</label>
+                    <div class="dimension-inputs">
+                        <input type="number" id="w" placeholder="Width" value="400" class="magnetic">
+                        <input type="number" id="h" placeholder="Height" value="300" class="magnetic">
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">Visual Filters</label>
+                    <div class="filter-options">
+                        <label class="check-container magnetic">
+                            <input type="checkbox" id="gray">
+                            <span class="checkmark"></span>
+                            Grayscale
+                        </label>
+                        <label class="check-container magnetic">
+                            <input type="checkbox" id="blur">
+                            <span class="checkmark"></span>
+                            Gaussian Blur
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <button class="gen-btn magnetic" onclick="fetchImage()" id="gen-trigger">
+                <i class="fas fa-camera-retro"></i> Capture Visual
+            </button>
+
+            <div class="url-output glass">
+                <p class="system-tag">SOURCE_URL</p>
+                <code id="url-out">https://picsum.photos/400/300</code>
+                <button class="copy-btn magnetic" onclick="copyUrl()"><i class="fas fa-copy"></i></button>
+            </div>
         </div>
     </div>
+
+    <footer class="footer container">
+        <div class="footer-bottom">
+            <p>&copy; 2025 INTOENIGMA :: PICSUM_INTERFACE</p>
+            <div class="footer-stats">
+                <span>INDEXED: 1.2M+</span>
+                <span>STATUS: STABLE</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flag Nexus | IntoEnigma</title>
+    <link rel="stylesheet" href="../shared/quiz-base.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="bg-visuals">
+        <canvas class="particle-canvas"></canvas>
+        <div class="bg-glow one"></div>
+        <div class="bg-glow two"></div>
+    </div>
+
+    <nav class="top-nav">
+        <a href="../index.html" class="back-btn magnetic-wrap"><i class="fas fa-arrow-left"></i> Hub</a>
+        <div class="logo">FLAG <span style="color: var(--primary);">NEXUS</span></div>
+    </nav>
+
+    <main class="container">
+        <div class="stats glass-container">
+            <div class="stat-item">SCORE: <span id="score">0</span></div>
+            <div class="stat-item">STREAK: <span id="streak">0</span></div>
+        </div>
+
+        <div class="quiz-area glass-container">
+            <div id="flag-container">
+                <img id="flag-img" src="" alt="Flag">
+            </div>
+            <div id="options-grid">
+                <!-- Buttons will be generated here -->
+            </div>
+        </div>
+    </main>
+
+    <script src="../shared/quiz-base.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

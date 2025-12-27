@@ -1,68 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit Cost Calculator | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Value Comparator | IntoEnigma</title>
+    <!-- Google Fonts: Outfit & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
-    <link rel="stylesheet" href="../age-calculator/style.css">
+    <link rel="stylesheet" href="../calculator-base.css">
+    <style>
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
+
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+
+    <!-- Background Elements -->
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Back to Calculators</a>
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
+    <div class="bg-glow g3"></div>
 
-    <div class="calc-container glass" style="max-width: 700px;">
-        <header class="calc-header">
-            <h2>Value <span class="highlight">Comparator</span></h2>
-            <p>Compare two items to find the best deal.</p>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Back to Calculators</a>
 
-        <div class="input-section" style="flex-direction: row; gap: 2rem;">
-            <!-- Item A -->
-            <div style="flex: 1;">
-                <h3 style="margin-bottom: 1rem; color: #fff;">Item A</h3>
-                <div class="input-group">
-                    <label>Price ($)</label>
-                    <input type="number" id="price-a">
+    <div class="main-content">
+        <div class="calc-container glass magnetic-card" style="max-width: 800px;">
+            <header class="calc-header">
+                <h2 class="scramble-text" data-value="VALUE COMPARATOR">VALUE <span class="highlight">COMPARATOR</span></h2>
+                <p>Execute side-by-side unit cost analysis to optimize product value.</p>
+            </header>
+
+            <div class="input-section">
+                <div class="comparison-grid">
+                    <!-- Item A -->
+                    <div class="item-block">
+                        <h3 style="margin-bottom: 1.5rem; color: #fff; font-family: var(--font-head); letter-spacing: 1px;">Item Alpha</h3>
+                        <div class="input-group">
+                            <label>Price ($)</label>
+                            <input type="number" id="price-a" class="glass-input" step="0.01">
+                        </div>
+                        <div class="input-group" style="margin-top: 1rem;">
+                            <label>Quantity / Weight</label>
+                            <input type="number" id="qty-a" class="glass-input" step="0.01">
+                        </div>
+                    </div>
+
+                    <!-- Item B -->
+                    <div class="item-block">
+                        <h3 style="margin-bottom: 1.5rem; color: #fff; font-family: var(--font-head); letter-spacing: 1px;">Item Beta</h3>
+                        <div class="input-group">
+                            <label>Price ($)</label>
+                            <input type="number" id="price-b" class="glass-input" step="0.01">
+                        </div>
+                        <div class="input-group" style="margin-top: 1rem;">
+                            <label>Quantity / Weight</label>
+                            <input type="number" id="qty-b" class="glass-input" step="0.01">
+                        </div>
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label>Qty/Weight</label>
-                    <input type="number" id="qty-a">
-                </div>
+
+                <button id="calculate-btn" class="cta-btn primary full-width magnetic" style="margin-top: 2rem;">Compare Unit Protocols</button>
             </div>
 
-            <!-- Item B -->
-             <div style="flex: 1;">
-                <h3 style="margin-bottom: 1rem; color: #fff;">Item B</h3>
-                <div class="input-group">
-                    <label>Price ($)</label>
-                    <input type="number" id="price-b">
+            <div class="result-section hidden" id="result-section">
+                <div class="result-grid">
+                    <div class="result-card glass" id="card-a">
+                        <span id="unit-a" class="number">0</span>
+                        <span class="label">Item Alpha / Unit</span>
+                    </div>
+                    <div class="result-card glass" id="card-b">
+                        <span id="unit-b" class="number">0</span>
+                        <span class="label">Item Beta / Unit</span>
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label>Qty/Weight</label>
-                    <input type="number" id="qty-b">
-                </div>
+                <p id="verdict" style="text-align: center; color: var(--primary); margin-top: 2rem; font-size: 1.5rem; font-weight: 800; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 2px;"></p>
             </div>
-        </div>
-        
-        <button id="calculate-btn" class="cta-btn primary full-width" style="margin-top: 1.5rem;">Compare</button>
-
-        <div class="result-section hidden" id="result-section">
-            <div class="result-grid" style="grid-template-columns: 1fr 1fr;">
-                 <div class="result-card" id="card-a">
-                    <span id="unit-a" class="number">0</span>
-                    <span class="label">Item A / Unit</span>
-                </div>
-                 <div class="result-card" id="card-b">
-                    <span id="unit-b" class="number">0</span>
-                    <span class="label">Item B / Unit</span>
-                </div>
-            </div>
-            <p id="verdict" style="text-align: center; color: var(--primary); margin-top: 1rem; font-size: 1.2rem;"></p>
         </div>
     </div>
 
+    <section class="join-section hidden-scroll">
+        <div class="container">
+            <div class="glass glass-panel magnetic-card">
+                <h2 class="scramble-text" data-value="JOIN THE ENIGMA">JOIN THE ENIGMA</h2>
+                <p>Submerge into the digital void. New protocols added daily.</p>
+                <div class="social-links">
+                    <a href="#" class="social-btn magnetic"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-btn magnetic"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="social-btn magnetic"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 INTOENIGMA // [SYSTEM_NOMINAL]</p>
+                <div class="footer-stats">
+                    <span>UPTIME: 99.9%</span>
+                    <span>LATENCY: 12ms</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

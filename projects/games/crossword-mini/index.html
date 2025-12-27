@@ -4,44 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crossword Mini | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Cryptic Cross | IntoEnigma</title>
+    <!-- Google Fonts: Outfit & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../game-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+
+    <!-- Background Elements -->
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Games</a>
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
+    <div class="bg-glow g3"></div>
 
-    <div class="game-container glass">
-        <header>
-            <h2>Cryptic <span class="highlight">Cross</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Back to Games</a>
 
-        <div class="main-layout">
-            <div id="crossword-grid" class="grid">
-                <!-- Grid JS -->
+    <div class="main-content">
+        <div class="game-container glass magnetic-card fade-in">
+            <header class="game-header">
+                <h1 class="scramble-text" data-value="CRYPTIC CROSS">CRYPTIC <span class="highlight">CROSS</span></h1>
+                <p>Lexical decoding and semantic cross-referencing protocol.</p>
+            </header>
+
+            <div class="main-layout glass">
+                <div id="crossword-grid" class="grid-wrapper glass">
+                    <!-- Grid JS -->
+                </div>
+
+                <div class="clues-container glass">
+                    <div class="clue-section">
+                        <h3 class="scramble-text" data-value="HORIZONTAL">HORIZONTAL</h3>
+                        <ul id="across-clues" class="clue-list">
+                            <!-- Clues JS -->
+                        </ul>
+                    </div>
+                    <div class="clue-section">
+                        <h3 class="scramble-text" data-value="VERTICAL">VERTICAL</h3>
+                        <ul id="down-clues" class="clue-list">
+                            <!-- Clues JS -->
+                        </ul>
+                    </div>
+                </div>
             </div>
 
-            <div class="clues">
-                <div class="clue-section">
-                    <h3>ACROSS</h3>
-                    <ul id="across-clues">
-                        <!-- Clues JS -->
-                    </ul>
-                </div>
-                <div class="clue-section">
-                    <h3>DOWN</h3>
-                    <ul id="down-clues">
-                        <!-- Clues JS -->
-                    </ul>
-                </div>
-            </div>
+            <footer class="game-info">
+                <button id="check-btn" class="cta-btn primary full-width magnetic">Verify Integrity</button>
+            </footer>
         </div>
-
-        <button id="check-btn" class="cta-btn primary full-width">Verify Integrity</button>
     </div>
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 

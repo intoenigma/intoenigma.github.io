@@ -4,35 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bio Link | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <title>Bio Link Creator | IntoEnigma</title>
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Bio <span class="highlight">Builder</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div class="editor">
-            <input type="text" id="name" placeholder="Profile Name">
-            <input type="text" id="bio" placeholder="Short Bio">
-            <div id="links-container"></div>
-            <button id="add-link-btn" class="cta-btn small">+ Add Link</button>
-        </div>
+    <div class="container" style="max-width: 1000px;">
+        <div class="utility-card glass" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+            <div class="editor-section">
+                <header class="utility-header" style="margin-top: 0; text-align: left;">
+                    <h2 class="scramble-text">Bio <span class="highlight">Builder</span></h2>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Architect your digital identity.</p>
+                </header>
 
-        <div class="preview glass">
-            <div class="avatar-circle"></div>
-            <h3 id="p-name">Name</h3>
-            <p id="p-bio">Bio goes here</p>
-            <div id="p-links" class="p-links"></div>
+                <div class="editor" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <label>Profile Name</label>
+                    <input type="text" id="name" placeholder="John Doe" class="glass">
+                    <label>Short Biography</label>
+                    <textarea id="bio" placeholder="Digital Explorer & Creator" class="glass" rows="2"></textarea>
+
+                    <div id="links-container"
+                        style="display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1rem;"></div>
+
+                    <button id="add-link-btn" class="cta-btn magnetic" style="width: 100%; border-style: dashed;">+ Add
+                        Social Link</button>
+                    <button id="download-btn" class="cta-btn primary magnetic"
+                        style="width: 100%; margin-top: 1rem;">Export Profile</button>
+                </div>
+            </div>
+
+            <div class="preview-section">
+                <div class="preview glass"
+                    style="padding: 2.5rem; border-radius: 30px; text-align: center; background: rgba(255,255,255,0.02); height: 100%; display: flex; flex-direction: column; align-items: center;">
+                    <div class="avatar-circle"
+                        style="width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); margin-bottom: 1.5rem; box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);">
+                    </div>
+                    <h3 id="p-name" style="font-size: 1.8rem; margin-bottom: 0.5rem;">Profile Name</h3>
+                    <p id="p-bio" style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">
+                        Architecting the future.</p>
+                    <div id="p-links" class="p-links"
+                        style="width: 100%; display: flex; flex-direction: column; gap: 0.8rem;"></div>
+                </div>
+            </div>
         </div>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
 

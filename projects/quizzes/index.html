@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntoEnigma | Quiz Nexus</title>
+    <meta name="description" content="Advanced educational assessment protocols. Master any subject with precision.">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="shared/quiz-base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .hero {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            max-width: 600px;
+        }
+
+        .nav-hub {
+            padding: 4rem 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .quiz-card {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card-inner {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-inner:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .card-desc {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .card-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Visuals -->
+    <div class="bg-visuals">
+        <canvas class="particle-canvas"></canvas>
+        <div class="bg-glow one"></div>
+        <div class="bg-glow two"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="parallax-container">
+            <div class="orb-system">
+                <div class="orb-ring"></div>
+                <div class="orb-ring"></div>
+                <div class="orb-ring"></div>
+                <div class="orb-core"></div>
+            </div>
+        </div>
+        <h1 class="scramble-text">Quiz Nexus</h1>
+        <p>Quantum-enhanced learning protocols designed for cognitive optimization and rapid knowledge acquisition.</p>
+    </section>
+
+    <!-- Project Grid -->
+    <main class="nav-hub">
+        <a href="alphabet-learner/index.html" class="quiz-card magnetic-wrap">
+            <div class="card-inner glass-container">
+                <span class="card-tag">Early Learning</span>
+                <i class="fas fa-font card-icon"></i>
+                <h3 class="card-title">Alphabet Learner</h3>
+                <p class="card-desc">Master the foundations of language with interactive visual and auditory cues.</p>
+            </div>
+        </a>
+
+        <a href="flag-quiz/index.html" class="quiz-card magnetic-wrap">
+            <div class="card-inner glass-container">
+                <span class="card-tag">Geography</span>
+                <i class="fas fa-flag card-icon"></i>
+                <h3 class="card-title">Flag Nexus</h3>
+                <p class="card-desc">Identify national identifiers from across the globe in this high-speed protocol.</p>
+            </div>
+        </a>
+
+        <a href="flashcard-quiz/index.html" class="quiz-card magnetic-wrap">
+            <div class="card-inner glass-container">
+                <span class="card-tag">Active Recall</span>
+                <i class="fas fa-clone card-icon"></i>
+                <h3 class="card-title">Flashcard Core</h3>
+                <p class="card-desc">Advanced repetition systems for long-term memory retention and rapid recall.</p>
+            </div>
+        </a>
+
+        <a href="geography-quiz/index.html" class="quiz-card magnetic-wrap">
+            <div class="card-inner glass-container">
+                <span class="card-tag">Geography</span>
+                <i class="fas fa-earth-americas card-icon"></i>
+                <h3 class="card-title">Geo Scan</h3>
+                <p class="card-desc">Locate coordinates and capitals with spatial precision and speed.</p>
+            </div>
+        </a>
+
+        <a href="math-quiz/index.html" class="quiz-card magnetic-wrap">
+            <div class="card-inner glass-container">
+                <span class="card-tag">Mathematics</span>
+                <i class="fas fa-calculator card-icon"></i>
+                <h3 class="card-title">Math Matrix</h3>
+                <p class="card-desc">Test your arithmetic processors in real-time under high-pressure scenarios.</p>
+            </div>
+        </a>
+
+        <a href="math-worksheet-gen/index.html" class="quiz-card magnetic-wrap">
+            <div class="card-inner glass-container">
+                <span class="card-tag">Utility</span>
+                <i class="fas fa-file-invoice card-icon"></i>
+                <h3 class="card-title">Worksheet Forge</h3>
+                <p class="card-desc">Generate procedural mathematical training modules for offline execution.</p>
+            </div>
+        </a>
+
+        <a href="morse-code-trainer/index.html" class="quiz-card magnetic-wrap">
+            <div class="card-inner glass-container">
+                <span class="card-tag">Comm-Protocols</span>
+                <i class="fas fa-signal card-icon"></i>
+                <h3 class="card-title">Morse Operative</h3>
+                <p class="card-desc">Learn the universal signal language through pulse-based interactive drills.</p>
+            </div>
+        </a>
+
+        <a href="periodic-quiz/index.html" class="quiz-card magnetic-wrap">
+            <div class="card-inner glass-container">
+                <span class="card-tag">Science</span>
+                <i class="fas fa-atom card-icon"></i>
+                <h3 class="card-title">Element Hunter</h3>
+                <p class="card-desc">Deconstruct the universe. Identify elements across the periodic spectrum.</p>
+            </div>
+        </a>
+
+        <a href="typing-tutor/index.html" class="quiz-card magnetic-wrap">
+            <div class="card-inner glass-container">
+                <span class="card-tag">Input Speed</span>
+                <i class="fas fa-keyboard card-icon"></i>
+                <h3 class="card-title">Input Stream</h3>
+                <p class="card-desc">Optimize your manual data entry protocols for maximum words-per-minute.</p>
+            </div>
+        </a>
+
+        <a href="vocabulary-builder/index.html" class="quiz-card magnetic-wrap">
+            <div class="card-inner glass-container">
+                <span class="card-tag">Language</span>
+                <i class="fas fa-book card-icon"></i>
+                <h3 class="card-title">Lexicon Prime</h3>
+                <p class="card-desc">Expand your linguistic database with complex terminology and definitions.</p>
+            </div>
+        </a>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">INTO<span style="color: var(--primary);">ENIGMA</span></div>
+        <p style="color: var(--text-dim); font-size: 0.8rem;">MAX-LEVEL UPGRADE PROTOCOL ACTIVE // 2025</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="shared/quiz-base.js"></script>
+</body>
+</html>

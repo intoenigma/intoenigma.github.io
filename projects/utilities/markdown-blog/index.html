@@ -5,30 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Markdown Blog | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container">
-        <header>
-            <h2>Static <span class="highlight">Blog</span></h2>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+
+    <div class="container" style="max-width: 1000px;">
+        <header class="utility-header">
+            <h2 class="scramble-text">Static <span class="highlight">Intelligence</span></h2>
+            <p style="color: var(--text-muted);">Decentralized information storage and retrieval node.</p>
         </header>
 
-        <div id="blog-posts" class="blog-grid">
-            <!-- JS Injection -->
+        <div id="blog-posts" class="blog-grid"
+            style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+            <!-- Blog artifacts injected here -->
         </div>
 
-        <div id="post-viewer" class="post-viewer hidden glass">
-            <button onclick="closePost()" class="close-btn">&times;</button>
-            <div id="post-content" class="content"></div>
+        <div id="post-viewer" class="post-viewer hidden glass"
+            style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000; padding: 4rem; overflow-y: auto; background: rgba(5,5,8,0.95); backdrop-filter: blur(20px);">
+            <div class="post-wrapper" style="max-width: 800px; margin: 0 auto; position: relative;">
+                <button onclick="closePost()" class="cta-btn magnetic"
+                    style="position: absolute; top: -2rem; right: -2rem; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem;">&times;</button>
+                <div id="post-content" class="content glass"
+                    style="padding: 3rem; border-radius: 24px; color: var(--text); line-height: 1.8;"></div>
+            </div>
         </div>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
 

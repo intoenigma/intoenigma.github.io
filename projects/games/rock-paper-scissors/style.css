@@ -1,3 +1,84 @@
-/* CSS handled in index.html for this simple project to optimize file count */
-/* This file is intentionally left minimal to satisfy the 'complete project' requirement of having the file exist */
-/* Importing main styles is handled in HTML */
+.battle-area {
+    padding: 3rem;
+    border-radius: 24px;
+    background: rgba(0, 0, 0, 0.4);
+    margin-bottom: 2rem;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.result-display h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+    text-shadow: 0 0 15px rgba(var(--primary-rgb), 0.4);
+}
+
+.system-msg {
+    color: #80808a;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.choices {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.choice-btn {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.choice-btn:hover {
+    background: rgba(var(--primary-rgb), 0.1);
+    border-color: var(--primary);
+    transform: translateY(-10px) scale(1.1);
+    box-shadow: 0 15px 30px rgba(var(--primary-rgb), 0.2),
+        0 0 20px rgba(var(--primary-rgb), 0.2);
+}
+
+.choice-btn i {
+    pointer-events: none;
+}
+
+#rock:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+#paper:hover {
+    color: var(--secondary);
+    border-color: var(--secondary);
+}
+
+#scissors:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+@media (max-width: 500px) {
+    .choice-btn {
+        width: 70px;
+        height: 70px;
+        font-size: 1.5rem;
+    }
+
+    .choices {
+        gap: 1rem;
+    }
+}

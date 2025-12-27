@@ -1,28 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jokes | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Humor Synthesis | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../generator-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Generators</a>
 
-    <div class="gen-container glass">
-        <h2>Joke <span class="highlight">Dispenser</span></h2>
-        
-        <div class="joke-card">
-            <p id="setup">...</p>
-            <p id="punchline" class="hidden">...</p>
-            <button id="reveal-btn" class="cta-btn small hidden" onclick="reveal()">Tell Me</button>
-        </div>
-        
-        <button class="cta-btn primary full-width" onclick="getJoke()">Next Joke</button>
+<body>
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+    <canvas id="particle-canvas"></canvas>
+    <div class="noise-overlay"></div>
+
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
+
+    <div class="back-nav">
+        <a href="../index.html" class="back-btn magnetic">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Generators</span>
+        </a>
     </div>
+
+    <div class="generator-container animate-in">
+        <div class="glass-panel" style="padding: 3rem;">
+            <header class="generator-header">
+                <div class="system-tag">PROTOCOL :: HUMOR_DISSEMINATION</div>
+                <h1 class="generator-title scramble-text" data-value="JOKE DISPENSER">JOKE DISPENSER</h1>
+                <p class="generator-desc">Synthesizing comical data bursts for morale optimization.</p>
+            </header>
+
+            <div class="joke-display-wrapper">
+                <div class="joke-card glass">
+                    <div class="joke-header">
+                        <i class="fas fa-laugh-squint"></i>
+                        <span class="system-tag">MORALE_BOOST_v2</span>
+                    </div>
+                    <p id="setup" class="joke-setup">Awaiting humor packet delivery...</p>
+                    <div id="punchline-wrapper" class="punchline-wrapper hidden">
+                        <p id="punchline" class="joke-punchline"></p>
+                    </div>
+                    <button id="reveal-btn" class="reveal-btn magnetic hidden" onclick="reveal()">Reveal Payload</button>
+                </div>
+            </div>
+
+            <button class="gen-btn magnetic" onclick="getJoke()" id="gen-trigger">
+                <i class="fas fa-sync-alt"></i> Request New Packet
+            </button>
+        </div>
+    </div>
+
+    <footer class="footer container">
+        <div class="footer-bottom">
+            <p>&copy; 2025 INTOENIGMA :: HUMOR_UNIT</p>
+            <div class="footer-stats">
+                <span>COMEDY_LEVEL: OPTIMAL</span>
+                <span>STATUS: READY</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

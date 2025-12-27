@@ -5,117 +5,206 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generators | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../css/style.css">
     <style>
+        .hub-title {
+            font-size: 5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(to bottom, #fff 40%, rgba(255, 255, 255, 0.4));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hub-desc {
+            text-align: center;
+            color: #80808a;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            padding: 2rem 0;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: #fff;
+            height: 160px;
+            padding: 2rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            height: 120px;
+            text-decoration: none;
+            color: #fff;
             position: relative;
             overflow: hidden;
+            transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            text-align: center;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--primary);
-            box-shadow: 0 5px 15px rgba(0, 243, 255, 0.2);
+        .project-card i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            transition: 0.5s;
         }
 
         .project-card h3 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
             margin: 0;
             z-index: 2;
         }
 
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
-            transform: translateX(-100%);
-            transition: 0.5s;
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            background: rgba(var(--primary-rgb), 0.05);
         }
 
-        .project-card:hover::before {
-            transform: translateX(100%);
+        .project-card:hover i {
+            transform: scale(1.2);
+            text-shadow: 0 0 20px var(--primary);
+        }
+
+        .card-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            filter: blur(50px);
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            transition: 0.5s;
+            pointer-events: none;
+        }
+
+        .project-card:hover .card-glow {
+            opacity: 0.1;
         }
     </style>
 </head>
 
 <body>
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+    <canvas id="particle-canvas"></canvas>
+    
+    <div class="main-orb" style="position: fixed; top: 20%; right: 10%; z-index: -1; opacity: 0.2; pointer-events: none;">
+        <div class="orb-ring"></div>
+        <div class="orb-ring"></div>
+        <div class="orb-ring"></div>
+    </div>
+
     <div class="noise-overlay"></div>
 
-    <div class="container">
-        <header style="padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 2rem;">
-            <a href="../../index.html" class="back-link">&larr; Home</a>
-            <h1>Generators</h1>
-            <p>Tools to create, randomize, and discover.</p>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
+
+    <nav class="navbar glass">
+        <a href="../../index.html" class="logo">Into<span class="highlight">Enigma</span></a>
+        <div class="nav-links">
+            <a href="../../index.html" class="nav-item magnetic">Home</a>
+            <a href="../index.html" class="nav-item magnetic">Projects</a>
+        </div>
+    </nav>
+
+    <div class="container animate-in">
+        <header class="section-header">
+            <div class="system-tag">PROTOCOL :: GENERATORS_HUB</div>
+            <h1 class="hub-title scramble-text" data-value="GENERATORS">GENERATORS</h1>
+            <p class="hub-desc">High-fidelity tools for content synthesis and data randomization.</p>
         </header>
 
         <div class="project-grid">
-            <a href="avatar-generator/index.html" class="project-card">
-                <h3>Avatar Generator</h3>
+            <a href="avatar-generator/index.html" class="project-card glass magnetic">
+                <i class="fas fa-user-astronaut"></i>
+                <h3 class="scramble-text" data-value="Avatar Generator">Avatar Generator</h3>
+                <div class="card-glow"></div>
             </a>
-            <a href="cat-images-gen/index.html" class="project-card">
-                <h3>Cat Images</h3>
+            <a href="cat-images-gen/index.html" class="project-card glass magnetic">
+                <i class="fas fa-cat"></i>
+                <h3 class="scramble-text" data-value="Cat Images">Cat Images</h3>
+                <div class="card-glow"></div>
             </a>
-            <a href="fake-profile-gen/index.html" class="project-card">
-                <h3>Fake Profile</h3>
+            <a href="fake-profile-gen/index.html" class="project-card glass magnetic">
+                <i class="fas fa-id-card"></i>
+                <h3 class="scramble-text" data-value="Fake Profile">Fake Profile</h3>
+                <div class="card-glow"></div>
             </a>
-            <a href="lorem-image/index.html" class="project-card">
-                <h3>Lorem Image</h3>
+            <a href="lorem-image/index.html" class="project-card glass magnetic">
+                <i class="fas fa-image"></i>
+                <h3 class="scramble-text" data-value="Lorem Image">Lorem Image</h3>
+                <div class="card-glow"></div>
             </a>
-            <a href="magic-8-ball/index.html" class="project-card">
-                <h3>Magic 8 Ball</h3>
+            <a href="magic-8-ball/index.html" class="project-card glass magnetic">
+                <i class="fas fa-bowling-ball"></i>
+                <h3 class="scramble-text" data-value="Magic 8 Ball">Magic 8 Ball</h3>
+                <div class="card-glow"></div>
             </a>
-            <a href="meme-template-finder/index.html" class="project-card">
-                <h3>Meme Template Finder</h3>
+            <a href="meme-template-finder/index.html" class="project-card glass magnetic">
+                <i class="fas fa-grin-tears"></i>
+                <h3 class="scramble-text" data-value="Meme Finder">Meme Finder</h3>
+                <div class="card-glow"></div>
             </a>
-            <a href="nickname-generator/index.html" class="project-card">
-                <h3>Nickname Generator</h3>
+            <a href="nickname-generator/index.html" class="project-card glass magnetic">
+                <i class="fas fa-user-tag"></i>
+                <h3 class="scramble-text" data-value="Nickname Gen">Nickname Gen</h3>
+                <div class="card-glow"></div>
             </a>
-            <a href="quote-of-the-day/index.html" class="project-card">
-                <h3>Quote of the Day</h3>
+            <a href="quote-of-the-day/index.html" class="project-card glass magnetic">
+                <i class="fas fa-quote-left"></i>
+                <h3 class="scramble-text" data-value="Daily Quote">Daily Quote</h3>
+                <div class="card-glow"></div>
             </a>
-            <a href="random-activity/index.html" class="project-card">
-                <h3>Random Activity</h3>
+            <a href="random-activity/index.html" class="project-card glass magnetic">
+                <i class="fas fa-running"></i>
+                <h3 class="scramble-text" data-value="Random Activity">Random Activity</h3>
+                <div class="card-glow"></div>
             </a>
-            <a href="random-joke-generator/index.html" class="project-card">
-                <h3>Random Joke</h3>
+            <a href="random-joke-generator/index.html" class="project-card glass magnetic">
+                <i class="fas fa-laugh"></i>
+                <h3 class="scramble-text" data-value="Random Joke">Random Joke</h3>
+                <div class="card-glow"></div>
             </a>
-            <a href="truth-or-dare-gen/index.html" class="project-card">
-                <h3>Truth or Dare</h3>
+            <a href="truth-or-dare-gen/index.html" class="project-card glass magnetic">
+                <i class="fas fa-question-circle"></i>
+                <h3 class="scramble-text" data-value="Truth or Dare">Truth or Dare</h3>
+                <div class="card-glow"></div>
             </a>
-            <a href="variable-name-gen/index.html" class="project-card">
-                <h3>Variable Name Gen</h3>
+            <a href="variable-name-gen/index.html" class="project-card glass magnetic">
+                <i class="fas fa-code"></i>
+                <h3 class="scramble-text" data-value="Variable Names">Variable Names</h3>
+                <div class="card-glow"></div>
             </a>
-            <a href="word-cloud-gen/index.html" class="project-card">
-                <h3>Word Cloud</h3>
+            <a href="word-cloud-gen/index.html" class="project-card glass magnetic">
+                <i class="fas fa-cloud"></i>
+                <h3 class="scramble-text" data-value="Word Cloud">Word Cloud</h3>
+                <div class="card-glow"></div>
             </a>
         </div>
     </div>
+
+    <footer class="footer container">
+        <div class="footer-bottom">
+            <p>&copy; 2025 INTOENIGMA :: CORE_SYSTEM_v4</p>
+            <div class="footer-stats">
+                <span>STATUS: OPERATIONAL</span>
+                <span>LATENCY: 12ms</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
 </body>
 
 </html>

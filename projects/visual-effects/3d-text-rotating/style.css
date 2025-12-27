@@ -1,16 +1,23 @@
 body {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.effect-container {
+    width: 100%;
+    height: calc(100vh - 100px);
+    display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
+    perspective: 1500px;
 }
 
 .scene {
     width: 300px;
     height: 200px;
-    perspective: 1000px;
     position: relative;
+    transform-style: preserve-3d;
 }
 
 .carousel {
@@ -18,51 +25,66 @@ body {
     height: 100%;
     position: absolute;
     transform-style: preserve-3d;
-    animation: rotate 15s infinite linear;
+    animation: rotate 20s infinite linear;
 }
 
 .face {
     position: absolute;
-    width: 250px;
-    height: 120px;
-    left: 25px;
-    top: 40px;
-    background: rgba(0, 243, 255, 0.1);
-    border: 2px solid var(--primary);
-    color: #fff;
-    font-size: 2rem;
+    width: 280px;
+    height: 140px;
+    left: 10px;
+    top: 30px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    color: var(--primary);
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
     font-weight: 800;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 20px var(--primary);
     text-transform: uppercase;
     backface-visibility: visible;
+    transition: 0.3s;
+    border-radius: 12px;
 }
 
-/* Arithmetic for 6 faces in hexagon roughly */
+.carousel:hover {
+    animation-play-state: paused;
+}
+
+.face:hover {
+    background: var(--glass-hover);
+    border-color: var(--primary);
+    color: #fff;
+    text-shadow: 0 0 15px var(--primary);
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
+}
+
+/* Faces */
 .face:nth-child(1) {
-    transform: rotateY(0deg) translateZ(300px);
+    transform: rotateY(0deg) translateZ(400px);
 }
 
 .face:nth-child(2) {
-    transform: rotateY(60deg) translateZ(300px);
+    transform: rotateY(60deg) translateZ(400px);
 }
 
 .face:nth-child(3) {
-    transform: rotateY(120deg) translateZ(300px);
+    transform: rotateY(120deg) translateZ(400px);
 }
 
 .face:nth-child(4) {
-    transform: rotateY(180deg) translateZ(300px);
+    transform: rotateY(180deg) translateZ(400px);
 }
 
 .face:nth-child(5) {
-    transform: rotateY(240deg) translateZ(300px);
+    transform: rotateY(240deg) translateZ(400px);
 }
 
 .face:nth-child(6) {
-    transform: rotateY(300deg) translateZ(300px);
+    transform: rotateY(300deg) translateZ(400px);
 }
 
 @keyframes rotate {

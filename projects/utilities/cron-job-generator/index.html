@@ -3,67 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cron Job Generator | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <title>Cron Architect | IntoEnigma</title>
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Cron <span class="highlight">Architect</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div class="result-display">
-            <span id="cron-output">* * * * *</span>
+    <div class="container" style="max-width: 800px;">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Cron <span class="highlight">Architect</span></h2>
+                <p style="color: var(--text-muted);">Schedule automated backend protocols with precision.</p>
+            </header>
+
+            <div class="result-display glass" style="padding: 2.5rem; border-radius: 20px; text-align: center; margin-bottom: 3rem; background: rgba(0,0,0,0.2);">
+                <span id="cron-output" class="highlight" style="font-size: 3.5rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: 5px;">* * * * *</span>
+                <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 1rem; text-transform: uppercase; letter-spacing: 2px;">Standard Linux Cron Syntax</p>
+            </div>
+
+            <div class="selectors" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+                <div class="group">
+                    <label>Minute</label>
+                    <select id="min" class="glass">
+                        <option value="*">Every Minute (*)</option>
+                        <option value="0">At :00</option>
+                        <option value="30">At :30</option>
+                    </select>
+                </div>
+                <div class="group">
+                    <label>Hour</label>
+                    <select id="hour" class="glass">
+                        <option value="*">Every Hour (*)</option>
+                        <option value="0">Midnight (0)</option>
+                        <option value="12">Noon (12)</option>
+                    </select>
+                </div>
+                <div class="group">
+                    <label>Day</label>
+                    <select id="day" class="glass">
+                        <option value="*">Every Day (*)</option>
+                        <option value="1">1st</option>
+                    </select>
+                </div>
+                <div class="group">
+                    <label>Month</label>
+                    <select id="month" class="glass">
+                        <option value="*">Every Month (*)</option>
+                        <option value="1">January</option>
+                    </select>
+                </div>
+                <div class="group">
+                    <label>Weekday</label>
+                    <select id="week" class="glass">
+                        <option value="*">Every Weekday (*)</option>
+                        <option value="0">Sunday</option>
+                        <option value="1">Monday</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="copy-btn" class="cta-btn primary full-width magnetic" style="width: 100%;">Copy Protocol Expression</button>
         </div>
-
-        <div class="selectors">
-            <div class="group">
-                <label>Minute</label>
-                <select id="min">
-                    <option value="*">Every Minute (*)</option>
-                    <option value="0">At :00</option>
-                    <option value="30">At :30</option>
-                </select>
-            </div>
-            <div class="group">
-                <label>Hour</label>
-                <select id="hour">
-                    <option value="*">Every Hour (*)</option>
-                    <option value="0">Midnight (0)</option>
-                    <option value="12">Noon (12)</option>
-                </select>
-            </div>
-            <div class="group">
-                <label>Day</label>
-                <select id="day">
-                    <option value="*">Every Day (*)</option>
-                    <option value="1">1st</option>
-                </select>
-            </div>
-            <div class="group">
-                <label>Month</label>
-                <select id="month">
-                    <option value="*">Every Month (*)</option>
-                    <option value="1">January</option>
-                </select>
-            </div>
-            <div class="group">
-                <label>Weekday</label>
-                <select id="week">
-                    <option value="*">Every Weekday (*)</option>
-                    <option value="0">Sunday</option>
-                    <option value="1">Monday</option>
-                </select>
-            </div>
-        </div>
-
-        <button id="copy-btn" class="cta-btn primary">Copy Expression</button>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

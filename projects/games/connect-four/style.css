@@ -1,112 +1,83 @@
-body {
+.grid-wrapper {
+    padding: 2rem;
+    border-radius: 32px;
+    background: rgba(0, 0, 0, 0.4);
+    margin-bottom: 2rem;
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-}
-
-.header {
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-
-.p1 {
-    color: var(--primary);
-    font-weight: 800;
-    text-shadow: 0 0 10px var(--primary);
-}
-
-.p2 {
-    color: var(--secondary);
-    font-weight: 800;
-    text-shadow: 0 0 10px var(--secondary);
 }
 
 .grid-board {
     display: grid;
-    grid-template-columns: repeat(7, 60px);
-    grid-template-rows: repeat(6, 60px);
-    gap: 10px;
-    padding: 15px;
-    background: rgba(20, 20, 40, 0.8);
-    border-radius: 12px;
-    border: 2px solid var(--glass-border);
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 12px;
+    padding: 20px;
+    background: rgba(20, 20, 40, 0.4);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .cell {
     width: 60px;
     height: 60px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 50%;
-    cursor: pointer;
+    cursor: none;
     position: relative;
-    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
 }
 
 .cell:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-/* Chips */
-.cell.player1,
-.cell.player2 {
-    animation: dropIn 0.5s ease-out;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .cell.player1 {
     background: var(--primary);
-    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.5), 0 0 15px var(--primary);
+    box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.4), inset -5px -5px 10px rgba(0, 0, 0, 0.5);
+    border-color: transparent;
+    animation: dropIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .cell.player2 {
     background: var(--secondary);
-    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.5), 0 0 15px var(--secondary);
+    box-shadow: 0 0 20px rgba(157, 0, 255, 0.4), inset -5px -5px 10px rgba(0, 0, 0, 0.5);
+    border-color: transparent;
+    animation: dropIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 @keyframes dropIn {
-    0% {
-        transform: translateY(-400px);
-        opacity: 0;
-    }
-
-    60% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    80% {
-        transform: translateY(-20px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
+    0% { transform: translateY(-300px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }
 
+.p1 { color: var(--primary); text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.5); }
+.p2 { color: var(--secondary); text-shadow: 0 0 10px rgba(157, 0, 255, 0.5); }
+
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 450px;
+    padding: 4rem;
+    border-radius: 32px;
+    text-align: center;
     z-index: 100;
+    backdrop-filter: blur(20px);
+    background: rgba(5, 5, 8, 0.95);
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.8);
 }
 
 .hidden {
     display: none !important;
+}
+
+@media (max-width: 600px) {
+    .cell { width: 40px; height: 40px; }
+    .grid-board { gap: 8px; padding: 10px; }
 }

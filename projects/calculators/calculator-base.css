@@ -1,0 +1,153 @@
+/* Centralized Calculator Styles for Max-Level Upgrade */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 20px;
+}
+
+.calc-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 4rem;
+    border-radius: 32px;
+    position: relative;
+    z-index: 10;
+}
+
+.calc-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.calc-header h2 {
+    font-family: var(--font-head);
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.calc-header p {
+    color: #a0a0aa;
+    font-size: 1rem;
+}
+
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.input-group label {
+    font-family: var(--font-head);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+input.glass-input,
+input[type="number"],
+input[type="date"],
+select.glass-input {
+    width: 100%;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--primary);
+    background: rgba(var(--primary-rgb), 0.05);
+    box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.2);
+}
+
+.full-width {
+    width: 100%;
+}
+
+.result-section {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeIn 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.result-section.hidden {
+    display: none;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+}
+
+.result-card {
+    padding: 2rem 1rem;
+    border-radius: 16px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.result-card .number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.result-card .label {
+    font-size: 0.75rem;
+    color: #80808a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .calc-container {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .calc-header h2 {
+        font-size: 2.2rem;
+    }
+}

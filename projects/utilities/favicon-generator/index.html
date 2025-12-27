@@ -1,34 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favicon Gen | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Text <span class="highlight">Icon</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div class="preview-area">
-            <canvas id="canvas" width="64" height="64"></canvas>
+    <div class="container" style="max-width: 600px;">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Signal <span class="highlight">Icon</span></h2>
+                <p style="color: var(--text-muted);">Craft localized identification glyphs for site headers.</p>
+            </header>
+
+            <div class="preview-area glass"
+                style="width: 150px; height: 150px; margin: 0 auto 2.5rem; display: flex; align-items: center; justify-content: center; border-radius: 20px; background: rgba(0,0,0,0.3);">
+                <canvas id="canvas" width="64" height="64"
+                    style="width: 100px; height: 100px; image-rendering: pixelated;"></canvas>
+            </div>
+
+            <div class="controls glass"
+                style="padding: 2rem; border-radius: 20px; display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="field">
+                    <label>Identifier Glyph (Max 2 chars)</label>
+                    <input type="text" id="text" value="IE" maxlength="2" class="glass">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="field">
+                        <label>Background</label>
+                        <input type="color" id="bg-color" value="#050508" style="height: 50px; padding: 5px;">
+                    </div>
+                    <div class="field">
+                        <label>Glyph Color</label>
+                        <input type="color" id="text-color" value="#6366f1" style="height: 50px; padding: 5px;">
+                    </div>
+                </div>
+            </div>
+
+            <button id="download-btn" class="cta-btn primary full-width magnetic" style="width: 100%;">Download ICO
+                Protocol</button>
         </div>
-
-        <div class="controls">
-            <input type="text" id="text" value="IE" maxlength="2">
-            <input type="color" id="bg-color" value="#000000">
-            <input type="color" id="text-color" value="#00f3ff">
-        </div>
-
-        <button id="download-btn" class="cta-btn primary full-width">Download .ICO</button>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

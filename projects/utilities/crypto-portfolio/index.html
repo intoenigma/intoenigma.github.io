@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crypto Watch | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Tokens <span class="highlight">Live</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div class="ticker-grid" id="ticker-grid">
-            <!-- Items -->
-            <div class="loader">Loading market data...</div>
+    <div class="container" style="max-width: 1000px;">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Market <span class="highlight">Intelligence</span></h2>
+                <p style="color: var(--text-muted);">Real-time synchronized blockchain asset monitoring.</p>
+            </header>
+
+            <div class="ticker-grid" id="ticker-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+                <!-- Real-time data injection -->
+                <div class="loader" style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 4rem;">Intercepting market packets...</div>
+            </div>
+
+            <div style="text-align: center;">
+                <button onclick="fetchPrices()" class="cta-btn primary magnetic" style="min-width: 200px;">Synchronize Data</button>
+            </div>
         </div>
-
-        <button onclick="fetchPrices()" class="cta-btn secondary small refresh-btn">Refresh</button>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

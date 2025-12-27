@@ -5,35 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JWT Decoder | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Token <span class="highlight">Inspector</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <textarea id="token-input" placeholder="Paste JWT String here (eyJ...)"></textarea>
+    <div class="container" style="max-width: 1000px;">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Token <span class="highlight">Intelligence</span></h2>
+                <p style="color: var(--text-muted);">Deconstruct and analyze authentication payloads.</p>
+            </header>
 
-        <div class="result-sections">
-            <div class="section">
-                <h3>Header</h3>
-                <pre id="header-out">{}</pre>
+            <textarea id="token-input" placeholder="Paste Base64 encoded JWT string (eyJ...)" class="glass"
+                style="height: 150px; margin-bottom: 2rem;"></textarea>
+
+            <div class="result-sections" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div class="section glass"
+                    style="padding: 1.5rem; border-radius: 12px; background: rgba(255,50,50,0.05); border-color: rgba(255,50,50,0.2);">
+                    <h3 class="font-space" style="font-size: 0.9rem; text-transform: uppercase; margin-bottom: 1rem;">
+                        Header</h3>
+                    <pre id="header-out" style="font-family: monospace; font-size: 0.85rem; overflow-x: auto;">{}</pre>
+                </div>
+                <div class="section glass"
+                    style="padding: 1.5rem; border-radius: 12px; background: rgba(100,255,100,0.05); border-color: rgba(100,255,100,0.2);">
+                    <h3 class="font-space" style="font-size: 0.9rem; text-transform: uppercase; margin-bottom: 1rem;">
+                        Payload</h3>
+                    <pre id="payload-out" style="font-family: monospace; font-size: 0.85rem; overflow-x: auto;">{}</pre>
+                </div>
             </div>
-            <div class="section">
-                <h3>Payload</h3>
-                <pre id="payload-out">{}</pre>
-            </div>
+
+            <p class="note" style="color: var(--text-muted); font-size: 0.8rem; text-align: center; margin-top: 2rem;">
+                Security Alert: Cryptographic signature is not validated in this interface. Decoder only.</p>
         </div>
-
-        <p class="note">Signature is NOT verified here. Only decoding.</p>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
 

@@ -5,31 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header Check | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Head <span class="highlight">Inspector</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div class="input-group">
-            <input type="text" id="url-input" placeholder="https://example.com" value="https://">
-            <button id="fetch-btn" class="cta-btn primary">Fetch</button>
+    <div class="container" style="max-width: 900px;">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Header <span class="highlight">Intelligence</span></h2>
+                <p style="color: var(--text-muted);">Inspect server-side response protocols and security headers.</p>
+            </header>
+
+            <div class="input-group glass"
+                style="display: flex; gap: 0.5rem; padding: 0.5rem; border-radius: 15px; margin-bottom: 2.5rem;">
+                <input type="text" id="url-input" placeholder="https://protocol-secure.net" value="https://"
+                    class="glass" style="border: none; background: transparent;">
+                <button id="fetch-btn" class="cta-btn primary magnetic" style="padding: 0 2rem;">Intercept</button>
+            </div>
+
+            <div id="output" class="output-list glass"
+                style="padding: 2rem; border-radius: 20px; min-height: 250px; background: rgba(0,0,0,0.2);">
+                <div class="placeholder"
+                    style="color: var(--text-muted); text-align: center; padding-top: 4rem; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">
+                    Awaiting URL Input for Header Analysis...</div>
+            </div>
+
+            <p class="note" style="color: var(--text-muted); font-size: 0.8rem; text-align: center; margin-top: 2rem;">
+                Security constraint: Browser CORS policy may prevent direct interception of some domains.</p>
         </div>
-
-        <div id="output" class="output-list">
-            <div class="placeholder">Enter URL to analyze headers...</div>
-        </div>
-
-        <p class="note">Note: Browser CORS policy may block requests to many domains.</p>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
 

@@ -1,44 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Minifier | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Code <span class="highlight">Shrinker</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div class="grid">
-            <div class="panel">
-                <label>Input</label>
-                <textarea id="input" placeholder="Paste HTML here..."></textarea>
+    <div class="container" style="max-width: 1100px;">
+        <div class="utility-card glass">
+            <header class="utility-header">
+                <h2 class="scramble-text">Payload <span class="highlight">Optimizer</span></h2>
+                <p style="color: var(--text-muted);">Compress markup structures for high-speed transmission.</p>
+            </header>
+
+            <div class="grid" style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem; align-items: center; margin-bottom: 2rem;">
+                <div class="panel">
+                    <label>Source Vector</label>
+                    <textarea id="input" placeholder="Paste unoptimized HTML..." class="glass" style="height: 350px;"></textarea>
+                </div>
+
+                <div class="actions" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <button id="minify-btn" class="cta-btn primary magnetic" style="height: 60px; width: 60px; padding: 0; border-radius: 50%;">&rarr;</button>
+                </div>
+
+                <div class="panel">
+                    <label>Optimized Buffer</label>
+                    <textarea id="output" placeholder="Compressed output..." class="glass" style="height: 350px;" readonly></textarea>
+                    <div id="stats" class="stats" style="margin-top: 0.5rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; color: var(--accent);">Reduction: --%</div>
+                </div>
             </div>
 
-            <div class="actions">
-                <button id="minify-btn" class="cta-btn primary">&rarr; Minify &rarr;</button>
-            </div>
-
-            <div class="panel">
-                <label>Output</label>
-                <textarea id="output" placeholder="Minified code..." readonly></textarea>
-                <div id="stats" class="stats"></div>
-            </div>
+            <button id="copy-btn" class="cta-btn secondary full-width magnetic" style="width: 100%;">Copy Optimized Payload</button>
         </div>
-
-        <button id="copy-btn" class="cta-btn secondary full-width">Copy Result</button>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

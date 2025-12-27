@@ -1,20 +1,27 @@
 body {
-    margin: 0;
     overflow: hidden;
     background: #000;
-    height: 100vh;
 }
 
-canvas {
-    display: block;
+#canvas {
+    width: 100%;
+    height: 100%;
 }
 
 .instruction {
-    position: absolute;
-    bottom: 2rem;
+    position: fixed;
+    bottom: 5rem;
     left: 50%;
     transform: translateX(-50%);
-    color: #fff;
-    opacity: 0.5;
+    color: var(--primary);
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    z-index: 5;
     pointer-events: none;
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    border: 1px solid var(--glass-border);
 }

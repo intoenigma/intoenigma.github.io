@@ -1,41 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meditation Timer | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Mindful <span class="highlight">Moments</span></h2>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
 
-        <div class="timer-display">
-            <svg class="progress-ring" width="300" height="300">
-                <circle class="progress-ring__circle" stroke="var(--primary)" stroke-width="8" fill="transparent"
-                    r="140" cx="150" cy="150" />
-            </svg>
-            <div id="time-text" class="time-text">05:00</div>
+    <div class="container" style="max-width: 600px;">
+        <div class="utility-card glass" style="text-align: center; padding: 4rem 2rem;">
+            <header class="utility-header" style="margin-top: 0;">
+                <h2 class="scramble-text">Neural <span class="highlight">Silence</span></h2>
+                <p style="color: var(--text-muted); margin-top: 1rem;">Protocol for biological frequency stabilization.</p>
+            </header>
+
+            <div class="timer-display" style="position: relative; width: 300px; height: 300px; margin: 3rem auto; display: flex; align-items: center; justify-content: center;">
+                <svg class="progress-ring" width="300" height="300" style="position: absolute; top: 0; left: 0; transform: rotate(-90deg);">
+                    <circle class="progress-ring__background" stroke="var(--border)" stroke-width="4" fill="transparent" r="140" cx="150" cy="150" />
+                    <circle class="progress-ring__circle" stroke="var(--primary)" stroke-width="6" fill="transparent" r="140" cx="150" cy="150" style="transition: stroke-dashoffset 0.3s; stroke-linecap: round;" />
+                </svg>
+                <div id="time-text" class="time-text font-space" style="font-size: 4rem; font-weight: 700; color: #fff; text-shadow: 0 0 20px rgba(255,255,255,0.2);">05:00</div>
+            </div>
+
+            <div class="presets glass" style="display: flex; gap: 0.8rem; padding: 0.8rem; border-radius: 50px; justify-content: center; margin-bottom: 2.5rem; background: rgba(255,255,255,0.03);">
+                <button class="cta-btn glass magnetic" onclick="setTime(300)" style="padding: 0.5rem 1.5rem; font-size: 0.8rem; border-radius: 40px; border: none;">05M</button>
+                <button class="cta-btn glass magnetic" onclick="setTime(600)" style="padding: 0.5rem 1.5rem; font-size: 0.8rem; border-radius: 40px; border: none;">10M</button>
+                <button class="cta-btn glass magnetic" onclick="setTime(1200)" style="padding: 0.5rem 1.5rem; font-size: 0.8rem; border-radius: 40px; border: none;">20M</button>
+            </div>
+
+            <button id="toggle-btn" class="cta-btn primary full-width magnetic" style="width: 100%;">Initiate Stillness</button>
         </div>
-
-        <div class="controls">
-            <button class="time-select" onclick="setTime(300)">5m</button>
-            <button class="time-select" onclick="setTime(600)">10m</button>
-            <button class="time-select" onclick="setTime(1200)">20m</button>
-        </div>
-
-        <button id="toggle-btn" class="cta-btn primary full-width">Begin Session</button>
     </div>
+    <script src="../utility-base.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

@@ -4,72 +4,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI Calculator | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>BMI Analyzer | IntoEnigma</title>
+    <!-- Google Fonts: Outfit & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
-    <link rel="stylesheet" href="../age-calculator/style.css"> <!-- Reusing Age Calc Styles -->
+    <link rel="stylesheet" href="../calculator-base.css">
     <style>
-        /* Specific overrides */
         .gauge-container {
             width: 100%;
-            height: 20px;
-            background: #333;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
-            margin-top: 1rem;
+            margin-top: 2rem;
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .gauge-fill {
             height: 100%;
             width: 0%;
-            transition: width 1s ease-out, background-color 0.5s;
+            transition: width 1.5s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.5s;
+            background: var(--primary);
+            box-shadow: 0 0 15px var(--primary);
         }
 
         .category-text {
             text-align: center;
-            font-size: 1.2rem;
-            margin-top: 1rem;
-            font-weight: 600;
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            font-weight: 700;
+            font-family: var(--font-head);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
     </style>
 </head>
 
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+
+    <!-- Background Elements -->
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Back to Calculators</a>
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
+    <div class="bg-glow g3"></div>
 
-    <div class="calc-container glass">
-        <header class="calc-header">
-            <h2>Body <span class="highlight">Mass</span> Index</h2>
-            <p>Analyze physical metrics against standard protocols.</p>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Back to Calculators</a>
 
-        <div class="input-section">
-            <div class="input-group">
-                <label>Height (cm)</label>
-                <input type="number" id="height" placeholder="e.g. 175" class="glass-input">
-            </div>
-            <div class="input-group">
-                <label>Weight (kg)</label>
-                <input type="number" id="weight" placeholder="e.g. 70" class="glass-input">
-            </div>
-            <button id="calculate-btn" class="cta-btn primary full-width">Analyze</button>
-        </div>
+    <div class="main-content">
+        <div class="calc-container glass magnetic-card">
+            <header class="calc-header">
+                <h2 class="scramble-text" data-value="BMI ANALYZER">BMI <span class="highlight">ANALYZER</span></h2>
+                <p>Execute physical metric analysis against standardized health protocols.</p>
+            </header>
 
-        <div class="result-section hidden" id="result-section">
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <span style="font-size: 1rem; color: #888;">YOUR BMI</span>
-                <span id="bmi-value" class="number" style="font-size: 4rem; display: block; color: #fff;">0.0</span>
+            <div class="input-section">
+                <div class="input-group">
+                    <label>Height (cm)</label>
+                    <input type="number" id="height" placeholder="e.g. 175" class="glass-input">
+                </div>
+                <div class="input-group">
+                    <label>Weight (kg)</label>
+                    <input type="number" id="weight" placeholder="e.g. 70" class="glass-input">
+                </div>
+                <button id="calculate-btn" class="cta-btn primary full-width magnetic">Initialize Analysis</button>
             </div>
 
-            <div class="gauge-container">
-                <div id="gauge-bar" class="gauge-fill"></div>
+            <div class="result-section hidden" id="result-section">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <span style="font-size: 0.8rem; color: #80808a; letter-spacing: 2px;">CALCULATED INDEX</span>
+                    <span id="bmi-value" class="number highlight" style="font-size: 5rem; display: block; margin: 0.5rem 0;">0.0</span>
+                </div>
+
+                <div class="gauge-container">
+                    <div id="gauge-bar" class="gauge-fill"></div>
+                </div>
+                <p id="category-text" class="category-text highlight">Normal</p>
             </div>
-            <p id="category-text" class="category-text">Normal</p>
         </div>
     </div>
 
+    <section class="join-section hidden-scroll">
+        <div class="container">
+            <div class="glass glass-panel magnetic-card">
+                <h2 class="scramble-text" data-value="JOIN THE ENIGMA">JOIN THE ENIGMA</h2>
+                <p>Submerge into the digital void. New protocols added daily.</p>
+                <div class="social-links">
+                    <a href="#" class="social-btn magnetic"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-btn magnetic"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="social-btn magnetic"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 INTOENIGMA // [SYSTEM_NOMINAL]</p>
+                <div class="footer-stats">
+                    <span>UPTIME: 99.9%</span>
+                    <span>LATENCY: 12ms</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 

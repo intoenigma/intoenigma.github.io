@@ -4,35 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Var Names | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Nomenclature Engine | IntoEnigma</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../generator-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+    <canvas id="particle-canvas"></canvas>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Generators</a>
 
-    <div class="gen-container glass">
-        <h2>Variable <span class="highlight">Namer</span></h2>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
 
-        <div class="input-group">
-            <input type="text" id="input-desc" placeholder="Enter description (e.g. user login count)">
-        </div>
+    <div class="back-nav">
+        <a href="../index.html" class="back-btn magnetic">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Generators</span>
+        </a>
+    </div>
 
-        <div class="case-options">
-            <button class="case-btn active" data-case="camel">camelCase</button>
-            <button class="case-btn" data-case="snake">snake_case</button>
-            <button class="case-btn" data-case="kebab">kebab-case</button>
-            <button class="case-btn" data-case="pascal">PascalCase</button>
-            <button class="case-btn" data-case="constant">CONST_CASE</button>
-        </div>
+    <div class="generator-container animate-in">
+        <div class="glass-panel" style="padding: 3rem;">
+            <header class="generator-header">
+                <div class="system-tag">PROTOCOL :: SYMBOLIC_NOMENCLATURE</div>
+                <h1 class="generator-title scramble-text" data-value="NOMENCLATURE ENGINE">NOMENCLATURE ENGINE</h1>
+                <p class="generator-desc">Convert semantic descriptions into optimized identifier schemas.</p>
+            </header>
 
-        <div class="result-area" id="result-area">
-            <!-- Results here -->
+            <div class="input-group">
+                <label class="input-label" for="input-desc">Semantic Description</label>
+                <input type="text" id="input-desc" placeholder="e.g. user login count" class="magnetic">
+            </div>
+
+            <div class="case-grid">
+                <button class="case-btn glass magnetic active" data-case="camel">camelCase</button>
+                <button class="case-btn glass magnetic" data-case="snake">snake_case</button>
+                <button class="case-btn glass magnetic" data-case="kebab">kebab-case</button>
+                <button class="case-btn glass magnetic" data-case="pascal">PascalCase</button>
+                <button class="case-btn glass magnetic" data-case="constant">CONST_CASE</button>
+            </div>
+
+            <div class="result-area glass" id="result-area">
+                <p class="system-tag">OPTIMIZED_IDENTIFIERS</p>
+                <div id="results-list" class="results-list">
+                    <span class="placeholder">Awaiting semantic input...</span>
+                </div>
+            </div>
         </div>
     </div>
+
+    <footer class="footer container">
+        <div class="footer-bottom">
+            <p>&copy; 2025 INTOENIGMA :: CODE_SYNTHESIS</p>
+            <div class="footer-stats">
+                <span>SCHEMA: PEP8 / OTHERS</span>
+                <span>STATUS: READY</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 

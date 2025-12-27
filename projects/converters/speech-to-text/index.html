@@ -3,29 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speech To Text | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Voice Logger | IntoEnigma</title>
+    <!-- Premium Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../converter-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+
+    <!-- Background Elements -->
+    <canvas id="particle-canvas"></canvas>
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Converters</a>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
+    <div class="bg-glow g3"></div>
 
-    <div class="converter-container glass">
-        <header>
-            <h2>Voice <span class="highlight">Logger</span></h2>
-            <div id="status-ball" class="status-ball"></div>
-        </header>
+    <a href="../index.html" class="back-link magnetic">&larr; Converters</a>
 
-        <textarea id="output-text" placeholder="Click mic to start recording..." readonly></textarea>
-        
-        <div class="controls">
-            <button id="mic-btn" class="mic-btn">🎙️</button>
-            <button id="copy-btn" class="cta-btn secondary small">Copy Text</button>
-            <button id="clear-btn" class="cta-btn small">Clear</button>
+    <main class="main-content">
+        <div class="converter-container glass hidden-scroll">
+            <header class="converter-header">
+                <div class="system-tag">PROTOCOL_VOICE // LOGGER</div>
+                <h2 class="scramble-text">Voice <span class="highlight">Logger</span></h2>
+                <p>Neural acoustic processing.</p>
+                <div id="status-ball" class="status-ball magnetic"></div>
+            </header>
+
+            <div class="input-section">
+                <textarea id="output-text" class="glass-input magnetic" placeholder="Click mic to start recording..." readonly></textarea>
+                
+                <div class="controls">
+                    <button id="mic-btn" class="mic-btn magnetic">🎙️</button>
+                    <div class="action-grid">
+                        <button id="copy-btn" class="cta-btn secondary small magnetic">Copy Text</button>
+                        <button id="clear-btn" class="cta-btn secondary small magnetic">Clear</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </main>
+
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
+

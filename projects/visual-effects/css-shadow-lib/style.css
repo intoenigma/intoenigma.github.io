@@ -1,13 +1,83 @@
-body { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-.effect-container { text-align: center; }
-.shadow-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 3rem; }
-.box { width: 120px; height: 120px; background: #1a1a1f; display: flex; justify-content: center; align-items: center; border-radius: 12px; color: #aaa; font-size: 0.9rem; transition: 0.3s; }
-.soft { box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-.hard { box-shadow: 10px 10px 0px #000; }
-.neon-shadow { border: 1px solid var(--primary); box-shadow: 0 0 15px var(--primary); color: #fff; }
-.inner { box-shadow: inset 0 0 20px #000; }
-.neumorph { background: #1a1a1f; box-shadow: 5px 5px 10px #0b0b0d, -5px -5px 10px #292931; }
-.colored { box-shadow: 0 10px 30px rgba(157, 0, 255, 0.4); }
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-.box:hover { transform: translateY(-5px); color: #fff; }
-@media(max-width:600px) { .shadow-grid { grid-template-columns: 1fr; } }
+.effect-container {
+    padding: 4rem 2rem;
+    max-width: 1000px;
+    width: 100%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 4rem;
+    color: #fff;
+}
+
+.shadow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 3rem;
+    padding: 2rem;
+}
+
+.box {
+    height: 150px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.box.soft {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.box.soft:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+}
+
+.box.neon {
+    box-shadow: 0 0 15px var(--primary);
+    border-color: var(--primary);
+}
+
+.box.neon:hover {
+    box-shadow: 0 0 40px var(--primary);
+    background: var(--primary);
+    color: #000;
+}
+
+.box.sharp {
+    box-shadow: 10px 10px 0 var(--secondary);
+    border: 2px solid var(--secondary);
+}
+
+.box.sharp:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 15px 15px 0 var(--secondary);
+}
+
+.box.colored {
+    box-shadow: 0 0 30px rgba(123, 0, 255, 0.4);
+    border-color: var(--accent);
+}
+
+.box.colored:hover {
+    box-shadow: 0 0 60px rgba(123, 0, 255, 0.8);
+}

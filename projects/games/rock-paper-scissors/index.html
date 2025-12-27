@@ -1,101 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Tactical Selection | IntoEnigma</title>
+    <!-- Google Fonts: Outfit & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-        }
-        .game-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 3rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            max-width: 500px;
-            width: 100%;
-        }
-        .choices {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 3rem 0;
-        }
-        .choice-btn {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: #fff;
-            padding: 1rem;
-            border-radius: 50%;
-            width: 80px;
-            height: 80px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .choice-btn:hover {
-            background: var(--primary);
-            color: #000;
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
-            transform: scale(1.1);
-        }
-        .result-display {
-            min-height: 50px;
-            margin-bottom: 2rem;
-        }
-        .score-board {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            font-size: 1.2rem;
-            color: #ccc;
-        }
-        .score-val {
-            color: var(--primary);
-            font-weight: 800;
-        }
-        .back-link {
-            position: fixed;
-            top: 2rem; left: 2rem;
-            color: #ccc;
-        }
-    </style>
+    <link rel="stylesheet" href="../game-base.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+
+    <!-- Background Elements -->
     <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Back to Games</a>
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
+    <div class="bg-glow g3"></div>
 
-    <div class="game-card glass">
-        <h2>RPS <span class="highlight">Protocol</span></h2>
-        <p>Select your weapon.</p>
-        
-        <div class="score-board">
-            <div>YOU: <span id="user-score" class="score-val">0</span></div>
-            <div>CPU: <span id="cpu-score" class="score-val">0</span></div>
-        </div>
+    <a href="../index.html" class="back-link magnetic">&larr; Back to Games</a>
 
-        <div class="result-display">
-            <h3 id="result-text" style="font-size: 1.5rem;">Choose...</h3>
-            <p id="cpu-choice-text" style="color: #888; margin-top: 0.5rem;"></p>
-        </div>
+    <div class="main-content">
+        <div class="game-container glass magnetic-card fade-in">
+            <header class="game-header">
+                <div class="stat-panel">
+                    <div class="stat-item">
+                        <span class="stat-label">Neural Wins</span>
+                        <span id="user-score" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">CPU Nodes</span>
+                        <span id="cpu-score" class="stat-value">0</span>
+                    </div>
+                </div>
+                <h2 class="scramble-text" data-value="TACTICAL SELECTION">TACTICAL <span
+                        class="highlight">SELECTION</span></h2>
+            </header>
 
-        <div class="choices">
-            <button class="choice-btn" id="rock" title="Rock">👊</button>
-            <button class="choice-btn" id="paper" title="Paper">✋</button>
-            <button class="choice-btn" id="scissors" title="Scissors">✌️</button>
+            <div class="battle-area glass">
+                <div class="result-display">
+                    <h3 id="result-text" class="scramble-text" data-value="AWAITING INPUT">AWAITING INPUT</h3>
+                    <p id="cpu-choice-text" class="system-msg"></p>
+                </div>
+            </div>
+
+            <div class="choices">
+                <button class="choice-btn magnetic" id="rock" title="Rock"><i class="fas fa-hand-rock"></i></button>
+                <button class="choice-btn magnetic" id="paper" title="Paper"><i class="fas fa-hand-paper"></i></button>
+                <button class="choice-btn magnetic" id="scissors" title="Scissors"><i
+                        class="fas fa-hand-scissors"></i></button>
+            </div>
+
+            <footer class="game-info">
+                <button onclick="resetGame()" class="cta-btn secondary magnetic full-width">Reset Synchronicity</button>
+            </footer>
         </div>
-        
-        <button onclick="resetGame()" class="cta-btn small" style="margin-top: 1rem;">Reset Stats</button>
     </div>
-
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

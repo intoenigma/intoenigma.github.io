@@ -3,253 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Utilities | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/style.css">
-    <style>
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-    </style>
+    <title>Utility Toolkit | IntoEnigma</title>
+    <link rel="stylesheet" href="utility-base.css">
 </head>
 <body>
     <div class="noise-overlay"></div>
-    <nav class="glass">
-        <a href="../../index.html" class="logo">Into<span class="highlight">Enigma</span></a>
-    </nav>
+    <canvas class="particle-canvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
+
+    <a href="../../index.html" class="back-link magnetic">&larr; Back to Enigma</a>
 
     <div class="container project-hub">
-        <h1 class="page-title">Utility <span class="highlight">Toolkit</span></h1>
+        <header class="utility-header">
+            <h1 class="page-title scramble-text">Utility <span class="highlight">Toolkit</span></h1>
+            <p class="font-space" style="color: var(--text-muted); font-size: 1.2rem;">A collection of high-performance digital tools.</p>
+        </header>
         
         <div class="projects-grid">
-            <a href="audio-visualizer/index.html" class="project-card">
+            <a href="audio-visualizer/index.html" class="project-card glass magnetic">
                 <h3>Audio Visualizer</h3>
                 <p>See the music come alive.</p>
             </a>
-            <a href="auto-refresh/index.html" class="project-card">
+            <a href="auto-refresh/index.html" class="project-card glass magnetic">
                 <h3>Auto Refresh</h3>
                 <p>Keep your page updated.</p>
             </a>
-            <a href="barcode-scanner/index.html" class="project-card">
+            <a href="barcode-scanner/index.html" class="project-card glass magnetic">
                 <h3>Barcode Scanner</h3>
                 <p>Scan and identify codes.</p>
             </a>
-            <a href="binaural-beats-player/index.html" class="project-card">
+            <a href="binaural-beats-player/index.html" class="project-card glass magnetic">
                 <h3>Binaural Beats</h3>
                 <p>Focus and relax frequencies.</p>
             </a>
-            <a href="bio-link-page-creator/index.html" class="project-card">
+            <a href="bio-link-page/index.html" class="project-card glass magnetic">
                 <h3>Bio Link Creator</h3>
                 <p>Design your personal hub.</p>
             </a>
-            <a href="budget-planner/index.html" class="project-card">
+            <a href="budget-planner/index.html" class="project-card glass magnetic">
                 <h3>Budget Planner</h3>
                 <p>Track expenses effectively.</p>
             </a>
-             <a href="calm-breathing/index.html" class="project-card">
+            <a href="calm-breathing/index.html" class="project-card glass magnetic">
                 <h3>Calm Breathing</h3>
                 <p>Guided mindful breaths.</p>
             </a>
-            <a href="checklist-maker/index.html" class="project-card">
+            <a href="checklist-maker/index.html" class="project-card glass magnetic">
                 <h3>Checklist Maker</h3>
                 <p>Stay organized with tasks.</p>
             </a>
-            <a href="checklist-to-pdf/index.html" class="project-card">
+            <a href="checklist-pdf/index.html" class="project-card glass magnetic">
                 <h3>Checklist PDF</h3>
                 <p>Export lists to documents.</p>
             </a>
-            <a href="country-info-hub/index.html" class="project-card">
+            <a href="country-info-hub/index.html" class="project-card glass magnetic">
                 <h3>Country Info</h3>
                 <p>Global data lookup.</p>
             </a>
-            <a href="cron-job-generator/index.html" class="project-card">
+            <a href="cron-job-generator/index.html" class="project-card glass magnetic">
                 <h3>Cron Generator</h3>
                 <p>Schedule syntax made easy.</p>
             </a>
-            <a href="crypto-portfolio-tracker/index.html" class="project-card">
+            <a href="crypto-portfolio/index.html" class="project-card glass magnetic">
                 <h3>Crypto Tracker</h3>
                 <p>Live coin prices.</p>
             </a>
-            <a href="dog-breed-finder/index.html" class="project-card">
+            <a href="dog-breed-finder/index.html" class="project-card glass magnetic">
                 <h3>Dog Breed Finder</h3>
                 <p>Discover canine friends.</p>
             </a>
-            <a href="duplicate-finder/index.html" class="project-card">
+            <a href="duplicate-finder/index.html" class="project-card glass magnetic">
                 <h3>Duplicate Finder</h3>
                 <p>Clean up your lists.</p>
             </a>
-            <a href="email-validator/index.html" class="project-card">
+            <a href="email-validator/index.html" class="project-card glass magnetic">
                 <h3>Email Validator</h3>
                 <p>Check address formats.</p>
             </a>
-            <a href="eye-exercise-app/index.html" class="project-card">
+            <a href="eye-exercise-app/index.html" class="project-card glass magnetic">
                 <h3>Eye Exercises</h3>
                 <p>Relieve digital strain.</p>
             </a>
-            <a href="favicon-generator/index.html" class="project-card">
+            <a href="favicon-generator/index.html" class="project-card glass magnetic">
                 <h3>Favicon Gen</h3>
                 <p>Create site icons instantly.</p>
             </a>
-            <a href="file-encryptor-text-based/index.html" class="project-card">
+            <a href="file-encryptor/index.html" class="project-card glass magnetic">
                 <h3>File Encryptor</h3>
                 <p>Secure text data.</p>
             </a>
-            <a href="flashlight-app/index.html" class="project-card">
+            <a href="flashlight-app/index.html" class="project-card glass magnetic">
                 <h3>Flashlight</h3>
                 <p>Brighten your screen.</p>
             </a>
-            <a href="git-cheat-sheet/index.html" class="project-card">
+            <a href="git-cheat-sheet/index.html" class="project-card glass magnetic">
                 <h3>Git Cheatsheet</h3>
                 <p>Version control commands.</p>
             </a>
-            <a href="history-timeline/index.html" class="project-card">
+            <a href="history-timeline/index.html" class="project-card glass magnetic">
                 <h3>History Timeline</h3>
                 <p>Interactive chronological events.</p>
             </a>
-            <a href="html-entity-lookup/index.html" class="project-card">
+            <a href="html-entity-lookup/index.html" class="project-card glass magnetic">
                 <h3>HTML Entities</h3>
                 <p>Find special characters.</p>
             </a>
-            <a href="html-minifier/index.html" class="project-card">
+            <a href="html-minifier/index.html" class="project-card glass magnetic">
                 <h3>HTML Minifier</h3>
                 <p>Compress your web code.</p>
             </a>
-            <a href="http-header-checker/index.html" class="project-card">
+            <a href="http-header-check/index.html" class="project-card glass magnetic">
                 <h3>HTTP Headers</h3>
                 <p>Inspect server responses.</p>
             </a>
-            <a href="insta-filter-clone/index.html" class="project-card">
+            <a href="insta-filter-clone/index.html" class="project-card glass magnetic">
                 <h3>Insta Filters</h3>
                 <p>Apply photo effects.</p>
             </a>
-            <a href="js-console-ui/index.html" class="project-card">
+            <a href="js-console-ui/index.html" class="project-card glass magnetic">
                 <h3>JS Console</h3>
                 <p>Execute code in-browser.</p>
             </a>
-            <a href="jwt-decoder/index.html" class="project-card">
+            <a href="jwt-decoder/index.html" class="project-card glass magnetic">
                 <h3>JWT Decoder</h3>
                 <p>Parse auth tokens.</p>
             </a>
-            <a href="kanban-board/index.html" class="project-card">
+            <a href="kanban-board/index.html" class="project-card glass magnetic">
                 <h3>Kanban Board</h3>
                 <p>Visual task management.</p>
             </a>
-            <a href="markdown-blog/index.html" class="project-card">
+            <a href="markdown-blog/index.html" class="project-card glass magnetic">
                 <h3>MD Blog</h3>
                 <p>Static article viewer.</p>
             </a>
-            <a href="markdown-editor/index.html" class="project-card">
+            <a href="markdown-editor/index.html" class="project-card glass magnetic">
                 <h3>MD Editor</h3>
                 <p>Write and preview markdown.</p>
             </a>
-            <a href="mars-rover-photos/index.html" class="project-card">
+            <a href="mars-rover-photos/index.html" class="project-card glass magnetic">
                 <h3>Mars Rovers</h3>
                 <p>Photos from the Red Planet.</p>
             </a>
-            <a href="meditation-timer/index.html" class="project-card">
+            <a href="meditation-timer/index.html" class="project-card glass magnetic">
                 <h3>Meditation Timer</h3>
                 <p>Practice mindfulness.</p>
             </a>
-            <a href="metronome/index.html" class="project-card">
+            <a href="metronome/index.html" class="project-card glass magnetic">
                 <h3>Metronome</h3>
                 <p>Keep the rhythm.</p>
             </a>
-            <a href="multi-search/index.html" class="project-card">
+            <a href="multi-search/index.html" class="project-card glass magnetic">
                 <h3>Multi Search</h3>
                 <p>Query multiple engines.</p>
             </a>
-            <a href="name-meaning/index.html" class="project-card">
+            <a href="name-meaning/index.html" class="project-card glass magnetic">
                 <h3>Name Meaning</h3>
                 <p>Discover origin stories.</p>
             </a>
-            <a href="news-app/index.html" class="project-card">
+            <a href="news-app/index.html" class="project-card glass magnetic">
                 <h3>News Feed</h3>
                 <p>Latest headlines mock.</p>
             </a>
-            <a href="note-taking-pwa/index.html" class="project-card">
+            <a href="note-taking-pwa/index.html" class="project-card glass magnetic">
                 <h3>Notes PWA</h3>
                 <p>Local note storage.</p>
             </a>
-            <a href="password-strength/index.html" class="project-card">
+            <a href="password-strength/index.html" class="project-card glass magnetic">
                 <h3>Pass Strength</h3>
                 <p>Analyze security.</p>
             </a>
-            <a href="pdf-viewer/index.html" class="project-card">
+            <a href="pdf-viewer/index.html" class="project-card glass magnetic">
                 <h3>PDF Viewer</h3>
                 <p>Read documents online.</p>
             </a>
-            <a href="placeholder-img/index.html" class="project-card">
+            <a href="placeholder-img/index.html" class="project-card glass magnetic">
                 <h3>Placeholder Img</h3>
                 <p>Generate dummy assets.</p>
             </a>
-            <a href="port-scanner-js/index.html" class="project-card">
+            <a href="port-scanner-js/index.html" class="project-card glass magnetic">
                 <h3>Port Probe</h3>
                 <p>Network port checker.</p>
             </a>
-            <a href="prettify-js/index.html" class="project-card">
+            <a href="prettify-js/index.html" class="project-card glass magnetic">
                 <h3>Prettify JS</h3>
                 <p>Format code blocks.</p>
             </a>
-            <a href="project-timeline/index.html" class="project-card">
+            <a href="project-timeline/index.html" class="project-card glass magnetic">
                 <h3>Project Roadmap</h3>
                 <p>Horizontal planning view.</p>
             </a>
-            <a href="screen-recorder/index.html" class="project-card">
+            <a href="screen-recorder/index.html" class="project-card glass magnetic">
                 <h3>Screen Rec</h3>
                 <p>Capture your desktop.</p>
             </a>
-            <a href="screen-resolution/index.html" class="project-card">
+            <a href="screen-resolution/index.html" class="project-card glass magnetic">
                 <h3>Screen Stats</h3>
                 <p>View display info.</p>
             </a>
-            <a href="sitemap-generator/index.html" class="project-card">
+            <a href="sitemap-generator/index.html" class="project-card glass magnetic">
                 <h3>Sitemap Gen</h3>
                 <p>Extract links to XML.</p>
             </a>
-            <a href="soundboard/index.html" class="project-card">
+            <a href="soundboard/index.html" class="project-card glass magnetic">
                 <h3>Soundboard</h3>
                 <p>Play synth effects.</p>
             </a>
-            <a href="speed-reading/index.html" class="project-card">
+            <a href="speed-reading/index.html" class="project-card glass magnetic">
                 <h3>Speed Reading</h3>
                 <p>RSVP text display.</p>
             </a>
-            <a href="stopwatch-log/index.html" class="project-card">
+            <a href="stopwatch-log/index.html" class="project-card glass magnetic">
                 <h3>Stopwatch Log</h3>
                 <p>Timer with laps.</p>
             </a>
-            <a href="tab-manager-ui/index.html" class="project-card">
+            <a href="tab-manager-ui/index.html" class="project-card glass magnetic">
                 <h3>Tab Manager</h3>
                 <p>Session dashboard UI.</p>
             </a>
-            <a href="tab-name-editor/index.html" class="project-card">
+            <a href="tab-name-editor/index.html" class="project-card glass magnetic">
                 <h3>Tab Renamer</h3>
                 <p>Edit document titles.</p>
             </a>
-            <a href="url-shortener/index.html" class="project-card">
+            <a href="url-shortener/index.html" class="project-card glass magnetic">
                 <h3>URL Shortener</h3>
                 <p>Mock link shrinker.</p>
             </a>
-            <a href="voice-recorder/index.html" class="project-card">
+            <a href="voice-recorder/index.html" class="project-card glass magnetic">
                 <h3>Voice Recorder</h3>
                 <p>Log audio notes.</p>
             </a>
-            <a href="weather-forecast/index.html" class="project-card">
+            <a href="weather-forecast/index.html" class="project-card glass magnetic">
                 <h3>Weather</h3>
                 <p>Forecasts by city.</p>
             </a>
-            <a href="wikipedia-search/index.html" class="project-card">
+            <a href="wikipedia-search/index.html" class="project-card glass magnetic">
                 <h3>Wiki Search</h3>
                 <p>Browse the encyclopedia.</p>
             </a>
-            <a href="zip-file-creator/index.html" class="project-card">
+            <a href="zip-file-creator/index.html" class="project-card glass magnetic">
                 <h3>Zip Creator</h3>
                 <p>Pack files together.</p>
             </a>
         </div>
     </div>
+
+    <script src="utility-base.js"></script>
 </body>
 </html>
+
