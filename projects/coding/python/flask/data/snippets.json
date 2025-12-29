@@ -1,0 +1,164 @@
+[
+  {
+    "id": "get_route",
+    "name": "GET Route Example",
+    "description": "Fetch data from the server using GET method.",
+    "category": "routes",
+    "method": "GET",
+    "difficulty": "easy",
+    "code": "from flask import Flask, jsonify\n\napp = Flask(__name__)\n\n@app.route('/items', methods=['GET'])\ndef get_items():\n    items = [{'id': 1, 'name': 'Item 1'}, {'id': 2, 'name': 'Item 2'}]\n    return jsonify(items)",
+    "keywords": ["flask", "get", "api", "route", "json"],
+    "tags": ["flask", "api", "json", "route", "get"],
+    "requires": ["Flask"],
+    "notes": "Use GET routes to fetch data from the server. Always return proper HTTP status codes.",
+    "related": ["POST Route Example", "PUT Route Example", "DELETE Route Example"],
+    "response": {
+      "success": "Returns JSON data.",
+      "error": "Returns an error message if fetching fails."
+    }
+  },
+  {
+    "id": "post_route",
+    "name": "POST Route Example",
+    "description": "Send data to the server to create a new resource.",
+    "category": "routes",
+    "method": "POST",
+    "difficulty": "easy",
+    "code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\n@app.route('/items', methods=['POST'])\ndef create_item():\n    data = request.json\n    # Validate data here\n    if not data.get('name'):\n        return jsonify({'error': 'Name is required'}), 400\n    \n    # Process and save data\n    new_item = {'id': 3, 'name': data['name']}\n    return jsonify({'message': 'Item created', 'item': new_item}), 201",
+    "keywords": ["flask", "post", "api", "route", "json"],
+    "tags": ["flask", "api", "json", "route", "post", "validation"],
+    "requires": ["Flask"],
+    "notes": "Always validate incoming data in POST routes. Return 201 status code for successful creation.",
+    "related": ["GET Route Example", "PUT Route Example", "DELETE Route Example"],
+    "response": {
+      "success": "Returns confirmation of creation.",
+      "error": "Returns validation errors if data is missing or invalid."
+    }
+  },
+  {
+    "id": "put_route",
+    "name": "PUT Route Example",
+    "description": "Update an existing resource on the server.",
+    "category": "routes",
+    "method": "PUT",
+    "difficulty": "medium",
+    "code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\nitems = {1: {'name': 'Item 1'}, 2: {'name': 'Item 2'}}\n\n@app.route('/items/<int:item_id>', methods=['PUT'])\ndef update_item(item_id):\n    data = request.json\n    \n    if item_id not in items:\n        return jsonify({'error': 'Item not found'}), 404\n    \n    items[item_id].update(data)\n    return jsonify({'message': f'Item {item_id} updated', 'item': items[item_id]})",
+    "keywords": ["flask", "put", "api", "route", "update"],
+    "tags": ["flask", "api", "json", "route", "put", "update"],
+    "requires": ["Flask"],
+    "notes": "Use PUT routes to update resources; typically include the resource ID in the URL.",
+    "related": ["GET Route Example", "POST Route Example", "DELETE Route Example"],
+    "response": {
+      "success": "Returns updated resource data.",
+      "error": "Returns error if item does not exist or validation fails."
+    }
+  },
+  {
+    "id": "delete_route",
+    "name": "DELETE Route Example",
+    "description": "Remove an existing resource from the server.",
+    "category": "routes",
+    "method": "DELETE",
+    "difficulty": "medium",
+    "code": "from flask import Flask, jsonify\n\napp = Flask(__name__)\n\nitems = {1: {'name': 'Item 1'}, 2: {'name': 'Item 2'}}\n\n@app.route('/items/<int:item_id>', methods=['DELETE'])\ndef delete_item(item_id):\n    if item_id not in items:\n        return jsonify({'error': 'Item not found'}), 404\n    \n    del items[item_id]\n    return jsonify({'message': f'Item {item_id} deleted'}), 200",
+    "keywords": ["flask", "delete", "api", "route", "remove"],
+    "tags": ["flask", "api", "json", "route", "delete"],
+    "requires": ["Flask"],
+    "notes": "Use DELETE routes to remove resources; include resource ID in the URL. Return 404 if not found.",
+    "related": ["GET Route Example", "POST Route Example", "PUT Route Example"],
+    "response": {
+      "success": "Returns confirmation of deletion.",
+      "error": "Returns error if item does not exist."
+    }
+  },
+  {
+    "id": "login_auth",
+    "name": "Login Authentication",
+    "description": "User login with session management.",
+    "category": "auth",
+    "method": "POST",
+    "difficulty": "medium",
+    "code": "from flask import Flask, request, session, jsonify\nfrom werkzeug.security import check_password_hash\n\napp = Flask(__name__)\napp.secret_key = 'your-secret-key-here'\n\nusers = {\n    'admin': {'password_hash': 'hashed_password_here'}\n}\n\n@app.route('/login', methods=['POST'])\ndef login():\n    username = request.form.get('username')\n    password = request.form.get('password')\n    \n    if not username or not password:\n        return jsonify({'error': 'Username and password required'}), 400\n    \n    user = users.get(username)\n    if user and check_password_hash(user['password_hash'], password):\n        session['user_id'] = username\n        return jsonify({'message': 'Login successful'}), 200\n    \n    return jsonify({'error': 'Invalid credentials'}), 401",
+    "keywords": ["flask", "login", "auth", "session", "authentication"],
+    "tags": ["flask", "auth", "login", "session", "security"],
+    "requires": ["Flask", "Werkzeug"],
+    "notes": "Always use secure password hashing. Never store plain text passwords.",
+    "related": ["Logout Function", "Register Route"],
+    "response": {
+      "success": "Returns login confirmation and sets session.",
+      "error": "Returns error for invalid credentials."
+    }
+  },
+  {
+    "id": "sql_model",
+    "name": "SQLAlchemy Model",
+    "description": "Database model using SQLAlchemy ORM.",
+    "category": "database",
+    "method": "N/A",
+    "difficulty": "medium",
+    "code": "from flask_sqlalchemy import SQLAlchemy\nfrom datetime import datetime\n\ndb = SQLAlchemy()\n\nclass User(db.Model):\n    __tablename__ = 'users'\n    \n    id = db.Column(db.Integer, primary_key=True)\n    username = db.Column(db.String(80), unique=True, nullable=False)\n    email = db.Column(db.String(120), unique=True, nullable=False)\n    password_hash = db.Column(db.String(200), nullable=False)\n    created_at = db.Column(db.DateTime, default=datetime.utcnow)\n    is_active = db.Column(db.Boolean, default=True)\n    \n    def __repr__(self):\n        return f'<User {self.username}>'\n    \n    def to_dict(self):\n        return {\n            'id': self.id,\n            'username': self.username,\n            'email': self.email,\n            'created_at': self.created_at.isoformat()\n        }",
+    "keywords": ["flask", "sqlalchemy", "database", "model", "orm"],
+    "tags": ["flask", "database", "sqlalchemy", "model", "orm"],
+    "requires": ["Flask-SQLAlchemy"],
+    "notes": "Define relationships between models using db.relationship().",
+    "related": ["Database Setup", "CRUD Operations"],
+    "response": {
+      "success": "Model definition for database operations.",
+      "error": "N/A"
+    }
+  },
+  {
+    "id": "advanced_form",
+    "name": "Advanced Form Handling",
+    "description": "Complex form with validation and file upload.",
+    "category": "forms",
+    "method": "POST",
+    "difficulty": "hard",
+    "code": "from flask import Flask, request, jsonify\nfrom werkzeug.utils import secure_filename\nimport os\n\napp = Flask(__name__)\napp.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB limit\nALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}\n\n# Helper function\ndef allowed_file(filename):\n    return '.' in filename and \\\n           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS\n\n@app.route('/upload', methods=['POST'])\ndef upload_file():\n    # Get form data\n    username = request.form.get('username')\n    email = request.form.get('email')\n    \n    # Validate form data\n    if not username or not email:\n        return jsonify({'error': 'Username and email are required'}), 400\n    \n    # Handle file upload\n    if 'file' not in request.files:\n        return jsonify({'error': 'No file part'}), 400\n    \n    file = request.files['file']\n    if file.filename == '':\n        return jsonify({'error': 'No selected file'}), 400\n    \n    if file and allowed_file(file.filename):\n        filename = secure_filename(file.filename)\n        # Save file to uploads folder\n        file.save(os.path.join('uploads', filename))\n        return jsonify({\n            'message': 'File uploaded successfully',\n            'username': username,\n            'email': email,\n            'filename': filename\n        }), 200\n    \n    return jsonify({'error': 'File type not allowed'}), 400",
+    "keywords": ["flask", "form", "upload", "validation", "file"],
+    "tags": ["flask", "forms", "upload", "validation", "files"],
+    "requires": ["Flask", "Werkzeug"],
+    "notes": "Always validate file extensions and use secure_filename(). Set appropriate file size limits.",
+    "related": ["Simple Form", "Form Validation"],
+    "response": {
+      "success": "Returns uploaded file info.",
+      "error": "Returns validation errors."
+    }
+  },
+  {
+    "id": "simple_form",
+    "name": "Simple Form Handling",
+    "description": "Basic form submission and validation.",
+    "category": "forms",
+    "method": "POST",
+    "difficulty": "easy",
+    "code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\n@app.route('/submit-form', methods=['POST'])\ndef submit_form():\n    name = request.form.get('name')\n    email = request.form.get('email')\n    message = request.form.get('message', '')\n    \n    # Basic validation\n    errors = []\n    if not name:\n        errors.append('Name is required')\n    if not email:\n        errors.append('Email is required')\n    elif '@' not in email:\n        errors.append('Valid email is required')\n    \n    if errors:\n        return jsonify({'errors': errors}), 400\n    \n    # Process the form data (e.g., save to database, send email)\n    # ...\n    \n    return jsonify({\n        'message': 'Form submitted successfully',\n        'data': {\n            'name': name,\n            'email': email,\n            'message': message[:100]  # Limit message preview\n        }\n    }), 200",
+    "keywords": ["flask", "form", "validation", "submit", "basic"],
+    "tags": ["flask", "forms", "validation", "basic"],
+    "requires": ["Flask"],
+    "notes": "Always validate user input on the server side, even if you have client-side validation.",
+    "related": ["Advanced Form", "Form Validation"],
+    "response": {
+      "success": "Returns form submission confirmation.",
+      "error": "Returns validation errors."
+    }
+  },
+  {
+    "id": "logout_auth",
+    "name": "Logout Function",
+    "description": "User logout with session cleanup.",
+    "category": "auth",
+    "method": "POST",
+    "difficulty": "easy",
+    "code": "from flask import Flask, session, jsonify\n\napp = Flask(__name__)\napp.secret_key = 'your-secret-key-here'\n\n@app.route('/logout', methods=['POST'])\ndef logout():\n    # Check if user is logged in\n    if 'user_id' not in session:\n        return jsonify({'error': 'Not logged in'}), 400\n    \n    # Clear the session\n    session.clear()\n    \n    return jsonify({'message': 'Logout successful'}), 200\n\n# Alternative: Using decorator for protected routes\nfrom functools import wraps\n\ndef login_required(f):\n    @wraps(f)\n    def decorated_function(*args, **kwargs):\n        if 'user_id' not in session:\n            return jsonify({'error': 'Authentication required'}), 401\n        return f(*args, **kwargs)\n    return decorated_function\n\n@app.route('/protected')\n@login_required\ndef protected_route():\n    return jsonify({'message': 'This is a protected route'})",
+    "keywords": ["flask", "logout", "auth", "session", "protected"],
+    "tags": ["flask", "auth", "logout", "session", "decorator"],
+    "requires": ["Flask"],
+    "notes": "Always clear session data on logout. Use decorators for route protection.",
+    "related": ["Login Authentication", "Session Management"],
+    "response": {
+      "success": "Returns logout confirmation.",
+      "error": "Returns error if not logged in."
+    }
+  }
+]
