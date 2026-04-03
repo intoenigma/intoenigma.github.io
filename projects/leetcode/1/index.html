@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Two Sum</title>
+<link rel="stylesheet" href="../../assets/common.css">
+</head>
+<body>
+
+<a href="/leetcode">⬅ Back</a>
+<h1 id="title"></h1>
+<h3>🧠 Pattern</h3>
+<p id="pattern"></p>
+<h3>📝 Hinglish</h3>
+<p id="hinglish"></p>
+<h3>📝 English</h3>
+<p id="english"></p>
+<h3>⚙️ Core Logic</h3>
+<pre id="logic"></pre>
+<h3>⏱️ Complexity</h3>
+<p id="complexity"></p>
+
+<script>
+async function loadData() {
+  const res = await fetch('data.json');
+  const data = await res.json();
+  document.getElementById('title').textContent = data.title;
+  document.getElementById('pattern').textContent = data.pattern;
+  document.getElementById('hinglish').textContent = data.hinglish;
+  document.getElementById('english').textContent = data.english;
+  document.getElementById('logic').textContent = data.logic.join('\n');
+  document.getElementById('complexity').textContent = `Time: ${data.complexity.time}, Space: ${data.complexity.space}`;
+}
+loadData();
+</script>
+
+</body>
+</html>

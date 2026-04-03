@@ -1,0 +1,16 @@
+{
+  "id": 1,
+  "title": "Two Sum",
+  "pattern": "HashMap",
+  "difficulty": "Easy",
+  "summary": "Find two numbers that add up to target",
+  "hinglish": "Array me ek-ek element par jao, har number ka complement check karo ki pehle aa chuka hai ya nahi.",
+  "english": "Iterate through array and store complements in hash map.",
+  "logic": [
+    "Create empty map",
+    "For each number x",
+    "Check if target - x exists",
+    "If yes, return indices"
+  ],
+  "complexity": { "time": "O(n)", "space": "O(n)" }
+}

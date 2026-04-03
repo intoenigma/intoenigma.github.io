@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Two Numbers | LeetCode Revision</title>
+<link rel="stylesheet" href="../../assets/common.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    margin: 0;
+    padding: 20px;
+    color: #222;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  }
+
+  a.back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.3);
+    color: #0077cc;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    backdrop-filter: blur(10px);
+  }
+  a.back-btn:hover {
+    background: rgba(255,255,255,0.5);
+  }
+
+  h1 { font-size: 2em; margin-bottom: 15px; text-align:center; }
+
+  .card {
+    background: rgba(255,255,255,0.25);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  h3 { margin-top: 15px; color: #0077cc; }
+
+  pre {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+  }
+
+  .tags span {
+    display: inline-block;
+    background: rgba(255,255,255,0.3);
+    margin: 3px 5px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.85em;
+    backdrop-filter: blur(5px);
+  }
+
+  /* Tabs */
+  .tabs { display:flex; margin-top: 15px; border-bottom:1px solid rgba(255,255,255,0.3);}
+  .tab { padding:10px 20px; cursor:pointer; font-weight:600; transition:0.3s; border-radius:10px 10px 0 0; margin-right:5px; }
+  .tab.active { background: rgba(255,255,255,0.35); }
+  .tab-content { display:none; margin-top:15px; }
+  .tab-content.active { display:block; }
+
+  @media(max-width:600px){
+    body { padding:10px; }
+    h1 { font-size:1.5em; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="/leetcode" class="back-btn">⬅ Back to Search</a>
+  <h1 id="title">Loading...</h1>
+
+  <div class="card">
+    <h3>🧠 Pattern & Difficulty</h3>
+    <p id="pattern"></p>
+    <p id="difficulty"></p>
+    <div class="tags" id="tags"></div>
+  </div>
+
+  <div class="card">
+    <h3>📝 Summary</h3>
+    <p id="summary"></p>
+  </div>
+
+  <!-- Tabs for different sections -->
+  <div class="card">
+    <div class="tabs">
+      <div class="tab active" data-tab="hinglish">Hinglish</div>
+      <div class="tab" data-tab="english">English</div>
+      <div class="tab" data-tab="logic">Logic</div>
+      <div class="tab" data-tab="constraints">Constraints</div>
+      <div class="tab" data-tab="code">Code</div>
+      <div class="tab" data-tab="examples">Examples</div>
+    </div>
+
+    <div id="hinglish" class="tab-content active"></div>
+    <div id="english" class="tab-content"></div>
+    <div id="logic" class="tab-content"><pre id="logicContent"></pre></div>
+    <div id="constraints" class="tab-content"><ul id="constraintsContent"></ul></div>
+    <div id="code" class="tab-content">
+      <h4>Python</h4><pre id="pythonCode"></pre>
+      <h4>Java</h4><pre id="javaCode"></pre>
+      <h4>JavaScript</h4><pre id="jsCode"></pre>
+    </div>
+    <div id="examples" class="tab-content"><pre id="examplesContent"></pre></div>
+  </div>
+
+</div>
+
+<script>
+async function loadData() {
+  try {
+    const res = await fetch('data.json');
+    if(!res.ok) throw new Error('Cannot load data.json');
+    const data = await res.json();
+
+    document.getElementById('title').textContent = `${data.id}. ${data.title}`;
+    document.getElementById('pattern').textContent = `Pattern: ${data.pattern}`;
+    document.getElementById('difficulty').textContent = `Difficulty: ${data.difficulty}`;
+    document.getElementById('summary').textContent = data.summary;
+
+    // Tags
+    const tagsDiv = document.getElementById('tags');
+    if(data.tags) data.tags.forEach(t=>{
+      const span = document.createElement('span'); span.textContent = t; tagsDiv.appendChild(span);
+    });
+
+    // Tabs content
+    document.getElementById('hinglish').textContent = data.hinglish;
+    document.getElementById('english').textContent = data.english;
+    document.getElementById('logicContent').textContent = data.logic.join('\n');
+    const constraintsUl = document.getElementById('constraintsContent');
+    if(data.constraints) data.constraints.forEach(c=>{
+      const li = document.createElement('li'); li.textContent=c; constraintsUl.appendChild(li);
+    });
+    document.getElementById('pythonCode').textContent = data.code_snippets.python;
+    document.getElementById('javaCode').textContent = data.code_snippets.java;
+    document.getElementById('jsCode').textContent = data.code_snippets.javascript;
+    document.getElementById('examplesContent').textContent = data.example_io.map(e=>`Input: ${e.input}\nOutput: ${e.output}`).join('\n\n');
+
+    // Tabs switching
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab=>{
+      tab.addEventListener('click', ()=>{
+        tabs.forEach(t=>t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+  } catch(err){
+    document.body.innerHTML = `<h1>Error</h1><p>${err.message}</p><a href="/leetcode" class="back-btn">⬅ Back</a>`;
+    console.error(err);
+  }
+}
+
+loadData();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LeetCode Revision</title>
+  <style>
+    body { font-family: Arial; padding:30px; }
+    h1 { margin-bottom:20px; }
+    input { width:100%; padding:12px; font-size:16px; margin-bottom:20px; }
+    ul { list-style:none; padding:0; }
+    li { padding:12px; border:1px solid #ddd; margin-bottom:10px; cursor:pointer; }
+    li:hover { background:#f2f2f2; }
+  </style>
+</head>
+<body>
+
+  <h1>📘 LeetCode One-Shot Revision</h1>
+  <input type="text" id="searchInput" placeholder="Search by question number or name..." />
+  <ul id="results"></ul>
+
+  <script>
+    async function loadQuestions() {
+      // fetch all questions
+      const res = await fetch('data/all.json');
+      const questions = await res.json();
+
+      const input = document.getElementById('searchInput');
+      const results = document.getElementById('results');
+
+      function render(list) {
+        results.innerHTML = '';
+        list.forEach(q => {
+          const li = document.createElement('li');
+          li.textContent = `${q.id}. ${q.title}`;
+          li.onclick = () => { window.location.href = `/leetcode/${q.id}/`; };
+          results.appendChild(li);
+        });
+      }
+
+      render(questions);
+
+      input.addEventListener('input', () => {
+        const value = input.value.toLowerCase();
+        const filtered = questions.filter(q =>
+          q.id.toString().includes(value) ||
+          q.title.toLowerCase().includes(value)
+        );
+        render(filtered);
+      });
+    }
+
+    loadQuestions();
+  </script>
+
+</body>
+</html>
