@@ -4,31 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Port Checker | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <div id="enigma-header"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Port <span class="highlight">Probe</span></h2>
-        </header>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-        <div class="input-group">
-            <input type="text" id="host" placeholder="localhost or IP">
-            <button id="scan-btn" class="cta-btn primary">Scan Common Ports</button>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Port Probe Intelligence</h2>
+                        <p>Analyze and deconstruct network endpoint availability protocols.</p>
+                    </header>
+
+                    <div class="tool-content">
+                        <div class="card mb-4" style="background: #fbfbfb; display: flex; gap: 10px; padding: 15px; border: 1px solid #ddd;">
+                            <input type="text" id="host" placeholder="localhost or target IP vector..." class="form-control" style="flex: 1; height: 35px; border-radius: 4px;">
+                            <button id="scan-btn" class="btn btn-primary" style="height: 35px; font-weight: 700; padding: 0 20px;">INITIATE SCAN</button>
+                        </div>
+
+                        <div id="results" class="results-grid card" style="min-height: 200px; padding: 20px; background: #fff; border-style: double;">
+                            <div class="placeholder" style="text-align: center; color: #888; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; padding-top: 80px;">Awaiting Scanning Protocol...</div>
+                        </div>
+                        
+                        <p style="font-size: 11px; color: #565959; margin-top: 20px; line-height: 1.6; font-style: italic;">
+                            <i class="fa-solid fa-triangle-exclamation" style="margin-right: 5px;"></i>
+                            Protocol Note: Modern web security envelopes restrict raw socket access. This probe utilizes timing deconstruction and cross-origin resource analyzing to infer port status. Accuracy is non-deterministic.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </main>
 
-        <div id="results" class="results-grid">
-            <!-- Items -->
-            <div class="placeholder">Click Scan to start (Browser limitations apply)</div>
-        </div>
-        
-        <p class="note">Note: Browsers cannot truly scan ports. This tool attempts Image/Fetch timing attacks to guess if common HTTP ports (80, 8080) are open. It is inaccurate.</p>
-    </div>
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

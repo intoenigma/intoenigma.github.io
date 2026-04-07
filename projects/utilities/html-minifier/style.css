@@ -1,4 +1,4 @@
-body { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+
 .utility-container { padding: 2rem; border-radius: 20px; width: 100%; max-width: 900px; }
 .grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: center; margin-bottom: 2rem; }
 .panel { display: flex; flex-direction: column; gap: 0.5rem; }

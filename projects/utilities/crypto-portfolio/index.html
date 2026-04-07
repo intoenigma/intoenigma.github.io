@@ -4,35 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crypto Watch | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="noise-overlay"></div>
-    <canvas class="particle-canvas"></canvas>
-    <div class="bg-glow"></div>
-    <div class="bg-glow-2"></div>
+    <div id="enigma-header"></div>
 
-    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-    <div class="container" style="max-width: 1000px;">
-        <div class="utility-card glass">
-            <header class="utility-header">
-                <h2 class="scramble-text">Market <span class="highlight">Intelligence</span></h2>
-                <p style="color: var(--text-muted);">Real-time synchronized blockchain asset monitoring.</p>
-            </header>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
 
-            <div class="ticker-grid" id="ticker-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
-                <!-- Real-time data injection -->
-                <div class="loader" style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 4rem;">Intercepting market packets...</div>
-            </div>
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Market Intelligence Protocols</h2>
+                        <p>Real-time synchronized blockchain asset monitoring and fiscal deconstruction.</p>
+                    </header>
 
-            <div style="text-align: center;">
-                <button onclick="fetchPrices()" class="cta-btn primary magnetic" style="min-width: 200px;">Synchronize Data</button>
+                    <div class="tool-content">
+                        <div id="ticker-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; margin-bottom: 30px;">
+                            <div class="loader card" style="grid-column: 1/-1; text-align: center; color: #565959; padding: 60px; border: 1px dashed #007185; background: #fbfbfb;">
+                                <i class="fa-solid fa-satellite-dish fa-spin" style="font-size: 24px; color: #007185; margin-bottom: 15px; display: block;"></i>
+                                <span style="font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 2px;">Intercepting market data packets...</span>
+                            </div>
+                        </div>
+
+                        <div style="text-align: center; border-top: 1px solid #eee; padding-top: 25px;">
+                            <button id="sync-btn" onclick="fetchPrices()" class="btn btn-primary" style="min-width: 250px; height: 45px; font-weight: 700;">INITIALIZE DATA SYNCHRONIZATION</button>
+                            <p style="font-size: 11px; color: #565959; margin-top: 15px; font-style: italic;">
+                                <i class="fa-solid fa-shield-halved" style="margin-right: 5px; color: #B12704;"></i>
+                                Protocols verified via cryptographically signed market feeds.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <script src="../utility-base.js"></script>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

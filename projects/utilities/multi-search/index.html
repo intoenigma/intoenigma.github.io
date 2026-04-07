@@ -1,56 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multi Search | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="noise-overlay"></div>
-    <canvas class="particle-canvas"></canvas>
-    <div class="bg-glow"></div>
-    <div class="bg-glow-2"></div>
+    <div id="enigma-header"></div>
 
-    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-    <div class="container" style="max-width: 900px;">
-        <div class="utility-card glass">
-            <header class="utility-header">
-                <h2 class="scramble-text">Omni <span class="highlight">Intelligence</span></h2>
-                <p style="color: var(--text-muted);">Coordinate multi-threaded search queries across global information
-                    nodes.</p>
-            </header>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
 
-            <div class="query-area glass" style="padding: 1.5rem; border-radius: 20px; margin-bottom: 2.5rem;">
-                <input type="text" id="query" placeholder="Enter search vector..." class="glass"
-                    style="font-size: 1.5rem; padding: 1rem 2rem;">
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Omni Intelligence Search</h2>
+                        <p>Coordinate multi-threaded search queries across global information nodes.</p>
+                    </header>
+
+                    <div class="tool-content">
+                        <div class="card mb-4" style="background: #fbfbfb; padding: 20px;">
+                            <input type="text" id="query" placeholder="Enter search vector..." class="form-control" style="font-size: 20px; height: 50px; padding: 0 20px;">
+                        </div>
+
+                        <div class="engine-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; margin-bottom: 25px;">
+                            <button onclick="search('google')" class="btn" style="height: 40px; font-weight: 700;">Google</button>
+                            <button onclick="search('bing')" class="btn" style="height: 40px; font-weight: 700;">Bing</button>
+                            <button onclick="search('duck')" class="btn" style="height: 40px; font-weight: 700;">DuckDuckGo</button>
+                            <button onclick="search('youtube')" class="btn" style="height: 40px; font-weight: 700;">YouTube</button>
+                            <button onclick="search('reddit')" class="btn" style="height: 40px; font-weight: 700;">Reddit</button>
+                            <button onclick="search('wiki')" class="btn" style="height: 40px; font-weight: 700;">Wikipedia</button>
+                        </div>
+
+                        <button onclick="searchAll()" class="btn btn-primary" style="width: 100%; height: 45px; font-size: 14px; font-weight: 700;">Execute All Threads</button>
+                    </div>
+                </div>
             </div>
-
-            <div class="engine-grid"
-                style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 3rem;">
-                <button onclick="search('google')" class="cta-btn glass magnetic"
-                    style="font-size: 0.8rem;">Google</button>
-                <button onclick="search('bing')" class="cta-btn glass magnetic" style="font-size: 0.8rem;">Bing</button>
-                <button onclick="search('duck')" class="cta-btn glass magnetic"
-                    style="font-size: 0.8rem;">DuckDuckGo</button>
-                <button onclick="search('youtube')" class="cta-btn glass magnetic"
-                    style="font-size: 0.8rem;">YouTube</button>
-                <button onclick="search('reddit')" class="cta-btn glass magnetic"
-                    style="font-size: 0.8rem;">Reddit</button>
-                <button onclick="search('wiki')" class="cta-btn glass magnetic"
-                    style="font-size: 0.8rem;">Wikipedia</button>
-            </div>
-
-            <button onclick="searchAll()" class="cta-btn primary full-width magnetic" style="width: 100%;">Execute All
-                Threads</button>
         </div>
-    </div>
-    <script src="../utility-base.js"></script>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

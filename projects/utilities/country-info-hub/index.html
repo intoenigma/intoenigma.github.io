@@ -4,56 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Country Hub | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="noise-overlay"></div>
-    <canvas class="particle-canvas"></canvas>
-    <div class="bg-glow"></div>
-    <div class="bg-glow-2"></div>
+    <div id="enigma-header"></div>
 
-    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-    <div class="container" style="max-width: 900px;">
-        <div class="utility-card glass">
-            <header class="utility-header">
-                <h2 class="scramble-text">Global <span class="highlight">Atlas</span></h2>
-                <p style="color: var(--text-muted);">Coordinate intelligence across all terrestrial regions.</p>
-            </header>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
 
-            <div class="search-box glass" style="display: flex; gap: 0.5rem; padding: 0.5rem; border-radius: 15px; margin-bottom: 3rem;">
-                <input type="text" id="search-input" placeholder="Search geopolitical entity..." class="glass" style="border: none; background: transparent;">
-                <button id="search-btn" class="cta-btn primary magnetic" style="padding: 0 2rem;">Query</button>
-            </div>
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Global Atlas Intelligence</h2>
+                        <p>Coordinate and deconstruct geopolitical data across unified territory protocols.</p>
+                    </header>
 
-            <div id="result" class="result-card hidden glass" style="padding: 3rem; border-radius: 20px; text-align: center;">
-                <div class="flag-container" style="margin-bottom: 2rem;">
-                    <img id="flag" src="" alt="Flag" style="width: 200px; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid var(--border);">
-                </div>
-                <h3 id="country-name" class="font-space" style="font-size: 2.5rem; margin-bottom: 2.5rem;">Country Name</h3>
-                <div class="info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem;">
-                    <div class="info-item glass" style="padding: 1.5rem; border-radius: 12px;">
-                        <h4 style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Capital</h4>
-                        <span id="capital" class="highlight" style="font-size: 1.2rem; font-weight: 600;">--</span>
-                    </div>
-                    <div class="info-item glass" style="padding: 1.5rem; border-radius: 12px;">
-                        <h4 style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Population</h4>
-                        <span id="population" class="highlight" style="font-size: 1.2rem; font-weight: 600;">--</span>
-                    </div>
-                    <div class="info-item glass" style="padding: 1.5rem; border-radius: 12px;">
-                        <h4 style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Region</h4>
-                        <span id="region" class="highlight" style="font-size: 1.2rem; font-weight: 600;">--</span>
-                    </div>
-                    <div class="info-item glass" style="padding: 1.5rem; border-radius: 12px;">
-                        <h4 style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Currency</h4>
-                        <span id="currency" class="highlight" style="font-size: 1.2rem; font-weight: 600;">--</span>
+                    <div class="tool-content">
+                        <div class="form-group mb-4" style="display: flex; gap: 10px;">
+                            <input type="text" id="search-input" placeholder="Query Geopolitical Entity..." class="form-control" style="flex: 1; height: 40px; font-weight: 600;">
+                            <button id="search-btn" class="btn btn-primary" style="height: 40px; padding: 0 30px; font-weight: 700;">EXECUTE QUERY</button>
+                        </div>
+
+                        <div id="result" class="hidden card" style="padding: 30px; text-align: center; background: #fff; border: 1px solid #ddd; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                            <div class="flag-container mb-4" style="text-align: center;">
+                                <img id="flag" src="" alt="Geopolitical Identifier" style="max-width: 200px; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);">
+                            </div>
+                            <h3 id="country-name" style="font-size: 24px; font-weight: 800; color: #0f1111; margin-bottom: 30px; letter-spacing: -0.5px;">Geopolitical Entity</h3>
+                            
+                            <div class="info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px;">
+                                <div class="info-item card" style="padding: 15px; background: #fbfbfb; border: 1px dashed #ddd; text-align: left;">
+                                    <h4 style="color: #565959; font-size: 11px; text-transform: uppercase; font-weight: 800; margin-bottom: 5px;">CAPITAL NODE</h4>
+                                    <span id="capital" style="font-size: 14px; font-weight: 700; color: #B12704;">--</span>
+                                </div>
+                                <div class="info-item card" style="padding: 15px; background: #fbfbfb; border: 1px dashed #ddd; text-align: left;">
+                                    <h4 style="color: #565959; font-size: 11px; text-transform: uppercase; font-weight: 800; margin-bottom: 5px;">POPULATION DATA</h4>
+                                    <span id="population" style="font-size: 14px; font-weight: 700; color: #B12704;">--</span>
+                                </div>
+                                <div class="info-item card" style="padding: 15px; background: #fbfbfb; border: 1px dashed #ddd; text-align: left;">
+                                    <h4 style="color: #565959; font-size: 11px; text-transform: uppercase; font-weight: 800; margin-bottom: 5px;">TERRITORY REGION</h4>
+                                    <span id="region" style="font-size: 14px; font-weight: 700; color: #B12704;">--</span>
+                                </div>
+                                <div class="info-item card" style="padding: 15px; background: #fbfbfb; border: 1px dashed #ddd; text-align: left;">
+                                    <h4 style="color: #565959; font-size: 11px; text-transform: uppercase; font-weight: 800; margin-bottom: 5px;">FISCAL PROTOCOL</h4>
+                                    <span id="currency" style="font-size: 14px; font-weight: 700; color: #B12704;">--</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p style="font-size: 11px; color: #565959; text-align: center; margin-top: 25px; line-height: 1.6; border-top: 1px solid #eee; padding-top: 15px; font-style: italic;">
+                            <i class="fa-solid fa-earth-americas" style="margin-right: 5px; color: #007185;"></i>
+                            Data Analytics Note: Synchronized with the Global Geopolitical Hub API.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="../utility-base.js"></script>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

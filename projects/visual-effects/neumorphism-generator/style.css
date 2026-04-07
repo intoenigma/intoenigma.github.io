@@ -1,11 +1,5 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #e0e5ec;
-    color: #333;
-}
+body {background: #e0e5ec;
+    color: #333}
 
 .noise-overlay {
     display: none;

@@ -3,194 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IntoEnigma | Decoding the Digital Void</title>
-    <meta name="description" content="IntoEnigma - A high-performance digital laboratory. Explore complex protocols, interactive visuals, and advanced web experiments.">
-    
-    <!-- Google Fonts: Outfit & Space Grotesk -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
-    
+    <title>IntoEnigma Collection</title>
+    <meta name="description" content="A comprehensive collection of web utilities, calculators, converters, and games.">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="dark-only">
-    <!-- Custom Cursor -->
-    <div class="cursor-outer"></div>
-    <div class="cursor-inner"></div>
+<body>
+    <!-- Automated Layout Injection -->
+    <div id="enigma-header"></div>
 
-    <!-- Background Elements -->
-    <div class="noise-overlay"></div>
-    <canvas id="particle-canvas"></canvas>
-    <div class="bg-glow g1"></div>
-    <div class="bg-glow g2"></div>
-    <div class="bg-glow g3"></div>
-    
-    <header class="navbar glass">
-        <div class="logo magnetic" data-text="IntoEnigma">Into<span class="highlight">Enigma</span></div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#home" class="nav-item">Home</a></li>
-                <li><a href="#about" class="nav-item">About</a></li>
-                <li><a href="#projects" class="nav-item">Protocols</a></li>
-            </ul>
-        </nav>
-        <div class="nav-actions">
-            <button class="cta-btn small glass-btn magnetic">Access System</button>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+
+        <!-- Hero Banner style -->
+        <div class="banner">
+            <h2>Welcome to the IntoEnigma Toolkit</h2>
+            <p>Explore over 150+ free web tools, calculators, games, and utilities built for everyday productivity.</p>
         </div>
-    </header>
 
-    <main>
-        <section id="home" class="hero-section">
-            <div class="hero-content">
-                <div class="system-tag">_protocol_initialized</div>
-                <h1 class="hero-title scramble-text" data-value="UNRAVEL THE VOID">UNRAVEL <br>THE <span class="highlight">VOID</span></h1>
-                <p class="hero-subtitle">Step into a high-dimensional digital laboratory where code transcends the ordinary. Explore 160+ experimental protocols designed for the next epoch.</p>
-                <div class="system-status glass">
-                    <span class="status-item"><i class="fas fa-bolt"></i> CPU: OPTIMAL</span>
-                    <span class="status-item"><i class="fas fa-microchip"></i> LOAD: 0.04ms</span>
-                    <span class="status-item"><i class="fas fa-lock-open"></i> ENCRYPTION: 99.9%</span>
-                </div>
-                <div class="hero-actions">
-                    <a href="#projects" class="cta-btn primary magnetic">Initialize Journey</a>
-                    <a href="#about" class="cta-btn secondary magnetic">Read Manifest</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="main-orb">
-                    <div class="orb-ring"></div>
-                    <div class="orb-ring"></div>
-                    <div class="orb-ring"></div>
-                    <div class="glowing-orb"></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="about-section hidden-scroll">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">THE <span class="highlight">ARCHITECT</span></h2>
-                    <p class="section-subtitle">Decoding complex architectures through minimal design and high-performance logic.</p>
-                </div>
-                <div class="about-grid">
-                    <div class="about-card glass magnetic-card">
-                        <div class="card-icon"><i class="fas fa-eye"></i></div>
-                        <h3>Deep Vision</h3>
-                        <p>Crafting digital experiences that bridge the gap between human intuition and machine precision.</p>
-                    </div>
-                    <div class="about-card glass magnetic-card">
-                        <div class="card-icon"><i class="fas fa-code"></i></div>
-                        <h3>Pure Flux</h3>
-                        <p>Vanilla optimization at its peak. Every line of code is a protocol for performance and beauty.</p>
-                    </div>
-                    <div class="about-card glass magnetic-card">
-                        <div class="card-icon"><i class="fas fa-atom"></i></div>
-                        <h3>Neon Core</h3>
-                        <p>Aesthetics driven by dark mode logic, neon vibrance, and immersive glassmorphism.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="projects-section hidden-scroll">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">ACTIVE <span class="highlight">PROTOCOLS</span></h2>
-                </div>
-                <div class="project-grid">
-                    <article class="project-card glass magnetic-card" data-tilt>
-                        <div class="card-content">
-                            <span class="tag">VISUAL</span>
-                            <h3>Matrix Rain</h3>
-                            <p>Temporal stream of digital source code. Optimized for recursive depth.</p>
-                            <a href="projects/visual-effects/matrix-rain/index.html" class="link-arrow">Connect</a>
+        <div class="content-layout">
+            <aside class="sidebar">
+                <h3>Departments</h3>
+                <ul>
+                    <li><a href="projects/calculators/index.html">Calculators (13)</a></li>
+                    <li><a href="projects/converters/index.html">Converters (11)</a></li>
+                    <li><a href="projects/games/index.html">Games (22)</a></li>
+                    <li><a href="projects/generators/index.html">Generators (13)</a></li>
+                    <li><a href="projects/quizzes/index.html">Quizzes (9)</a></li>
+                    <li><a href="projects/trackers/index.html">Trackers (8)</a></li>
+                    <li><a href="projects/utilities/index.html">Utilities (56)</a></li>
+                    <li><a href="projects/visual-effects/index.html">Visual Effects (37)</a></li>
+                    <li><a href="projects/coding/python/flask/index.html">Python Flask (1)</a></li>
+                    <li><a href="projects/leetcode/index.html">LeetCode (2)</a></li>
+                    <li><a href="projects/templates/about-me-page/index.html">Templates (1)</a></li>
+                </ul>
+            </aside>
+            <div class="main-content">
+                <section id="popular" class="category-section">
+                    <h3>Popular Categories</h3>
+                    
+                    <div class="grid">
+                        <div class="simple-card">
+                            <div class="card-title">Calculators</div>
+                            <img src="https://placehold.co/300x200/ffffff/333333?text=Calculators" alt="Calculators">
+                            <a href="projects/calculators/index.html" class="shop-now">Browse calculators</a>
                         </div>
-                    </article>
-                    <article class="project-card glass magnetic-card" data-tilt>
-                        <div class="card-content">
-                            <span class="tag">DYNAMICS</span>
-                            <h3>Physics Engine</h3>
-                            <p>Real-time collision protocols and gravity simulations in 2D space.</p>
-                            <a href="projects/games/index.html" class="link-arrow">Execute</a>
+                        <div class="simple-card">
+                            <div class="card-title">Utilities</div>
+                            <img src="https://placehold.co/300x200/ffffff/333333?text=Utilities" alt="Utilities">
+                            <a href="projects/utilities/index.html" class="shop-now">Browse utilities</a>
                         </div>
-                    </article>
-                    <article class="project-card glass magnetic-card" data-tilt>
-                        <div class="card-content">
-                            <span class="tag">CORE</span>
-                            <h3>System 01</h3>
-                            <p>Complex organizational logic designed for rapid protocol deployment.</p>
-                            <a href="projects/utilities/index.html" class="link-arrow">Boot</a>
+                        <div class="simple-card">
+                            <div class="card-title">Games</div>
+                            <img src="https://placehold.co/300x200/ffffff/333333?text=Games" alt="Games">
+                            <a href="projects/games/index.html" class="shop-now">Play games</a>
                         </div>
-                    </article>
-                </div>
-
-                <div class="directory-section">
-                    <h3 class="dir-title">SYSTEM <span class="highlight">DIRECTORIES</span></h3>
-                    <div class="dir-grid">
-                        <a href="projects/visual-effects/index.html" class="dir-card glass magnetic">
-                            <i class="fas fa-wand-magic-sparkles"></i>
-                            <span>Visuals (37)</span>
-                        </a>
-                        <a href="projects/games/index.html" class="dir-card glass magnetic">
-                            <i class="fas fa-gamepad"></i>
-                            <span>Games (22)</span>
-                        </a>
-                        <a href="projects/utilities/index.html" class="dir-card glass magnetic">
-                            <i class="fas fa-tools"></i>
-                            <span>Utilities (56)</span>
-                        </a>
-                        <a href="projects/converters/index.html" class="dir-card glass magnetic">
-                            <i class="fas fa-shuffle"></i>
-                            <span>Converters (11)</span>
-                        </a>
-                        <a href="projects/generators/index.html" class="dir-card glass magnetic">
-                            <i class="fas fa-bolt-lightning"></i>
-                            <span>Generators (13)</span>
-                        </a>
-                        <a href="projects/trackers/index.html" class="dir-card glass magnetic">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Trackers (08)</span>
-                        </a>
-                        <a href="projects/calculators/index.html" class="dir-card glass magnetic">
-                            <i class="fas fa-calculator"></i>
-                            <span>Calculators (13)</span>
-                        </a>
+                        <div class="simple-card">
+                            <div class="card-title">Visual Effects</div>
+                            <img src="https://placehold.co/300x200/ffffff/333333?text=Visuals" alt="Visual Effects">
+                            <a href="projects/visual-effects/index.html" class="shop-now">View effects</a>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="join-section hidden-scroll">
-            <div class="container">
-                <div class="glass glass-panel magnetic-card">
-                    <h2 class="scramble-text" data-value="JOIN THE ENIGMA">JOIN THE ENIGMA</h2>
-                    <p>Submerge into the digital void. New protocols added daily.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-btn magnetic"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-btn magnetic"><i class="fab fa-discord"></i></a>
-                        <a href="#" class="social-btn magnetic"><i class="fab fa-twitter"></i></a>
+                </section>
+                
+                <section class="list-section">
+                    <h3>All Directories Explorer</h3>
+                    <div class="list-grid">
+                        <a href="projects/calculators/index.html" class="list-item">Calculators</a>
+                        <a href="projects/converters/index.html" class="list-item">Converters</a>
+                        <a href="projects/games/index.html" class="list-item">Games</a>
+                        <a href="projects/generators/index.html" class="list-item">Generators</a>
+                        <a href="projects/leetcode/index.html" class="list-item">LeetCode</a>
+                        <a href="projects/quizzes/index.html" class="list-item">Quizzes</a>
+                        <a href="projects/templates/about-me-page/index.html" class="list-item">Templates</a>
+                        <a href="projects/trackers/index.html" class="list-item">Trackers</a>
+                        <a href="projects/utilities/index.html" class="list-item">Utilities</a>
+                        <a href="projects/visual-effects/index.html" class="list-item">Visual Effects</a>
+                        <a href="projects/coding/python/flask/index.html" class="list-item">Coding Assets</a>
                     </div>
-                </div>
+                </section>
             </div>
-        </section>
+        </div>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2025 INTOENIGMA // [SYSTEM_NOMINAL]</p>
-                <div class="footer-stats">
-                    <span>UPTIME: 99.9%</span>
-                    <span>LATENCY: 12ms</span>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+    <div id="enigma-footer"></div>
+    
     <script src="js/main.js"></script>
 </body>
 </html>
-

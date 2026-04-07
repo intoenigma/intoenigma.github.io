@@ -35,11 +35,13 @@ function addTask() {
     if (!text) return;
 
     const div = document.createElement('div');
-    div.className = 'card';
+    div.className = 'board-card'; // Changed from card to board-card
     div.draggable = true;
     div.id = `card-${cardCount++}`;
     div.textContent = text;
-    div.ondragstart = drag;
+    div.ondragstart = (e) => {
+        e.dataTransfer.setData("text", e.target.id);
+    };
 
     document.getElementById('todo').appendChild(div);
     input.value = '';

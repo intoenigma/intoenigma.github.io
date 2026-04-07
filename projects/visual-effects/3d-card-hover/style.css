@@ -1,9 +1,4 @@
-body {
-    display: flex;
-    flex-direction: column;
-    perspective: 1000px;
-    align-items: center;
-}
+body {perspective: 1000px}
 
 .effect-container {
     width: 100%;

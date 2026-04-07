@@ -1,51 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mars Rovers | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="noise-overlay"></div>
-    <canvas class="particle-canvas"></canvas>
-    <div class="bg-glow"></div>
-    <div class="bg-glow-2"></div>
+    <div id="enigma-header"></div>
 
-    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-    <div class="container" style="max-width: 1000px;">
-        <div class="utility-card glass">
-            <header class="utility-header">
-                <h2 class="scramble-text">Off-World <span class="highlight">Intelligence</span></h2>
-                <p style="color: var(--text-muted);">Intercepting deep-space visual transmissions from the Red Planet.
-                </p>
-            </header>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
 
-            <div class="controls glass"
-                style="padding: 2rem; border-radius: 20px; display: flex; gap: 1rem; margin-bottom: 2.5rem;">
-                <select id="rover" class="glass" style="flex: 1;">
-                    <option value="curiosity">Probe: Curiosity</option>
-                    <option value="perseverance">Probe: Perseverance</option>
-                    <option value="opportunity">Probe: Opportunity</option>
-                </select>
-                <button id="fetch-btn" class="cta-btn primary magnetic" style="min-width: 200px;">Sync Data
-                    Stream</button>
-            </div>
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Off-World Intelligence</h2>
+                        <p>Intercepting deep-space visual transmissions from the Red Planet.</p>
+                    </header>
 
-            <div id="gallery" class="gallery glass"
-                style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; padding: 2rem; min-height: 400px; border-radius: 20px; background: rgba(0,0,0,0.3);">
-                <div class="placeholder"
-                    style="grid-column: 1/-1; text-align: center; padding-top: 6rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 3px;">
-                    Awaiting Planetary Connection...</div>
+                    <div class="tool-content">
+                        <div class="card mb-4" style="background: #fbfbfb; display: flex; gap: 10px; padding: 15px; border: 1px solid #ddd;">
+                            <select id="rover" class="form-control" style="flex: 1; height: 35px; border-radius: 4px;">
+                                <option value="curiosity">Probe: Curiosity</option>
+                                <option value="perseverance">Probe: Perseverance</option>
+                                <option value="opportunity">Probe: Opportunity</option>
+                            </select>
+                            <button id="fetch-btn" class="btn btn-primary" style="height: 35px; padding: 0 20px; font-weight: 700;">Sync Data Stream</button>
+                        </div>
+
+                        <div id="gallery" class="gallery card" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; padding: 20px; min-height: 400px; background: #fff; border: 1px solid #eee;">
+                            <div class="placeholder" style="grid-column: 1/-1; text-align: center; padding-top: 100px; color: #888; text-transform: uppercase; letter-spacing: 2px; font-size: 11px;">
+                                Awaiting Planetary Connection...
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <script src="../utility-base.js"></script>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

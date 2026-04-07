@@ -1,311 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Simulations | IntoEnigma</title>
-    <!-- Google Fonts: Outfit & Space Grotesk -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap"
-        rel="stylesheet">
+    <title>Interactive Games | IntoEnigma</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../css/style.css">
-    <style>
-        body {
-            background: #020205;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Magnificent 4K Grid Background */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .hub-header {
-            padding: 8rem 0 4rem;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-        }
-
-        .hub-title {
-            font-family: var(--font-head);
-            font-size: 4.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            letter-spacing: -2px;
-            background: linear-gradient(to bottom, #fff, #aaa);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hub-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            padding-bottom: 4rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .hub-card {
-            display: block;
-            text-decoration: none;
-            color: white;
-            padding: 3rem 2rem;
-            border-radius: 24px;
-            background: rgba(15, 15, 25, 0.4);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hub-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(var(--secondary-rgb), 0.05));
-            opacity: 0;
-            transition: 0.4s;
-        }
-
-        .hub-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--secondary);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
-                0 0 20px rgba(157, 0, 255, 0.2);
-        }
-
-        .hub-card:hover::before {
-            opacity: 1;
-        }
-
-        .hub-card i {
-            font-size: 2rem;
-            color: var(--secondary);
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .hub-card h3 {
-            font-family: var(--font-head);
-            font-size: 1.6rem;
-            margin-bottom: 0.8rem;
-            color: #fff;
-            transition: 0.3s;
-        }
-
-        .hub-card:hover h3 {
-            color: var(--secondary);
-        }
-
-        .hub-card p {
-            font-size: 0.95rem;
-            color: #80808a;
-            line-height: 1.5;
-        }
-
-        .back-link {
-            position: fixed;
-            top: 2rem;
-            left: 2rem;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            z-index: 1001;
-            font-family: var(--font-head);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            padding: 12px 24px;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .back-link:hover {
-            background: rgba(var(--primary-rgb), 0.1);
-            border-color: var(--primary);
-            color: var(--primary);
-            padding-left: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .hub-title {
-                font-size: 3rem;
-            }
-
-            .hub-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
-
 <body>
-    <!-- Custom Cursor -->
-    <div class="cursor-outer"></div>
-    <div class="cursor-inner"></div>
+    <div id="enigma-header"></div>
 
-    <!-- Background Elements -->
-    <div class="noise-overlay"></div>
-    <canvas id="particle-canvas"></canvas>
-    <div class="bg-glow g1"></div>
-    <div class="bg-glow g2"></div>
-    <div class="bg-glow g3"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-    <a href="../../index.html" class="back-link magnetic">&larr; Main System</a>
-
-    <div class="container">
-        <header class="hub-header">
-            <h1 class="hub-title scramble-text" data-value="INTERACTIVE SIMULATIONS">INTERACTIVE <span class="highlight"
-                    style="color: var(--secondary);">SIMULATIONS</span></h1>
-            <p>Engage with high-fidelity digital entertainment protocols.</p>
-        </header>
-
-        <div class="hub-grid">
-            <a href="alien-invaders/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-rocket"></i>
-                <h3>Xenon Invader</h3>
-                <p>Neutralize extraterrestrial data fragments in deep-space simulation.</p>
-            </a>
-            <a href="breakout-game/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-th-large"></i>
-                <h3>Kinetic Breaker</h3>
-                <p>Kinetic energy distribution and physics-based logic demolition.</p>
-            </a>
-            <a href="car-racing-2d/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-car-side"></i>
-                <h3>Neon Racer</h3>
-                <p>High-velocity spatial navigation through the digital slipstream.</p>
-            </a>
-            <a href="coin-flip-3d/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-coins"></i>
-                <h3>Quantum Flip</h3>
-                <p>True probability simulation in a multi-dimensional quantum field.</p>
-            </a>
-            <a href="connect-four/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-columns"></i>
-                <h3>Tactical Grid</h3>
-                <p>Strategic pattern recognition and vertical gravity alignment.</p>
-            </a>
-            <a href="crossword-mini/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-font"></i>
-                <h3>Cryptic Cross</h3>
-                <p>Lexical decoding and semantic cross-referencing matrix.</p>
-            </a>
-            <a href="dino-run-clone/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-dragon"></i>
-                <h3>Cyber Runner</h3>
-                <p>Longitudinal velocity maintenance through hazardous sectors.</p>
-            </a>
-            <a href="dodge-ball/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-baseball-ball"></i>
-                <h3>Orbital Evasion</h3>
-                <p>Reflexive avoidance and projectile trajectory prediction.</p>
-            </a>
-            <a href="flappy-bird/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-dove"></i>
-                <h3>Gravity Glide</h3>
-                <p>Gravitational constant management and narrow aperture transit.</p>
-            </a>
-            <a href="hangman/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-skull"></i>
-                <h3>Lexical Decryption</h3>
-                <p>Alphabetical elimination and hidden string reconstruction protocols.</p>
-            </a>
-            <a href="minesweeper/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-bomb"></i>
-                <h3>Grid Sweeper</h3>
-                <p>Subsurface hazard detection and logical elimination algorithms.</p>
-            </a>
-            <a href="number-guessing/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-question-circle"></i>
-                <h3>Binary Search</h3>
-                <p>Efficiency validation through numerical approximation protocols.</p>
-            </a>
-            <a href="platformer-game/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-running"></i>
-                <h3>Plane Navigator</h3>
-                <p>Multi-plane locomotive navigation and kinetic architecture mastery.</p>
-            </a>
-            <a href="pong/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-table-tennis"></i>
-                <h3>Cyber Tennis</h3>
-                <p>The foundation of high-frequency digital kinetic interaction.</p>
-            </a>
-            <a href="rock-paper-scissors/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-hand-scissors"></i>
-                <h3>Tactical Selection</h3>
-                <p>Tri-state conflict resolution logic and probability simulation.</p>
-            </a>
-            <a href="simon-says/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-brain"></i>
-                <h3>Neural Link</h3>
-                <p>Sequential auditory-visual frequency synchronization.</p>
-            </a>
-            <a href="sudoku-generator/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-grip-9x9"></i>
-                <h3>Logic Grid</h3>
-                <p>9x9 non-repeating mathematical consistency validation.</p>
-            </a>
-            <a href="tetris/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-shapes"></i>
-                <h3>Neon Stack</h3>
-                <p>Geometric compaction and dimensional architectural efficiency.</p>
-            </a>
-            <a href="tile-slide/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-puzzle-piece"></i>
-                <h3>Fractal Reassembly</h3>
-                <p>Fragmented data module reconstruction and spatial logic.</p>
-            </a>
-            <a href="trivia-crack/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-lightbulb"></i>
-                <h3>Knowledge Base</h3>
-                <p>Broad-spectrum sector data retrieval and neural validation.</p>
-            </a>
-            <a href="whack-a-mole/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-hammer"></i>
-                <h3>Glitch Stomp</h3>
-                <p>Rapid response and anomalous data spike neutralization.</p>
-            </a>
-            <a href="wordle-clone/index.html" class="hub-card magnetic-card hidden-scroll">
-                <i class="fas fa-spell-check"></i>
-                <h3>Lexical Decryptor</h3>
-                <p>Iterative sequence deduction and feedback loop optimization.</p>
-            </a>
+        <div class="banner">
+            <h2>Interactive Games</h2>
+            <p>Engage with 20+ high-fidelity digital entertainment protocols and arcade simulations.</p>
         </div>
-    </div>
 
-    <!-- Join Section -->
+        <div class="content-layout">
+            <aside class="sidebar">
+                <h3>Game Categories</h3>
+                <ul>
+                    <li><a href="#arcade">Arcade Classics</a></li>
+                    <li><a href="#puzzle">Puzzle & Logic</a></li>
+                    <li><a href="#action">Action & Skill</a></li>
+                </ul>
+            </aside>
+
+            <div class="main-content">
+                <section class="list-section">
+                    <h3>Game Library</h3>
+                    <div class="list-grid">
+                        <a href="alien-invaders/index.html" class="list-item">Xenon Invader (Space)</a>
+                        <a href="breakout-game/index.html" class="list-item">Kinetic Breaker</a>
+                        <a href="car-racing-2d/index.html" class="list-item">Neon Racer</a>
+                        <a href="coin-flip-3d/index.html" class="list-item">Quantum Flip (3D)</a>
+                        <a href="connect-four/index.html" class="list-item">Tactical Grid (Connect 4)</a>
+                        <a href="crossword-mini/index.html" class="list-item">Cryptic Cross</a>
+                        <a href="dino-run-clone/index.html" class="list-item">Cyber Runner</a>
+                        <a href="dodge-ball/index.html" class="list-item">Orbital Evasion</a>
+                        <a href="flappy-bird/index.html" class="list-item">Gravity Glide</a>
+                        <a href="hangman/index.html" class="list-item">Lexical Decryption</a>
+                        <a href="minesweeper/index.html" class="list-item">Grid Sweeper</a>
+                        <a href="number-guessing/index.html" class="list-item">Binary Search Game</a>
+                        <a href="platformer-game/index.html" class="list-item">Plane Navigator</a>
+                        <a href="pong/index.html" class="list-item">Cyber Tennis (Pong)</a>
+                        <a href="rock-paper-scissors/index.html" class="list-item">Tactical Selection</a>
+                        <a href="simon-says/index.html" class="list-item">Neural Link (Memory)</a>
+                        <a href="sudoku-generator/index.html" class="list-item">Logic Grid (Sudoku)</a>
+                        <a href="tetris/index.html" class="list-item">Neon Stack (Tetris)</a>
+                        <a href="tile-slide/index.html" class="list-item">Fractal Reassembly</a>
+                        <a href="trivia-crack/index.html" class="list-item">Knowledge Base Trivia</a>
+                        <a href="whack-a-mole/index.html" class="list-item">Glitch Stomp</a>
+                        <a href="wordle-clone/index.html" class="list-item">Lexical Decryptor (Wordle)</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <div id="enigma-footer"></div>
+
     <script src="../../js/main.js"></script>
 </body>
-
 </html>

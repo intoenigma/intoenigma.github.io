@@ -1,53 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JWT Decoder | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="noise-overlay"></div>
-    <canvas class="particle-canvas"></canvas>
-    <div class="bg-glow"></div>
-    <div class="bg-glow-2"></div>
+    <div id="enigma-header"></div>
 
-    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-    <div class="container" style="max-width: 1000px;">
-        <div class="utility-card glass">
-            <header class="utility-header">
-                <h2 class="scramble-text">Token <span class="highlight">Intelligence</span></h2>
-                <p style="color: var(--text-muted);">Deconstruct and analyze authentication payloads.</p>
-            </header>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
 
-            <textarea id="token-input" placeholder="Paste Base64 encoded JWT string (eyJ...)" class="glass"
-                style="height: 150px; margin-bottom: 2rem;"></textarea>
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Token Intelligence</h2>
+                        <p>Deconstruct and analyze authentication payloads.</p>
+                    </header>
 
-            <div class="result-sections" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                <div class="section glass"
-                    style="padding: 1.5rem; border-radius: 12px; background: rgba(255,50,50,0.05); border-color: rgba(255,50,50,0.2);">
-                    <h3 class="font-space" style="font-size: 0.9rem; text-transform: uppercase; margin-bottom: 1rem;">
-                        Header</h3>
-                    <pre id="header-out" style="font-family: monospace; font-size: 0.85rem; overflow-x: auto;">{}</pre>
-                </div>
-                <div class="section glass"
-                    style="padding: 1.5rem; border-radius: 12px; background: rgba(100,255,100,0.05); border-color: rgba(100,255,100,0.2);">
-                    <h3 class="font-space" style="font-size: 0.9rem; text-transform: uppercase; margin-bottom: 1rem;">
-                        Payload</h3>
-                    <pre id="payload-out" style="font-family: monospace; font-size: 0.85rem; overflow-x: auto;">{}</pre>
+                    <div class="tool-content">
+                        <div class="form-group mb-4">
+                            <label style="font-weight: 700; color: #0f1111; font-size: 14px;">JWT Token String</label>
+                            <textarea id="token-input" placeholder="Paste Base64 encoded JWT string (eyJ...)" class="form-control" style="height: 120px; font-family: monospace; font-size: 13px;"></textarea>
+                        </div>
+
+                        <div class="result-sections" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+                            <div class="card" style="background: #fbfbfb; padding: 15px;">
+                                <h4 style="font-size: 12px; text-transform: uppercase; margin-bottom: 10px; color: #565959; border-bottom: 1px solid #eee; padding-bottom: 5px;">Header</h4>
+                                <pre id="header-out" style="font-family: monospace; font-size: 12px; overflow-x: auto; color: #B12704; margin: 0;">{}</pre>
+                            </div>
+                            <div class="card" style="background: #fbfbfb; padding: 15px;">
+                                <h4 style="font-size: 12px; text-transform: uppercase; margin-bottom: 10px; color: #565959; border-bottom: 1px solid #eee; padding-bottom: 5px;">Payload</h4>
+                                <pre id="payload-out" style="font-family: monospace; font-size: 12px; overflow-x: auto; color: #007185; margin: 0;">{}</pre>
+                            </div>
+                        </div>
+
+                        <div class="alert mt-4" style="font-size: 11px; color: #565959; text-align: center; border-top: 1px solid #eee; padding-top: 10px;">
+                            Security Alert: Cryptographic signature is not validated in this interface. Decoder only.
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <p class="note" style="color: var(--text-muted); font-size: 0.8rem; text-align: center; margin-top: 2rem;">
-                Security Alert: Cryptographic signature is not validated in this interface. Decoder only.</p>
         </div>
-    </div>
-    <script src="../utility-base.js"></script>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

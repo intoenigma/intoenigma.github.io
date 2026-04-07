@@ -1,4 +1,4 @@
-body { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+
 .utility-container { width: 100%; max-width: 900px; padding: 2rem; border-radius: 20px; text-align: center; }
 .controls { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
 select { padding: 0.8rem; background: #222; border: 1px solid #444; color: #fff; border-radius: 8px; }

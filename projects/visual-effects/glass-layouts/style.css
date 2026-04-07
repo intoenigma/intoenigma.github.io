@@ -1,9 +1,4 @@
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #050510;
-}
+body {background: #050510}
 
 .circles {
     position: fixed;

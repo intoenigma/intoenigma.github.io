@@ -1,54 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Placeholder Img | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <div id="enigma-header"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Dummy <span class="highlight">Asset</span></h2>
-        </header>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-        <div class="preview-box">
-            <canvas id="canvas"></canvas>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Dummy Asset Intelligence</h2>
+                        <p>Generate synthesized visual placeholders for rapid interface prototyping.</p>
+                    </header>
+
+                    <div class="tool-content">
+                        <div class="preview-box card mb-4" style="background: #000; display: flex; align-items: center; justify-content: center; min-height: 300px; overflow: hidden;">
+                            <canvas id="canvas" style="max-width: 100%; height: auto;"></canvas>
+                        </div>
+
+                        <div class="controls-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 20px;">
+                            <div class="form-group">
+                                <label style="font-size: 11px; font-weight: 700; color: #565959;">WIDTH (PX)</label>
+                                <input type="number" id="w" value="400" class="form-control" style="height: 35px;">
+                            </div>
+                            <div class="form-group">
+                                <label style="font-size: 11px; font-weight: 700; color: #565959;">HEIGHT (PX)</label>
+                                <input type="number" id="h" value="300" class="form-control" style="height: 35px;">
+                            </div>
+                            <div class="form-group">
+                                <label style="font-size: 11px; font-weight: 700; color: #565959;">BG HEX</label>
+                                <input type="color" id="bg" value="#333333" class="form-control" style="height: 35px; padding: 2px;">
+                            </div>
+                            <div class="form-group">
+                                <label style="font-size: 11px; font-weight: 700; color: #565959;">TEXT HEX</label>
+                                <input type="color" id="txt-col" value="#ffffff" class="form-control" style="height: 35px; padding: 2px;">
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label style="font-size: 11px; font-weight: 700; color: #565959;">OVERLAY TEXT</label>
+                            <input type="text" id="txt" value="400 x 300" class="form-control" style="height: 35px;">
+                        </div>
+
+                        <button id="download-btn" class="btn btn-primary" style="width: 100%; height: 40px; font-weight: 700;">DOWNLOAD IMAGE</button>
+                    </div>
+                </div>
+            </div>
         </div>
+    </main>
 
-        <div class="controls-grid">
-            <div class="grp">
-                <label>Width</label>
-                <input type="number" id="w" value="400">
-            </div>
-            <div class="grp">
-                <label>Height</label>
-                <input type="number" id="h" value="300">
-            </div>
-            <div class="grp">
-                <label>Bg Color</label>
-                <input type="color" id="bg" value="#333333">
-            </div>
-            <div class="grp">
-                <label>Text Color</label>
-                <input type="color" id="txt-col" value="#ffffff">
-            </div>
-            <div class="grp full">
-                <label>Text</label>
-                <input type="text" id="txt" value="400 x 300">
-            </div>
-        </div>
+    <div id="enigma-footer"></div>
 
-        <button id="download-btn" class="cta-btn primary full-width">Download Image</button>
-    </div>
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

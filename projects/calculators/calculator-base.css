@@ -1,153 +1,198 @@
-/* Centralized Calculator Styles for Max-Level Upgrade */
+/* Centralized Calculator Styles - Amazon Shopping Aesthetic */
 
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    padding: 0;
-    margin: 0;
-}
-
-.main-content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 120px 20px;
+:root {
+    --text-main: #0f1111;
+    --text-muted: #565959;
+    --amz-link: #007185;
+    --amz-border: #ddd;
 }
 
 .calc-container {
     width: 100%;
-    max-width: 600px;
-    padding: 4rem;
-    border-radius: 32px;
-    position: relative;
-    z-index: 10;
+    padding: 10px 0;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid var(--amz-border);
+    border-radius: 8px;
+    padding: 20px 25px;
+    margin-bottom: 20px;
 }
 
 .calc-header {
-    text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    background: transparent !important;
 }
 
 .calc-header h2 {
-    font-family: var(--font-head);
-    font-size: 3rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-main);
+    margin-bottom: 6px;
 }
 
 .calc-header p {
-    color: #a0a0aa;
-    font-size: 1rem;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.4;
 }
 
-.input-section {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+/* Amazon-style Form Elements */
+.form-group {
+    margin-bottom: 14px;
 }
 
-.input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-main);
 }
 
-.input-group label {
-    font-family: var(--font-head);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--primary);
-    font-weight: 600;
-}
-
-input.glass-input,
-input[type="number"],
-input[type="date"],
-select.glass-input {
+.form-control {
     width: 100%;
-    padding: 1.2rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #fff;
-    border-radius: 12px;
-    font-family: var(--font-body);
-    font-size: 1.1rem;
-    outline: none;
-    transition: all 0.3s ease;
+    padding: 6px 10px;
+    height: 31px;
+    font-size: 13px;
+    color: var(--text-main);
+    background: #fff;
+    border: 1px solid #888c8c;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(15,17,17,.15) inset;
+    outline: 0;
+    transition: border-color 0.2s;
 }
 
-input:focus,
-select:focus {
-    border-color: var(--primary);
-    background: rgba(var(--primary-rgb), 0.05);
-    box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.2);
+.form-control:focus {
+    border-color: #007185;
+    box-shadow: 0 0 0 3px rgba(0,113,133,.2) inset;
 }
 
-.full-width {
+/* Amazon "Buy Box" style Buttons */
+.btn {
+    display: inline-block;
+    padding: 0 10px;
+    height: 31px;
+    font-size: 13px;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 400;
+    line-height: 29px;
+    text-decoration: none;
+    transition: background 0.1s;
+}
+
+.btn-primary {
+    background: #ffd814;
+    border-color: #fcd200;
+    color: #0f1111;
+    box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+}
+
+.btn-primary:hover {
+    background: #f7ca00;
+    border-color: #f2c200;
+}
+
+.btn-block {
+    display: block;
     width: 100%;
+    height: 35px;
+    line-height: 33px;
 }
 
+/* Result Section - Looks like product specs */
 .result-section {
-    margin-top: 4rem;
-    padding-top: 3rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    animation: fadeIn 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.result-section.hidden {
-    display: none;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
 }
 
 .result-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin: 15px 0;
 }
 
 .result-card {
-    padding: 2rem 1rem;
-    border-radius: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    background: #fcfcfc;
     text-align: center;
-    transition: 0.3s;
 }
 
 .result-card .number {
     display: block;
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--primary);
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
+    font-size: 20px;
+    font-weight: 700;
+    color: #B12704; /* Amazon Price Red */
+    margin-bottom: 2px;
 }
 
 .result-card .label {
-    font-size: 0.75rem;
-    color: #80808a;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    font-size: 12px;
+    color: #565959;
+    font-weight: 400;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Amazon Breadcrumbs */
+#enigma-breadcrumbs {
+    padding: 10px 0;
+    font-size: 12px;
+    color: #565959;
+    border-bottom: 1px solid transparent;
 }
 
-@media (max-width: 600px) {
-    .calc-container {
-        padding: 2.5rem 1.5rem;
-    }
+#enigma-breadcrumbs a {
+    color: #007185;
+}
 
-    .calc-header h2 {
-        font-size: 2.2rem;
-    }
+#enigma-breadcrumbs a:hover {
+    color: #c40000;
+    text-decoration: underline;
+}
+
+#enigma-breadcrumbs span {
+    padding-left: 4px;
+}
+
+/* Utilities */
+.hidden { display: none !important; }
+.text-center { text-align: center !important; }
+.mt-3 { margin-top: 15px !important; }
+.mt-4 { margin-top: 25px !important; }
+.mb-3 { margin-bottom: 15px !important; }
+.mb-4 { margin-bottom: 25px !important; }
+.highlight { color: #B12704; font-weight: 700; }
+.strong { font-weight: 700; }
+
+/* Custom Gauges (Amazon Bar style) */
+.gauge-container {
+    height: 8px;
+    background: #e7e9ec;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.gauge-fill {
+    height: 100%;
+    background: #ffa41c; /* Amazon Rating Orange */
+    transition: width 0.5s ease-out;
+}
+
+@media (max-width: 640px) {
+    .card { padding: 15px; }
+    .calc-header h2 { font-size: 20px; }
+    .result-grid { grid-template-columns: 1fr; }
 }

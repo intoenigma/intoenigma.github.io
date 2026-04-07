@@ -1,56 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checklist Maker | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="noise-overlay"></div>
-    <canvas class="particle-canvas"></canvas>
-    <div class="bg-glow"></div>
-    <div class="bg-glow-2"></div>
+    <div id="enigma-header"></div>
 
-    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-    <div class="container" style="max-width: 700px;">
-        <div class="utility-card glass">
-            <header class="utility-header">
-                <h2 class="scramble-text">Task <span class="highlight">Protocol</span></h2>
-                <div id="progress-bar-container"
-                    style="width: 100%; height: 6px; background: var(--border); border-radius: 10px; margin: 1.5rem 0; overflow: hidden;">
-                    <div id="progress-bar"
-                        style="width: 0%; height: 100%; background: linear-gradient(to right, var(--primary), var(--secondary)); transition: width 0.4s ease;">
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Task Protocol Intelligence</h2>
+                        <p>Coordinate and synchronize objective deconstruction within a unified progression schema.</p>
+                        
+                        <div class="progress-wrap card mb-4" style="background: #fbfbfb; padding: 20px; border: 1px solid #ddd; margin-top: 20px;">
+                            <div class="gauge-container" style="height: 12px; background: #eee; border-radius: 6px; overflow: hidden; margin-bottom: 10px;">
+                                <div class="gauge-fill" id="progress-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #007185 0%, #00a8c1 100%); transition: width 0.3s ease;"></div>
+                            </div>
+                            <p id="stats" style="color: #565959; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin: 0;">0 / 0 SYNCHRONIZED</p>
+                        </div>
+                    </header>
+
+                    <div class="tool-content">
+                        <div class="form-group mb-4" style="display: flex; gap: 10px;">
+                            <input type="text" id="task-input" placeholder="Initialize new objective protocol..." class="form-control" style="flex: 1; height: 40px; font-weight: 600;">
+                            <button id="add-btn" class="btn btn-primary" style="height: 40px; padding: 0 25px; font-weight: 700;">APPEND</button>
+                        </div>
+
+                        <div class="card mb-4" style="background: #fff; border: 1px solid #ddd; min-height: 200px; padding: 0; overflow: hidden;">
+                            <div style="background: #f1f1f1; padding: 12px 20px; border-bottom: 1px solid #ddd;">
+                                <h4 style="margin: 0; color: #565959; font-size: 11px; text-transform: uppercase; font-weight: 800; letter-spacing: 1px;">ACTIVE PROTOCOLS</h4>
+                            </div>
+                            <ul id="task-list" style="list-style: none; padding: 20px; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                                <!-- Tasks synthesized here -->
+                            </ul>
+                        </div>
+
+                        <button id="clear-btn" class="btn" style="width: 100%; height: 45px; border: 1px solid #ddd; color: #B12704; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">PURGE ALL OBJECTIVES</button>
                     </div>
                 </div>
-                <p id="stats"
-                    style="color: var(--text-muted); font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem;">0 / 0
-                    Completed</p>
-            </header>
-
-            <div class="input-area glass"
-                style="display: flex; gap: 0.5rem; padding: 0.5rem; border-radius: 15px; margin-bottom: 2rem;">
-                <input type="text" id="task-input" placeholder="Initialize new objective..." class="glass"
-                    style="border: none; background: transparent;">
-                <button id="add-btn" class="cta-btn primary magnetic" style="padding: 0 1.5rem;">Add</button>
             </div>
-
-            <ul id="task-list"
-                style="list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 2rem;">
-                <!-- Tasks dynamic -->
-            </ul>
-
-            <button id="clear-btn" class="cta-btn magnetic"
-                style="width: 100%; background: rgba(255,50,50,0.05); color: #ff5555; border-color: rgba(255,50,50,0.2);">Purge
-                All Objectives</button>
         </div>
-    </div>
-    <script src="../utility-base.js"></script>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

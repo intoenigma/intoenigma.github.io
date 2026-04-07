@@ -1,42 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audio Visualizer | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="noise-overlay"></div>
-    <canvas class="particle-canvas"></canvas>
-    <div class="bg-glow"></div>
-    <div class="bg-glow-2"></div>
+    <div id="enigma-header"></div>
 
-    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-    <div class="container">
-        <div class="utility-card glass">
-            <header class="utility-header">
-                <h2 class="scramble-text">Sonic <span class="highlight">Wave</span></h2>
-                <p style="color: var(--text-muted);">Upload audio to visualize frequencies.</p>
-            </header>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
 
-            <div class="upload-area glass magnetic" id="drop-zone"
-                style="padding: 3rem; border: 2px dashed var(--border); border-radius: 16px; text-align: center; margin-bottom: 2rem;">
-                <input type="file" id="audio-file" accept="audio/*" hidden>
-                <p>Drop audio file or click to upload</p>
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Sonic Wave Visualizer</h2>
+                        <p>Analyze interactive audio frequencies in real-time.</p>
+                    </header>
+
+                    <div class="tool-content">
+                        <div class="upload-area card" id="drop-zone" style="padding: 40px; border: 2px dashed #ddd; text-align: center; margin-bottom: 20px; cursor: pointer;">
+                            <input type="file" id="audio-file" accept="audio/*" hidden>
+                            <p>Drop audio file or click to upload</p>
+                        </div>
+
+                        <canvas id="visualizer" width="800" height="400" style="width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; background: #000;"></canvas>
+                        <audio id="audio-player" controls style="width: 100%; margin-top: 15px;"></audio>
+                    </div>
+                </div>
             </div>
-
-            <canvas id="visualizer" width="800" height="400" class="glass"
-                style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 1rem;"></canvas>
-            <audio id="audio-player" controls style="width: 100%; margin-top: 1rem;"></audio>
         </div>
-    </div>
-    <script src="../utility-base.js"></script>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

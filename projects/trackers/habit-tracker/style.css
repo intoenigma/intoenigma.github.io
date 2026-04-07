@@ -1,4 +1,4 @@
-body { display: flex; justify-content: center; align-items: start; min-height: 100vh; padding-top: 5rem; }
+body {padding-top: 5rem}
 .tracker-container { width: 100%; max-width: 600px; padding: 2rem; border-radius: 20px; }
 .input-form { display: flex; gap: 1rem; margin-bottom: 2rem; }
 input { background: rgba(0,0,0,0.3); border: 1px solid #333; color: #fff; padding: 0.8rem; border-radius: 8px; flex: 1; }

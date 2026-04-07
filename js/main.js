@@ -1,249 +1,302 @@
+/**
+ * IntoEnigma Central Layout Engine
+ * Handles dynamic header, footer, breadcrumbs, and sidebar injection for 150+ tools.
+ */
+
+const TOOL_REGISTRY = {
+    'calculators': [
+        { name: 'Age Calculator', path: 'age-calculator/index.html' },
+        { name: 'BMI Analyzer', path: 'bmi-calculator/index.html' },
+        { name: 'Car Loan', path: 'car-loan-calculator/index.html' },
+        { name: 'Fixed Deposit', path: 'fixed-deposit-calculator/index.html' },
+        { name: 'Gratuity Node', path: 'gratuity-calculator/index.html' },
+        { name: 'Home Loan', path: 'home-loan-calculator/index.html' },
+        { name: 'Inflation Tracker', path: 'inflation-calculator/index.html' },
+        { name: 'Loan EMI', path: 'loan-emi-calculator/index.html' },
+        { name: 'Rule of 72', path: 'rule-of-72-calculator/index.html' },
+        { name: 'Salary Splitter', path: 'salary-splitter/index.html' },
+        { name: 'Sleep Cycle', path: 'sleep-cycle-calculator/index.html' },
+        { name: 'Tax Calculator', path: 'tax-calculator/index.html' },
+        { name: 'Unit Cost', path: 'unit-cost-calculator/index.html' }
+    ],
+    'games': [
+        { name: 'Snake Quantum', path: 'snake-game/index.html' },
+        { name: 'Sudoku Grid', path: 'sudoku/index.html' },
+        { name: 'Memory Protocol', path: 'memory-game/index.html' }
+    ],
+    'utilities': [
+        { name: 'Audio Visualizer', path: 'audio-visualizer/index.html' },
+        { name: 'Auto Refresh', path: 'auto-refresh/index.html' },
+        { name: 'Barcode Scanner', path: 'barcode-scanner/index.html' },
+        { name: 'Binaural Beats Player', path: 'binaural-beats-player/index.html' },
+        { name: 'Bio Link Creator', path: 'bio-link-page/index.html' },
+        { name: 'Budget Planner', path: 'budget-planner/index.html' },
+        { name: 'Calm Breathing App', path: 'calm-breathing/index.html' },
+        { name: 'Checklist Maker', path: 'checklist-maker/index.html' },
+        { name: 'Checklist PDF Export', path: 'checklist-pdf/index.html' },
+        { name: 'Country Info Hub', path: 'country-info-hub/index.html' },
+        { name: 'Cron Job Generator', path: 'cron-job-generator/index.html' },
+        { name: 'Crypto Portfolio Tracker', path: 'crypto-portfolio/index.html' },
+        { name: 'Dog Breed Finder', path: 'dog-breed-finder/index.html' },
+        { name: 'Duplicate Line Finder', path: 'duplicate-finder/index.html' },
+        { name: 'Email Validator', path: 'email-validator/index.html' },
+        { name: 'Eye Exercise App', path: 'eye-exercise-app/index.html' },
+        { name: 'Favicon Generator', path: 'favicon-generator/index.html' },
+        { name: 'File Encryptor', path: 'file-encryptor/index.html' },
+        { name: 'Flashlight Web App', path: 'flashlight-app/index.html' },
+        { name: 'Git Cheat Sheet', path: 'git-cheat-sheet/index.html' },
+        { name: 'History Timeline', path: 'history-timeline/index.html' },
+        { name: 'HTML Entity Lookup', path: 'html-entity-lookup/index.html' },
+        { name: 'HTML Minifier', path: 'html-minifier/index.html' },
+        { name: 'HTTP Header Checker', path: 'http-header-check/index.html' },
+        { name: 'Instagram-style Filters', path: 'insta-filter-clone/index.html' },
+        { name: 'JS Console UI', path: 'js-console-ui/index.html' },
+        { name: 'JWT Decoder', path: 'jwt-decoder/index.html' },
+        { name: 'Kanban Board', path: 'kanban-board/index.html' },
+        { name: 'Markdown Blog Viewer', path: 'markdown-blog/index.html' },
+        { name: 'Markdown Editor', path: 'markdown-editor/index.html' },
+        { name: 'Mars Rover Photo Feed', path: 'mars-rover-photos/index.html' },
+        { name: 'Meditation Timer', path: 'meditation-timer/index.html' },
+        { name: 'Musician Metronome', path: 'metronome/index.html' },
+        { name: 'Multi-Engine Search', path: 'multi-search/index.html' },
+        { name: 'Name Meaning Finder', path: 'name-meaning/index.html' },
+        { name: 'News Headline App', path: 'news-app/index.html' },
+        { name: 'Note Taking PWA', path: 'note-taking-pwa/index.html' },
+        { name: 'Password Strength Meter', path: 'password-strength/index.html' },
+        { name: 'Web PDF Viewer', path: 'pdf-viewer/index.html' },
+        { name: 'Placeholder Img Gen', path: 'placeholder-img/index.html' },
+        { name: 'Network Port Scanner', path: 'port-scanner-js/index.html' },
+        { name: 'JS Code Prettifier', path: 'prettify-js/index.html' },
+        { name: 'Project Roadmap', path: 'project-timeline/index.html' },
+        { name: 'Web Screen Recorder', path: 'screen-recorder/index.html' },
+        { name: 'Screen Resolution Info', path: 'screen-resolution/index.html' },
+        { name: 'Sitemap Generator', path: 'sitemap-generator/index.html' },
+        { name: 'SFX Soundboard', path: 'soundboard/index.html' },
+        { name: 'Speed Reading Tool', path: 'speed-reading/index.html' },
+        { name: 'Stopwatch with Lap Log', path: 'stopwatch-log/index.html' },
+        { name: 'Tab Management UI', path: 'tab-manager-ui/index.html' },
+        { name: 'Tab Title Editor', path: 'tab-name-editor/index.html' },
+        { name: 'Instant URL Shortener', path: 'url-shortener/index.html' },
+        { name: 'Audio Voice Recorder', path: 'voice-recorder/index.html' },
+        { name: 'Global Weather Feed', path: 'weather-forecast/index.html' },
+        { name: 'Advanced Wiki Search', path: 'wikipedia-search/index.html' },
+        { name: 'Browser Zip Creator', path: 'zip-file-creator/index.html' }
+    ]
+};
+
 document.addEventListener('DOMContentLoaded', () => {
-    initCustomCursor();
-    initParticles();
-    initMagneticElements();
-    initTextScramble();
-    initScrollAnimations();
+    // 1. Detect Environment & Path Depth
+    const depth = calculatePathDepth();
+    const rootPath = calculateRootPath(depth);
+    const category = detectCategory();
+
+    // 2. Inject Common Components
+    injectHeader(rootPath);
+    injectFooter(rootPath);
+    injectBreadcrumbs(rootPath, depth);
+    injectSidebar(rootPath, category);
+
+    // 3. Initialize Shared Interactions (after injection)
+    initScrollToTop();
+    initSearch(rootPath);
 });
 
 /**
- * 1. Custom Cursor Logic
+ * Detects the current category (e.g. 'calculators') from the URL
  */
-function initCustomCursor() {
-    const outer = document.querySelector('.cursor-outer');
-    const inner = document.querySelector('.cursor-inner');
+function detectCategory() {
+    const path = window.location.pathname.toLowerCase();
+    if (path.includes('calculators')) return 'calculators';
+    if (path.includes('games')) return 'games';
+    if (path.includes('utilities')) return 'utilities';
+    if (path.includes('converters')) return 'converters';
+    return null;
+}
+
+/**
+ * Calculates how deep the current file is in the directory structure
+ */
+function calculatePathDepth() {
+    const scripts = document.getElementsByTagName('script');
+    for (let s of scripts) {
+        const src = s.getAttribute('src');
+        if (src && src.includes('js/main.js')) {
+            const match = src.match(/\.\.\//g);
+            return match ? match.length : 0;
+        }
+    }
+    return 0;
+}
+
+/**
+ * Returns the relative prefix to reach the root (e.g. "../../")
+ */
+function calculateRootPath(depth) {
+    let path = '';
+    for (let i = 0; i < depth; i++) {
+        path += '../';
+    }
+    return path || './';
+}
+
+/**
+ * Injects the Amazon-style Header
+ */
+function injectHeader(root) {
+    const headerContainer = document.getElementById('enigma-header');
+    if (!headerContainer) return;
+
+    headerContainer.innerHTML = `
+    <header>
+        <div class="header-main">
+            <a href="${root}index.html" class="logo">Into<strong>Enigma</strong></a>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search for tools, games, utilities...">
+                <button aria-label="Search" id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-links">
+                <a href="#about">Your Account</a>
+                <a href="https://github.com/intoenigma/intoenigma.github.io" target="_blank">GitHub Repo</a>
+            </div>
+        </div>
+        <div class="header-sub">
+            <a href="${root}index.html#calculators">Calculators</a>
+            <a href="${root}projects/converters/index.html">Converters</a>
+            <a href="${root}projects/games/index.html">Games</a>
+            <a href="${root}index.html#generators">Generators</a>
+            <a href="${root}index.html#trackers">Trackers</a>
+            <a href="${root}projects/utilities/index.html">Utilities</a>
+            <a href="${root}index.html#visuals">Visual Effects</a>
+            <a href="${root}index.html#coding">Coding Resources</a>
+        </div>
+    </header>`;
+}
+
+/**
+ * Injects the categorized Sidebar
+ */
+function injectSidebar(root, category) {
+    const sidebarContainer = document.getElementById('enigma-sidebar');
+    if (!sidebarContainer || !category || !TOOL_REGISTRY[category]) return;
+
+    const currentPath = window.location.pathname;
     
-    let mouseX = 0, mouseY = 0;
-    let outerX = 0, outerY = 0;
-    let innerX = 0, innerY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-
-    const animate = () => {
-        // Liquid physics for outer circle
-        outerX += (mouseX - outerX) * 0.12;
-        outerY += (mouseY - outerY) * 0.12;
-        
-        // Sharper follow for inner dot
-        innerX += (mouseX - innerX) * 1;
-        innerY += (mouseY - innerY) * 1;
-
-        outer.style.transform = `translate(${outerX - 17.5}px, ${outerY - 17.5}px)`;
-        inner.style.transform = `translate(${innerX - 3}px, ${innerY - 3}px)`;
-        
-        requestAnimationFrame(animate);
-    };
-    animate();
-
-    // Hover logic
-    const interactables = document.querySelectorAll('a, button, .magnetic, .dir-card, .project-card, input, select');
-    interactables.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            outer.style.width = '60px';
-            outer.style.height = '60px';
-            outer.style.margin = '-12.5px'; // Adjust for size increase
-            outer.style.background = 'rgba(var(--primary-rgb), 0.1)';
-            outer.style.borderColor = 'transparent';
-        });
-        el.addEventListener('mouseleave', () => {
-            outer.style.width = '35px';
-            outer.style.height = '35px';
-            outer.style.margin = '0';
-            outer.style.background = 'transparent';
-            outer.style.borderColor = 'var(--primary)';
-        });
-    });
-}
-
-/**
- * 2. Particle System (Canvas)
- */
-function initParticles() {
-    const canvas = document.getElementById('particle-canvas');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    const count = 80;
-
-    const resize = () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    };
-    window.addEventListener('resize', resize);
-    resize();
-
-    class Particle {
-        constructor() {
-            this.init();
-        }
-        init() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.vx = (Math.random() - 0.5) * 0.5;
-            this.vy = (Math.random() - 0.5) * 0.5;
-            this.size = Math.random() * 2;
-        }
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-        }
-        draw() {
-            ctx.fillStyle = 'rgba(0, 243, 255, 0.3)';
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
-    }
-
-    for (let i = 0; i < count; i++) particles.push(new Particle());
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-            p.update();
-            p.draw();
-        });
-        requestAnimationFrame(animate);
-    }
-    animate();
-}
-
-/**
- * 3. Magnetic Elements Logic
- */
-function initMagneticElements() {
-    const magnets = document.querySelectorAll('.magnetic');
-    magnets.forEach(m => {
-        m.addEventListener('mousemove', (e) => {
-            const rect = m.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            m.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-        });
-        m.addEventListener('mouseleave', () => {
-            m.style.transform = `translate(0px, 0px)`;
-        });
-    });
-}
-
-/**
- * 4. Text Scramble Effect
- */
-function initTextScramble() {
-    class TextScramble {
-        constructor(el) {
-            this.el = el;
-            this.chars = '!<>-_\\/[]{}—=+*^?#________';
-            this.update = this.update.bind(this);
-        }
-        setText(newText) {
-            const oldText = this.el.innerText;
-            const length = Math.max(oldText.length, newText.length);
-            const promise = new Promise((resolve) => this.resolve = resolve);
-            this.queue = [];
-            for (let i = 0; i < length; i++) {
-                const from = oldText[i] || '';
-                const to = newText[i] || '';
-                const start = Math.floor(Math.random() * 40);
-                const end = start + Math.floor(Math.random() * 40);
-                this.queue.push({ from, to, start, end });
-            }
-            cancelAnimationFrame(this.frameRequest);
-            this.frame = 0;
-            this.update();
-            return promise;
-        }
-        update() {
-            let output = '';
-            let complete = 0;
-            for (let i = 0, n = this.queue.length; i < n; i++) {
-                let { from, to, start, end, char } = this.queue[i];
-                if (this.frame >= end) {
-                    complete++;
-                    output += to;
-                } else if (this.frame >= start) {
-                    if (!char || Math.random() < 0.28) {
-                        char = this.randomChar();
-                        this.queue[i].char = char;
-                    }
-                    output += `<span class="scramble">${char}</span>`;
-                } else {
-                    output += from;
-                }
-            }
-            this.el.innerHTML = output;
-            if (complete === this.queue.length) {
-                this.resolve();
-            } else {
-                this.frameRequest = requestAnimationFrame(this.update);
-                this.frame++;
-            }
-        }
-        randomChar() {
-            return this.chars[Math.floor(Math.random() * this.chars.length)];
-        }
-    }
-
-    const scrambleElements = document.querySelectorAll('.scramble-text');
-    scrambleElements.forEach(el => {
-        const fx = new TextScramble(el);
-        const originalText = el.getAttribute('data-value') || el.innerText;
-        
-        let hasRun = false;
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting && !hasRun) {
-                fx.setText(originalText);
-                hasRun = true;
-            }
-        });
-        observer.observe(el);
-    });
-}
-
-/**
- * 5. Scroll Animations
- */
-function initScrollAnimations() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show-scroll');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.hidden-scroll').forEach(el => observer.observe(el));
+    let html = `<h3>${category.charAt(0).toUpperCase() + category.slice(1)}</h3><ul>`;
     
-    // Navbar glass effect
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(5, 5, 8, 0.8)';
-            navbar.style.borderBottom = '1px solid var(--glass-border)';
-        } else {
-            navbar.style.background = 'transparent';
-            navbar.style.borderBottom = '1px solid transparent';
-        }
-    });
-
-    // 3D Parallax Orb logic
-    document.addEventListener('mousemove', (e) => {
-        const x = (window.innerWidth / 2 - e.pageX) / 25;
-        const y = (window.innerHeight / 2 - e.pageY) / 25;
+    TOOL_REGISTRY[category].forEach(tool => {
+        // Calculate absolute-relative link: root (../../) + projects/category/ + tool.path
+        const linkPath = `${root}projects/${category}/${tool.path}`;
+        const isActive = currentPath.includes(tool.path.split('/')[0]);
         
-        const orb = document.querySelector('.main-orb');
-        if (orb) {
-            orb.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
-            
-            const rings = orb.querySelectorAll('.orb-ring');
-            rings.forEach((ring, i) => {
-                const speed = (i + 1) * 0.2;
-                ring.style.transform = `rotateX(${70 + y * speed}deg) rotateY(${x * speed}deg)`;
-            });
-        }
+        html += `<li><a href="${linkPath}" class="${isActive ? 'active' : ''}">${tool.name}</a></li>`;
     });
+    
+    html += `</ul>`;
+    sidebarContainer.innerHTML = html;
+}
+
+/**
+ * Injects the Shared Footer
+ */
+function injectFooter(root) {
+    const footerContainer = document.getElementById('enigma-footer');
+    if (!footerContainer) return;
+
+    footerContainer.innerHTML = `
+    <footer>
+        <div class="footer-top">
+            <a href="#" id="back-to-top">Back to top</a>
+        </div>
+        <div class="footer-middle">
+            <div class="footer-col">
+                <h3>Get to Know Us</h3>
+                <ul>
+                    <li><a href="#">About IntoEnigma</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Explore Tools</h3>
+                <ul>
+                    <li><a href="${root}projects/utilities/index.html">Utilities</a></li>
+                    <li><a href="${root}projects/converters/index.html">Converters</a></li>
+                    <li><a href="${root}projects/games/index.html">Games</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Let Us Help You</h3>
+                <ul>
+                    <li><a href="#">Your Account</a></li>
+                    <li><a href="#">Report an Issue</a></li>
+                    <li><a href="#">Help & Support</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 IntoEnigma Web Toolkit.</p>
+        </div>
+    </footer>`;
+}
+
+/**
+ * Injects Breadcrumbs specifically for tool pages
+ */
+function injectBreadcrumbs(root, depth) {
+    const breadcrumbContainer = document.getElementById('enigma-breadcrumbs');
+    if (!breadcrumbContainer || depth === 0) return;
+
+    const pageTitle = document.title.split('|')[0].trim();
+    const path = window.location.pathname;
+
+    let breadcrumbHTML = `<a href="${root}index.html">Home</a>`;
+    
+    if (path.includes('/calculators/')) {
+        breadcrumbHTML += ` / <a href="${root}projects/calculators/index.html">Calculators</a>`;
+    } else if (path.includes('/games/')) {
+        breadcrumbHTML += ` / <a href="${root}projects/games/index.html">Games</a>`;
+    } else if (path.includes('/utilities/')) {
+        breadcrumbHTML += ` / <a href="${root}projects/utilities/index.html">Utilities</a>`;
+    }
+    
+    // Only add separator if not the hub page itself
+    if (!path.endsWith('/index.html') || path.split('/').length > 5) {
+        breadcrumbHTML += ` / <span>${pageTitle}</span>`;
+    }
+
+    breadcrumbContainer.innerHTML = breadcrumbHTML;
+}
+
+/**
+ * Scroll to top functionality
+ */
+function initScrollToTop() {
+    const btn = document.getElementById('back-to-top');
+    if (btn) {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+}
+
+/**
+ * Search logic
+ */
+function initSearch(root) {
+    const input = document.getElementById('search-input');
+    const btn = document.getElementById('search-btn');
+
+    function execute() {
+        const query = input.value.trim();
+        if (query) {
+            window.location.href = `${root}index.html?q=${encodeURIComponent(query)}`;
+        }
+    }
+
+    if (btn) btn.addEventListener('click', execute);
+    if (input) {
+        input.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') execute();
+        });
+    }
 }

@@ -4,74 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cron Architect | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="noise-overlay"></div>
-    <canvas class="particle-canvas"></canvas>
-    <div class="bg-glow"></div>
-    <div class="bg-glow-2"></div>
+    <div id="enigma-header"></div>
 
-    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-    <div class="container" style="max-width: 800px;">
-        <div class="utility-card glass">
-            <header class="utility-header">
-                <h2 class="scramble-text">Cron <span class="highlight">Architect</span></h2>
-                <p style="color: var(--text-muted);">Schedule automated backend protocols with precision.</p>
-            </header>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
 
-            <div class="result-display glass" style="padding: 2.5rem; border-radius: 20px; text-align: center; margin-bottom: 3rem; background: rgba(0,0,0,0.2);">
-                <span id="cron-output" class="highlight" style="font-size: 3.5rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: 5px;">* * * * *</span>
-                <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 1rem; text-transform: uppercase; letter-spacing: 2px;">Standard Linux Cron Syntax</p>
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Cron Architect Intelligence</h2>
+                        <p>Deconstruct and synchronize automated backend temporal protocols with precision.</p>
+                    </header>
+
+                    <div class="tool-content">
+                        <div class="result-display card mb-4" style="text-align: center; background: #232f3e; padding: 40px; border-radius: 8px; box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);">
+                            <span id="cron-output" style="font-family: monospace; font-size: 42px; font-weight: 800; color: #ffd814; letter-spacing: 8px;">* * * * *</span>
+                            <p style="color: #888; font-size: 11px; margin-top: 20px; text-transform: uppercase; font-weight: 700; letter-spacing: 2px;">UNIFIED LINUX TEMPORAL SYNTAX</p>
+                        </div>
+
+                        <div class="selectors card mb-4" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; padding: 25px; background: #fbfbfb; border: 1px solid #ddd;">
+                            <div class="form-group mb-0">
+                                <label style="font-size: 11px; font-weight: 700; color: #565959;">MINUTE VECTOR</label>
+                                <select id="min" class="form-control" style="height: 35px; font-weight: 600;">
+                                    <option value="*">Every Minute (*)</option>
+                                    <option value="0">At :00</option>
+                                    <option value="30">At :30</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-0">
+                                <label style="font-size: 11px; font-weight: 700; color: #565959;">HOUR VECTOR</label>
+                                <select id="hour" class="form-control" style="height: 35px; font-weight: 600;">
+                                    <option value="*">Every Hour (*)</option>
+                                    <option value="0">Midnight (0)</option>
+                                    <option value="12">Noon (12)</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-0">
+                                <label style="font-size: 11px; font-weight: 700; color: #565959;">DAY PROTOCOL</label>
+                                <select id="day" class="form-control" style="height: 35px; font-weight: 600;">
+                                    <option value="*">Every Day (*)</option>
+                                    <option value="1">1st</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-0">
+                                <label style="font-size: 11px; font-weight: 700; color: #565959;">MONTH NODE</label>
+                                <select id="month" class="form-control" style="height: 35px; font-weight: 600;">
+                                    <option value="*">Every Month (*)</option>
+                                    <option value="1">January</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-0">
+                                <label style="font-size: 11px; font-weight: 700; color: #565959;">WEEKDAY SYNC</label>
+                                <select id="week" class="form-control" style="height: 35px; font-weight: 600;">
+                                    <option value="*">Every Weekday (*)</option>
+                                    <option value="0">Sunday</option>
+                                    <option value="1">Monday</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button id="copy-btn" class="btn btn-primary" style="width: 100%; height: 45px; font-weight: 700;">INITIALIZE TEMPORAL COPY</button>
+
+                        <p style="font-size: 11px; color: #565959; text-align: center; margin-top: 25px; line-height: 1.6; border-top: 1px solid #eee; padding-top: 15px; font-style: italic;">
+                            <i class="fa-solid fa-clock" style="margin-right: 5px; color: #007185;"></i>
+                            Scheduling Note: Synthesized Cron protocols align with standardized Linux/Unix backend execution environments.
+                        </p>
+                    </div>
+                </div>
             </div>
-
-            <div class="selectors" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
-                <div class="group">
-                    <label>Minute</label>
-                    <select id="min" class="glass">
-                        <option value="*">Every Minute (*)</option>
-                        <option value="0">At :00</option>
-                        <option value="30">At :30</option>
-                    </select>
-                </div>
-                <div class="group">
-                    <label>Hour</label>
-                    <select id="hour" class="glass">
-                        <option value="*">Every Hour (*)</option>
-                        <option value="0">Midnight (0)</option>
-                        <option value="12">Noon (12)</option>
-                    </select>
-                </div>
-                <div class="group">
-                    <label>Day</label>
-                    <select id="day" class="glass">
-                        <option value="*">Every Day (*)</option>
-                        <option value="1">1st</option>
-                    </select>
-                </div>
-                <div class="group">
-                    <label>Month</label>
-                    <select id="month" class="glass">
-                        <option value="*">Every Month (*)</option>
-                        <option value="1">January</option>
-                    </select>
-                </div>
-                <div class="group">
-                    <label>Weekday</label>
-                    <select id="week" class="glass">
-                        <option value="*">Every Weekday (*)</option>
-                        <option value="0">Sunday</option>
-                        <option value="1">Monday</option>
-                    </select>
-                </div>
-            </div>
-
-            <button id="copy-btn" class="cta-btn primary full-width magnetic" style="width: 100%;">Copy Protocol Expression</button>
         </div>
-    </div>
-    <script src="../utility-base.js"></script>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

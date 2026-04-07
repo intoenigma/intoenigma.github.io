@@ -1,9 +1,4 @@
-body {
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 2rem 0;
-}
+body {padding: 2rem 0}
 
 .utility-container {
     width: 100%;

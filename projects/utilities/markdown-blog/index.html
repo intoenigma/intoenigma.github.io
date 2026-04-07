@@ -1,46 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Markdown Blog | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
-
 <body>
-    <div class="noise-overlay"></div>
-    <canvas class="particle-canvas"></canvas>
-    <div class="bg-glow"></div>
-    <div class="bg-glow-2"></div>
+    <div id="enigma-header"></div>
 
-    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-    <div class="container" style="max-width: 1000px;">
-        <header class="utility-header">
-            <h2 class="scramble-text">Static <span class="highlight">Intelligence</span></h2>
-            <p style="color: var(--text-muted);">Decentralized information storage and retrieval node.</p>
-        </header>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
 
-        <div id="blog-posts" class="blog-grid"
-            style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
-            <!-- Blog artifacts injected here -->
-        </div>
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Static Intelligence Blog</h2>
+                        <p>Decentralized information storage and retrieval node.</p>
+                    </header>
 
-        <div id="post-viewer" class="post-viewer hidden glass"
-            style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000; padding: 4rem; overflow-y: auto; background: rgba(5,5,8,0.95); backdrop-filter: blur(20px);">
-            <div class="post-wrapper" style="max-width: 800px; margin: 0 auto; position: relative;">
-                <button onclick="closePost()" class="cta-btn magnetic"
-                    style="position: absolute; top: -2rem; right: -2rem; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem;">&times;</button>
-                <div id="post-content" class="content glass"
-                    style="padding: 3rem; border-radius: 24px; color: var(--text); line-height: 1.8;"></div>
+                    <div class="tool-content">
+                        <div id="blog-posts" class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; margin-bottom: 2rem;">
+                            <!-- Blog artifacts injected here -->
+                        </div>
+
+                        <div id="post-viewer" class="post-viewer hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; padding: 20px; overflow-y: auto; background: rgba(15,17,17,0.98); display: flex; align-items: flex-start; justify-content: center;">
+                            <div class="post-wrapper" style="max-width: 900px; width: 100%; margin-top: 50px; position: relative;">
+                                <button onclick="closePost()" class="btn btn-primary" style="position: absolute; top: -40px; right: 0; width: 35px; height: 35px; border-radius: 50%; padding: 0; font-size: 20px;">&times;</button>
+                                <div id="post-content" class="card" style="padding: 40px; border-radius: 4px; color: #333; line-height: 1.8; background: #fff;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <script src="../utility-base.js"></script>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

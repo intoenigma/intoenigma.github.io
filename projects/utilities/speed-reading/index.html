@@ -4,35 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speed Reading | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <div id="enigma-header"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Rapid <span class="highlight">Read</span></h2>
-        </header>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-        <div class="display-box">
-            <span id="word-display">Ready</span>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Rapid Read Intelligence</h2>
+                        <p>Optimize cognitive ingestion protocols through synchronized visual pulse deconstruction.</p>
+                    </header>
+
+                    <div class="tool-content">
+                        <div class="display-box card mb-4" style="background: #000; border-radius: 8px; min-height: 200px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
+                            <span id="word-display" style="font-size: 48px; font-weight: 700; color: #fff; letter-spacing: -1px; text-transform: uppercase;">READY</span>
+                            <div style="position: absolute; width: 2px; height: 60px; background: #e47911; left: 50%; transform: translateX(-50%); opacity: 0.3;"></div>
+                        </div>
+
+                        <div class="controls card mb-4" style="padding: 20px; background: #fbfbfb; border: 1px solid #ddd; display: flex; align-items: center; gap: 15px;">
+                            <div class="form-group" style="flex: 1; margin: 0;">
+                                <label style="font-size: 11px; font-weight: 700; color: #565959;">WPM VELOCITY</label>
+                                <input type="number" id="wpm" value="300" min="50" max="1000" step="50" class="form-control" style="height: 35px;">
+                            </div>
+                            <div class="action-btns" style="display: flex; gap: 10px;">
+                                <button id="start-btn" class="btn btn-primary" style="height: 35px; padding: 0 25px; font-weight: 700;">INITIALIZE</button>
+                                <button id="pause-btn" class="btn" style="height: 35px;">RESET</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="font-size: 11px; font-weight: 700; color: #565959;">SOURCE DATA STREAM</label>
+                            <textarea id="text-input" placeholder="Paste information fragment here for rapid processing..." class="form-control" style="height: 200px; resize: none;"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </main>
 
-        <div class="controls">
-            <input type="number" id="wpm" value="300" min="50" max="1000" step="50">
-            <label>WPM</label>
-        </div>
+    <div id="enigma-footer"></div>
 
-        <textarea id="text-input" placeholder="Paste text here to read fast..."></textarea>
-        
-        <div class="action-btns">
-            <button id="start-btn" class="cta-btn primary">Start</button>
-            <button id="pause-btn" class="cta-btn secondary">Pause/Reset</button>
-        </div>
-    </div>
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

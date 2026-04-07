@@ -4,29 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Formatter | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <div id="enigma-header"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Code <span class="highlight">Beautify</span></h2>
-        </header>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-        <div class="grid">
-            <textarea id="input" placeholder="Paste Minified JS here..."></textarea>
-            <div class="actions">
-                <button id="format-btn" class="cta-btn primary">&rarr; Format &rarr;</button>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Code Beautify Intelligence</h2>
+                        <p>Analyze and restructure logic fragments into human-readable semantic schemas.</p>
+                    </header>
+
+                    <div class="tool-content">
+                        <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-bottom: 20px;">
+                            <div class="card" style="padding: 15px; background: #fbfbfb; border: 1px solid #ddd;">
+                                <label style="font-size: 11px; font-weight: 700; color: #565959; margin-bottom: 8px; display: block;">MINIFIED SOURCE</label>
+                                <textarea id="input" placeholder="Paste minified data stream here..." class="form-control" style="height: 400px; font-family: monospace; font-size: 13px; resize: none; border: none; background: transparent;"></textarea>
+                            </div>
+
+                            <div class="card" style="padding: 15px; background: #fff; border: 1px solid #ddd;">
+                                <label style="font-size: 11px; font-weight: 700; color: #565959; margin-bottom: 8px; display: block;">SYNTHESIZED OUTPUT</label>
+                                <textarea id="output" placeholder="Beautified logic schema..." readonly class="form-control" style="height: 400px; font-family: monospace; font-size: 13px; resize: none; border: none; background: transparent;"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="actions" style="display: flex; gap: 10px; justify-content: flex-end;">
+                            <button id="format-btn" class="btn btn-primary" style="height: 40px; padding: 0 25px; font-weight: 700;">INITIALIZE FORMATTING</button>
+                            <button id="copy-btn" class="btn" style="height: 40px; padding: 0 25px;">COPY RESULT</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <textarea id="output" placeholder="Beautiful code..." readonly></textarea>
         </div>
-        
-        <button id="copy-btn" class="cta-btn secondary full-width">Copy Result</button>
-    </div>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

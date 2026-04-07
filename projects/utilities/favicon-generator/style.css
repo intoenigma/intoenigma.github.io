@@ -1,4 +1,4 @@
-body { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+
 .utility-container { padding: 3rem; border-radius: 20px; width: 100%; max-width: 400px; text-align: center; }
 .preview-area { margin-bottom: 2rem; display: flex; justify-content: center; }
 canvas { width: 128px; height: 128px; border-radius: 20%; box-shadow: 0 0 20px rgba(0,0,0,0.5); image-rendering: pixelated; }

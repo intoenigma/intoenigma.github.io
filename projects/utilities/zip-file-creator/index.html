@@ -4,31 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zip Creator | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </head>
 <body>
-    <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <div id="enigma-header"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Archive <span class="highlight">Packer</span></h2>
-        </header>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-        <div class="drop-zone" id="drop-zone">
-            <input type="file" id="file-in" multiple>
-            <p>Drag files here or Click to Upload</p>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Archive Packer Intelligence</h2>
+                        <p>Synchronize and compress multiple information fragments into a single persistent ZIP artifact.</p>
+                    </header>
+
+                    <div class="tool-content">
+                        <div class="drop-zone card mb-4" id="drop-zone" style="height: 200px; border: 2px dashed #ddd; background: #fbfbfb; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; cursor: pointer; transition: border-color 0.3s ease;">
+                            <input type="file" id="file-in" multiple style="display: none;">
+                            <i class="fa-solid fa-cloud-arrow-up" style="font-size: 32px; color: #007185;"></i>
+                            <p style="font-size: 13px; font-weight: 700; color: #0f1111; margin: 0;">Shift fragments here or Initialize Manual Upload</p>
+                            <span style="font-size: 11px; color: #565959;">Multiple nodes supported</span>
+                        </div>
+
+                        <div id="file-list" class="file-list card mb-4" style="background: #fff; min-height: 100px; padding: 15px; border-style: dotted;">
+                            <div style="text-align: center; color: #888; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; padding-top: 35px;">Awaiting Data Injection...</div>
+                        </div>
+
+                        <button id="zip-btn" class="btn btn-primary" style="width: 100%; height: 45px; font-weight: 700;">INITIALIZE COMPRESSION ARCHIVE</button>
+                    </div>
+                </div>
+            </div>
         </div>
+    </main>
 
-        <div id="file-list" class="file-list">
-            <!-- Items -->
-        </div>
+    <div id="enigma-footer"></div>
 
-        <button id="zip-btn" class="cta-btn primary full-width">Generate ZIP</button>
-    </div>
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

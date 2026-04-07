@@ -1,4 +1,4 @@
-body { display: flex; justify-content: center; min-height: 100vh; padding: 2rem 0; }
+body {padding: 2rem 0}
 .utility-container { width: 100%; max-width: 900px; padding: 2rem; border-radius: 20px; text-align: center; }
 .article-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
 .article-card { background: rgba(255,255,255,0.05); border-radius: 12px; overflow: hidden; text-align: left; transition: 0.3s; border: 1px solid transparent; }

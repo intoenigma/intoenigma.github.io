@@ -1,35 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lumina | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
+<body>
+    <div id="enigma-header"></div>
 
-<body style="overflow: hidden;">
-    <div id="screen" class="screen"
-        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; transition: background 0.3s; z-index: 1;">
-    </div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-    <div class="noise-overlay"></div>
-    <div class="bg-glow"></div>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
 
-    <div class="controls"
-        style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; text-align: center;">
-        <button id="toggle-btn" class="power-btn magnetic"
-            style="width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--primary); background: rgba(0,0,0,0.5); font-size: 3rem; box-shadow: 0 0 30px rgba(99, 102, 241, 0.5); transition: all 0.3s;">⚡</button>
-        <p
-            style="margin-top: 2rem; font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: 3px; color: var(--text-muted);">
-            Lumina Output</p>
-    </div>
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Lumina Lighting Protocols</h2>
+                        <p>Simulate and synchronize localized lighting emitting protocols for high-fidelity visual inspection.</p>
+                    </header>
 
-    <a href="../index.html" class="back-link magnetic" style="z-index: 20;">&larr; Exit Protocol</a>
+                    <div class="tool-content">
+                        <div id="screen" class="card" style="height: 450px; display: flex; align-items: center; justify-content: center; background: #000; border: 1px solid #333; position: relative; overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: inset 0 0 100px rgba(0,0,0,0.8);">
+                            <!-- Lighting Diffusion Overlay -->
+                            <div id="diffusion-layer" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at center, rgba(255,216,20,0.1) 0%, transparent 70%); transition: opacity 0.5s;"></div>
+                            
+                            <div style="z-index: 10; text-align: center;">
+                                <button id="toggle-btn" class="btn" style="width: 120px; height: 120px; border-radius: 50%; background: rgba(15,17,17,0.9); border: 4px solid #ffd814; font-size: 3rem; color: #ffd814; box-shadow: 0 0 40px rgba(255,216,20,0.2); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer;">
+                                    <i class="fa-solid fa-bolt-lightning"></i>
+                                </button>
+                                <p style="margin-top: 25px; text-transform: uppercase; letter-spacing: 3px; color: #888; font-size: 11px; font-weight: 800;">LUMINA OUTPUT NODE</p>
+                            </div>
+                        </div>
 
-    <script src="../utility-base.js"></script>
+                        <p style="font-size: 11px; color: #565959; text-align: center; margin-top: 25px; line-height: 1.6; border-top: 1px solid #eee; padding-top: 15px; font-style: italic;">
+                            <i class="fa-solid fa-lightbulb" style="margin-right: 5px; color: #007185;"></i>
+                            Operational Note: Lighting protocols maximize photon emission across the unified display interface.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

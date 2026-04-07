@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tab Rename | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <div id="enigma-header"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Title <span class="highlight">Hacker</span></h2>
-        </header>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-        <div class="input-center">
-            <input type="text" id="title-in" placeholder="New Title for this tab">
-            <button id="change-btn" class="cta-btn primary full-width">Update Title</button>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Title Hacker Intelligence</h2>
+                        <p>Manipulate and synchronize the active terminal node's metadata identifier.</p>
+                    </header>
+
+                    <div class="tool-content">
+                        <div class="card mb-4" style="background: #fbfbfb; padding: 30px; border: 1px solid #ddd; display: flex; flex-direction: column; gap: 15px; align-items: center;">
+                            <input type="text" id="title-in" placeholder="New Protocol Identifier (Tab Title)..." class="form-control" style="height: 40px; text-align: center; font-weight: 600;">
+                            <button id="change-btn" class="btn btn-primary" style="height: 40px; width: 100%; font-weight: 700;">SYNCHRONIZE IDENTIFIER</button>
+                        </div>
+
+                        <p style="font-size: 11px; color: #565959; text-align: center; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                            <i class="fa-solid fa-eye" style="margin-right: 5px; color: #e47911;"></i>
+                            Monitor the browser terminal's tab bar for protocol updates.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </main>
 
-        <p class="note">Look at your browser tab bar after clicking.</p>
-    </div>
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

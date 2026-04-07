@@ -1,4 +1,4 @@
-body { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+
 .utility-container { padding: 3rem; border-radius: 20px; width: 100%; max-width: 800px; text-align: center; }
 textarea { width: 100%; height: 100px; padding: 1rem; background: rgba(0,0,0,0.3); border: 1px solid #333; color: #aaa; border-radius: 8px; resize: none; margin-bottom: 2rem; font-family: monospace; font-size: 0.8rem; }
 .result-sections { display: flex; gap: 1rem; text-align: left; }

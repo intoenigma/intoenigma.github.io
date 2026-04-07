@@ -1,47 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calm Breathing | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="noise-overlay"></div>
-    <canvas class="particle-canvas"></canvas>
-    <div class="bg-glow"></div>
-    <div class="bg-glow-2"></div>
+    <div id="enigma-header"></div>
 
-    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-    <div class="container" style="max-width: 600px;">
-        <div class="utility-card glass" style="text-align: center; padding: 4rem 2rem;">
-            <header class="utility-header" style="margin-top: 0;">
-                <h2 id="text" class="scramble-text"
-                    style="font-size: 2.5rem; letter-spacing: 5px; text-transform: uppercase;">Breath <span
-                        class="highlight">In</span></h2>
-                <p style="color: var(--text-muted); margin-top: 1rem;">Synchronize your biology with the rhythm.</p>
-            </header>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
 
-            <div class="circle-container"
-                style="width: 250px; height: 250px; margin: 3rem auto; position: relative; display: flex; align-items: center; justify-content: center;">
-                <div class="circle"
-                    style="width: 100px; height: 100px; background: radial-gradient(circle, var(--primary), var(--secondary)); border-radius: 50%; box-shadow: 0 0 50px var(--primary);">
-                </div>
-                <div class="circle-outline"
-                    style="position: absolute; width: 100%; height: 100%; border: 2px solid var(--border); border-radius: 50%;">
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header" style="text-align: center; border: none; margin-bottom: 0;">
+                        <h2 id="text" style="font-size: 32px; font-weight: 800; color: #007185; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 10px;">BREATH <span style="color: #e47911;">IN</span></h2>
+                        <p>Synchronize your biological resonance with the rhythmic temporal loop.</p>
+                    </header>
+
+                    <div class="tool-content" style="text-align: center; padding: 40px 0;">
+                        <div class="circle-container" style="width: 280px; height: 280px; margin: 0 auto; position: relative; display: flex; align-items: center; justify-content: center;">
+                            <div id="breath-circle" style="width: 120px; height: 120px; background: radial-gradient(circle, #e47911 0%, #B12704 100%); border-radius: 50%; box-shadow: 0 10px 40px rgba(228, 121, 17, 0.4); filter: blur(2px); transition: all 0.5s ease-in-out;"></div>
+                            <div style="position: absolute; width: 100%; height: 100%; border: 2px dashed #eee; border-radius: 50%; opacity: 0.5;"></div>
+                        </div>
+
+                        <div class="info-block" style="margin-top: 50px; padding: 25px; background: #fbfbfb; border: 1px solid #ddd; border-radius: 8px;">
+                            <p style="font-size: 13px; color: #565959; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">MINDFULNESS PROTOCOL</p>
+                            <p style="font-size: 12px; color: #0f1111; line-height: 1.6; max-width: 500px; margin: 0 auto;">Focus on the geometric expansion and contraction vectors to re-initialize your baseline cognitive state.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <p style="color: var(--text-muted); font-size: 0.9rem; opacity: 0.6;">Focus of the geometric expansion and
-                contraction.</p>
         </div>
-    </div>
-    <script src="../utility-base.js"></script>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

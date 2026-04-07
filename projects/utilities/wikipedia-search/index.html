@@ -1,34 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wiki Search | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <div id="enigma-header"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Knowledge <span class="highlight">Base</span></h2>
-        </header>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-        <div class="search-bar">
-            <input type="text" id="wiki-in" placeholder="Search Wikipedia...">
-            <button id="search-btn" class="cta-btn primary">Search</button>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Knowledge Base Intelligence</h2>
+                        <p>Query and deconstruct global information protocols from the Wikipedia semantic matrix.</p>
+                    </header>
+
+                    <div class="tool-content">
+                        <div class="card mb-4" style="background: #fbfbfb; padding: 25px; border: 1px solid #ddd; display: flex; gap: 10px;">
+                            <input type="text" id="wiki-in" placeholder="Query semantic node (e.g. Quantum Computing)..." class="form-control" style="flex: 1; height: 40px; font-weight: 600;">
+                            <button id="search-btn" class="btn btn-primary" style="height: 40px; font-weight: 700; padding: 0 25px;">INITIALIZE QUERY</button>
+                        </div>
+
+                        <div id="results" class="results-list card" style="background: #fff; min-height: 200px; padding: 20px; border-style: dashed;">
+                            <div style="text-align: center; color: #888; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; padding-top: 80px;">Awaiting Information Extraction...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </main>
 
-        <div id="results" class="results-list">
-            <!-- Items -->
-        </div>
-    </div>
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

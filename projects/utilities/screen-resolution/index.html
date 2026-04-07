@@ -4,45 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Screen Info | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <div id="enigma-header"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Display <span class="highlight">Stats</span></h2>
-        </header>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-        <div class="stats-grid">
-            <div class="stat-card">
-                <h3>Screen Resolution</h3>
-                <p id="screen-res">-- x --</p>
-            </div>
-            
-            <div class="stat-card">
-                <h3>Viewport Size</h3>
-                <p id="viewport-res">-- x --</p>
-            </div>
-            
-            <div class="stat-card">
-                <h3>Pixel Ratio</h3>
-                <p id="pixel-ratio">--</p>
-            </div>
-            
-            <div class="stat-card">
-                <h3>Color Depth</h3>
-                <p id="color-depth">-- bits</p>
-            </div>
-             <div class="stat-card">
-                <h3>Orientation</h3>
-                <p id="orientation">--</p>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Display Stats Intelligence</h2>
+                        <p>Analyze and deconstruct the visual terminal metrics and hardware capabilities.</p>
+                    </header>
+
+                    <div class="tool-content">
+                        <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                            <div class="card stat-card" style="padding: 20px; text-align: center; border: 1px solid #ddd; background: #fbfbfb;">
+                                <h3 style="font-size: 11px; font-weight: 700; color: #565959; text-transform: uppercase; margin-bottom: 10px;">Hardware Resolution</h3>
+                                <p id="screen-res" style="font-size: 24px; font-weight: 700; color: #0f1111; margin: 0;">-- x --</p>
+                            </div>
+                            
+                            <div class="card stat-card" style="padding: 20px; text-align: center; border: 1px solid #ddd; background: #fbfbfb;">
+                                <h3 style="font-size: 11px; font-weight: 700; color: #565959; text-transform: uppercase; margin-bottom: 10px;">Viewport Dimension</h3>
+                                <p id="viewport-res" style="font-size: 24px; font-weight: 700; color: #0f1111; margin: 0;">-- x --</p>
+                            </div>
+                            
+                            <div class="card stat-card" style="padding: 20px; text-align: center; border: 1px solid #ddd; background: #fbfbfb;">
+                                <h3 style="font-size: 11px; font-weight: 700; color: #565959; text-transform: uppercase; margin-bottom: 10px;">Pixel Density</h3>
+                                <p id="pixel-ratio" style="font-size: 24px; font-weight: 700; color: #0f1111; margin: 0;">--</p>
+                            </div>
+                            
+                            <div class="card stat-card" style="padding: 20px; text-align: center; border: 1px solid #ddd; background: #fbfbfb;">
+                                <h3 style="font-size: 11px; font-weight: 700; color: #565959; text-transform: uppercase; margin-bottom: 10px;">Color Bit-Depth</h3>
+                                <p id="color-depth" style="font-size: 24px; font-weight: 700; color: #0f1111; margin: 0;">-- bits</p>
+                            </div>
+
+                             <div class="card stat-card" style="padding: 20px; text-align: center; border: 1px solid #ddd; background: #fbfbfb;">
+                                <h3 style="font-size: 11px; font-weight: 700; color: #565959; text-transform: uppercase; margin-bottom: 10px;">Device Orientation</h3>
+                                <p id="orientation" style="font-size: 24px; font-weight: 700; color: #0f1111; margin: 0;">--</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

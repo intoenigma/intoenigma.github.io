@@ -4,40 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto Refresh | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="noise-overlay"></div>
-    <canvas class="particle-canvas"></canvas>
-    <div class="bg-glow"></div>
-    <div class="bg-glow-2"></div>
+    <div id="enigma-header"></div>
 
-    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-    <div class="container">
-        <div class="utility-card glass">
-            <header class="utility-header">
-                <h2 class="scramble-text">Loop <span class="highlight">Reload</span></h2>
-                <p style="color: var(--text-muted);">Keep your workspace perpetually fresh.</p>
-            </header>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
 
-            <div class="controls glass" style="padding: 2rem; border-radius: 16px; margin-bottom: 2rem;">
-                <label>Interval (Seconds)</label>
-                <input type="number" id="seconds" value="5" min="2" class="glass">
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Loop Reload Intelligence</h2>
+                        <p>Automatically synchronize and refresh the current terminal node at specific temporal intervals.</p>
+                    </header>
 
-                <div id="countdown" class="countdown font-space" style="font-size: 3rem; text-align: center; margin: 2rem 0; color: var(--accent);">--</div>
+                    <div class="tool-content">
+                        <div class="card mb-4" style="background: #fbfbfb; padding: 25px; border: 1px solid #ddd;">
+                            <div class="form-group mb-0">
+                                <label style="font-size: 11px; font-weight: 700; color: #565959; text-transform: uppercase;">REFRESH INTERVAL (SECONDS)</label>
+                                <input type="number" id="seconds" value="5" min="2" class="form-control" style="height: 40px; font-weight: 700; text-align: center; font-size: 18px;">
+                            </div>
+                        </div>
 
-                <div style="display: flex; gap: 1rem;">
-                    <button id="start-btn" class="cta-btn primary magnetic" style="flex: 1;">Start Protocol</button>
-                    <button id="stop-btn" class="cta-btn magnetic" style="flex: 1;" disabled>Deactivate</button>
+                        <div id="countdown" class="text-center mb-4" style="font-size: 5rem; font-weight: 800; color: #B12704; font-family: monospace; letter-spacing: -2px; text-shadow: 0 4px 10px rgba(177, 39, 4, 0.1);">--</div>
+
+                        <div style="display: flex; gap: 15px;">
+                            <button id="start-btn" class="btn btn-primary" style="flex: 1; height: 45px; font-weight: 700;">INITIATE PROTOCOL</button>
+                            <button id="stop-btn" class="btn" style="flex: 1; height: 45px; border: 1px solid #ddd; font-weight: 700;" disabled>DEACTIVATE</button>
+                        </div>
+
+                        <p style="font-size: 11px; color: #565959; margin-top: 30px; text-align: center; border-top: 1px solid #eee; padding-top: 15px; font-style: italic;">
+                            <i class="fa-solid fa-triangle-exclamation" style="margin-right: 5px; color: #e47911;"></i>
+                            Protocol Note: This utility will force reload the active terminal. Ensure all unsynchronized data fragments are archived before activation.
+                        </p>
+                    </div>
                 </div>
             </div>
-
-            <p class="note" style="color: var(--text-muted); font-size: 0.8rem; text-align: center;">This will reload the current page. Use with caution in active production environments.</p>
         </div>
-    </div>
-    <script src="../utility-base.js"></script>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

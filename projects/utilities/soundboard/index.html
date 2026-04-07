@@ -1,31 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soundboard | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <div id="enigma-header"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Vibe <span class="highlight">Panel</span></h2>
-        </header>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-        <div class="pad-grid" id="pad-grid">
-            <!-- Buttons -->
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Vibe Panel Intelligence</h2>
+                        <p>Trigger and analyze synthesized auditory protocols for interface feedback loops.</p>
+                    </header>
+
+                    <div class="tool-content">
+                        <div class="pad-grid card" id="pad-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 15px; padding: 25px; background: #fbfbfb; border: 1px solid #ddd; min-height: 300px;">
+                            <!-- Dynamically generated sound vectors -->
+                        </div>
+
+                        <p style="font-size: 11px; color: #565959; margin-top: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-align: center;">
+                            <i class="fa-solid fa-volume-high" style="margin-right: 5px;"></i>
+                            Awaiting Trigger Initialization...
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </main>
 
-        <p class="note">Click to play synthesized sounds.</p>
-    </div>
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

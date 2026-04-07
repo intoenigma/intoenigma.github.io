@@ -4,42 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Planner | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="noise-overlay"></div>
-    <canvas class="particle-canvas"></canvas>
-    <div class="bg-glow"></div>
-    <div class="bg-glow-2"></div>
+    <div id="enigma-header"></div>
 
-    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-    <div class="container" style="max-width: 800px;">
-        <div class="utility-card glass">
-            <header class="utility-header">
-                <h2 class="scramble-text">Cash <span class="highlight">Flow</span></h2>
-                <div class="balance-display glass" style="display: inline-block; padding: 1rem 2.5rem; border-radius: 50px; margin-top: 1.5rem; font-size: 2.2rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700; background: rgba(255,255,255,0.05);">
-                    <span style="font-size: 1rem; color: var(--text-muted); display: block; margin-bottom: -5px; font-weight: 400;">Current Liquidity</span>
-                    <span id="balance" class="highlight">$0.00</span>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Cash Flow Intelligence</h2>
+                        <p>Analyze and deconstruct financial liquidity protocols within a unified ledger schema.</p>
+                        
+                        <div class="balance-display card" style="display: inline-block; padding: 20px 40px; border-radius: 8px; margin-top: 20px; background: #fbfbfb; border: 1px solid #ddd; text-align: center;">
+                            <span style="font-size: 11px; color: #565959; display: block; margin-bottom: 5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">CURRENT LIQUIDITY</span>
+                            <span id="balance" style="font-size: 32px; font-weight: 800; color: #B12704; letter-spacing: -1px;">$0.00</span>
+                        </div>
+                    </header>
+
+                    <div class="tool-content">
+                        <div class="transaction-form card mb-4" style="display: grid; grid-template-columns: 1fr 150px 100px; gap: 10px; padding: 20px; background: #fbfbfb; border: 1px dashed #007185;">
+                            <input type="text" id="desc" placeholder="Protocol Label (e.g. Server Maintenance)..." class="form-control" style="height: 35px;">
+                            <input type="number" id="amount" placeholder="Value Vector..." class="form-control" style="height: 35px;">
+                            <button id="add-btn" class="btn btn-primary" style="height: 35px; font-weight: 700;">APPEND</button>
+                        </div>
+
+                        <div class="history-container card" style="min-height: 250px; background: #fff; border: 1px solid #ddd; padding: 0; overflow: hidden;">
+                            <div style="background: #f1f1f1; padding: 12px 20px; border-bottom: 1px solid #ddd;">
+                                <h4 style="margin: 0; color: #565959; font-size: 11px; text-transform: uppercase; font-weight: 800; letter-spacing: 1px;">LEDGER HISTORY PROTCOLS</h4>
+                            </div>
+                            <ul id="history" class="history-list" style="list-style: none; padding: 20px; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                                <div style="text-align: center; color: #888; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; padding-top: 40px;">No Active Transactions Synthesized...</div>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </header>
-
-            <div class="transaction-form glass" style="padding: 2rem; border-radius: 20px; display: grid; grid-template-columns: 1fr 120px 100px; gap: 1rem; margin-bottom: 2rem;">
-                <input type="text" id="desc" placeholder="Transaction Link/Label" class="glass">
-                <input type="number" id="amount" placeholder="Value" class="glass">
-                <button id="add-btn" class="cta-btn primary magnetic" style="padding: 0;">Add</button>
-            </div>
-
-            <div class="history-container glass" style="padding: 1.5rem; border-radius: 20px; min-height: 200px;">
-                <h4 class="font-space" style="margin-bottom: 1.5rem; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">Ledger History</h4>
-                <ul id="history" class="history-list" style="list-style: none; display: flex; flex-direction: column; gap: 0.8rem;">
-                    <!-- Items dynamic -->
-                </ul>
             </div>
         </div>
-    </div>
-    <script src="../utility-base.js"></script>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

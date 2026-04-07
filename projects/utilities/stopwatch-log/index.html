@@ -4,30 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stopwatch | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <div id="enigma-header"></div>
 
-    <div class="utility-container glass">
-        <div class="time-display" id="display">00:00:000</div>
-        
-        <div class="controls">
-            <button id="start-btn" class="cta-btn primary">Start</button>
-            <button id="lap-btn" class="cta-btn secondary">Lap</button>
-            <button id="reset-btn" class="cta-btn outline">Reset</button>
-        </div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-        <div class="laps-container">
-            <table id="laps-table">
-                <thead><tr><th>#</th><th>Time</th><th>Split</th></tr></thead>
-                <tbody></tbody>
-            </table>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Chronos Vector Intelligence</h2>
+                        <p>Synchronize and deconstruct temporal fragments with millisecond precision.</p>
+                    </header>
+
+                    <div class="tool-content">
+                        <div class="time-display-wrap card mb-4" style="background: #000; border-radius: 8px; padding: 40px; text-align: center;">
+                            <div class="time-display" id="display" style="font-size: 64px; font-weight: 700; color: #fff; font-family: monospace; letter-spacing: -2px;">00:00:000</div>
+                        </div>
+                        
+                        <div class="controls" style="display: flex; gap: 15px; justify-content: center; margin-bottom: 30px;">
+                            <button id="start-btn" class="btn btn-primary" style="height: 45px; padding: 0 40px; font-weight: 700;">INITIATE</button>
+                            <button id="lap-btn" class="btn" style="height: 45px; padding: 0 25px;">RECORD LAP</button>
+                            <button id="reset-btn" class="btn" style="height: 45px; padding: 0 25px; background: #fff; border: 1px solid #ddd;">PURGE DATA</button>
+                        </div>
+
+                        <div class="laps-container card" style="background: #fbfbfb; padding: 0; overflow: hidden; border: 1px solid #ddd;">
+                            <table id="laps-table" class="table" style="margin: 0; font-size: 13px;">
+                                <thead style="background: #eee;">
+                                    <tr>
+                                        <th style="padding: 12px; font-weight: 700; color: #565959; border: none;">FRAGMENT #</th>
+                                        <th style="padding: 12px; font-weight: 700; color: #565959; border: none;">TEMPORAL VALUE</th>
+                                        <th style="padding: 12px; font-weight: 700; color: #565959; border: none;">SPLIT DELTA</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <div id="no-laps" style="padding: 40px; text-align: center; color: #888; font-size: 11px; text-transform: uppercase; letter-spacing: 2px;">Awaiting Temporal Entries...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

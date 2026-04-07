@@ -1,49 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header Check | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="noise-overlay"></div>
-    <canvas class="particle-canvas"></canvas>
-    <div class="bg-glow"></div>
-    <div class="bg-glow-2"></div>
+    <div id="enigma-header"></div>
 
-    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-    <div class="container" style="max-width: 900px;">
-        <div class="utility-card glass">
-            <header class="utility-header">
-                <h2 class="scramble-text">Header <span class="highlight">Intelligence</span></h2>
-                <p style="color: var(--text-muted);">Inspect server-side response protocols and security headers.</p>
-            </header>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
 
-            <div class="input-group glass"
-                style="display: flex; gap: 0.5rem; padding: 0.5rem; border-radius: 15px; margin-bottom: 2.5rem;">
-                <input type="text" id="url-input" placeholder="https://protocol-secure.net" value="https://"
-                    class="glass" style="border: none; background: transparent;">
-                <button id="fetch-btn" class="cta-btn primary magnetic" style="padding: 0 2rem;">Intercept</button>
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Header Intelligence Protocols</h2>
+                        <p>Inspect server-side response protocols and synchronize security header deconstruction.</p>
+                    </header>
+
+                    <div class="tool-content">
+                        <div class="form-group mb-4" style="display: flex; gap: 10px; background: #fbfbfb; padding: 25px; border: 1px dashed #007185; border-radius: 8px;">
+                            <input type="text" id="url-input" placeholder="https://protocol-secure.net" value="https://" class="form-control" style="flex: 1; height: 40px; font-weight: 700; font-family: monospace;">
+                            <button id="fetch-btn" class="btn btn-primary" style="height: 40px; padding: 0 30px; font-weight: 700;">INTERCEPT HEADERS</button>
+                        </div>
+
+                        <div id="output" class="hidden card" style="padding: 40px; border-radius: 8px; min-height: 250px; background: #fff; border: 1px solid #ddd; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                            <div class="placeholder" style="color: #888; text-align: center; padding-top: 20px; text-transform: uppercase; letter-spacing: 2px; font-size: 11px; font-weight: 700;">
+                                <i class="fa-solid fa-satellite fa-beat" style="margin-right: 10px; color: #007185; font-size: 18px;"></i>
+                                Awaiting URL Input for Header Deconstruction...
+                            </div>
+                        </div>
+
+                        <p style="font-size: 11px; color: #565959; text-align: center; margin-top: 25px; line-height: 1.6; border-top: 1px solid #eee; padding-top: 15px; font-style: italic;">
+                            <i class="fa-solid fa-shield-virus" style="margin-right: 5px; color: #B12704;"></i>
+                            Security Constraint: Browser CORS policy may prevent direct interception of some domains without unified proxy protocols.
+                        </p>
+                    </div>
+                </div>
             </div>
-
-            <div id="output" class="output-list glass"
-                style="padding: 2rem; border-radius: 20px; min-height: 250px; background: rgba(0,0,0,0.2);">
-                <div class="placeholder"
-                    style="color: var(--text-muted); text-align: center; padding-top: 4rem; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">
-                    Awaiting URL Input for Header Analysis...</div>
-            </div>
-
-            <p class="note" style="color: var(--text-muted); font-size: 0.8rem; text-align: center; margin-top: 2rem;">
-                Security constraint: Browser CORS policy may prevent direct interception of some domains.</p>
         </div>
-    </div>
-    <script src="../utility-base.js"></script>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

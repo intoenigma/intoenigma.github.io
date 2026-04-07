@@ -1,72 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanban System | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="noise-overlay"></div>
-    <canvas class="particle-canvas"></canvas>
-    <div class="bg-glow"></div>
-    <div class="bg-glow-2"></div>
+    <div id="enigma-header"></div>
 
-    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-    <div class="container" style="max-width: 1200px;">
-        <header class="utility-header">
-            <h2 class="scramble-text">Project <span class="highlight">Flow</span></h2>
-            <p style="color: var(--text-muted);">Macro-level strategic synchronization of operational units.</p>
-        </header>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
 
-        <div class="board"
-            style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
-            <div class="column glass" id="todo-col" ondrop="drop(event)" ondragover="allowDrop(event)"
-                style="padding: 1.5rem; border-radius: 20px; min-height: 500px;">
-                <div class="col-header font-space"
-                    style="font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
-                    TO DO <span style="font-size: 0.7rem; opacity: 0.5;">[QUEUE]</span>
-                </div>
-                <div class="task-list" id="todo" style="display: flex; flex-direction: column; gap: 1rem;">
-                    <!-- Card component -->
-                </div>
-            </div>
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Project Flow Board</h2>
+                        <p>Macro-level strategic synchronization of operational units.</p>
+                    </header>
 
-            <div class="column glass" id="progress-col" ondrop="drop(event)" ondragover="allowDrop(event)"
-                style="padding: 1.5rem; border-radius: 20px; min-height: 500px;">
-                <div class="col-header font-space"
-                    style="font-weight: 700; color: var(--primary); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
-                    IN PROGRESS <span style="font-size: 0.7rem; opacity: 0.5;">[ACTIVE]</span>
-                </div>
-                <div class="task-list" id="progress" style="display: flex; flex-direction: column; gap: 1rem;">
-                    <!-- Card component -->
-                </div>
-            </div>
+                    <div class="tool-content">
+                        <div class="board mb-4" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+                            <div class="card" id="todo-col" ondrop="drop(event)" ondragover="allowDrop(event)" style="background: #fbfbfb; min-height: 400px; padding: 15px;">
+                                <div class="col-header" style="font-weight: 700; color: #565959; margin-bottom: 15px; display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 8px;">
+                                    <span>TO DO</span> <span style="font-size: 10px; opacity: 0.6;">[QUEUE]</span>
+                                </div>
+                                <div id="todo" style="display: flex; flex-direction: column; gap: 10px;"></div>
+                            </div>
 
-            <div class="column glass" id="done-col" ondrop="drop(event)" ondragover="allowDrop(event)"
-                style="padding: 1.5rem; border-radius: 20px; min-height: 500px;">
-                <div class="col-header font-space"
-                    style="font-weight: 700; color: #4ade80; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
-                    DONE <span style="font-size: 0.7rem; opacity: 0.5;">[ARCHIVED]</span>
-                </div>
-                <div class="task-list" id="done" style="display: flex; flex-direction: column; gap: 1rem;">
-                    <!-- Card component -->
+                            <div class="card" id="progress-col" ondrop="drop(event)" ondragover="allowDrop(event)" style="background: #fbfbfb; min-height: 400px; padding: 15px;">
+                                <div class="col-header" style="font-weight: 700; color: #e47911; margin-bottom: 15px; display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 8px;">
+                                    <span>IN PROGRESS</span> <span style="font-size: 10px; opacity: 0.6;">[ACTIVE]</span>
+                                </div>
+                                <div id="progress" style="display: flex; flex-direction: column; gap: 10px;"></div>
+                            </div>
+
+                            <div class="card" id="done-col" ondrop="drop(event)" ondragover="allowDrop(event)" style="background: #fcfcfc; min-height: 400px; padding: 15px; border-color: #ddd;">
+                                <div class="col-header" style="font-weight: 700; color: #007185; margin-bottom: 15px; display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 8px;">
+                                    <span>DONE</span> <span style="font-size: 10px; opacity: 0.6;">[ARCHIVED]</span>
+                                </div>
+                                <div id="done" style="display: flex; flex-direction: column; gap: 10px;"></div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="background: #f3f3f3; display: flex; gap: 10px; padding: 15px; max-width: 500px; margin: 0 auto;">
+                            <input type="text" id="new-task" placeholder="Initialize new unit..." class="form-control" style="flex: 1; height: 35px;">
+                            <button onclick="addTask()" class="btn btn-primary" style="height: 35px; white-space: nowrap; padding: 0 15px;">Add Card</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </main>
 
-        <div class="input-area glass"
-            style="padding: 1.5rem; border-radius: 20px; display: flex; gap: 1rem; max-width: 600px; margin: 0 auto;">
-            <input type="text" id="new-task" placeholder="Initialize new unit..." class="glass" style="flex: 1;">
-            <button onclick="addTask()" class="cta-btn primary magnetic">Add Card</button>
-        </div>
-    </div>
-    <script src="../utility-base.js"></script>
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

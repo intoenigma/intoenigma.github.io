@@ -4,34 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voice Recorder | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="noise-overlay"></div>
-    <a href="../index.html" class="back-link">&larr; Utilities</a>
+    <div id="enigma-header"></div>
 
-    <div class="utility-container glass">
-        <header>
-            <h2>Audio <span class="highlight">Log</span></h2>
-        </header>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-        <div class="visualizer-box">
-            <div id="vis-bar"></div>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Audio Log Intelligence</h2>
+                        <p>Synchronize and archive auditory data fragments from local vocal nodes.</p>
+                    </header>
+
+                    <div class="tool-content">
+                        <div class="visualizer-wrap card mb-4" style="background: #000; height: 120px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                            <div id="vis-bar" style="width: 2px; height: 10px; background: #e47911; box-shadow: 0 0 10px #e47911; transition: height 0.1s ease;"></div>
+                            <div id="timer" style="position: absolute; bottom: 10px; right: 15px; font-family: monospace; color: #fff; font-size: 14px; font-weight: 700;">00:00</div>
+                        </div>
+                        
+                        <div class="controls" style="display: flex; gap: 20px; justify-content: center; margin-bottom: 30px;">
+                            <button id="rec-btn" class="btn" style="width: 60px; height: 60px; border-radius: 50%; background: #B12704; color: #fff; font-size: 20px; border: 4px solid #fff; box-shadow: 0 0 0 2px #B12704;">⏺</button>
+                            <button id="stop-btn" class="btn" style="width: 60px; height: 60px; border-radius: 50%; background: #565959; color: #fff; font-size: 20px; border: 4px solid #fff; box-shadow: 0 0 0 2px #565959;" disabled>⏹</button>
+                        </div>
+
+                        <div id="recordings" class="recordings-list card" style="background: #fbfbfb; min-height: 150px; padding: 20px; border: 1px dashed #ddd;">
+                            <div style="text-align: center; color: #888; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; padding-top: 40px;">No Auditory Archives Located...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div id="timer">00:00</div>
+    </main>
 
-        <div class="controls">
-            <button id="rec-btn" class="rec-btn">⏺</button>
-            <button id="stop-btn" class="stop-btn" disabled>⏹</button>
-        </div>
+    <div id="enigma-footer"></div>
 
-        <div id="recordings" class="recordings-list">
-            <!-- Items -->
-        </div>
-    </div>
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

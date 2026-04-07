@@ -4,36 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Console | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling (3 levels deep) -->
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../utility-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="noise-overlay"></div>
-    <canvas class="particle-canvas"></canvas>
-    <div class="bg-glow"></div>
-    <div class="bg-glow-2"></div>
+    <div id="enigma-header"></div>
 
-    <a href="../index.html" class="back-link magnetic">&larr; Utilities</a>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-    <div class="container" style="max-width: 1000px;">
-        <div class="utility-card glass" style="padding: 2rem; border-radius: 20px;">
-            <header class="utility-header" style="margin-top: 0; text-align: left; margin-bottom: 2rem;">
-                <h2 class="scramble-text">Script <span class="highlight">Engine</span></h2>
-                <p style="color: var(--text-muted);">Real-time JavaScript execution environment for rapid prototyping.</p>
-            </header>
+        <div class="content-layout">
+            <!-- Sidebar: Managed dynamically by main.js -->
+            <aside class="sidebar" id="enigma-sidebar"></aside>
 
-            <div id="logs" class="log-container glass" style="height: 400px; padding: 1.5rem; overflow-y: auto; font-family: monospace; font-size: 0.9rem; background: rgba(0,0,0,0.5); border-radius: 12px; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                <div class="log-line info" style="color: var(--accent);">// Intelligence System Online - Awaiting Input...</div>
-            </div>
+            <div class="main-content">
+                <div class="card">
+                    <header class="utility-header">
+                        <h2>Script Engine Console</h2>
+                        <p>Real-time JavaScript execution environment for rapid prototyping.</p>
+                    </header>
 
-            <div class="input-line glass" style="display: flex; gap: 1rem; align-items: center; padding: 0.8rem 1.5rem; border-radius: 15px;">
-                <span style="color: var(--primary); font-weight: 800; font-family: monospace;">&gt;</span>
-                <input type="text" id="cmd" placeholder="console.log('Hello World');" autocomplete="off" class="glass" style="border: none; background: transparent; padding: 0;">
-                <button id="run-btn" class="cta-btn primary magnetic" style="padding: 0.6rem 2rem;">Execute</button>
+                    <div class="tool-content">
+                        <div id="logs" class="card mb-4" style="height: 400px; background: #111; color: #00ff00; font-family: 'Courier New', Courier, monospace; font-size: 13px; overflow-y: auto; padding: 15px; border: 1px solid #333;">
+                            <div class="log-line info" style="color: #888;">// Intelligence System Online - Awaiting Input...</div>
+                        </div>
+
+                        <div class="card" style="background: #fbfbfb; display: flex; gap: 10px; align-items: center; padding: 10px 15px;">
+                            <span style="color: #e47911; font-weight: 800; font-family: monospace;">&gt;</span>
+                            <input type="text" id="cmd" placeholder="console.log('Hello World');" autocomplete="off" class="form-control" style="border: none; box-shadow: none; background: transparent; flex: 1;">
+                            <button id="run-btn" class="btn btn-primary" style="height: 31px; padding: 0 15px;">Execute</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <script src="../utility-base.js"></script>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <!-- Layout Engine (3 levels deep) -->
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

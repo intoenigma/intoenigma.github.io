@@ -1,4 +1,4 @@
-body { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+
 .utility-container { width: 100%; max-width: 800px; padding: 2rem; border-radius: 20px; text-align: center; }
 .input-line { display: flex; gap: 0.5rem; margin-bottom: 2rem; }
 input { flex: 1; padding: 0.8rem; background: rgba(0,0,0,0.3); border: 1px solid #444; color: #fff; border-radius: 8px; }
