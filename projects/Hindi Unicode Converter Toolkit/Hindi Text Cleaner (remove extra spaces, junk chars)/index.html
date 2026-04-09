@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Text Cleaner | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/hindi-base.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="hindi-header">
+                        <h2>Hindi Text Cleaner — पाठ सफाई यंत्र</h2>
+                        <p>Remove extra spaces, junk characters, normalize punctuation, fix double dandas, and clean up messy Hindi text.</p>
+                    </header>
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px; margin-bottom:15px;">
+                        <div>
+                            <p style="font-size:13px; font-weight:700; margin-bottom:8px;">Cleaning Options</p>
+                            <label class="check-opt"><input type="checkbox" id="opt-spaces" checked> Extra spaces हटाएँ</label><br>
+                            <label class="check-opt"><input type="checkbox" id="opt-lines" checked> Empty lines हटाएँ</label><br>
+                            <label class="check-opt"><input type="checkbox" id="opt-junk" checked> Junk/non-Hindi chars हटाएँ</label><br>
+                            <label class="check-opt"><input type="checkbox" id="opt-danda" checked> Danda ।। → ॥ ठीक करें</label><br>
+                            <label class="check-opt"><input type="checkbox" id="opt-digits" checked> Latin digits → देवनागरी अंक</label><br>
+                            <label class="check-opt"><input type="checkbox" id="opt-quotes"> Straight quotes → curly</label>
+                        </div>
+                        <div class="form-group" style="margin:0;">
+                            <label>Whitelist (keep these chars):</label>
+                            <input type="text" id="whitelist" class="form-control" placeholder="e.g. .,!?" value="।॥?!,.():-">
+                        </div>
+                    </div>
+                    <div class="action-bar">
+                        <button class="btn btn-primary" onclick="cleanText()"><i class="fas fa-broom"></i> Clean Now</button>
+                        <button class="btn btn-secondary" onclick="clearAll()"><i class="fas fa-trash"></i> Clear</button>
+                        <button class="btn btn-secondary" onclick="copyOutput()"><i class="fas fa-copy"></i> Copy Output</button>
+                    </div>
+                    <div class="io-grid">
+                        <div>
+                            <span class="io-label">Input (Dirty Text)</span>
+                            <textarea id="input-text" class="form-control hindi-input" placeholder="गंदा या अव्यवस्थित हिन्दी टेक्स्ट..."></textarea>
+                        </div>
+                        <div>
+                            <span class="io-label">Output (Clean Text)</span>
+                            <textarea id="output-text" class="form-control hindi-output" readonly placeholder="साफ़ टेक्स्ट यहाँ दिखेगा..."></textarea>
+                        </div>
+                    </div>
+                    <div class="stat-strip" id="stat-strip" style="display:none;">
+                        <div class="stat-pill">हटाए गए chars: <span id="s-removed">0</span></div>
+                        <div class="stat-pill">पहले: <span id="s-before">0</span></div>
+                        <div class="stat-pill">बाद में: <span id="s-after">0</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+    <style>.check-opt { font-size:13px; cursor:pointer; line-height:2; }</style>
+</body>
+</html>

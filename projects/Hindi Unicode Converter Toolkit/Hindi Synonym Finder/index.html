@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Synonym Finder | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/hindi-base.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="hindi-header">
+                        <h2>Hindi Synonym Finder — पर्यायवाची शब्दकोश</h2>
+                        <p>Find synonyms (पर्यायवाची) for common Hindi words. Built-in thesaurus with 500+ word entries.</p>
+                    </header>
+                    <div class="action-bar">
+                        <div class="form-group" style="margin:0; flex:1;">
+                            <input type="text" id="search-word" class="form-control" placeholder="हिन्दी शब्द खोजें... जैसे: सुंदर, प्रेम, जल, आकाश"
+                                style="height:38px; font-size:16px; font-family:'Noto Sans Devanagari',sans-serif;"
+                                oninput="searchSynonyms()">
+                        </div>
+                        <button class="btn btn-primary" onclick="searchSynonyms()"><i class="fas fa-search"></i> खोजें</button>
+                    </div>
+                    <div id="results" style="display:none; margin-top:20px;">
+                        <div id="word-header" style="font-size:28px; font-weight:800; color:#0f1111; margin-bottom:5px; font-family:'Noto Sans Devanagari',sans-serif;"></div>
+                        <div id="word-meaning" style="font-size:13px; color:#565959; margin-bottom:15px;"></div>
+                        <div>
+                            <span class="io-label">पर्यायवाची (Synonyms)</span>
+                            <div id="synonym-tags" style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;"></div>
+                        </div>
+                        <div id="antonym-section" style="margin-top:20px; display:none;">
+                            <span class="io-label">विलोम (Antonyms)</span>
+                            <div id="antonym-tags" style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;"></div>
+                        </div>
+                    </div>
+                    <div id="not-found" style="display:none; padding:20px; text-align:center; color:#565959;">
+                        <i class="fas fa-search" style="font-size:32px; color:#ddd; margin-bottom:10px; display:block;"></i>
+                        इस शब्द के पर्यायवाची नहीं मिले। कोई और शब्द खोजें।
+                    </div>
+                    <div class="card" style="background:#fbfbfb; margin-top:20px;">
+                        <p style="font-size:13px; color:#565959; margin:0;"><strong>कुछ उदाहरण:</strong> सुंदर, प्रेम, जल, आकाश, वायु, पृथ्वी, अग्नि, सूर्य, चंद्र, रात, दिन, घर, मार्ग, भोजन, शक्ति, ज्ञान, शांति, प्रकाश</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

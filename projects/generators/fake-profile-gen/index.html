@@ -1,88 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Identity Forge | IntoEnigma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../generator-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="cursor-outer"></div>
-    <div class="cursor-inner"></div>
-    <canvas id="particle-canvas"></canvas>
-    <div class="noise-overlay"></div>
-
-    <div class="bg-glow g1"></div>
-    <div class="bg-glow g2"></div>
-
-    <div class="back-nav">
-        <a href="../index.html" class="back-btn magnetic">
-            <i class="fas fa-arrow-left"></i>
-            <span>Back to Generators</span>
-        </a>
-    </div>
-
-    <div class="generator-container animate-in">
-        <div class="glass-panel" style="padding: 3rem;">
-            <header class="generator-header">
-                <div class="system-tag">PROTOCOL :: IDENTITY_FABRICATION</div>
-                <h1 class="generator-title scramble-text" data-value="IDENTITY FORGE">IDENTITY FORGE</h1>
-                <p class="generator-desc">Forge comprehensive personal data for secondary cryptographic personas.</p>
-            </header>
-
-            <div class="profile-card-wrapper">
-                <div class="profile-card glass" id="profile">
-                    <div class="profile-header">
-                        <div class="p-img-frame">
-                            <img id="p-img" src="" alt="Subject Visual">
-                        </div>
-                        <div class="p-main-info">
-                            <h3 id="p-name" class="scramble-text">Subject Alpha</h3>
-                            <p id="p-login" class="system-tag">@username</p>
-                        </div>
-                    </div>
-                    
-                    <div class="profile-details">
-                        <div class="detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span id="p-loc">Location Unknown</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-envelope"></i>
-                            <span id="p-email">encrypted@enigma.com</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-phone"></i>
-                            <span id="p-phone">+0 000 000 0000</span>
-                        </div>
-                    </div>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="app-header" style="margin-bottom:20px; border-bottom:1px solid #eee; padding-bottom:15px;">
+                        <h2 style="font-size:22px; font-weight:800; color:#0f1111; margin-bottom:5px;">Identity Forge</h2>
+                        <p style="color:#565959; font-size:13.5px;">Forge comprehensive personal data for secondary cryptographic personas.</p>
+                    </header>
+                    <div class="profile-card-wrapper">
+<div class="profile-card glass" id="profile">
+<div class="profile-header">
+<div class="p-img-frame">
+<img alt="Subject Visual" id="p-img" src=""/>
+</div>
+<div class="p-main-info">
+<h3 class="scramble-text" id="p-name">Subject Alpha</h3>
+<p class="system-tag" id="p-login">@username</p>
+</div>
+</div>
+<div class="profile-details">
+<div class="detail-item">
+<i class="fas fa-map-marker-alt"></i>
+<span id="p-loc">Location Unknown</span>
+</div>
+<div class="detail-item">
+<i class="fas fa-envelope"></i>
+<span id="p-email">encrypted@enigma.com</span>
+</div>
+<div class="detail-item">
+<i class="fas fa-phone"></i>
+<span id="p-phone">+0 000 000 0000</span>
+</div>
+</div>
+</div>
+</div>
+<button class="btn btn-primary" id="gen-trigger" onclick="getProfile()">
+<i class="fas fa-user-secret"></i> Forge New Identity
+            </button>
                 </div>
             </div>
-
-            <button class="gen-btn magnetic" onclick="getProfile()" id="gen-trigger">
-                <i class="fas fa-user-secret"></i> Forge New Identity
-            </button>
         </div>
-    </div>
-
-    <footer class="footer container">
-        <div class="footer-bottom">
-            <p>&copy; 2025 INTOENIGMA :: DATA_SYNTHESIS_UNIT</p>
-            <div class="footer-stats">
-                <span>RELIABILITY: 99.8%</span>
-                <span>STATUS: ONLINE</span>
-            </div>
-        </div>
-    </footer>
-
+    </main>
+    <div id="enigma-footer"></div>
     <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

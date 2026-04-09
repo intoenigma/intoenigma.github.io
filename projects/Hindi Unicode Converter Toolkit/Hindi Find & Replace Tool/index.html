@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Find & Replace | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/hindi-base.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="hindi-header">
+                        <h2>Hindi Find &amp; Replace — खोजें और बदलें</h2>
+                        <p>Search and replace text in Hindi. Supports plain text and regular expressions.</p>
+                    </header>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-bottom:15px;">
+                        <div class="form-group" style="margin:0;">
+                            <label>खोजें (Find)</label>
+                            <input type="text" id="find-text" class="form-control" placeholder="जो शब्द खोजना है...">
+                        </div>
+                        <div class="form-group" style="margin:0;">
+                            <label>बदलें (Replace with)</label>
+                            <input type="text" id="replace-text" class="form-control" placeholder="जिससे बदलना है...">
+                        </div>
+                    </div>
+                    <div class="action-bar">
+                        <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;">
+                            <input type="checkbox" id="use-regex"> RegEx
+                        </label>
+                        <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;">
+                            <input type="checkbox" id="case-sensitive"> Case Sensitive
+                        </label>
+                        <button class="btn btn-secondary" onclick="findText()"><i class="fas fa-search"></i> Find All</button>
+                        <button class="btn btn-primary" onclick="replaceAll()"><i class="fas fa-exchange-alt"></i> Replace All</button>
+                        <button class="btn btn-secondary" onclick="clearAll()"><i class="fas fa-trash"></i> Reset</button>
+                        <span id="match-count" style="font-size:13px; color:#007185; font-weight:700;"></span>
+                    </div>
+                    <div class="io-grid">
+                        <div>
+                            <span class="io-label">Input Text</span>
+                            <textarea id="input-text" class="form-control hindi-input" placeholder="हिन्दी टेक्स्ट यहाँ डालें..."></textarea>
+                        </div>
+                        <div>
+                            <span class="io-label">Output (After Replace)</span>
+                            <textarea id="output-text" class="form-control hindi-output" readonly placeholder="परिणाम यहाँ दिखेगा..."></textarea>
+                        </div>
+                    </div>
+                    <div class="action-bar" style="margin-top:10px;">
+                        <button class="btn btn-secondary" onclick="copyOutput()"><i class="fas fa-copy"></i> Copy Output</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

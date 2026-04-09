@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Stop Words Remover | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/hindi-base.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="hindi-header">
+                        <h2>Hindi Stop Words Remover — निरर्थक शब्द हटाएँ</h2>
+                        <p>Remove common Hindi stop words (है, का, की, के, में, से, और, यह, वह…) for NLP preprocessing and content analysis.</p>
+                    </header>
+                    <div class="action-bar">
+                        <button class="btn btn-primary" onclick="removeStopWords()"><i class="fas fa-filter"></i> Remove Stop Words</button>
+                        <button class="btn btn-secondary" onclick="showStopWords()"><i class="fas fa-list"></i> View Stop Words List</button>
+                        <button class="btn btn-secondary" onclick="clearAll()"><i class="fas fa-trash"></i> Clear</button>
+                        <button class="btn btn-secondary" onclick="copyOutput()"><i class="fas fa-copy"></i> Copy</button>
+                    </div>
+                    <div class="io-grid">
+                        <div>
+                            <span class="io-label">Input</span>
+                            <textarea id="input-text" class="form-control hindi-input" placeholder="हिन्दी टेक्स्ट यहाँ डालें..."></textarea>
+                        </div>
+                        <div>
+                            <span class="io-label">Output (Stop Words Removed)</span>
+                            <textarea id="output-text" class="form-control hindi-output" readonly></textarea>
+                        </div>
+                    </div>
+                    <div id="stat-strip" class="stat-strip" style="display:none;">
+                        <div class="stat-pill">हटाए गए: <span id="s-removed">0</span></div>
+                        <div class="stat-pill">बचे शब्द: <span id="s-remaining">0</span></div>
+                    </div>
+                    <div id="stopword-list" class="card" style="display:none; background:#fbfbfb; margin-top:15px;">
+                        <h4 style="font-size:13px; font-weight:800; margin-bottom:10px; text-transform:uppercase; color:#565959;">Stop Words List (कुल: <span id="sw-count">0</span>)</h4>
+                        <div id="sw-tags" style="display:flex; flex-wrap:wrap; gap:5px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

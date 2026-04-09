@@ -1,65 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flashcard Core | IntoEnigma</title>
-    <link rel="stylesheet" href="../shared/quiz-base.css">
-    <link rel="stylesheet" href="style.css">
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling -->
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/quiz-base.css">
 </head>
-
 <body>
-    <div class="bg-visuals">
-        <canvas class="particle-canvas"></canvas>
-        <div class="bg-glow one"></div>
-        <div class="bg-glow two"></div>
-    </div>
-
-    <nav class="top-nav">
-        <a href="../index.html" class="back-btn magnetic-wrap"><i class="fas fa-arrow-left"></i> Hub</a>
-        <div class="logo">FLASHCARD <span style="color: var(--primary);">CORE</span></div>
-    </nav>
+    <div id="enigma-header"></div>
 
     <main class="container">
-        <div class="card-stack">
-            <div id="flashcard" class="flashcard interactive">
-                <div class="card-inner-3d">
-                    <div class="card-front glass-container">
-                        <div class="side-label">QUESTION</div>
-                        <h2 id="question-text">Click to start</h2>
+        <div id="enigma-breadcrumbs"></div>
+
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+                <div class="card">
+                    <header class="quiz-header">
+                        <h2>Flashcard Core Active Recall</h2>
+                        <p>Advanced repetition systems for long-term memory retention and rapid recall.</p>
+                    </header>
+
+                    <div class="card-stack" style="margin-bottom: 30px; height: 300px;">
+                        <div id="flashcard" class="flashcard interactive" style="height: 100%;">
+                            <div class="card-front">
+                                <div style="font-size: 11px; font-weight: 700; color: #565959; margin-bottom: 20px; letter-spacing: 1px;">QUESTION</div>
+                                <h2 id="question-text" style="font-size: 32px; color: #0f1111;">Click to start</h2>
+                            </div>
+                            <div class="card-back">
+                                <div style="font-size: 11px; font-weight: 700; color: #565959; margin-bottom: 20px; letter-spacing: 1px;">ANSWER</div>
+                                <p id="answer-text" style="font-size: 24px; color: #e47911; font-weight: 600;">Answer will appear here</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-back glass-container">
-                        <div class="side-label">ANSWER</div>
-                        <p id="answer-text">Answer will appear here</p>
+
+                    <div class="controls" style="display: flex; gap: 15px; justify-content: center; align-items: center;">
+                        <button id="prev-btn" class="btn btn-secondary" style="width: 50px; height: 40px;"><i class="fas fa-undo"></i></button>
+                        <button id="next-btn" class="btn btn-primary" style="padding: 0 40px; height: 40px; font-weight: 700;">NEXT CARD</button>
+                        <button id="add-btn" class="btn btn-secondary" style="width: 50px; height: 40px;"><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="controls glass-container">
-            <button id="prev-btn" class="ctrl-btn magnetic-wrap"><i class="fas fa-undo"></i></button>
-            <button id="next-btn" class="ctrl-btn main magnetic-wrap">NEXT CARD</button>
-            <button id="add-btn" class="ctrl-btn magnetic-wrap"><i class="fas fa-plus"></i></button>
-        </div>
     </main>
 
-    <!-- Simple Add Modal -->
+    <!-- Modal using shared classes -->
     <div id="modal" class="modal">
-        <div class="modal-content glass-container">
-            <h3>Add Protocol</h3>
-            <input type="text" id="new-q" placeholder="Question">
-            <input type="text" id="new-a" placeholder="Answer">
-            <div class="modal-btns">
-                <button onclick="closeModal()">CANCEL</button>
-                <button onclick="saveCard()" class="primary">SAVE</button>
+        <div class="modal-content">
+            <h3 style="margin-bottom: 20px; font-size: 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">Add New Protocol</h3>
+            
+            <div class="form-group">
+                <label>QUESTION</label>
+                <input type="text" id="new-q" placeholder="The question..." class="form-control" style="height: 40px;">
+            </div>
+            
+            <div class="form-group" style="margin-bottom: 25px;">
+                <label>ANSWER</label>
+                <input type="text" id="new-a" placeholder="The answer..." class="form-control" style="height: 40px;">
+            </div>
+
+            <div class="modal-btns" style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button onclick="closeModal()" class="btn btn-secondary" style="height: 35px; width: 80px;">CANCEL</button>
+                <button onclick="saveCard()" class="btn btn-primary" style="height: 35px; width: 80px; font-weight: 700;">SAVE</button>
             </div>
         </div>
     </div>
 
-    <script src="../shared/quiz-base.js"></script>
+    <div id="enigma-footer"></div>
+
+    <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

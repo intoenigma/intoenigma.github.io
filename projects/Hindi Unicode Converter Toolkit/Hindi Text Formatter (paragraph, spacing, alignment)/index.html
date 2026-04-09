@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Text Formatter | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/hindi-base.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="hindi-header">
+                        <h2>Hindi Text Formatter — पाठ प्रारूपक</h2>
+                        <p>Format Hindi text with paragraph indentation, spacing normalization, alignment, and professional typography.</p>
+                    </header>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-bottom:15px;">
+                        <div>
+                            <p style="font-size:13px; font-weight:700; margin-bottom:8px;">Formatting Options</p>
+                            <label style="font-size:13px; display:block; line-height:2; cursor:pointer;"><input type="checkbox" id="opt-indent" checked> हर अनुच्छेद इंडेंट करें</label>
+                            <label style="font-size:13px; display:block; line-height:2; cursor:pointer;"><input type="checkbox" id="opt-danda" checked> Sentence spacing (। के बाद space)</label>
+                            <label style="font-size:13px; display:block; line-height:2; cursor:pointer;"><input type="checkbox" id="opt-caps"> पहला अक्षर capitalize</label>
+                            <label style="font-size:13px; display:block; line-height:2; cursor:pointer;"><input type="checkbox" id="opt-commas" checked> Comma spacing fix</label>
+                        </div>
+                        <div>
+                            <div class="form-group" style="margin:0 0 10px 0;">
+                                <label>Indent Style</label>
+                                <select id="indent-style" class="form-control" style="height:34px;">
+                                    <option value="tab">Tab (⇥)</option>
+                                    <option value="2space">2 Spaces</option>
+                                    <option value="4space" selected>4 Spaces</option>
+                                    <option value="emspace">Em-space (EM)</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin:0;">
+                                <label>Font Size Preview</label>
+                                <input type="range" id="font-size" min="12" max="32" value="16" oninput="updateFontSize(this.value)"> <span id="fs-val">16px</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-bar">
+                        <button class="btn btn-primary" onclick="formatText()"><i class="fas fa-align-left"></i> Format</button>
+                        <button class="btn btn-secondary" onclick="clearAll()"><i class="fas fa-trash"></i> Clear</button>
+                        <button class="btn btn-secondary" onclick="copyOutput()"><i class="fas fa-copy"></i> Copy</button>
+                    </div>
+                    <div class="io-grid">
+                        <div>
+                            <span class="io-label">Input</span>
+                            <textarea id="input-text" class="form-control hindi-input" placeholder="अव्यवस्थित हिन्दी टेक्स्ट..."></textarea>
+                        </div>
+                        <div>
+                            <span class="io-label">Formatted Output</span>
+                            <textarea id="output-text" class="form-control hindi-output" id="output-text" readonly></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

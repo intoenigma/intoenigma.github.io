@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Text Compare | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/hindi-base.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="hindi-header">
+                        <h2>Hindi Text Compare — तुलना उपकरण</h2>
+                        <p>Compare two Hindi texts side-by-side. Differences are highlighted word-by-word.</p>
+                    </header>
+                    <div class="action-bar">
+                        <button class="btn btn-primary" onclick="compareTexts()"><i class="fas fa-not-equal"></i> Compare</button>
+                        <button class="btn btn-secondary" onclick="clearAll()"><i class="fas fa-trash"></i> Clear</button>
+                        <div class="stat-pill" id="diff-stat" style="display:none;">अंतर: <span id="diff-count" style="color:#b12704; font-weight:800;">0</span></div>
+                    </div>
+                    <div class="io-grid">
+                        <div>
+                            <span class="io-label">Text A (Original)</span>
+                            <textarea id="text-a" class="form-control hindi-input" placeholder="पहला टेक्स्ट..."></textarea>
+                        </div>
+                        <div>
+                            <span class="io-label">Text B (Revised)</span>
+                            <textarea id="text-b" class="form-control hindi-input" placeholder="दूसरा टेक्स्ट..."></textarea>
+                        </div>
+                    </div>
+                    <div id="diff-output" class="result-box" style="display:none; margin-top:15px; line-height:2.2;">
+                        <span class="io-label" style="display:block; margin-bottom:10px;">Diff Result</span>
+                        <div id="diff-content"></div>
+                    </div>
+                    <div style="margin-top:10px; font-size:12px; color:#565959;">
+                        <span style="background:#e6ffed; padding:2px 6px; border-radius:2px;">Additions</span>&nbsp;
+                        <span style="background:#ffeef0; text-decoration:line-through; padding:2px 6px; border-radius:2px;">Removals</span>&nbsp;
+                        <span style="padding:2px 6px;">Unchanged</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

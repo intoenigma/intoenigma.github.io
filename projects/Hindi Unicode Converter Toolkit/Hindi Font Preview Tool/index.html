@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Font Preview | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/hindi-base.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="hindi-header">
+                        <h2>Hindi Font Preview Tool — फ़ॉन्ट पूर्वावलोकन</h2>
+                        <p>Preview Hindi text in different Unicode-compatible fonts. Compare typography and readability.</p>
+                    </header>
+                    <div class="form-group">
+                        <label>Preview Text</label>
+                        <textarea id="preview-text" class="form-control hindi-input" style="min-height:80px;" oninput="updatePreviews()">नमस्ते भारत। हिन्दी भाषा विश्व की सबसे प्राचीन एवं समृद्ध भाषाओं में से एक है।
+वर्तमान में हिन्दी बोलने वालों की संख्या लगभग ६० करोड़ है।</textarea>
+                    </div>
+                    <div class="action-bar">
+                        <label style="font-size:13px;">Size: <input type="range" id="font-size" min="12" max="36" value="20" oninput="updateSize(this.value)"> <span id="fs-val">20px</span></label>
+                        <button class="btn btn-secondary" onclick="updatePreviews()"><i class="fas fa-sync"></i> Refresh</button>
+                    </div>
+                    <div id="font-previews" style="margin-top:15px;"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

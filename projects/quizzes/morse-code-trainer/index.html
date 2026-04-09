@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morse Operative | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling -->
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/quiz-base.css">
+    <style>
+        .signal-btn {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #e47911;
+            border: 10px solid #ffd814;
+            box-shadow: 0 0 20px rgba(228, 121, 17, 0.4);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 800;
+            transition: transform 0.1s, background 0.1s;
+            user-select: none;
+        }
+        .signal-btn:active {
+            transform: scale(0.95);
+            background: #c45500;
+        }
+        .morse-char-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+            gap: 10px;
+            margin-top: 30px;
+        }
+        .morse-tile {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            border-radius: 4px;
+        }
+        .morse-tile .letter { font-weight: 700; display: block; }
+        .morse-tile .code { font-size: 10px; color: #565959; }
+    </style>
+</head>
+<body>
+    <div id="enigma-header"></div>
+
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+                <div class="card">
+                    <header class="quiz-header">
+                        <h2>Morse Operative Protocol</h2>
+                        <p>Real-time pulse-based linguistic transformation.</p>
+                    </header>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                        <div class="panel">
+                            <label style="font-size: 11px; font-weight: 700; color: #565959; text-transform: uppercase;">ALPHA-NUMERIC INPUT</label>
+                            <textarea id="text-input" class="form-control" style="height: 100px; margin-bottom: 15px;" placeholder="Type text to encode..."></textarea>
+                            
+                            <label style="font-size: 11px; font-weight: 700; color: #565959; text-transform: uppercase;">MORSE TRANSMISSION</label>
+                            <div id="morse-output" style="background: #fbfbfb; border: 1px solid #ddd; padding: 15px; border-radius: 4px; min-height: 100px; word-break: break-all; font-family: monospace; font-size: 20px;"></div>
+                        </div>
+
+                        <div class="panel text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                            <label style="font-size: 11px; font-weight: 700; color: #565959; text-transform: uppercase; margin-bottom: 20px;">SIGNAL TAPPER</label>
+                            <div id="tap-btn" class="signal-btn">TAP</div>
+                            <p style="margin-top: 15px; font-size: 12px; color: #888;">Short tap = Dot (.) | Long press (>250ms) = Dash (-)</p>
+                        </div>
+                    </div>
+
+                    <div class="morse-char-grid" id="alpha-grid">
+                        <!-- Tiles here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

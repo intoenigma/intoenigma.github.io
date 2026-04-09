@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unicode → Non-Unicode Converter | IntoEnigma</title>
+    <meta name="description" content="Convert Unicode Devanagari Hindi text to legacy fonts like Kruti Dev, Chanakya, Shusha, DevLys. Free, instant, browser-based converter.">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/hindi-base.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="hindi-header">
+                        <h2>Unicode → Non-Unicode Converter</h2>
+                        <p>Convert standard Unicode Devanagari text to legacy Hindi fonts: Kruti Dev, Chanakya, Shusha, DevLys, APS, Preeti, Mangal, Arial Unicode MS, Kokila, Utsaah, Aparajita, Lohit, Samyak, CDAC-GIST, DV-TTYogesh, DV-TTSurekh & more.</p>
+                    </header>
+
+                    <div class="action-bar">
+                        <div class="form-group" style="margin:0; flex:1;">
+                            <label>Select Target Font</label>
+                            <select id="font-select" class="form-control" style="height:34px;">
+                                <optgroup label="Legacy Non-Unicode Fonts">
+                                    <option value="krutidev">Kruti Dev 010 (KBC)</option>
+                                    <option value="chanakya">Chanakya</option>
+                                    <option value="shusha">Shusha</option>
+                                    <option value="devlys">DevLys 010</option>
+                                    <option value="aps">APS / Akruti</option>
+                                    <option value="preeti">Preeti</option>
+                                    <option value="agralip">AgraLipi</option>
+                                    <option value="krishna">Krishna</option>
+                                    <option value="nirmala_leg">Nirmala (Legacy)</option>
+                                    <option value="sanskrit2003">Sanskrit 2003</option>
+                                    <option value="dvttyogesh">DV-TTYogesh</option>
+                                    <option value="dvttsurekh">DV-TTSurekh</option>
+                                    <option value="cdac">CDAC-GIST (Surekh)</option>
+                                </optgroup>
+                                <optgroup label="Unicode Fonts (copy-ready)">
+                                    <option value="mangal">Mangal (Unicode)</option>
+                                    <option value="arialunicode">Arial Unicode MS</option>
+                                    <option value="kokila">Kokila</option>
+                                    <option value="utsaah">Utsaah</option>
+                                    <option value="aparajita">Aparajita</option>
+                                    <option value="lohit">Lohit Devanagari</option>
+                                    <option value="samyak">Samyak Devanagari</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div style="display:flex; align-items:flex-end; gap:8px;">
+                            <button class="btn btn-primary" onclick="convertText()"><i class="fas fa-exchange-alt"></i> Convert Now</button>
+                            <button class="btn btn-secondary" onclick="clearAll()"><i class="fas fa-trash"></i> Clear</button>
+                            <button class="btn btn-secondary" onclick="copyOutput()"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                    </div>
+
+                    <div class="io-grid">
+                        <div>
+                            <span class="io-label">Input (Unicode Devanagari)</span>
+                            <textarea id="input-text" class="form-control hindi-input" placeholder="यहाँ हिन्दी यूनिकोड टाइप करें...
+
+Example:
+नमस्ते भारत
+आज का मौसम बहुत अच्छा है।"></textarea>
+                        </div>
+                        <div>
+                            <span class="io-label">Output (Legacy Font Encoded Text)</span>
+                            <textarea id="output-text" class="form-control hindi-output" placeholder="Converted legacy font text will appear here..." readonly></textarea>
+                        </div>
+                    </div>
+
+                    <div class="stat-strip" id="stats-strip" style="display:none;">
+                        <div class="stat-pill">Target Font: <span id="stat-font">-</span></div>
+                        <div class="stat-pill">Input chars: <span id="stat-in">0</span></div>
+                        <div class="stat-pill">Output chars: <span id="stat-out">0</span></div>
+                    </div>
+
+                    <div class="card" style="background:#fffbf0; border-color:#fcd200; margin-top:20px;">
+                        <h4 style="margin-bottom:8px; font-size:13px; font-weight:700;">⚠️ Usage Note</h4>
+                        <p style="font-size:13px; color:#565959;">The converted ASCII output <strong>must be rendered using the selected font</strong> in Word/Publisher/InDesign to display correctly as Hindi. The raw ASCII text will look like gibberish unless the correct font is applied.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

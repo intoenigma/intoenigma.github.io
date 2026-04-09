@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Word Counter | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/hindi-base.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="hindi-header">
+                        <h2>Hindi Word Counter — हिन्दी शब्द गणक</h2>
+                        <p>Count words, sentences, paragraphs, characters and estimate reading time for Hindi text.</p>
+                    </header>
+                    <div class="form-group">
+                        <label>हिन्दी टेक्स्ट यहाँ डालें (Paste Hindi Text)</label>
+                        <textarea id="input-text" class="form-control hindi-input" style="min-height:220px;" placeholder="यहाँ हिन्दी में लिखें या पेस्ट करें...
+
+उदाहरण: भारत एक महान देश है। यहाँ अनेक भाषाएँ बोली जाती हैं। हिन्दी इनमें सबसे प्रमुख है।" oninput="count()"></textarea>
+                    </div>
+
+                    <div class="stat-strip">
+                        <div class="stat-pill">शब्द <span id="s-words">0</span></div>
+                        <div class="stat-pill">अक्षर (spaces सहित) <span id="s-chars">0</span></div>
+                        <div class="stat-pill">अक्षर (बिना spaces) <span id="s-chars-ns">0</span></div>
+                        <div class="stat-pill">वाक्य <span id="s-sents">0</span></div>
+                        <div class="stat-pill">अनुच्छेद <span id="s-paras">0</span></div>
+                        <div class="stat-pill">पढ़ने का समय <span id="s-time">0 सेकंड</span></div>
+                        <div class="stat-pill">स्वर <span id="s-vowels">0</span></div>
+                        <div class="stat-pill">व्यंजन <span id="s-cons">0</span></div>
+                    </div>
+
+                    <div id="word-freq" class="card" style="margin-top:20px; background:#fbfbfb; display:none;">
+                        <h4 style="font-size:13px; font-weight:800; color:#565959; text-transform:uppercase; margin-bottom:10px;">शीर्ष शब्द (Top Words)</h4>
+                        <div id="freq-list" style="display:flex; flex-wrap:wrap; gap:6px;"></div>
+                    </div>
+                    <div style="margin-top:10px;">
+                        <button class="btn btn-secondary" onclick="showFreq()"><i class="fas fa-chart-bar"></i> Word Frequency</button>
+                        <button class="btn btn-secondary" onclick="clearAll()" style="margin-left:8px;"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

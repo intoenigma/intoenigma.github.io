@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Character Counter | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/hindi-base.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="hindi-header">
+                        <h2>Hindi Character Counter — अक्षर गणक</h2>
+                        <p>Detailed Devanagari character analysis: vowels, consonants, matras, numerals, punctuation, and Unicode codepoints.</p>
+                    </header>
+                    <div class="form-group">
+                        <label>हिन्दी टेक्स्ट यहाँ डालें</label>
+                        <textarea id="input-text" class="form-control hindi-input" style="min-height:180px;"
+                            placeholder="यहाँ हिन्दी टेक्स्ट डालें..." oninput="analyze()"></textarea>
+                    </div>
+
+                    <div class="stat-strip">
+                        <div class="stat-pill">कुल अक्षर <span id="s-total">0</span></div>
+                        <div class="stat-pill">बिना space <span id="s-nospace">0</span></div>
+                        <div class="stat-pill">स्वर (Vowels) <span id="s-vowels">0</span></div>
+                        <div class="stat-pill">व्यंजन (Consonants) <span id="s-cons">0</span></div>
+                        <div class="stat-pill">मात्राएँ (Matras) <span id="s-matras">0</span></div>
+                        <div class="stat-pill">अनुनासिक (Anusvara) <span id="s-anus">0</span></div>
+                        <div class="stat-pill">हलन्त (Halant) <span id="s-halant">0</span></div>
+                        <div class="stat-pill">देवनागरी अंक <span id="s-digits">0</span></div>
+                        <div class="stat-pill">अन्य / Latin <span id="s-other">0</span></div>
+                    </div>
+
+                    <div id="codepoint-view" class="card" style="margin-top:20px; background:#fbfbfb; display:none;">
+                        <h4 style="font-size:13px; font-weight:800; color:#565959; text-transform:uppercase; margin-bottom:10px;">Unicode Codepoints</h4>
+                        <div id="codepoint-list" style="font-family:monospace; font-size:12px; line-height:2; word-break:break-all;"></div>
+                    </div>
+                    <div style="margin-top:10px;">
+                        <button class="btn btn-secondary" onclick="toggleCodepoints()"><i class="fas fa-code"></i> Show Unicode Codepoints</button>
+                        <button class="btn btn-secondary" onclick="clearAll()" style="margin-left:8px;"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

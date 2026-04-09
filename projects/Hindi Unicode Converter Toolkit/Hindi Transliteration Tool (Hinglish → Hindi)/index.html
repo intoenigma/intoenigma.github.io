@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Transliteration (Hinglish→Hindi) | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/hindi-base.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="hindi-header">
+                        <h2>Hinglish → Hindi Transliteration</h2>
+                        <p>Convert Romanized Hindi (Hinglish) to Devanagari script. Type in English phonetics, get Hindi Unicode.</p>
+                    </header>
+                    <div class="action-bar">
+                        <button class="btn btn-primary" onclick="transliterate()"><i class="fas fa-language"></i> Transliterate</button>
+                        <button class="btn btn-secondary" onclick="clearAll()"><i class="fas fa-trash"></i> Clear</button>
+                        <button class="btn btn-secondary" onclick="copyOutput()"><i class="fas fa-copy"></i> Copy</button>
+                    </div>
+                    <div class="io-grid">
+                        <div>
+                            <span class="io-label">Hinglish (Roman) Input</span>
+                            <textarea id="input-text" class="form-control" style="min-height:200px; font-size:16px;"
+                                placeholder="Type Hindi in English phonetics:&#10;&#10;namaste → नमस्ते&#10;bharat → भारत&#10;pyaar → प्यार&#10;ghar → घर&#10;mera naam → मेरा नाम"></textarea>
+                        </div>
+                        <div>
+                            <span class="io-label">Devanagari Output</span>
+                            <textarea id="output-text" class="form-control hindi-output" readonly placeholder="हिन्दी यहाँ..."></textarea>
+                        </div>
+                    </div>
+                    <div class="card" style="background:#fbfbfb; margin-top:15px; font-size:12px;">
+                        <strong>Quick Reference:</strong>
+                        <code style="display:block; margin-top:6px; line-height:2; color:#565959;">
+                            a=अ aa=आ i=इ ii=ई u=उ uu=ऊ e=ए ai=ऐ o=ओ au=औ | k=क kh=ख g=ग gh=घ | ch=च chh=छ j=ज jh=झ | t=त th=थ d=द dh=ध n=न | p=प ph=फ b=ब bh=भ m=म | y=य r=र l=ल v/w=व | sh=श s=स h=ह | tt=ट tth=ठ dd=ड ddh=ढ nn=ण
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

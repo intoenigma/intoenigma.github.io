@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Unicode → Unicode Converter | IntoEnigma</title>
+    <meta name="description" content="Convert Kruti Dev, Chanakya, Shusha, DevLys and 20+ legacy Hindi fonts to Unicode Devanagari. Free, instant, browser-based.">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/hindi-base.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="hindi-header">
+                        <h2>Non-Unicode → Unicode Converter</h2>
+                        <p>Convert text from legacy Hindi fonts (Kruti Dev, Chanakya, Shusha, DevLys, APS, Preeti & more) to standard Unicode Devanagari.</p>
+                    </header>
+
+                    <div class="action-bar">
+                        <div class="form-group" style="margin:0; flex:1;">
+                            <label>Select Source Font</label>
+                            <select id="font-select" class="form-control" style="height:34px;">
+                                <option value="krutidev">Kruti Dev (KBC / KrutiDev 010)</option>
+                                <option value="chanakya">Chanakya</option>
+                                <option value="shusha">Shusha</option>
+                                <option value="devlys">DevLys</option>
+                                <option value="aps">APS / Akruti</option>
+                                <option value="preeti">Preeti</option>
+                                <option value="agralip">AgraLipi</option>
+                                <option value="dvttyogesh">DV-TTYogesh</option>
+                                <option value="dvttsurekh">DV-TTSurekh</option>
+                                <option value="cdac">CDAC-GIST / CDAC Surekh</option>
+                                <option value="mangal">Mangal (already Unicode)</option>
+                            </select>
+                        </div>
+                        <div style="display:flex; align-items:flex-end; gap:8px;">
+                            <button class="btn btn-primary" onclick="convertText()"><i class="fas fa-exchange-alt"></i> Convert Now</button>
+                            <button class="btn btn-secondary" onclick="clearAll()"><i class="fas fa-trash"></i> Clear</button>
+                            <button class="btn btn-secondary" onclick="copyOutput()"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                    </div>
+
+                    <div class="io-grid">
+                        <div>
+                            <span class="io-label">Input (Legacy Font Text)</span>
+                            <textarea id="input-text" class="form-control hindi-input" placeholder="Paste Kruti Dev / legacy font text here...
+
+Example (KrutiDev): vkse ueks HkkxZo
+Will convert to: ओम नमो भार्गव"></textarea>
+                        </div>
+                        <div>
+                            <span class="io-label">Output (Unicode Devanagari)</span>
+                            <textarea id="output-text" class="form-control hindi-output" placeholder="Unicode output will appear here..." readonly></textarea>
+                        </div>
+                    </div>
+
+                    <div class="stat-strip" id="stats-strip" style="display:none;">
+                        <div class="stat-pill">Font: <span id="stat-font">-</span></div>
+                        <div class="stat-pill">Input chars: <span id="stat-in">0</span></div>
+                        <div class="stat-pill">Output chars: <span id="stat-out">0</span></div>
+                    </div>
+
+                    <div class="card" style="margin-top:20px; background:#fbfbfb;">
+                        <h4 style="margin-bottom:10px; font-size:13px; font-weight:800; text-transform:uppercase; color:#565959; letter-spacing:1px;">Supported Font Mappings</h4>
+                        <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap:8px; font-size:12px;">
+                            <div>✅ Kruti Dev 010 (KBC) — <strong>Full</strong></div>
+                            <div>✅ Chanakya — <strong>Full</strong></div>
+                            <div>✅ Shusha — <strong>Full</strong></div>
+                            <div>✅ DevLys 010 — <strong>Full</strong></div>
+                            <div>⚡ APS / Akruti — <strong>Core</strong></div>
+                            <div>⚡ Preeti — <strong>Core</strong></div>
+                            <div>⚡ AgraLipi — <strong>Core</strong></div>
+                            <div>⚡ DV-TTYogesh — <strong>Core</strong></div>
+                            <div>⚡ DV-TTSurekh — <strong>Core</strong></div>
+                            <div>⚡ CDAC-GIST — <strong>Core</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

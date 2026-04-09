@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Slug Generator | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/hindi-base.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="hindi-header">
+                        <h2>Hindi Slug Generator — URL-अनुकूल पाठ</h2>
+                        <p>Convert Hindi text to SEO-friendly URL slugs using IAST romanization, percent-encoding, or transliteration.</p>
+                    </header>
+                    <div class="form-group">
+                        <label>हिन्दी शीर्षक या टेक्स्ट</label>
+                        <textarea id="input-text" class="form-control hindi-input" style="min-height:100px;"
+                            placeholder="हिन्दी में शीर्षक लिखें...&#10;&#10;Example: भारत का इतिहास → bharat-ka-itihas"></textarea>
+                    </div>
+                    <div class="action-bar">
+                        <select id="slug-mode" class="form-control" style="height:34px; width:200px;">
+                            <option value="iast">IAST Transliteration</option>
+                            <option value="simple">Simple Roman</option>
+                            <option value="encoded">Percent-encoded (RFC 3986)</option>
+                        </select>
+                        <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;">
+                            <input type="checkbox" id="lowercase" checked> Lowercase
+                        </label>
+                        <button class="btn btn-primary" onclick="generateSlug()"><i class="fas fa-link"></i> Generate Slug</button>
+                        <button class="btn btn-secondary" onclick="clearAll()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                    <div id="results" style="display:none; margin-top:15px;">
+                        <span class="io-label">Generated Slug</span>
+                        <div style="display:flex; gap:10px; margin-top:8px;">
+                            <input type="text" id="slug-output" class="form-control" style="font-family:monospace; font-size:14px; height:40px; flex:1;" readonly>
+                            <button class="btn btn-secondary" onclick="copySlug()"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                        <div id="full-url" style="margin-top:10px; font-size:13px; color:#565959;">
+                            Full URL: <code id="url-preview" style="color:#007185;"></code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Matrix | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling -->
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/quiz-base.css">
+    <style>
+        .math-display {
+            font-size: 64px;
+            font-weight: 700;
+            color: #e47911;
+            margin-bottom: 20px;
+        }
+        .timer-bar {
+            height: 4px;
+            background: #e7e9ec;
+            width: 100%;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        #timer-fill {
+            height: 100%;
+            background: #007185;
+            width: 100%;
+            transition: width 0.1s linear;
+        }
+        .score-box {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="enigma-header"></div>
+
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+                <div class="card">
+                    <header class="quiz-header">
+                        <h2>Math Matrix Protocol</h2>
+                        <p>Evaluate mathematical expressions with speed and precision.</p>
+                    </header>
+
+                    <div id="game-start-screen" class="text-center">
+                        <i class="fa-solid fa-calculator" style="font-size: 64px; color: #e47911; margin-bottom: 20px;"></i>
+                        <h3>Ready to Sync?</h3>
+                        <p class="mb-4">You have 60 seconds to solve as many problems as possible.</p>
+                        <button onclick="startGame()" class="btn btn-primary" style="padding: 0 40px; height: 40px; font-weight: 700;">INITIALIZE</button>
+                    </div>
+
+                    <div id="game-active-screen" class="hidden">
+                        <div class="score-box">SCORE: <span id="score">0</span></div>
+                        <div class="timer-bar"><div id="timer-fill"></div></div>
+                        
+                        <div class="display-area">
+                            <div class="math-display" id="problem">? + ?</div>
+                            <div class="form-group" style="max-width: 200px; margin: 0 auto;">
+                                <input type="number" id="answer-input" class="form-control" autocomplete="off" style="height: 50px; font-size: 24px; text-align: center;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="game-over-screen" class="hidden text-center">
+                        <h3 style="color: #c40000;">Protocol Terminated</h3>
+                        <div style="font-size: 48px; font-weight: 700; margin: 20px 0;">Final Score: <span id="final-score">0</span></div>
+                        <button onclick="startGame()" class="btn btn-secondary">RETRY</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

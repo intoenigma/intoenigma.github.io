@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Unicode Normalizer | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/hindi-base.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="hindi-header">
+                        <h2>Hindi Unicode Normalizer — यूनिकोड सामान्यीकरण</h2>
+                        <p>Normalize Hindi Unicode text to NFC/NFD/NFKC/NFKD forms. Fix encoding inconsistencies and ensure compatible Devanagari representation.</p>
+                    </header>
+                    <div class="action-bar">
+                        <div class="form-group" style="margin:0;">
+                            <label style="font-size:12px; margin-bottom:3px;">Normalization Form</label>
+                            <select id="norm-form" class="form-control" style="height:34px; width:150px;">
+                                <option value="NFC" selected>NFC (Canonical Composed)</option>
+                                <option value="NFD">NFD (Canonical Decomposed)</option>
+                                <option value="NFKC">NFKC (Compatibility Composed)</option>
+                                <option value="NFKD">NFKD (Compatibility Decomposed)</option>
+                            </select>
+                        </div>
+                        <div style="display:flex; flex-direction:column; gap:4px; font-size:12px;">
+                            <label style="cursor:pointer;"><input type="checkbox" id="fix-zero-width" checked> Zero-width chars हटाएँ</label>
+                            <label style="cursor:pointer;"><input type="checkbox" id="fix-dir" checked> Direction marks हटाएँ</label>
+                        </div>
+                        <button class="btn btn-primary" onclick="normalize()"><i class="fas fa-sync"></i> Normalize</button>
+                        <button class="btn btn-secondary" onclick="clearAll()"><i class="fas fa-trash"></i> Clear</button>
+                        <button class="btn btn-secondary" onclick="copyOutput()"><i class="fas fa-copy"></i> Copy</button>
+                    </div>
+                    <div class="io-grid">
+                        <div>
+                            <span class="io-label">Input Text</span>
+                            <textarea id="input-text" class="form-control hindi-input" placeholder="हिन्दी Unicode टेक्स्ट..."></textarea>
+                        </div>
+                        <div>
+                            <span class="io-label">Normalized Output</span>
+                            <textarea id="output-text" class="form-control hindi-output" readonly></textarea>
+                        </div>
+                    </div>
+                    <div class="stat-strip" id="stat-strip" style="display:none; margin-top:10px;">
+                        <div class="stat-pill">Form: <span id="s-form">NFC</span></div>
+                        <div class="stat-pill">Input length: <span id="s-in">0</span></div>
+                        <div class="stat-pill">Output length: <span id="s-out">0</span></div>
+                        <div class="stat-pill">Difference: <span id="s-diff">0</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

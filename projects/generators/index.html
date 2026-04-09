@@ -1,210 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generators | IntoEnigma</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <title>Random Generators Toolkit | IntoEnigma</title>
+    <meta name="description" content="A powerful suite of random generators for avatars, quotes, IDs, passwords, memes, and data simulation. Professional tools for designers and developers.">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../Hindi Unicode Converter Toolkit/shared/hindi-base.css">
     <style>
-        .hub-title {
-            font-size: 5rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            background: linear-gradient(to bottom, #fff 40%, rgba(255, 255, 255, 0.4));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hub-desc {
-            text-align: center;
-            color: #80808a;
-            font-size: 1.2rem;
-            margin-bottom: 4rem;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            height: 160px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
+        /* Hero Banner */
+        .gen-hero {
+            background: linear-gradient(135deg, #232f3e 0%, #131a22 100%);
+            border-radius: 12px;
+            padding: 32px 36px;
+            margin-bottom: 22px;
             color: #fff;
             position: relative;
             overflow: hidden;
-            transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            text-align: center;
+            border: 1px solid #131a22;
         }
-
-        .project-card i {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-            transition: 0.5s;
-        }
-
-        .project-card h3 {
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-            margin: 0;
-            z-index: 2;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            background: rgba(var(--primary-rgb), 0.05);
-        }
-
-        .project-card:hover i {
-            transform: scale(1.2);
-            text-shadow: 0 0 20px var(--primary);
-        }
-
-        .card-glow {
+        .gen-hero::before {
+            content: '\f074';
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100px;
-            height: 100px;
-            background: var(--primary);
-            filter: blur(50px);
-            opacity: 0;
-            transform: translate(-50%, -50%);
-            transition: 0.5s;
+            right: 40px; top: -30px;
+            font-size: 160px;
+            color: rgba(255,255,255,.03);
             pointer-events: none;
+            line-height: 1;
+            transform: rotate(-15deg);
+        }
+        .gen-hero h1 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            color: #ff9900;
+        }
+        .gen-hero p {
+            font-size: 14px;
+            color: rgba(255,255,255,.8);
+            max-width: 600px;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+        .hero-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+        .hero-badge {
+            background: rgba(255,255,255,.1);
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 12px;
+            color: #fff;
+            backdrop-filter: blur(4px);
         }
 
-        .project-card:hover .card-glow {
-            opacity: 0.1;
+        .cat-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #565959;
+            margin-bottom: 14px;
+        }
+        .cat-label i { font-size: 14px; }
+        .cat-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, #ddd, transparent);
         }
     </style>
 </head>
-
 <body>
-    <div class="cursor-outer"></div>
-    <div class="cursor-inner"></div>
-    <canvas id="particle-canvas"></canvas>
-    
-    <div class="main-orb" style="position: fixed; top: 20%; right: 10%; z-index: -1; opacity: 0.2; pointer-events: none;">
-        <div class="orb-ring"></div>
-        <div class="orb-ring"></div>
-        <div class="orb-ring"></div>
-    </div>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
 
-    <div class="noise-overlay"></div>
-
-    <div class="bg-glow g1"></div>
-    <div class="bg-glow g2"></div>
-
-    <nav class="navbar glass">
-        <a href="../../index.html" class="logo">Into<span class="highlight">Enigma</span></a>
-        <div class="nav-links">
-            <a href="../../index.html" class="nav-item magnetic">Home</a>
-            <a href="../index.html" class="nav-item magnetic">Projects</a>
-        </div>
-    </nav>
-
-    <div class="container animate-in">
-        <header class="section-header">
-            <div class="system-tag">PROTOCOL :: GENERATORS_HUB</div>
-            <h1 class="hub-title scramble-text" data-value="GENERATORS">GENERATORS</h1>
-            <p class="hub-desc">High-fidelity tools for content synthesis and data randomization.</p>
-        </header>
-
-        <div class="project-grid">
-            <a href="avatar-generator/index.html" class="project-card glass magnetic">
-                <i class="fas fa-user-astronaut"></i>
-                <h3 class="scramble-text" data-value="Avatar Generator">Avatar Generator</h3>
-                <div class="card-glow"></div>
-            </a>
-            <a href="cat-images-gen/index.html" class="project-card glass magnetic">
-                <i class="fas fa-cat"></i>
-                <h3 class="scramble-text" data-value="Cat Images">Cat Images</h3>
-                <div class="card-glow"></div>
-            </a>
-            <a href="fake-profile-gen/index.html" class="project-card glass magnetic">
-                <i class="fas fa-id-card"></i>
-                <h3 class="scramble-text" data-value="Fake Profile">Fake Profile</h3>
-                <div class="card-glow"></div>
-            </a>
-            <a href="lorem-image/index.html" class="project-card glass magnetic">
-                <i class="fas fa-image"></i>
-                <h3 class="scramble-text" data-value="Lorem Image">Lorem Image</h3>
-                <div class="card-glow"></div>
-            </a>
-            <a href="magic-8-ball/index.html" class="project-card glass magnetic">
-                <i class="fas fa-bowling-ball"></i>
-                <h3 class="scramble-text" data-value="Magic 8 Ball">Magic 8 Ball</h3>
-                <div class="card-glow"></div>
-            </a>
-            <a href="meme-template-finder/index.html" class="project-card glass magnetic">
-                <i class="fas fa-grin-tears"></i>
-                <h3 class="scramble-text" data-value="Meme Finder">Meme Finder</h3>
-                <div class="card-glow"></div>
-            </a>
-            <a href="nickname-generator/index.html" class="project-card glass magnetic">
-                <i class="fas fa-user-tag"></i>
-                <h3 class="scramble-text" data-value="Nickname Gen">Nickname Gen</h3>
-                <div class="card-glow"></div>
-            </a>
-            <a href="quote-of-the-day/index.html" class="project-card glass magnetic">
-                <i class="fas fa-quote-left"></i>
-                <h3 class="scramble-text" data-value="Daily Quote">Daily Quote</h3>
-                <div class="card-glow"></div>
-            </a>
-            <a href="random-activity/index.html" class="project-card glass magnetic">
-                <i class="fas fa-running"></i>
-                <h3 class="scramble-text" data-value="Random Activity">Random Activity</h3>
-                <div class="card-glow"></div>
-            </a>
-            <a href="random-joke-generator/index.html" class="project-card glass magnetic">
-                <i class="fas fa-laugh"></i>
-                <h3 class="scramble-text" data-value="Random Joke">Random Joke</h3>
-                <div class="card-glow"></div>
-            </a>
-            <a href="truth-or-dare-gen/index.html" class="project-card glass magnetic">
-                <i class="fas fa-question-circle"></i>
-                <h3 class="scramble-text" data-value="Truth or Dare">Truth or Dare</h3>
-                <div class="card-glow"></div>
-            </a>
-            <a href="variable-name-gen/index.html" class="project-card glass magnetic">
-                <i class="fas fa-code"></i>
-                <h3 class="scramble-text" data-value="Variable Names">Variable Names</h3>
-                <div class="card-glow"></div>
-            </a>
-            <a href="word-cloud-gen/index.html" class="project-card glass magnetic">
-                <i class="fas fa-cloud"></i>
-                <h3 class="scramble-text" data-value="Word Cloud">Word Cloud</h3>
-                <div class="card-glow"></div>
-            </a>
-        </div>
-    </div>
-
-    <footer class="footer container">
-        <div class="footer-bottom">
-            <p>&copy; 2025 INTOENIGMA :: CORE_SYSTEM_v4</p>
-            <div class="footer-stats">
-                <span>STATUS: OPERATIONAL</span>
-                <span>LATENCY: 12ms</span>
+        <!-- Hero -->
+        <div class="gen-hero">
+            <h1><i class="fas fa-random" style="margin-right:10px;"></i> Random Generators Hub</h1>
+            <p>Access high-fidelity tools for content synthesis and data randomization. Generate avatars, dummy data, placeholders, memes, and programmatic variables instantly.</p>
+            <div class="hero-badges">
+                <span class="hero-badge"><i class="fas fa-desktop"></i> Client-side</span>
+                <span class="hero-badge"><i class="fas fa-bolt"></i> Zero Latency</span>
+                <span class="hero-badge"><i class="fas fa-shield-alt"></i> No Tracking</span>
+                <span class="hero-badge"><i class="fas fa-layer-group"></i> 13 Generators</span>
             </div>
         </div>
-    </footer>
 
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+
+                <!-- Primary Tools -->
+                <div class="card">
+                    <div class="cat-label" style="color:#b12704;"><i class="fas fa-star" style="color:#b12704;"></i> Popular Generators</div>
+                    <div class="tool-grid">
+                        <a href="avatar-generator/index.html" class="tool-card">
+                            <div class="tool-icon">👤</div>
+                            <div class="tool-card-body">
+                                <div class="tool-card-title">Avatar Synthesizer</div>
+                                <div class="tool-card-desc">Unique identity SVGs & faces</div>
+                            </div>
+                        </a>
+                        <a href="fake-profile-gen/index.html" class="tool-card">
+                            <div class="tool-icon">🪪</div>
+                            <div class="tool-card-body">
+                                <div class="tool-card-title">Fake Profile Maker</div>
+                                <div class="tool-card-desc">Generate realistic dummy profiles</div>
+                            </div>
+                        </a>
+                        <a href="lorem-image/index.html" class="tool-card">
+                            <div class="tool-icon">🖼️</div>
+                            <div class="tool-card-body">
+                                <div class="tool-card-title">Lorem Image</div>
+                                <div class="tool-card-desc">Placeholder image URLs for UI dev</div>
+                            </div>
+                        </a>
+                        <a href="word-cloud-gen/index.html" class="tool-card">
+                            <div class="tool-icon">☁️</div>
+                            <div class="tool-card-body">
+                                <div class="tool-card-title">Word Cloud</div>
+                                <div class="tool-card-desc">Semantic text density visuals</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fun & Entertainment -->
+                <div class="card">
+                    <div class="cat-label" style="color:#e47911;"><i class="fas fa-gamepad" style="color:#e47911;"></i> Fun &amp; Entertainment</div>
+                    <div class="tool-grid">
+                        <a href="meme-template-finder/index.html" class="tool-card">
+                            <div class="tool-icon">😂</div>
+                            <div class="tool-card-body">
+                                <div class="tool-card-title">Meme Finder</div>
+                                <div class="tool-card-desc">Discover popular meme templates</div>
+                            </div>
+                        </a>
+                        <a href="random-joke-generator/index.html" class="tool-card">
+                            <div class="tool-icon">🃏</div>
+                            <div class="tool-card-body">
+                                <div class="tool-card-title">Random Joke</div>
+                                <div class="tool-card-desc">Programming, dad jokes & puns</div>
+                            </div>
+                        </a>
+                        <a href="truth-or-dare-gen/index.html" class="tool-card">
+                            <div class="tool-icon">🎯</div>
+                            <div class="tool-card-body">
+                                <div class="tool-card-title">Truth or Dare</div>
+                                <div class="tool-card-desc">Party game prompts generator</div>
+                            </div>
+                        </a>
+                        <a href="magic-8-ball/index.html" class="tool-card">
+                            <div class="tool-icon">🎱</div>
+                            <div class="tool-card-body">
+                                <div class="tool-card-title">Magic 8 Ball</div>
+                                <div class="tool-card-desc">Quantum Oracle answers your queries</div>
+                            </div>
+                        </a>
+                        <a href="random-activity/index.html" class="tool-card">
+                            <div class="tool-icon">🏃</div>
+                            <div class="tool-card-body">
+                                <div class="tool-card-title">Random Activity</div>
+                                <div class="tool-card-desc">Boredom buster task suggestions</div>
+                            </div>
+                        </a>
+                        <a href="cat-images-gen/index.html" class="tool-card">
+                            <div class="tool-icon">🐱</div>
+                            <div class="tool-card-body">
+                                <div class="tool-card-title">Cat Images</div>
+                                <div class="tool-card-desc">Feline fetcher & cute pet pics</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Utilities -->
+                <div class="card">
+                    <div class="cat-label" style="color:#007185;"><i class="fas fa-tools" style="color:#007185;"></i> Web &amp; Text Utilities</div>
+                    <div class="tool-grid">
+                        <a href="variable-name-gen/index.html" class="tool-card">
+                            <div class="tool-icon">💻</div>
+                            <div class="tool-card-body">
+                                <div class="tool-card-title">Variable Names</div>
+                                <div class="tool-card-desc">camelCase, snake_case converter</div>
+                            </div>
+                        </a>
+                        <a href="nickname-generator/index.html" class="tool-card">
+                            <div class="tool-icon">🏷️</div>
+                            <div class="tool-card-body">
+                                <div class="tool-card-title">Nickname Gen</div>
+                                <div class="tool-card-desc">Gamertags & online alias creator</div>
+                            </div>
+                        </a>
+                        <a href="quote-of-the-day/index.html" class="tool-card">
+                            <div class="tool-icon">💭</div>
+                            <div class="tool-card-body">
+                                <div class="tool-card-title">Daily Quote</div>
+                                <div class="tool-card-desc">Inspirational & historical wisdom</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
     <script src="../../js/main.js"></script>
 </body>
-
 </html>

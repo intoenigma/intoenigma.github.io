@@ -48,7 +48,8 @@ header {
     display: flex;
     align-items: center;
     padding: 6px 20px;
-    max-width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
 }
 
 .logo {
@@ -126,6 +127,8 @@ header {
     padding: 0 20px;
     display: flex;
     gap: 15px;
+    max-width: 1500px;
+    margin: 0 auto;
 }
 
 .header-sub a {
@@ -213,6 +216,26 @@ h3 {
     font-size: 21px;
     margin-bottom: 15px;
     font-weight: 700;
+}
+
+/* Hub Banners */
+.banner {
+    background-color: var(--amz-white);
+    padding: 20px;
+    border: 1px solid var(--amz-border);
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.banner h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.banner p {
+    color: var(--text-muted);
+    font-size: 14px;
 }
 
 .grid {

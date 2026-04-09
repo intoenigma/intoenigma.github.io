@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Keyword Density | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/hindi-base.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="hindi-header">
+                        <h2>Hindi Keyword Density — कीवर्ड घनत्व जाँचक</h2>
+                        <p>Analyze the frequency and density of keywords in Hindi text for SEO and content optimization.</p>
+                    </header>
+                    <div class="form-group">
+                        <label>हिन्दी टेक्स्ट यहाँ डालें</label>
+                        <textarea id="input-text" class="form-control hindi-input" style="min-height:160px;" placeholder="हिन्दी आर्टिकल या टेक्स्ट..."></textarea>
+                    </div>
+                    <div class="action-bar">
+                        <div class="form-group" style="margin:0; flex:1;">
+                            <input type="text" id="target-keyword" class="form-control" placeholder="Target keyword (optional)"
+                                style="height:34px; font-family:'Noto Sans Devanagari',sans-serif;">
+                        </div>
+                        <label style="font-size:13px; display:flex; align-items:center; gap:6px; cursor:pointer;">
+                            <input type="checkbox" id="exclude-stop" checked> Stop words हटाएँ
+                        </label>
+                        <button class="btn btn-primary" onclick="analyze()"><i class="fas fa-chart-bar"></i> Analyze</button>
+                        <button class="btn btn-secondary" onclick="clearAll()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                    <div id="results" style="display:none; margin-top:15px;">
+                        <div class="stat-strip" style="margin-bottom:15px;">
+                            <div class="stat-pill">कुल शब्द: <span id="s-total">0</span></div>
+                            <div class="stat-pill">Unique शब्द: <span id="s-unique">0</span></div>
+                            <div id="s-target-pill" class="stat-pill" style="display:none;">Target Density: <span id="s-density" style="color:#007185;">0%</span></div>
+                        </div>
+                        <table style="width:100%; border-collapse:collapse; font-size:13px;">
+                            <thead>
+                                <tr style="background:#f0f2f2;">
+                                    <th style="padding:8px 12px; text-align:left; border:1px solid #ddd;">#</th>
+                                    <th style="padding:8px 12px; text-align:left; border:1px solid #ddd;">शब्द</th>
+                                    <th style="padding:8px 12px; text-align:center; border:1px solid #ddd;">Count</th>
+                                    <th style="padding:8px 12px; text-align:center; border:1px solid #ddd;">Density</th>
+                                    <th style="padding:8px 12px; border:1px solid #ddd;">Bar</th>
+                                </tr>
+                            </thead>
+                            <tbody id="kw-table"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

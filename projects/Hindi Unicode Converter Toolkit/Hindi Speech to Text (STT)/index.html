@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Speech to Text | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/hindi-base.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="hindi-header">
+                        <h2>Hindi Speech to Text (STT) — वाक् से पाठ</h2>
+                        <p>Convert spoken Hindi to text using the Web Speech Recognition API. Speak in Hindi and get Unicode output instantly.</p>
+                    </header>
+
+                    <div style="text-align:center; padding:30px 0;">
+                        <div id="mic-display" style="width:100px; height:100px; border-radius:50%; background:#f0f2f2; border:3px solid #ddd; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; cursor:pointer; transition:all 0.3s;" onclick="toggleRecording()">
+                            <i id="mic-icon" class="fas fa-microphone" style="font-size:36px; color:#565959;"></i>
+                        </div>
+                        <p id="status-text" style="font-size:14px; color:#565959; margin-bottom:20px;">माइक्रोफ़ोन बटन दबाकर बोलना शुरू करें</p>
+                        <div class="action-bar" style="justify-content:center;">
+                            <button id="rec-btn" class="btn btn-primary" onclick="toggleRecording()"><i class="fas fa-microphone"></i> शुरू करें (Start)</button>
+                            <button class="btn btn-secondary" onclick="clearText()"><i class="fas fa-trash"></i> Clear</button>
+                            <button class="btn btn-secondary" onclick="copyText()"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Recognized Text (पहचाना गया पाठ)</label>
+                        <textarea id="result-text" class="form-control hindi-output" style="min-height:180px;" placeholder="बोलने के बाद यहाँ हिन्दी टेक्स्ट दिखेगा..."></textarea>
+                    </div>
+
+                    <div class="stat-strip" id="stat-strip" style="display:none;">
+                        <div class="stat-pill">शब्द: <span id="s-words">0</span></div>
+                        <div class="stat-pill">Confidence: <span id="s-conf">-</span></div>
+                        <div class="stat-pill">Language: <span id="s-lang">hi-IN</span></div>
+                    </div>
+
+                    <div class="card" style="background:#fbfbfb; margin-top:15px; font-size:13px; color:#565959;">
+                        <i class="fas fa-info-circle" style="color:#007185;"></i>
+                        <strong>Note:</strong> Works in Chrome/Edge. Requires microphone permission. Click the mic button and speak clearly in Hindi. Results appear in real-time.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

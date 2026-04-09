@@ -1,77 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nomenclature Engine | IntoEnigma</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../generator-base.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="cursor-outer"></div>
-    <div class="cursor-inner"></div>
-    <canvas id="particle-canvas"></canvas>
-    <div class="noise-overlay"></div>
-
-    <div class="bg-glow g1"></div>
-    <div class="bg-glow g2"></div>
-
-    <div class="back-nav">
-        <a href="../index.html" class="back-btn magnetic">
-            <i class="fas fa-arrow-left"></i>
-            <span>Back to Generators</span>
-        </a>
-    </div>
-
-    <div class="generator-container animate-in">
-        <div class="glass-panel" style="padding: 3rem;">
-            <header class="generator-header">
-                <div class="system-tag">PROTOCOL :: SYMBOLIC_NOMENCLATURE</div>
-                <h1 class="generator-title scramble-text" data-value="NOMENCLATURE ENGINE">NOMENCLATURE ENGINE</h1>
-                <p class="generator-desc">Convert semantic descriptions into optimized identifier schemas.</p>
-            </header>
-
-            <div class="input-group">
-                <label class="input-label" for="input-desc">Semantic Description</label>
-                <input type="text" id="input-desc" placeholder="e.g. user login count" class="magnetic">
-            </div>
-
-            <div class="case-grid">
-                <button class="case-btn glass magnetic active" data-case="camel">camelCase</button>
-                <button class="case-btn glass magnetic" data-case="snake">snake_case</button>
-                <button class="case-btn glass magnetic" data-case="kebab">kebab-case</button>
-                <button class="case-btn glass magnetic" data-case="pascal">PascalCase</button>
-                <button class="case-btn glass magnetic" data-case="constant">CONST_CASE</button>
-            </div>
-
-            <div class="result-area glass" id="result-area">
-                <p class="system-tag">OPTIMIZED_IDENTIFIERS</p>
-                <div id="results-list" class="results-list">
-                    <span class="placeholder">Awaiting semantic input...</span>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="app-header" style="margin-bottom:20px; border-bottom:1px solid #eee; padding-bottom:15px;">
+                        <h2 style="font-size:22px; font-weight:800; color:#0f1111; margin-bottom:5px;">Nomenclature Engine</h2>
+                        <p style="color:#565959; font-size:13.5px;">Convert semantic descriptions into optimized identifier schemas.</p>
+                    </header>
+                    <div class="form-group">
+<label class="io-label" for="input-desc">Semantic Description</label>
+<input  id="input-desc" placeholder="e.g. user login count" type="text"/>
+</div>
+<div class="case-grid">
+<button class="case-btn glass  active" data-case="camel">camelCase</button>
+<button class="case-btn glass" data-case="snake">snake_case</button>
+<button class="case-btn glass" data-case="kebab">kebab-case</button>
+<button class="case-btn glass" data-case="pascal">PascalCase</button>
+<button class="case-btn glass" data-case="constant">CONST_CASE</button>
+</div>
+<div class="result-area glass" id="result-area">
+<p class="system-tag">OPTIMIZED_IDENTIFIERS</p>
+<div class="results-list" id="results-list">
+<span class="placeholder">Awaiting semantic input...</span>
+</div>
+</div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <footer class="footer container">
-        <div class="footer-bottom">
-            <p>&copy; 2025 INTOENIGMA :: CODE_SYNTHESIS</p>
-            <div class="footer-stats">
-                <span>SCHEMA: PEP8 / OTHERS</span>
-                <span>STATUS: READY</span>
-            </div>
-        </div>
-    </footer>
-
+    </main>
+    <div id="enigma-footer"></div>
     <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

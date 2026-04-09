@@ -81,6 +81,55 @@ const TOOL_REGISTRY = {
         { name: 'Global Weather Feed', path: 'weather-forecast/index.html' },
         { name: 'Advanced Wiki Search', path: 'wikipedia-search/index.html' },
         { name: 'Browser Zip Creator', path: 'zip-file-creator/index.html' }
+    ],
+    'quizzes': [
+        { name: 'Alphabet Learner', path: 'alphabet-learner/index.html' },
+        { name: 'Flag Nexus', path: 'flag-quiz/index.html' },
+        { name: 'Flashcard Core', path: 'flashcard-quiz/index.html' },
+        { name: 'Geography Scan', path: 'geography-quiz/index.html' },
+        { name: 'Math Matrix', path: 'math-quiz/index.html' },
+        { name: 'Worksheet Forge', path: 'math-worksheet-gen/index.html' },
+        { name: 'Morse Operative', path: 'morse-code-trainer/index.html' },
+        { name: 'Element Hunter', path: 'periodic-quiz/index.html' },
+        { name: 'Input Stream', path: 'typing-tutor/index.html' },
+        { name: 'Lexicon Prime', path: 'vocabulary-builder/index.html' }
+    ],
+    'hindi-toolkit': [
+        { name: 'Unicode → Non-Unicode', path: 'unicode to Non-Unicode convertor/index.html' },
+        { name: 'Non-Unicode → Unicode', path: 'Non-Unicode to unicode convertor/index.html' },
+        { name: 'Character Counter', path: 'Hindi Character Counter/index.html' },
+        { name: 'Find & Replace', path: 'Hindi Find & Replace Tool/index.html' },
+        { name: 'Font Preview', path: 'Hindi Font Preview Tool/index.html' },
+        { name: 'Grammar Checker', path: 'Hindi Grammar Checker/index.html' },
+        { name: 'Keyword Density', path: 'Hindi Keyword Density Checker/index.html' },
+        { name: 'Slug Generator', path: 'Hindi Slug Generator (URL friendly text)/index.html' },
+        { name: 'Speech to Text', path: 'Hindi Speech to Text (STT)/index.html' },
+        { name: 'Spell Checker', path: 'Hindi Spell Checker/index.html' },
+        { name: 'Stop Words Remover', path: 'Hindi Stop Words Remover/index.html' },
+        { name: 'Synonym Finder', path: 'Hindi Synonym Finder/index.html' },
+        { name: 'Text Cleaner', path: 'Hindi Text Cleaner (remove extra spaces, junk chars)/index.html' },
+        { name: 'Text Compare', path: 'Hindi Text Compare (diff checker)/index.html' },
+        { name: 'Text Formatter', path: 'Hindi Text Formatter (paragraph, spacing, alignment)/index.html' },
+        { name: 'Text to Speech', path: 'Hindi Text to Speech (TTS)/index.html' },
+        { name: 'Transliteration', path: 'Hindi Transliteration Tool (Hinglish → Hindi)/index.html' },
+        { name: 'Typing Practice', path: 'Hindi Typing Practice Tool/index.html' },
+        { name: 'Unicode Normalizer', path: 'Hindi Unicode Normalizer/index.html' },
+        { name: 'Word Counter', path: 'Hindi Word Counter/index.html' }
+    ],
+    'generators': [
+        { name: 'Avatar Synthesizer', path: 'avatar-generator/index.html' },
+        { name: 'Fake Profile Maker', path: 'fake-profile-gen/index.html' },
+        { name: 'Lorem Image', path: 'lorem-image/index.html' },
+        { name: 'Word Cloud', path: 'word-cloud-gen/index.html' },
+        { name: 'Meme Finder', path: 'meme-template-finder/index.html' },
+        { name: 'Random Joke', path: 'random-joke-generator/index.html' },
+        { name: 'Truth or Dare', path: 'truth-or-dare-gen/index.html' },
+        { name: 'Magic 8 Ball', path: 'magic-8-ball/index.html' },
+        { name: 'Random Activity', path: 'random-activity/index.html' },
+        { name: 'Cat Images', path: 'cat-images-gen/index.html' },
+        { name: 'Variable Names', path: 'variable-name-gen/index.html' },
+        { name: 'Nickname Gen', path: 'nickname-generator/index.html' },
+        { name: 'Daily Quote', path: 'quote-of-the-day/index.html' }
     ]
 };
 
@@ -106,10 +155,13 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 function detectCategory() {
     const path = window.location.pathname.toLowerCase();
+    if (path.includes('hindi%20unicode%20converter%20toolkit') || path.includes('hindi unicode converter toolkit')) return 'hindi-toolkit';
     if (path.includes('calculators')) return 'calculators';
     if (path.includes('games')) return 'games';
     if (path.includes('utilities')) return 'utilities';
     if (path.includes('converters')) return 'converters';
+    if (path.includes('quizzes')) return 'quizzes';
+    if (path.includes('generators')) return 'generators';
     return null;
 }
 
@@ -163,11 +215,12 @@ function injectHeader(root) {
             <a href="${root}index.html#calculators">Calculators</a>
             <a href="${root}projects/converters/index.html">Converters</a>
             <a href="${root}projects/games/index.html">Games</a>
-            <a href="${root}index.html#generators">Generators</a>
+            <a href="${root}projects/generators/index.html">Generators</a>
             <a href="${root}index.html#trackers">Trackers</a>
             <a href="${root}projects/utilities/index.html">Utilities</a>
+            <a href="${root}projects/quizzes/index.html">Quizzes</a>
+            <a href="${root}projects/Hindi Unicode Converter Toolkit/index.html">Hindi Tools</a>
             <a href="${root}index.html#visuals">Visual Effects</a>
-            <a href="${root}index.html#coding">Coding Resources</a>
         </div>
     </header>`;
 }
@@ -177,22 +230,31 @@ function injectHeader(root) {
  */
 function injectSidebar(root, category) {
     const sidebarContainer = document.getElementById('enigma-sidebar');
-    if (!sidebarContainer || !category || !TOOL_REGISTRY[category]) return;
+    if (!sidebarContainer) return;
 
-    const currentPath = window.location.pathname;
-    
-    let html = `<h3>${category.charAt(0).toUpperCase() + category.slice(1)}</h3><ul>`;
+    if (!category || !TOOL_REGISTRY[category]) {
+        sidebarContainer.style.display = 'none';
+        return;
+    }
+
+    // Hindi toolkit uses a different directory name
+    const categoryDir = category === 'hindi-toolkit'
+        ? 'Hindi Unicode Converter Toolkit'
+        : category;
+
+    const currentPath = decodeURIComponent(window.location.pathname);
+    const categoryLabel = category === 'hindi-toolkit' ? 'Hindi Toolkit' : (category.charAt(0).toUpperCase() + category.slice(1));
+    let html = `<h3>${categoryLabel}</h3><ul>`;
     
     TOOL_REGISTRY[category].forEach(tool => {
-        // Calculate absolute-relative link: root (../../) + projects/category/ + tool.path
-        const linkPath = `${root}projects/${category}/${tool.path}`;
+        const linkPath = `${root}projects/${categoryDir}/${tool.path}`;
         const isActive = currentPath.includes(tool.path.split('/')[0]);
-        
         html += `<li><a href="${linkPath}" class="${isActive ? 'active' : ''}">${tool.name}</a></li>`;
     });
     
     html += `</ul>`;
     sidebarContainer.innerHTML = html;
+    sidebarContainer.style.display = 'block';
 }
 
 /**
@@ -250,12 +312,19 @@ function injectBreadcrumbs(root, depth) {
 
     let breadcrumbHTML = `<a href="${root}index.html">Home</a>`;
     
-    if (path.includes('/calculators/')) {
+    const decodedPath = decodeURIComponent(path);
+    if (decodedPath.includes('/calculators/')) {
         breadcrumbHTML += ` / <a href="${root}projects/calculators/index.html">Calculators</a>`;
-    } else if (path.includes('/games/')) {
+    } else if (decodedPath.includes('/games/')) {
         breadcrumbHTML += ` / <a href="${root}projects/games/index.html">Games</a>`;
-    } else if (path.includes('/utilities/')) {
+    } else if (decodedPath.includes('/utilities/')) {
         breadcrumbHTML += ` / <a href="${root}projects/utilities/index.html">Utilities</a>`;
+    } else if (decodedPath.includes('/quizzes/')) {
+        breadcrumbHTML += ` / <a href="${root}projects/quizzes/index.html">Quizzes</a>`;
+    } else if (decodedPath.includes('Hindi Unicode Converter Toolkit')) {
+        breadcrumbHTML += ` / <a href="${root}projects/Hindi Unicode Converter Toolkit/index.html">Hindi Toolkit</a>`;
+    } else if (decodedPath.includes('/generators/')) {
+        breadcrumbHTML += ` / <a href="${root}projects/generators/index.html">Generators</a>`;
     }
     
     // Only add separator if not the hub page itself

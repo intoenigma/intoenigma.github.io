@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Typing Practice | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/hindi-base.css">
+    <style>
+        .char-correct { color: #007600; }
+        .char-wrong   { color: #b12704; background: #fdf0f0; }
+        .char-cursor  { border-left: 2px solid #e47911; animation: blink 1s step-end infinite; }
+        @keyframes blink { 50% { border-color: transparent; } }
+        #text-display { font-size: 22px; line-height: 2; font-family: 'Noto Sans Devanagari', sans-serif; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="card">
+                    <header class="hindi-header">
+                        <h2>Hindi Typing Practice — हिन्दी टाइपिंग अभ्यास</h2>
+                        <p>Practice typing Hindi text. Real-time WPM, accuracy, and error tracking.</p>
+                    </header>
+
+                    <div class="action-bar">
+                        <select id="passage-select" class="form-control" style="height:34px; flex:1;" onchange="loadPassage()">
+                            <option value="0">अभ्यास १ — भारत देश</option>
+                            <option value="1">अभ्यास २ — प्रकृति</option>
+                            <option value="2">अभ्यास ३ — विज्ञान</option>
+                            <option value="custom">Custom Text</option>
+                        </select>
+                        <button class="btn btn-primary" onclick="startTest()"><i class="fas fa-play"></i> शुरू करें</button>
+                        <button class="btn btn-secondary" onclick="resetTest()"><i class="fas fa-redo"></i> Reset</button>
+                    </div>
+
+                    <div id="custom-input" style="display:none; margin-bottom:15px;">
+                        <textarea id="custom-text" class="form-control hindi-input" style="min-height:80px;" placeholder="अपना Hindi टेक्स्ट यहाँ डालें..."></textarea>
+                        <button class="btn btn-secondary" style="margin-top:8px;" onclick="applyCustomText()"><i class="fas fa-check"></i> Use this text</button>
+                    </div>
+
+                    <div id="text-display" class="result-box" style="min-height:100px; margin-bottom:15px; font-size:22px; line-height:2;"></div>
+
+                    <div class="form-group" style="margin-bottom:15px;">
+                        <textarea id="type-area" class="form-control hindi-input" style="min-height:100px;"
+                            placeholder="यहाँ टाइप करें... (ऊपर का टेक्स्ट देखकर टाइप करें)"
+                            oninput="checkTyping()" disabled></textarea>
+                    </div>
+
+                    <div class="stat-strip">
+                        <div class="stat-pill">⏱️ <span id="s-time">00:00</span></div>
+                        <div class="stat-pill">🚀 WPM: <span id="s-wpm">0</span></div>
+                        <div class="stat-pill">✅ Accuracy: <span id="s-acc">100%</span></div>
+                        <div class="stat-pill">❌ Errors: <span id="s-errors">0</span></div>
+                        <div class="stat-pill">📊 Progress: <span id="s-progress">0%</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

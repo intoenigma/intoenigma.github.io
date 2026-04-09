@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worksheet Forge | IntoEnigma</title>
+    <!-- Common Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Styling -->
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../shared/quiz-base.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+                <div class="card">
+                    <header class="quiz-header">
+                        <h2>Worksheet Forge Protocol</h2>
+                        <p>Procedural generation of mathematical training modules.</p>
+                    </header>
+
+                    <div class="config-panel" style="background: #fbfbfb; border: 1px solid #ddd; padding: 20px; border-radius: 4px; margin-bottom: 30px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label>Operation Complexity</label>
+                                <select id="complexity" class="form-control">
+                                    <option value="easy">Elementary (Single Digit)</option>
+                                    <option value="medium">Standard (Double Digit)</option>
+                                    <option value="hard">Expert (Triple Digit)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Problem Count</label>
+                                <input type="number" id="count" value="10" min="1" max="50" class="form-control">
+                            </div>
+                        </div>
+                        <button onclick="generate()" class="btn btn-primary" style="margin-top: 15px; font-weight: 700;">FORGE WORKSHEET</button>
+                    </div>
+
+                    <div id="worksheet-area" class="hidden">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <h4 style="color: #565959; text-transform: uppercase; font-size: 11px; font-weight: 800;">Generated Output</h4>
+                            <button onclick="window.print()" class="btn btn-secondary" style="height: 30px;"><i class="fas fa-print"></i> PRINT</button>
+                        </div>
+                        <div id="worksheet-list" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-family: 'Courier New', monospace; font-size: 18px; padding: 20px; border: 1px solid #eee;">
+                            <!-- Problems here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="enigma-footer"></div>
+
+    <script src="../../../js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
