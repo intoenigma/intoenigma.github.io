@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min Stack - LeetCode Master | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../leetcode-style.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div style="margin-bottom: 25px;">
+                    <a href="../index.html" style="color: #007185; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-arrow-left-long"></i> Back to Hub
+                    </a>
+                </div>
+
+                <div class="lab-card">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <span class="badge Medium"><i class="fas fa-shield-halved"></i> Medium</span>
+                            <h1 style="font-size: 32px; font-weight: 800; margin-top: 15px; color: #232f3e;">#155 Min Stack</h1>
+                        </div>
+                        <div class="tag-container"><span class="topic-tag">Stack</span><span class="topic-tag">Design</span></div>
+                    </div>
+
+                    <div class="h-title" style="margin-top: 40px;"><i class="fas fa-align-left" style="color: #007185;"></i> Problem Context</div>
+                    <div style="font-size: 16px; color: #232f3e; line-height: 1.8; white-space: pre-wrap;">Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+Implement the MinStack class:
+You must implement a solution with O(1) time complexity for each function.
+Example 1:
+Constraints:</div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-flask-vial" style="color: #e47911;"></i> Technical Logic & Constraints</div>
+                    <div class="example-box"><strong style="color: #007185;">Example 1:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input
+["MinStack","push","push","push","getMin","pop","top","getMin"]
+[[],[-2],[0],[-3],[],[],[],[]]
+
+Output
+[null,null,null,null,-3,null,0,-2]
+
+Explanation
+MinStack minStack = new MinStack();
+minStack.push(-2);
+minStack.push(0);
+minStack.push(-3);
+minStack.getMin(); // return -3
+minStack.pop();
+minStack.top();    // return 0
+minStack.getMin(); // return -2</pre></div>
+                    <div style="margin-top: 25px; background: #fffbe6; padding: 20px; border-radius: 12px; border: 1px solid #ffe58f;">
+                        <strong style="color: #856404;"><i class="fas fa-triangle-exclamation"></i> Constraints:</strong>
+                        <ul style="margin-top: 12px; line-height: 1.6; color: #856404;">
+                            <li>-231 <= val <= 231 - 1</li><li>Methods pop, top and getMin operations will always be called on non-empty stacks.</li><li>At most 3 * 104 calls will be made to push, pop, top, and getMin.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-brain" style="color: #ffd814;"></i> Solution Deep-Dive</div>
+                    <div style="font-size: 15px; line-height: 1.8; color: #444; white-space: pre-wrap;">Article not populated yet.</div>
+                </div>
+
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="lang-tabs">
+                            <button class="tab-btn active" onclick="switchLang('python3')">Python3</button>
+                            <button class="tab-btn" onclick="switchLang('java')">Java</button>
+                            <button class="tab-btn" onclick="switchLang('cpp')">C++</button>
+                        </div>
+                        <span style="font-size: 12px; color: #666; font-weight: 700;"><i class="fas fa-terminal"></i> CODE LAB</span>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copy</button>
+                        <pre><code id="code-display">class MinStack:
+
+    def __init__(self):
+        
+
+    def push(self, val: int) -> None:
+        
+
+    def pop(self) -> None:
+        
+
+    def top(self) -> int:
+        
+
+    def getMin(self) -> int:
+        
+
+
+# Your MinStack object will be instantiated and called as such:
+# obj = MinStack()
+# obj.push(val)
+# obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.getMin()</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../js/main.js"></script>
+    <script src="../leetcode-core.js"></script>
+    <script>
+        const snippets = {"cpp": "class MinStack {\npublic:\n    MinStack() {\n        \n    }\n    \n    void push(int val) {\n        \n    }\n    \n    void pop() {\n        \n    }\n    \n    int top() {\n        \n    }\n    \n    int getMin() {\n        \n    }\n};\n\n/**\n * Your MinStack object will be instantiated and called as such:\n * MinStack* obj = new MinStack();\n * obj->push(val);\n * obj->pop();\n * int param_3 = obj->top();\n * int param_4 = obj->getMin();\n */", "java": "class MinStack {\n\n    public MinStack() {\n        \n    }\n    \n    public void push(int val) {\n        \n    }\n    \n    public void pop() {\n        \n    }\n    \n    public int top() {\n        \n    }\n    \n    public int getMin() {\n        \n    }\n}\n\n/**\n * Your MinStack object will be instantiated and called as such:\n * MinStack obj = new MinStack();\n * obj.push(val);\n * obj.pop();\n * int param_3 = obj.top();\n * int param_4 = obj.getMin();\n */", "python": "class MinStack(object):\n\n    def __init__(self):\n        \n\n    def push(self, val):\n        \"\"\"\n        :type val: int\n        :rtype: None\n        \"\"\"\n        \n\n    def pop(self):\n        \"\"\"\n        :rtype: None\n        \"\"\"\n        \n\n    def top(self):\n        \"\"\"\n        :rtype: int\n        \"\"\"\n        \n\n    def getMin(self):\n        \"\"\"\n        :rtype: int\n        \"\"\"\n        \n\n\n# Your MinStack object will be instantiated and called as such:\n# obj = MinStack()\n# obj.push(val)\n# obj.pop()\n# param_3 = obj.top()\n# param_4 = obj.getMin()", "python3": "class MinStack:\n\n    def __init__(self):\n        \n\n    def push(self, val: int) -> None:\n        \n\n    def pop(self) -> None:\n        \n\n    def top(self) -> int:\n        \n\n    def getMin(self) -> int:\n        \n\n\n# Your MinStack object will be instantiated and called as such:\n# obj = MinStack()\n# obj.push(val)\n# obj.pop()\n# param_3 = obj.top()\n# param_4 = obj.getMin()", "c": "\n\n\ntypedef struct {\n    \n} MinStack;\n\n\nMinStack* minStackCreate() {\n    \n}\n\nvoid minStackPush(MinStack* obj, int val) {\n    \n}\n\nvoid minStackPop(MinStack* obj) {\n    \n}\n\nint minStackTop(MinStack* obj) {\n    \n}\n\nint minStackGetMin(MinStack* obj) {\n    \n}\n\nvoid minStackFree(MinStack* obj) {\n    \n}\n\n/**\n * Your MinStack struct will be instantiated and called as such:\n * MinStack* obj = minStackCreate();\n * minStackPush(obj, val);\n \n * minStackPop(obj);\n \n * int param_3 = minStackTop(obj);\n \n * int param_4 = minStackGetMin(obj);\n \n * minStackFree(obj);\n*/", "csharp": "public class MinStack {\n\n    public MinStack() {\n        \n    }\n    \n    public void Push(int val) {\n        \n    }\n    \n    public void Pop() {\n        \n    }\n    \n    public int Top() {\n        \n    }\n    \n    public int GetMin() {\n        \n    }\n}\n\n/**\n * Your MinStack object will be instantiated and called as such:\n * MinStack obj = new MinStack();\n * obj.Push(val);\n * obj.Pop();\n * int param_3 = obj.Top();\n * int param_4 = obj.GetMin();\n */", "javascript": "\nvar MinStack = function() {\n    \n};\n\n/** \n * @param {number} val\n * @return {void}\n */\nMinStack.prototype.push = function(val) {\n    \n};\n\n/**\n * @return {void}\n */\nMinStack.prototype.pop = function() {\n    \n};\n\n/**\n * @return {number}\n */\nMinStack.prototype.top = function() {\n    \n};\n\n/**\n * @return {number}\n */\nMinStack.prototype.getMin = function() {\n    \n};\n\n/** \n * Your MinStack object will be instantiated and called as such:\n * var obj = new MinStack()\n * obj.push(val)\n * obj.pop()\n * var param_3 = obj.top()\n * var param_4 = obj.getMin()\n */", "typescript": "class MinStack {\n    constructor() {\n        \n    }\n\n    push(val: number): void {\n        \n    }\n\n    pop(): void {\n        \n    }\n\n    top(): number {\n        \n    }\n\n    getMin(): number {\n        \n    }\n}\n\n/**\n * Your MinStack object will be instantiated and called as such:\n * var obj = new MinStack()\n * obj.push(val)\n * obj.pop()\n * var param_3 = obj.top()\n * var param_4 = obj.getMin()\n */", "php": "class MinStack {\n    /**\n     */\n    function __construct() {\n        \n    }\n  \n    /**\n     * @param Integer $val\n     * @return NULL\n     */\n    function push($val) {\n        \n    }\n  \n    /**\n     * @return NULL\n     */\n    function pop() {\n        \n    }\n  \n    /**\n     * @return Integer\n     */\n    function top() {\n        \n    }\n  \n    /**\n     * @return Integer\n     */\n    function getMin() {\n        \n    }\n}\n\n/**\n * Your MinStack object will be instantiated and called as such:\n * $obj = MinStack();\n * $obj->push($val);\n * $obj->pop();\n * $ret_3 = $obj->top();\n * $ret_4 = $obj->getMin();\n */", "swift": "\nclass MinStack {\n\n    init() {\n        \n    }\n    \n    func push(_ val: Int) {\n        \n    }\n    \n    func pop() {\n        \n    }\n    \n    func top() -> Int {\n        \n    }\n    \n    func getMin() -> Int {\n        \n    }\n}\n\n/**\n * Your MinStack object will be instantiated and called as such:\n * let obj = MinStack()\n * obj.push(val)\n * obj.pop()\n * let ret_3: Int = obj.top()\n * let ret_4: Int = obj.getMin()\n */", "kotlin": "class MinStack() {\n\n    fun push(`val`: Int) {\n        \n    }\n\n    fun pop() {\n        \n    }\n\n    fun top(): Int {\n        \n    }\n\n    fun getMin(): Int {\n        \n    }\n\n}\n\n/**\n * Your MinStack object will be instantiated and called as such:\n * var obj = MinStack()\n * obj.push(`val`)\n * obj.pop()\n * var param_3 = obj.top()\n * var param_4 = obj.getMin()\n */", "dart": "class MinStack {\n\n  MinStack() {\n    \n  }\n  \n  void push(int val) {\n    \n  }\n  \n  void pop() {\n    \n  }\n  \n  int top() {\n    \n  }\n  \n  int getMin() {\n    \n  }\n}\n\n/**\n * Your MinStack object will be instantiated and called as such:\n * MinStack obj = MinStack();\n * obj.push(val);\n * obj.pop();\n * int param3 = obj.top();\n * int param4 = obj.getMin();\n */", "golang": "type MinStack struct {\n    \n}\n\n\nfunc Constructor() MinStack {\n    \n}\n\n\nfunc (this *MinStack) Push(val int)  {\n    \n}\n\n\nfunc (this *MinStack) Pop()  {\n    \n}\n\n\nfunc (this *MinStack) Top() int {\n    \n}\n\n\nfunc (this *MinStack) GetMin() int {\n    \n}\n\n\n/**\n * Your MinStack object will be instantiated and called as such:\n * obj := Constructor();\n * obj.Push(val);\n * obj.Pop();\n * param_3 := obj.Top();\n * param_4 := obj.GetMin();\n */", "ruby": "class MinStack\n    def initialize()\n        \n    end\n\n\n=begin\n    :type val: Integer\n    :rtype: Void\n=end\n    def push(val)\n        \n    end\n\n\n=begin\n    :rtype: Void\n=end\n    def pop()\n        \n    end\n\n\n=begin\n    :rtype: Integer\n=end\n    def top()\n        \n    end\n\n\n=begin\n    :rtype: Integer\n=end\n    def get_min()\n        \n    end\n\n\nend\n\n# Your MinStack object will be instantiated and called as such:\n# obj = MinStack.new()\n# obj.push(val)\n# obj.pop()\n# param_3 = obj.top()\n# param_4 = obj.get_min()", "scala": "class MinStack() {\n\n    def push(`val`: Int): Unit = {\n        \n    }\n\n    def pop(): Unit = {\n        \n    }\n\n    def top(): Int = {\n        \n    }\n\n    def getMin(): Int = {\n        \n    }\n\n}\n\n/**\n * Your MinStack object will be instantiated and called as such:\n * val obj = new MinStack()\n * obj.push(`val`)\n * obj.pop()\n * val param_3 = obj.top()\n * val param_4 = obj.getMin()\n */", "rust": "struct MinStack {\n\n}\n\n\n/** \n * `&self` means the method takes an immutable reference.\n * If you need a mutable reference, change it to `&mut self` instead.\n */\nimpl MinStack {\n\n    fn new() -> Self {\n        \n    }\n    \n    fn push(&self, val: i32) {\n        \n    }\n    \n    fn pop(&self) {\n        \n    }\n    \n    fn top(&self) -> i32 {\n        \n    }\n    \n    fn get_min(&self) -> i32 {\n        \n    }\n}\n\n/**\n * Your MinStack object will be instantiated and called as such:\n * let obj = MinStack::new();\n * obj.push(val);\n * obj.pop();\n * let ret_3: i32 = obj.top();\n * let ret_4: i32 = obj.get_min();\n */", "racket": "(define min-stack%\n  (class object%\n    (super-new)\n    \n    (init-field)\n    \n    ; push : exact-integer? -> void?\n    (define/public (push val)\n      )\n    ; pop : -> void?\n    (define/public (pop)\n      )\n    ; top : -> exact-integer?\n    (define/public (top)\n      )\n    ; get-min : -> exact-integer?\n    (define/public (get-min)\n      )))\n\n;; Your min-stack% object will be instantiated and called as such:\n;; (define obj (new min-stack%))\n;; (send obj push val)\n;; (send obj pop)\n;; (define param_3 (send obj top))\n;; (define param_4 (send obj get-min))", "erlang": "-spec min_stack_init_() -> any().\nmin_stack_init_() ->\n  .\n\n-spec min_stack_push(Val :: integer()) -> any().\nmin_stack_push(Val) ->\n  .\n\n-spec min_stack_pop() -> any().\nmin_stack_pop() ->\n  .\n\n-spec min_stack_top() -> integer().\nmin_stack_top() ->\n  .\n\n-spec min_stack_get_min() -> integer().\nmin_stack_get_min() ->\n  .\n\n\n%% Your functions will be called as such:\n%% min_stack_init_(),\n%% min_stack_push(Val),\n%% min_stack_pop(),\n%% Param_3 = min_stack_top(),\n%% Param_4 = min_stack_get_min(),\n\n%% min_stack_init_ will be called before every test case, in which you can do some necessary initializations.", "elixir": "defmodule MinStack do\n  @spec init_() :: any\n  def init_() do\n    \n  end\n\n  @spec push(val :: integer) :: any\n  def push(val) do\n    \n  end\n\n  @spec pop() :: any\n  def pop() do\n    \n  end\n\n  @spec top() :: integer\n  def top() do\n    \n  end\n\n  @spec get_min() :: integer\n  def get_min() do\n    \n  end\nend\n\n# Your functions will be called as such:\n# MinStack.init_()\n# MinStack.push(val)\n# MinStack.pop()\n# param_3 = MinStack.top()\n# param_4 = MinStack.get_min()\n\n# MinStack.init_ will be called before every test case, in which you can do some necessary initializations."};
+        initializeSnippetManager(snippets);
+    </script>
+</body>
+</html>

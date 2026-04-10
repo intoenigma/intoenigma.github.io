@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Peak Element - LeetCode Master | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../leetcode-style.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div style="margin-bottom: 25px;">
+                    <a href="../index.html" style="color: #007185; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-arrow-left-long"></i> Back to Hub
+                    </a>
+                </div>
+
+                <div class="lab-card">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <span class="badge Medium"><i class="fas fa-shield-halved"></i> Medium</span>
+                            <h1 style="font-size: 32px; font-weight: 800; margin-top: 15px; color: #232f3e;">#162 Find Peak Element</h1>
+                        </div>
+                        <div class="tag-container"><span class="topic-tag">Array</span><span class="topic-tag">Binary Search</span></div>
+                    </div>
+
+                    <div class="h-title" style="margin-top: 40px;"><i class="fas fa-align-left" style="color: #007185;"></i> Problem Context</div>
+                    <div style="font-size: 16px; color: #232f3e; line-height: 1.8; white-space: pre-wrap;">A peak element is an element that is strictly greater than its neighbors.
+Given a 0-indexed integer array nums, find a peak element, and return its index. If the array contains multiple peaks, return the index to any of the peaks.
+You may imagine that nums[-1] = nums[n] = -∞. In other words, an element is always considered to be strictly greater than a neighbor that is outside the array.
+You must write an algorithm that runs in O(log n) time.
+Example 1:
+Example 2:
+Constraints:</div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-flask-vial" style="color: #e47911;"></i> Technical Logic & Constraints</div>
+                    <div class="example-box"><strong style="color: #007185;">Example 1:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: nums = [1,2,3,1]
+Output: 2
+Explanation: 3 is a peak element and your function should return the index number 2.</pre></div><div class="example-box"><strong style="color: #007185;">Example 2:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: nums = [1,2,1,3,5,6,4]
+Output: 5
+Explanation: Your function can return either index number 1 where the peak element is 2, or index number 5 where the peak element is 6.</pre></div>
+                    <div style="margin-top: 25px; background: #fffbe6; padding: 20px; border-radius: 12px; border: 1px solid #ffe58f;">
+                        <strong style="color: #856404;"><i class="fas fa-triangle-exclamation"></i> Constraints:</strong>
+                        <ul style="margin-top: 12px; line-height: 1.6; color: #856404;">
+                            <li>1 <= nums.length <= 1000</li><li>-231 <= nums[i] <= 231 - 1</li><li>nums[i] != nums[i + 1] for all valid i.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-brain" style="color: #ffd814;"></i> Solution Deep-Dive</div>
+                    <div style="font-size: 15px; line-height: 1.8; color: #444; white-space: pre-wrap;">Article not populated yet.</div>
+                </div>
+
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="lang-tabs">
+                            <button class="tab-btn active" onclick="switchLang('python3')">Python3</button>
+                            <button class="tab-btn" onclick="switchLang('java')">Java</button>
+                            <button class="tab-btn" onclick="switchLang('cpp')">C++</button>
+                        </div>
+                        <span style="font-size: 12px; color: #666; font-weight: 700;"><i class="fas fa-terminal"></i> CODE LAB</span>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copy</button>
+                        <pre><code id="code-display">class Solution:
+    def findPeakElement(self, nums: List[int]) -> int:
+        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../js/main.js"></script>
+    <script src="../leetcode-core.js"></script>
+    <script>
+        const snippets = {"cpp": "class Solution {\npublic:\n    int findPeakElement(vector<int>& nums) {\n        \n    }\n};", "java": "class Solution {\n    public int findPeakElement(int[] nums) {\n        \n    }\n}", "python": "class Solution(object):\n    def findPeakElement(self, nums):\n        \"\"\"\n        :type nums: List[int]\n        :rtype: int\n        \"\"\"\n        ", "python3": "class Solution:\n    def findPeakElement(self, nums: List[int]) -> int:\n        ", "c": "int findPeakElement(int* nums, int numsSize) {\n    \n}", "csharp": "public class Solution {\n    public int FindPeakElement(int[] nums) {\n        \n    }\n}", "javascript": "/**\n * @param {number[]} nums\n * @return {number}\n */\nvar findPeakElement = function(nums) {\n    \n};", "typescript": "function findPeakElement(nums: number[]): number {\n    \n};", "php": "class Solution {\n\n    /**\n     * @param Integer[] $nums\n     * @return Integer\n     */\n    function findPeakElement($nums) {\n        \n    }\n}", "swift": "class Solution {\n    func findPeakElement(_ nums: [Int]) -> Int {\n        \n    }\n}", "kotlin": "class Solution {\n    fun findPeakElement(nums: IntArray): Int {\n        \n    }\n}", "dart": "class Solution {\n  int findPeakElement(List<int> nums) {\n    \n  }\n}", "golang": "func findPeakElement(nums []int) int {\n    \n}", "ruby": "# @param {Integer[]} nums\n# @return {Integer}\ndef find_peak_element(nums)\n    \nend", "scala": "object Solution {\n    def findPeakElement(nums: Array[Int]): Int = {\n        \n    }\n}", "rust": "impl Solution {\n    pub fn find_peak_element(nums: Vec<i32>) -> i32 {\n        \n    }\n}", "racket": "(define/contract (find-peak-element nums)\n  (-> (listof exact-integer?) exact-integer?)\n  )", "erlang": "-spec find_peak_element(Nums :: [integer()]) -> integer().\nfind_peak_element(Nums) ->\n  .", "elixir": "defmodule Solution do\n  @spec find_peak_element(nums :: [integer]) :: integer\n  def find_peak_element(nums) do\n    \n  end\nend"};
+        initializeSnippetManager(snippets);
+    </script>
+</body>
+</html>

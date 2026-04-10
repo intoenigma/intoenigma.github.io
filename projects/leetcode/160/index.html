@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intersection of Two Linked Lists - LeetCode Master | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../leetcode-style.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div style="margin-bottom: 25px;">
+                    <a href="../index.html" style="color: #007185; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-arrow-left-long"></i> Back to Hub
+                    </a>
+                </div>
+
+                <div class="lab-card">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <span class="badge Easy"><i class="fas fa-shield-halved"></i> Easy</span>
+                            <h1 style="font-size: 32px; font-weight: 800; margin-top: 15px; color: #232f3e;">#160 Intersection of Two Linked Lists</h1>
+                        </div>
+                        <div class="tag-container"><span class="topic-tag">Hash Table</span><span class="topic-tag">Linked List</span><span class="topic-tag">Two Pointers</span></div>
+                    </div>
+
+                    <div class="h-title" style="margin-top: 40px;"><i class="fas fa-align-left" style="color: #007185;"></i> Problem Context</div>
+                    <div style="font-size: 16px; color: #232f3e; line-height: 1.8; white-space: pre-wrap;">Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return null.
+For example, the following two linked lists begin to intersect at node c1:
+The test cases are generated such that there are no cycles anywhere in the entire linked structure.
+Note that the linked lists must retain their original structure after the function returns.
+Custom Judge:
+The inputs to the judge are given as follows (your program is not given these inputs):
+The judge will then create the linked structure based on these inputs and pass the two heads, headA and headB to your program. If you correctly return the intersected node, then your solution will be accepted.
+Example 1:
+Example 2:
+Example 3:
+Constraints:</div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-flask-vial" style="color: #e47911;"></i> Technical Logic & Constraints</div>
+                    <div class="example-box"><strong style="color: #007185;">Example 1:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3
+Output: Intersected at '8'
+Explanation: The intersected node's value is 8 (note that this must not be 0 if the two lists intersect).
+From the head of A, it reads as [4,1,8,4,5]. From the head of B, it reads as [5,6,1,8,4,5]. There are 2 nodes before the intersected node in A; There are 3 nodes before the intersected node in B.
+- Note that the intersected node's value is not 1 because the nodes with value 1 in A and B (2nd node in A and 3rd node in B) are different node references. In other words, they point to two different locations in memory, while the nodes with value 8 in A and B (3rd node in A and 4th node in B) point to the same location in memory.</pre></div><div class="example-box"><strong style="color: #007185;">Example 2:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1
+Output: Intersected at '2'
+Explanation: The intersected node's value is 2 (note that this must not be 0 if the two lists intersect).
+From the head of A, it reads as [1,9,1,2,4]. From the head of B, it reads as [3,2,4]. There are 3 nodes before the intersected node in A; There are 1 node before the intersected node in B.</pre></div><div class="example-box"><strong style="color: #007185;">Example 3:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2
+Output: No intersection
+Explanation: From the head of A, it reads as [2,6,4]. From the head of B, it reads as [1,5]. Since the two lists do not intersect, intersectVal must be 0, while skipA and skipB can be arbitrary values.
+Explanation: The two lists do not intersect, so return null.</pre></div>
+                    <div style="margin-top: 25px; background: #fffbe6; padding: 20px; border-radius: 12px; border: 1px solid #ffe58f;">
+                        <strong style="color: #856404;"><i class="fas fa-triangle-exclamation"></i> Constraints:</strong>
+                        <ul style="margin-top: 12px; line-height: 1.6; color: #856404;">
+                            <li>The number of nodes of listA is in the m.</li><li>The number of nodes of listB is in the n.</li><li>1 <= m, n <= 3 * 104</li><li>1 <= Node.val <= 105</li><li>0 <= skipA <= m</li><li>0 <= skipB <= n</li><li>intersectVal is 0 if listA and listB do not intersect.</li><li>intersectVal == listA[skipA] == listB[skipB] if listA and listB intersect.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-brain" style="color: #ffd814;"></i> Solution Deep-Dive</div>
+                    <div style="font-size: 15px; line-height: 1.8; color: #444; white-space: pre-wrap;">Article not populated yet.</div>
+                </div>
+
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="lang-tabs">
+                            <button class="tab-btn active" onclick="switchLang('python3')">Python3</button>
+                            <button class="tab-btn" onclick="switchLang('java')">Java</button>
+                            <button class="tab-btn" onclick="switchLang('cpp')">C++</button>
+                        </div>
+                        <span style="font-size: 12px; color: #666; font-weight: 700;"><i class="fas fa-terminal"></i> CODE LAB</span>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copy</button>
+                        <pre><code id="code-display"># Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../js/main.js"></script>
+    <script src="../leetcode-core.js"></script>
+    <script>
+        const snippets = {"cpp": "/**\n * Definition for singly-linked list.\n * struct ListNode {\n *     int val;\n *     ListNode *next;\n *     ListNode(int x) : val(x), next(NULL) {}\n * };\n */\nclass Solution {\npublic:\n    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {\n        \n    }\n};", "java": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode(int x) {\n *         val = x;\n *         next = null;\n *     }\n * }\n */\npublic class Solution {\n    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {\n        \n    }\n}", "python": "# Definition for singly-linked list.\n# class ListNode(object):\n#     def __init__(self, x):\n#         self.val = x\n#         self.next = None\n\nclass Solution(object):\n    def getIntersectionNode(self, headA, headB):\n        \"\"\"\n        :type head1, head1: ListNode\n        :rtype: ListNode\n        \"\"\"\n        ", "python3": "# Definition for singly-linked list.\n# class ListNode:\n#     def __init__(self, x):\n#         self.val = x\n#         self.next = None\n\nclass Solution:\n    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:\n        ", "c": "/**\n * Definition for singly-linked list.\n * struct ListNode {\n *     int val;\n *     struct ListNode *next;\n * };\n */\nstruct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *headB) {\n    \n}", "csharp": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     public int val;\n *     public ListNode next;\n *     public ListNode(int x) { val = x; }\n * }\n */\npublic class Solution {\n    public ListNode GetIntersectionNode(ListNode headA, ListNode headB) {\n        \n    }\n}", "javascript": "/**\n * Definition for singly-linked list.\n * function ListNode(val) {\n *     this.val = val;\n *     this.next = null;\n * }\n */\n\n/**\n * @param {ListNode} headA\n * @param {ListNode} headB\n * @return {ListNode}\n */\nvar getIntersectionNode = function(headA, headB) {\n    \n};", "typescript": "/**\n * Definition for singly-linked list.\n * class ListNode {\n *     val: number\n *     next: ListNode | null\n *     constructor(val?: number, next?: ListNode | null) {\n *         this.val = (val===undefined ? 0 : val)\n *         this.next = (next===undefined ? null : next)\n *     }\n * }\n */\n\nfunction getIntersectionNode(headA: ListNode | null, headB: ListNode | null): ListNode | null {\n\n};", "php": "/**\n * Definition for a singly-linked list.\n * class ListNode {\n *     public $val = 0;\n *     public $next = null;\n *     function __construct($val) { $this->val = $val; }\n * }\n */\n\nclass Solution {\n    /**\n     * @param ListNode $headA\n     * @param ListNode $headB\n     * @return ListNode\n     */\n    function getIntersectionNode($headA, $headB) {\n        \n    }\n}", "swift": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     public var val: Int\n *     public var next: ListNode?\n *     public init(_ val: Int) {\n *         self.val = val\n *         self.next = nil\n *     }\n * }\n */\n\nclass Solution {\n    func getIntersectionNode(_ headA: ListNode?, _ headB: ListNode?) -> ListNode? {\n        \n    }\n}", "kotlin": "/**\n * Example:\n * var li = ListNode(5)\n * var v = li.`val`\n * Definition for singly-linked list.\n * class ListNode(var `val`: Int) {\n *     var next: ListNode? = null\n * }\n */\n\nclass Solution {\n    fun getIntersectionNode(headA:ListNode?, headB:ListNode?):ListNode? {\n        \n    }\n}", "golang": "/**\n * Definition for singly-linked list.\n * type ListNode struct {\n *     Val int\n *     Next *ListNode\n * }\n */\nfunc getIntersectionNode(headA, headB *ListNode) *ListNode {\n    \n}", "ruby": "# Definition for singly-linked list.\n# class ListNode\n#     attr_accessor :val, :next\n#     def initialize(val)\n#         @val = val\n#         @next = nil\n#     end\n# end\n\n# @param {ListNode} headA\n# @param {ListNode} headB\n# @return {ListNode}\ndef getIntersectionNode(headA, headB)\n    \nend", "scala": "/**\n * Definition for singly-linked list.\n * class ListNode(var _x: Int = 0) {\n *   var next: ListNode = null\n *   var x: Int = _x\n * }\n */\n\nobject Solution {\n    def getIntersectionNode(headA: ListNode, headB: ListNode): ListNode = {\n        \n    }\n}"};
+        initializeSnippetManager(snippets);
+    </script>
+</body>
+</html>

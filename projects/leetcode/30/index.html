@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substring with Concatenation of All Words - LeetCode Master | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../leetcode-style.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div style="margin-bottom: 25px;">
+                    <a href="../index.html" style="color: #007185; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-arrow-left-long"></i> Back to Hub
+                    </a>
+                </div>
+
+                <div class="lab-card">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <span class="badge Hard"><i class="fas fa-shield-halved"></i> Hard</span>
+                            <h1 style="font-size: 32px; font-weight: 800; margin-top: 15px; color: #232f3e;">#30 Substring with Concatenation of All Words</h1>
+                        </div>
+                        <div class="tag-container"><span class="topic-tag">Hash Table</span><span class="topic-tag">String</span><span class="topic-tag">Sliding Window</span></div>
+                    </div>
+
+                    <div class="h-title" style="margin-top: 40px;"><i class="fas fa-align-left" style="color: #007185;"></i> Problem Context</div>
+                    <div style="font-size: 16px; color: #232f3e; line-height: 1.8; white-space: pre-wrap;">You are given a string s and an array of strings words. All the strings of words are of the same length.
+A concatenated string is a string that exactly contains all the strings of any permutation of words concatenated.
+Return an array of the starting indices of all the concatenated substrings in s. You can return the answer in any order.
+Example 1:
+Example 2:
+Example 3:
+Constraints:</div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-flask-vial" style="color: #e47911;"></i> Technical Logic & Constraints</div>
+                    <div class="example-box"><strong style="color: #007185;">Example 1:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: s = "barfoothefoobarman", words = ["foo","bar"]
+Output: [0,9]
+Explanation:
+The substring starting at 0 is "barfoo" . It is the concatenation of ["bar","foo"] which is a permutation of words . The substring starting at 9 is "foobar" . It is the concatenation of ["foo","bar"] which is a permutation of words .</pre></div><div class="example-box"><strong style="color: #007185;">Example 2:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: s = "wordgoodgoodgoodbestword", words = ["word","good","best","word"]
+Output: []
+Explanation:
+There is no concatenated substring.</pre></div><div class="example-box"><strong style="color: #007185;">Example 3:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: s = "barfoofoobarthefoobarman", words = ["bar","foo","the"]
+Output: [6,9,12]
+Explanation:
+The substring starting at 6 is "foobarthe" . It is the concatenation of ["foo","bar","the"] . The substring starting at 9 is "barthefoo" . It is the concatenation of ["bar","the","foo"] . The substring starting at 12 is "thefoobar" . It is the concatenation of ["the","foo","bar"] .</pre></div>
+                    <div style="margin-top: 25px; background: #fffbe6; padding: 20px; border-radius: 12px; border: 1px solid #ffe58f;">
+                        <strong style="color: #856404;"><i class="fas fa-triangle-exclamation"></i> Constraints:</strong>
+                        <ul style="margin-top: 12px; line-height: 1.6; color: #856404;">
+                            <li>1 <= s.length <= 104</li><li>1 <= words.length <= 5000</li><li>1 <= words[i].length <= 30</li><li>s and words[i] consist of lowercase English letters.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-brain" style="color: #ffd814;"></i> Solution Deep-Dive</div>
+                    <div style="font-size: 15px; line-height: 1.8; color: #444; white-space: pre-wrap;">Article not populated yet.</div>
+                </div>
+
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="lang-tabs">
+                            <button class="tab-btn active" onclick="switchLang('python3')">Python3</button>
+                            <button class="tab-btn" onclick="switchLang('java')">Java</button>
+                            <button class="tab-btn" onclick="switchLang('cpp')">C++</button>
+                        </div>
+                        <span style="font-size: 12px; color: #666; font-weight: 700;"><i class="fas fa-terminal"></i> CODE LAB</span>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copy</button>
+                        <pre><code id="code-display">class Solution:
+    def findSubstring(self, s: str, words: List[str]) -> List[int]:
+        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../js/main.js"></script>
+    <script src="../leetcode-core.js"></script>
+    <script>
+        const snippets = {"cpp": "class Solution {\npublic:\n    vector<int> findSubstring(string s, vector<string>& words) {\n        \n    }\n};", "java": "class Solution {\n    public List<Integer> findSubstring(String s, String[] words) {\n        \n    }\n}", "python": "class Solution(object):\n    def findSubstring(self, s, words):\n        \"\"\"\n        :type s: str\n        :type words: List[str]\n        :rtype: List[int]\n        \"\"\"\n        ", "python3": "class Solution:\n    def findSubstring(self, s: str, words: List[str]) -> List[int]:\n        ", "c": "/**\n * Note: The returned array must be malloced, assume caller calls free().\n */\nint* findSubstring(char* s, char** words, int wordsSize, int* returnSize) {\n    \n}", "csharp": "public class Solution {\n    public IList<int> FindSubstring(string s, string[] words) {\n        \n    }\n}", "javascript": "/**\n * @param {string} s\n * @param {string[]} words\n * @return {number[]}\n */\nvar findSubstring = function(s, words) {\n    \n};", "typescript": "function findSubstring(s: string, words: string[]): number[] {\n    \n};", "php": "class Solution {\n\n    /**\n     * @param String $s\n     * @param String[] $words\n     * @return Integer[]\n     */\n    function findSubstring($s, $words) {\n        \n    }\n}", "swift": "class Solution {\n    func findSubstring(_ s: String, _ words: [String]) -> [Int] {\n        \n    }\n}", "kotlin": "class Solution {\n    fun findSubstring(s: String, words: Array<String>): List<Int> {\n        \n    }\n}", "dart": "class Solution {\n  List<int> findSubstring(String s, List<String> words) {\n    \n  }\n}", "golang": "func findSubstring(s string, words []string) []int {\n    \n}", "ruby": "# @param {String} s\n# @param {String[]} words\n# @return {Integer[]}\ndef find_substring(s, words)\n    \nend", "scala": "object Solution {\n    def findSubstring(s: String, words: Array[String]): List[Int] = {\n        \n    }\n}", "rust": "impl Solution {\n    pub fn find_substring(s: String, words: Vec<String>) -> Vec<i32> {\n        \n    }\n}", "racket": "(define/contract (find-substring s words)\n  (-> string? (listof string?) (listof exact-integer?))\n  )", "erlang": "-spec find_substring(S :: unicode:unicode_binary(), Words :: [unicode:unicode_binary()]) -> [integer()].\nfind_substring(S, Words) ->\n  .", "elixir": "defmodule Solution do\n  @spec find_substring(s :: String.t, words :: [String.t]) :: [integer]\n  def find_substring(s, words) do\n    \n  end\nend"};
+        initializeSnippetManager(snippets);
+    </script>
+</body>
+</html>

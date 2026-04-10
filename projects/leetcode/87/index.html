@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scramble String - LeetCode Master | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../leetcode-style.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div style="margin-bottom: 25px;">
+                    <a href="../index.html" style="color: #007185; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-arrow-left-long"></i> Back to Hub
+                    </a>
+                </div>
+
+                <div class="lab-card">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <span class="badge Hard"><i class="fas fa-shield-halved"></i> Hard</span>
+                            <h1 style="font-size: 32px; font-weight: 800; margin-top: 15px; color: #232f3e;">#87 Scramble String</h1>
+                        </div>
+                        <div class="tag-container"><span class="topic-tag">String</span><span class="topic-tag">Dynamic Programming</span></div>
+                    </div>
+
+                    <div class="h-title" style="margin-top: 40px;"><i class="fas fa-align-left" style="color: #007185;"></i> Problem Context</div>
+                    <div style="font-size: 16px; color: #232f3e; line-height: 1.8; white-space: pre-wrap;">We can scramble a string s to get a string t using the following algorithm:
+Given two strings s1 and s2 of the same length, return true if s2 is a scrambled string of s1, otherwise, return false.
+Example 1:
+Example 2:
+Example 3:
+Constraints:</div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-flask-vial" style="color: #e47911;"></i> Technical Logic & Constraints</div>
+                    <div class="example-box"><strong style="color: #007185;">Example 1:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: s1 = "great", s2 = "rgeat"
+Output: true
+Explanation: One possible scenario applied on s1 is:
+"great" --> "gr/eat" // divide at random index.
+"gr/eat" --> "gr/eat" // random decision is not to swap the two substrings and keep them in order.
+"gr/eat" --> "g/r / e/at" // apply the same algorithm recursively on both substrings. divide at random index each of them.
+"g/r / e/at" --> "r/g / e/at" // random decision was to swap the first substring and to keep the second substring in the same order.
+"r/g / e/at" --> "r/g / e/ a/t" // again apply the algorithm recursively, divide "at" to "a/t".
+"r/g / e/ a/t" --> "r/g / e/ a/t" // random decision is to keep both substrings in the same order.
+The algorithm stops now, and the result string is "rgeat" which is s2.
+As one possible scenario led s1 to be scrambled to s2, we return true.</pre></div><div class="example-box"><strong style="color: #007185;">Example 2:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: s1 = "abcde", s2 = "caebd"
+Output: false</pre></div><div class="example-box"><strong style="color: #007185;">Example 3:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: s1 = "a", s2 = "a"
+Output: true</pre></div>
+                    <div style="margin-top: 25px; background: #fffbe6; padding: 20px; border-radius: 12px; border: 1px solid #ffe58f;">
+                        <strong style="color: #856404;"><i class="fas fa-triangle-exclamation"></i> Constraints:</strong>
+                        <ul style="margin-top: 12px; line-height: 1.6; color: #856404;">
+                            <li>s1.length == s2.length</li><li>1 <= s1.length <= 30</li><li>s1 and s2 consist of lowercase English letters.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-brain" style="color: #ffd814;"></i> Solution Deep-Dive</div>
+                    <div style="font-size: 15px; line-height: 1.8; color: #444; white-space: pre-wrap;">[TOC]
+
+## Solution
+
+---
+
+### Approach: Dynamic Programming
+
+#### Intuition
+
+We have a recursive definition of scrambling a string `s`. First, we divide `s` into `x` and `y`. Then we either keep `s` as `x + y` or swap them and get `y + x`. After that, we scramble `x` and `y` independently. Let `x'` denote the scrambled `x` and `y'` denote the scrambled `y`. `s` will eventually become `x' + y'` or `y' + x'`.
+
+![split](../Figures/87/diagram2.drawio.png)
+
+How do we check whether a given string `t` is a scrambled string of `s`? First, we choose an index and cut `s` into `x` and `y` (`s = x + y`). Then, we see if we can cut `t` into `x'` and `y'` (`t = x' + y'` if we do not swap or `t = y' + x'` if we do). Since verifying that `x'` is a scrambled `x` and `y'` is scrambled `y` are smaller subproblems, we will solve the problem using dynamic programming.
+
+We have two strings `s1` and `s2`.
+
+For each given dp state, we need 3 variables: `length`, `i`, and `j`.
+
+Each state will focus on two substrings. The first one will be a substring of `s1`, starting at index `i` with length equal to `length` - let's call this substring `s`. The second one will be a substring of `s2`, starting at index `j` with `length` - let's call this substring `t`.
+
+Let `dp[length][i][j]` be a boolean representing whether `t` is a scrambled version of `s`.
+
+The base case, as defined by the problem is when `length = 1`. Here we do not have to split strings into smaller ones, so we can easily compare the corresponding characters: `dp[1][i][j]` is `true` when `s1[i]` equals `s2[j]`, and `false` otherwise.
+
+Now we need to write down the transitions of `dp`. We will use the following image as an example during the explanations.
+
+![split](../Figures/87/diagram.drawio.png)
+
+At each state, we need to perform a split on `s1`. We will consider all possible splits. If we are currently considering a substring with a length of `length`, then we could perform a split at any index `newLength`, where `0 < newLength < length`. (Here, `newLength` represents the length of the left string after the split). A split gives us two new strings:
+
+- A substring of `s1` starting at index `i` and ending with index `i + newLength - 1`. This string has a length of `newLength` (Blue in the picture)
+
+- A substring of `s1` starting at index `i + newLength` and ending at index `i + length - 1`. This string has a length of `length - newLength`. (Yellow in the picture)
+
+For each split, we have two cases:
+
+* Do not swap the blue and yellow parts. The corresponding substrings of `s2` must be scrambled versions of the substrings we just created by splitting `s1`. This means both `dp[newLength][i][j]` (representing the blue parts) and `dp[length - newLength][i + newLength][j + newLength]` (representing the yellow parts) must be true.
+* Swap the blue and yellow parts. As you can see in the image, this misaligns the blue and yellow parts between `s1` and `s2`, but we still need the parts to match (we still need the blue part of `s1` to be a scrambled version of the blue part of `s2`, same with the yellow part). What are the new starting indices? For blue, it's `s1` starting with `i` and `s2` starting with `j + length - newLength`. For yellow, it's `s1` starting with `i + newLength` and `s2` starting with `j`. Thus, we need both `dp[newLength][i][j+length-newLength]` and `dp[length-newLength][i+newLength][j]` to be `true`.
+
+Now we can formally write down the transitions. For `length > 1`, `dp[length][i][j]` is `true` if and only if for at least one `newLength` where `0 < newLength < length`:
+
+`(dp[newLength][i][j] && dp[length-newLength][i+newLength][j+newLength]) || (dp[newLength][i][j+length-newLength] && dp[length-newLength][i+newLength][j])` is `true`.
+
+Let `n` denote the length of the input strings. The answer to the problem is `dp[n][0][0]`, as starting at index `0` with length `n` is considering the entire input string.
+
+#### Algorithm
+
+1. Iterate `i` from `0` to `n-1`.
+	* Iterate `j` from `0` to `n-1`.
+		* Set `dp[1][i][j]` to the boolean value of `s1[i] == s2[j]`. (The base case of the DP).
+2. Iterate `length` from `2` to `n`.
+	* Iterate `i` from `0` to `n + 1 - length`.
+		* Iterate `j` from `0` to `n + 1 - length`.
+			* Iterate `newLength` from `1` to `length - 1`.
+				* If `dp[newLength][i][j] && dp[length-newLength][i+newLength][j+newLength]) || (dp[newLength][i][j+l-newLength] && dp[l-newLength][i+newLength][j]` is `true`, set `dp[length][i][j]` to `true`.
+3. Return `dp[n][0][0]`.
+
+#### Implementation#### Complexity Analysis
+
+* Time complexity: $O(n^4)$.
+
+We have four nested for loops (for `length`, `i`, `j`, `newLength`), each doing $O(n)$ iterations.
+
+* Space complexity: $O(n^3)$.
+
+We store the matrix `dp[n+1][n][n]` for dynamic programming.</div>
+                </div>
+
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="lang-tabs">
+                            <button class="tab-btn active" onclick="switchLang('python3')">Python3</button>
+                            <button class="tab-btn" onclick="switchLang('java')">Java</button>
+                            <button class="tab-btn" onclick="switchLang('cpp')">C++</button>
+                        </div>
+                        <span style="font-size: 12px; color: #666; font-weight: 700;"><i class="fas fa-terminal"></i> CODE LAB</span>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copy</button>
+                        <pre><code id="code-display">class Solution:
+    def isScramble(self, s1: str, s2: str) -> bool:
+        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../js/main.js"></script>
+    <script src="../leetcode-core.js"></script>
+    <script>
+        const snippets = {"cpp": "class Solution {\npublic:\n    bool isScramble(string s1, string s2) {\n        \n    }\n};", "java": "class Solution {\n    public boolean isScramble(String s1, String s2) {\n        \n    }\n}", "python": "class Solution(object):\n    def isScramble(self, s1, s2):\n        \"\"\"\n        :type s1: str\n        :type s2: str\n        :rtype: bool\n        \"\"\"\n        ", "python3": "class Solution:\n    def isScramble(self, s1: str, s2: str) -> bool:\n        ", "c": "bool isScramble(char* s1, char* s2) {\n    \n}", "csharp": "public class Solution {\n    public bool IsScramble(string s1, string s2) {\n        \n    }\n}", "javascript": "/**\n * @param {string} s1\n * @param {string} s2\n * @return {boolean}\n */\nvar isScramble = function(s1, s2) {\n    \n};", "typescript": "function isScramble(s1: string, s2: string): boolean {\n    \n};", "php": "class Solution {\n\n    /**\n     * @param String $s1\n     * @param String $s2\n     * @return Boolean\n     */\n    function isScramble($s1, $s2) {\n        \n    }\n}", "swift": "class Solution {\n    func isScramble(_ s1: String, _ s2: String) -> Bool {\n        \n    }\n}", "kotlin": "class Solution {\n    fun isScramble(s1: String, s2: String): Boolean {\n        \n    }\n}", "dart": "class Solution {\n  bool isScramble(String s1, String s2) {\n    \n  }\n}", "golang": "func isScramble(s1 string, s2 string) bool {\n    \n}", "ruby": "# @param {String} s1\n# @param {String} s2\n# @return {Boolean}\ndef is_scramble(s1, s2)\n    \nend", "scala": "object Solution {\n    def isScramble(s1: String, s2: String): Boolean = {\n        \n    }\n}", "rust": "impl Solution {\n    pub fn is_scramble(s1: String, s2: String) -> bool {\n        \n    }\n}", "racket": "(define/contract (is-scramble s1 s2)\n  (-> string? string? boolean?)\n  )", "erlang": "-spec is_scramble(S1 :: unicode:unicode_binary(), S2 :: unicode:unicode_binary()) -> boolean().\nis_scramble(S1, S2) ->\n  .", "elixir": "defmodule Solution do\n  @spec is_scramble(s1 :: String.t, s2 :: String.t) :: boolean\n  def is_scramble(s1, s2) do\n    \n  end\nend"};
+        initializeSnippetManager(snippets);
+    </script>
+</body>
+</html>

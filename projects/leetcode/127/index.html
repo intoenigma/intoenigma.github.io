@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Ladder - LeetCode Master | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../leetcode-style.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div style="margin-bottom: 25px;">
+                    <a href="../index.html" style="color: #007185; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-arrow-left-long"></i> Back to Hub
+                    </a>
+                </div>
+
+                <div class="lab-card">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <span class="badge Hard"><i class="fas fa-shield-halved"></i> Hard</span>
+                            <h1 style="font-size: 32px; font-weight: 800; margin-top: 15px; color: #232f3e;">#127 Word Ladder</h1>
+                        </div>
+                        <div class="tag-container"><span class="topic-tag">Hash Table</span><span class="topic-tag">String</span><span class="topic-tag">Breadth-First Search</span></div>
+                    </div>
+
+                    <div class="h-title" style="margin-top: 40px;"><i class="fas fa-align-left" style="color: #007185;"></i> Problem Context</div>
+                    <div style="font-size: 16px; color: #232f3e; line-height: 1.8; white-space: pre-wrap;">A transformation sequence from word beginWord to word endWord using a dictionary wordList is a sequence of words beginWord -> s1 -> s2 -> ... -> sk such that:
+Given two words, beginWord and endWord, and a dictionary wordList, return the number of words in the shortest transformation sequence from beginWord to endWord, or 0 if no such sequence exists.
+Example 1:
+Example 2:
+Constraints:</div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-flask-vial" style="color: #e47911;"></i> Technical Logic & Constraints</div>
+                    <div class="example-box"><strong style="color: #007185;">Example 1:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]
+Output: 5
+Explanation: One shortest transformation sequence is "hit" -> "hot" -> "dot" -> "dog" -> cog", which is 5 words long.</pre></div><div class="example-box"><strong style="color: #007185;">Example 2:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log"]
+Output: 0
+Explanation: The endWord "cog" is not in wordList, therefore there is no valid transformation sequence.</pre></div>
+                    <div style="margin-top: 25px; background: #fffbe6; padding: 20px; border-radius: 12px; border: 1px solid #ffe58f;">
+                        <strong style="color: #856404;"><i class="fas fa-triangle-exclamation"></i> Constraints:</strong>
+                        <ul style="margin-top: 12px; line-height: 1.6; color: #856404;">
+                            <li>1 <= beginWord.length <= 10</li><li>endWord.length == beginWord.length</li><li>1 <= wordList.length <= 5000</li><li>wordList[i].length == beginWord.length</li><li>beginWord, endWord, and wordList[i] consist of lowercase English letters.</li><li>beginWord != endWord</li><li>All the words in wordList are unique.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-brain" style="color: #ffd814;"></i> Solution Deep-Dive</div>
+                    <div style="font-size: 15px; line-height: 1.8; color: #444; white-space: pre-wrap;">Article not populated yet.</div>
+                </div>
+
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="lang-tabs">
+                            <button class="tab-btn active" onclick="switchLang('python3')">Python3</button>
+                            <button class="tab-btn" onclick="switchLang('java')">Java</button>
+                            <button class="tab-btn" onclick="switchLang('cpp')">C++</button>
+                        </div>
+                        <span style="font-size: 12px; color: #666; font-weight: 700;"><i class="fas fa-terminal"></i> CODE LAB</span>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copy</button>
+                        <pre><code id="code-display">class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../js/main.js"></script>
+    <script src="../leetcode-core.js"></script>
+    <script>
+        const snippets = {"cpp": "class Solution {\npublic:\n    int ladderLength(string beginWord, string endWord, vector<string>& wordList) {\n        \n    }\n};", "java": "class Solution {\n    public int ladderLength(String beginWord, String endWord, List<String> wordList) {\n        \n    }\n}", "python": "class Solution(object):\n    def ladderLength(self, beginWord, endWord, wordList):\n        \"\"\"\n        :type beginWord: str\n        :type endWord: str\n        :type wordList: List[str]\n        :rtype: int\n        \"\"\"\n        ", "python3": "class Solution:\n    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:\n        ", "c": "int ladderLength(char* beginWord, char* endWord, char** wordList, int wordListSize) {\n    \n}", "csharp": "public class Solution {\n    public int LadderLength(string beginWord, string endWord, IList<string> wordList) {\n        \n    }\n}", "javascript": "/**\n * @param {string} beginWord\n * @param {string} endWord\n * @param {string[]} wordList\n * @return {number}\n */\nvar ladderLength = function(beginWord, endWord, wordList) {\n    \n};", "typescript": "function ladderLength(beginWord: string, endWord: string, wordList: string[]): number {\n    \n};", "php": "class Solution {\n\n    /**\n     * @param String $beginWord\n     * @param String $endWord\n     * @param String[] $wordList\n     * @return Integer\n     */\n    function ladderLength($beginWord, $endWord, $wordList) {\n        \n    }\n}", "swift": "class Solution {\n    func ladderLength(_ beginWord: String, _ endWord: String, _ wordList: [String]) -> Int {\n        \n    }\n}", "kotlin": "class Solution {\n    fun ladderLength(beginWord: String, endWord: String, wordList: List<String>): Int {\n        \n    }\n}", "dart": "class Solution {\n  int ladderLength(String beginWord, String endWord, List<String> wordList) {\n    \n  }\n}", "golang": "func ladderLength(beginWord string, endWord string, wordList []string) int {\n    \n}", "ruby": "# @param {String} begin_word\n# @param {String} end_word\n# @param {String[]} word_list\n# @return {Integer}\ndef ladder_length(begin_word, end_word, word_list)\n    \nend", "scala": "object Solution {\n    def ladderLength(beginWord: String, endWord: String, wordList: List[String]): Int = {\n        \n    }\n}", "rust": "impl Solution {\n    pub fn ladder_length(begin_word: String, end_word: String, word_list: Vec<String>) -> i32 {\n        \n    }\n}", "racket": "(define/contract (ladder-length beginWord endWord wordList)\n  (-> string? string? (listof string?) exact-integer?)\n  )", "erlang": "-spec ladder_length(BeginWord :: unicode:unicode_binary(), EndWord :: unicode:unicode_binary(), WordList :: [unicode:unicode_binary()]) -> integer().\nladder_length(BeginWord, EndWord, WordList) ->\n  .", "elixir": "defmodule Solution do\n  @spec ladder_length(begin_word :: String.t, end_word :: String.t, word_list :: [String.t]) :: integer\n  def ladder_length(begin_word, end_word, word_list) do\n    \n  end\nend"};
+        initializeSnippetManager(snippets);
+    </script>
+</body>
+</html>

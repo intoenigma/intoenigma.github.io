@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Primes - LeetCode Master | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../leetcode-style.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div style="margin-bottom: 25px;">
+                    <a href="../index.html" style="color: #007185; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-arrow-left-long"></i> Back to Hub
+                    </a>
+                </div>
+
+                <div class="lab-card">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <span class="badge Medium"><i class="fas fa-shield-halved"></i> Medium</span>
+                            <h1 style="font-size: 32px; font-weight: 800; margin-top: 15px; color: #232f3e;">#204 Count Primes</h1>
+                        </div>
+                        <div class="tag-container"><span class="topic-tag">Array</span><span class="topic-tag">Math</span><span class="topic-tag">Enumeration</span><span class="topic-tag">Number Theory</span></div>
+                    </div>
+
+                    <div class="h-title" style="margin-top: 40px;"><i class="fas fa-align-left" style="color: #007185;"></i> Problem Context</div>
+                    <div style="font-size: 16px; color: #232f3e; line-height: 1.8; white-space: pre-wrap;">Given an integer n, return the number of prime numbers that are strictly less than n.
+Example 1:
+Example 2:
+Example 3:
+Constraints:</div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-flask-vial" style="color: #e47911;"></i> Technical Logic & Constraints</div>
+                    <div class="example-box"><strong style="color: #007185;">Example 1:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: n = 10
+Output: 4
+Explanation: There are 4 prime numbers less than 10, they are 2, 3, 5, 7.</pre></div><div class="example-box"><strong style="color: #007185;">Example 2:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: n = 0
+Output: 0</pre></div><div class="example-box"><strong style="color: #007185;">Example 3:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: n = 1
+Output: 0</pre></div>
+                    <div style="margin-top: 25px; background: #fffbe6; padding: 20px; border-radius: 12px; border: 1px solid #ffe58f;">
+                        <strong style="color: #856404;"><i class="fas fa-triangle-exclamation"></i> Constraints:</strong>
+                        <ul style="margin-top: 12px; line-height: 1.6; color: #856404;">
+                            <li>0 <= n <= 5 * 106</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-brain" style="color: #ffd814;"></i> Solution Deep-Dive</div>
+                    <div style="font-size: 15px; line-height: 1.8; color: #444; white-space: pre-wrap;">Article not populated yet.</div>
+                </div>
+
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="lang-tabs">
+                            <button class="tab-btn active" onclick="switchLang('python3')">Python3</button>
+                            <button class="tab-btn" onclick="switchLang('java')">Java</button>
+                            <button class="tab-btn" onclick="switchLang('cpp')">C++</button>
+                        </div>
+                        <span style="font-size: 12px; color: #666; font-weight: 700;"><i class="fas fa-terminal"></i> CODE LAB</span>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copy</button>
+                        <pre><code id="code-display">class Solution:
+    def countPrimes(self, n: int) -> int:
+        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../js/main.js"></script>
+    <script src="../leetcode-core.js"></script>
+    <script>
+        const snippets = {"cpp": "class Solution {\npublic:\n    int countPrimes(int n) {\n        \n    }\n};", "java": "class Solution {\n    public int countPrimes(int n) {\n        \n    }\n}", "python": "class Solution(object):\n    def countPrimes(self, n):\n        \"\"\"\n        :type n: int\n        :rtype: int\n        \"\"\"\n        ", "python3": "class Solution:\n    def countPrimes(self, n: int) -> int:\n        ", "c": "int countPrimes(int n) {\n    \n}", "csharp": "public class Solution {\n    public int CountPrimes(int n) {\n        \n    }\n}", "javascript": "/**\n * @param {number} n\n * @return {number}\n */\nvar countPrimes = function(n) {\n    \n};", "typescript": "function countPrimes(n: number): number {\n    \n};", "php": "class Solution {\n\n    /**\n     * @param Integer $n\n     * @return Integer\n     */\n    function countPrimes($n) {\n        \n    }\n}", "swift": "class Solution {\n    func countPrimes(_ n: Int) -> Int {\n        \n    }\n}", "kotlin": "class Solution {\n    fun countPrimes(n: Int): Int {\n        \n    }\n}", "dart": "class Solution {\n  int countPrimes(int n) {\n    \n  }\n}", "golang": "func countPrimes(n int) int {\n    \n}", "ruby": "# @param {Integer} n\n# @return {Integer}\ndef count_primes(n)\n    \nend", "scala": "object Solution {\n    def countPrimes(n: Int): Int = {\n        \n    }\n}", "rust": "impl Solution {\n    pub fn count_primes(n: i32) -> i32 {\n        \n    }\n}", "racket": "(define/contract (count-primes n)\n  (-> exact-integer? exact-integer?)\n  )", "erlang": "-spec count_primes(N :: integer()) -> integer().\ncount_primes(N) ->\n  .", "elixir": "defmodule Solution do\n  @spec count_primes(n :: integer) :: integer\n  def count_primes(n) do\n    \n  end\nend"};
+        initializeSnippetManager(snippets);
+    </script>
+</body>
+</html>

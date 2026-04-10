@@ -1,56 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>LeetCode Revision</title>
-  <style>
-    body { font-family: Arial; padding:30px; }
-    h1 { margin-bottom:20px; }
-    input { width:100%; padding:12px; font-size:16px; margin-bottom:20px; }
-    ul { list-style:none; padding:0; }
-    li { padding:12px; border:1px solid #ddd; margin-bottom:10px; cursor:pointer; }
-    li:hover { background:#f2f2f2; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Revision Hub - IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="leetcode-style.css">
 </head>
 <body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div class="hub-banner">
+                    <div>
+                        <h1>LeetCode Hub</h1>
+                        <p style="font-size: 18px; opacity: 0.9; margin-top: 10px;">Your ultimate algorithmic revision laboratory.</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <span id="stat-count" style="font-size: 48px; font-weight: 800; display: block;">0</span>
+                        <span style="font-size: 14px; font-weight: 700; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;">Problems Available</span>
+                    </div>
+                </div>
 
-  <h1>📘 LeetCode One-Shot Revision</h1>
-  <input type="text" id="searchInput" placeholder="Search by question number or name..." />
-  <ul id="results"></ul>
+                <div class="search-wrapper">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="problemSearch" placeholder="Search by name, ID, or topics like 'Dynamic Programming'...">
+                    </div>
+                    <div class="filter-group">
+                        <i class="fas fa-filter" style="color: #888;"></i>
+                        <select id="diffFilter" class="filter-select">
+                            <option value="">All Difficulties</option>
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
+                        </select>
+                    </div>
+                </div>
 
-  <script>
-    async function loadQuestions() {
-      // fetch all questions
-      const res = await fetch('data/all.json');
-      const questions = await res.json();
+                <div class="problem-grid" id="problemGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px;">
+                    <!-- Problems will inject here -->
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../js/main.js"></script>
+    <script src="leetcode-core.js"></script>
+    <script>
+        let allProblems = [];
+        const grid = document.getElementById('problemGrid');
+        const searchInput = document.getElementById('problemSearch');
+        const diffFilter = document.getElementById('diffFilter');
+        const countDisplay = document.getElementById('stat-count');
 
-      const input = document.getElementById('searchInput');
-      const results = document.getElementById('results');
+        // Fetch the registry
+        fetch('data/all.json')
+            .then(res => res.json())
+            .then(data => {
+                allProblems = data;
+                countDisplay.textContent = allProblems.length;
+                renderProblemCards(allProblems, grid);
+                revealUI();
+            });
 
-      function render(list) {
-        results.innerHTML = '';
-        list.forEach(q => {
-          const li = document.createElement('li');
-          li.textContent = `${q.id}. ${q.title}`;
-          li.onclick = () => { window.location.href = `/leetcode/${q.id}/`; };
-          results.appendChild(li);
-        });
-      }
+        function filter() {
+            const term = searchInput.value.toLowerCase();
+            const diff = diffFilter.value;
+            const filtered = allProblems.filter(p => {
+                const matchesSearch = p.title.toLowerCase().includes(term) || 
+                                    p.id.toString().includes(term) ||
+                                    p.topics.some(t => t.toLowerCase().includes(term));
+                const matchesDiff = diff === "" || p.difficulty === diff;
+                return matchesSearch && matchesDiff;
+            });
+            renderProblemCards(filtered, grid);
+            revealUI();
+        }
 
-      render(questions);
+        window.resetFilters = () => {
+            searchInput.value = '';
+            diffFilter.value = '';
+            filter();
+        };
 
-      input.addEventListener('input', () => {
-        const value = input.value.toLowerCase();
-        const filtered = questions.filter(q =>
-          q.id.toString().includes(value) ||
-          q.title.toLowerCase().includes(value)
-        );
-        render(filtered);
-      });
-    }
-
-    loadQuestions();
-  </script>
-
+        searchInput.addEventListener('input', filter);
+        diffFilter.addEventListener('change', filter);
+    </script>
 </body>
 </html>

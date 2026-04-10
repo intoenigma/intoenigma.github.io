@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interleaving String - LeetCode Master | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../leetcode-style.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div style="margin-bottom: 25px;">
+                    <a href="../index.html" style="color: #007185; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-arrow-left-long"></i> Back to Hub
+                    </a>
+                </div>
+
+                <div class="lab-card">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <span class="badge Medium"><i class="fas fa-shield-halved"></i> Medium</span>
+                            <h1 style="font-size: 32px; font-weight: 800; margin-top: 15px; color: #232f3e;">#97 Interleaving String</h1>
+                        </div>
+                        <div class="tag-container"><span class="topic-tag">String</span><span class="topic-tag">Dynamic Programming</span></div>
+                    </div>
+
+                    <div class="h-title" style="margin-top: 40px;"><i class="fas fa-align-left" style="color: #007185;"></i> Problem Context</div>
+                    <div style="font-size: 16px; color: #232f3e; line-height: 1.8; white-space: pre-wrap;">Given strings s1, s2, and s3, find whether s3 is formed by an interleaving of s1 and s2.
+An interleaving of two strings s and t is a configuration where s and t are divided into n and m substrings respectively, such that:
+Note: a + b is the concatenation of strings a and b.
+Example 1:
+Example 2:
+Example 3:
+Constraints:
+Follow up: Could you solve it using only O(s2.length) additional memory space?</div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-flask-vial" style="color: #e47911;"></i> Technical Logic & Constraints</div>
+                    <div class="example-box"><strong style="color: #007185;">Example 1:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac"
+Output: true
+Explanation: One way to obtain s3 is:
+Split s1 into s1 = "aa" + "bc" + "c", and s2 into s2 = "dbbc" + "a".
+Interleaving the two splits, we get "aa" + "dbbc" + "bc" + "a" + "c" = "aadbbcbcac".
+Since s3 can be obtained by interleaving s1 and s2, we return true.</pre></div><div class="example-box"><strong style="color: #007185;">Example 2:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbbaccc"
+Output: false
+Explanation: Notice how it is impossible to interleave s2 with any other string to obtain s3.</pre></div><div class="example-box"><strong style="color: #007185;">Example 3:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: s1 = "", s2 = "", s3 = ""
+Output: true</pre></div>
+                    <div style="margin-top: 25px; background: #fffbe6; padding: 20px; border-radius: 12px; border: 1px solid #ffe58f;">
+                        <strong style="color: #856404;"><i class="fas fa-triangle-exclamation"></i> Constraints:</strong>
+                        <ul style="margin-top: 12px; line-height: 1.6; color: #856404;">
+                            <li>0 <= s1.length, s2.length <= 100</li><li>0 <= s3.length <= 200</li><li>s1, s2, and s3 consist of lowercase English letters.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-brain" style="color: #ffd814;"></i> Solution Deep-Dive</div>
+                    <div style="font-size: 15px; line-height: 1.8; color: #444; white-space: pre-wrap;">Article not populated yet.</div>
+                </div>
+
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="lang-tabs">
+                            <button class="tab-btn active" onclick="switchLang('python3')">Python3</button>
+                            <button class="tab-btn" onclick="switchLang('java')">Java</button>
+                            <button class="tab-btn" onclick="switchLang('cpp')">C++</button>
+                        </div>
+                        <span style="font-size: 12px; color: #666; font-weight: 700;"><i class="fas fa-terminal"></i> CODE LAB</span>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copy</button>
+                        <pre><code id="code-display">class Solution:
+    def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
+        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../js/main.js"></script>
+    <script src="../leetcode-core.js"></script>
+    <script>
+        const snippets = {"cpp": "class Solution {\npublic:\n    bool isInterleave(string s1, string s2, string s3) {\n        \n    }\n};", "java": "class Solution {\n    public boolean isInterleave(String s1, String s2, String s3) {\n        \n    }\n}", "python": "class Solution(object):\n    def isInterleave(self, s1, s2, s3):\n        \"\"\"\n        :type s1: str\n        :type s2: str\n        :type s3: str\n        :rtype: bool\n        \"\"\"\n        ", "python3": "class Solution:\n    def isInterleave(self, s1: str, s2: str, s3: str) -> bool:\n        ", "c": "bool isInterleave(char* s1, char* s2, char* s3) {\n    \n}", "csharp": "public class Solution {\n    public bool IsInterleave(string s1, string s2, string s3) {\n        \n    }\n}", "javascript": "/**\n * @param {string} s1\n * @param {string} s2\n * @param {string} s3\n * @return {boolean}\n */\nvar isInterleave = function(s1, s2, s3) {\n    \n};", "typescript": "function isInterleave(s1: string, s2: string, s3: string): boolean {\n    \n};", "php": "class Solution {\n\n    /**\n     * @param String $s1\n     * @param String $s2\n     * @param String $s3\n     * @return Boolean\n     */\n    function isInterleave($s1, $s2, $s3) {\n        \n    }\n}", "swift": "class Solution {\n    func isInterleave(_ s1: String, _ s2: String, _ s3: String) -> Bool {\n        \n    }\n}", "kotlin": "class Solution {\n    fun isInterleave(s1: String, s2: String, s3: String): Boolean {\n        \n    }\n}", "dart": "class Solution {\n  bool isInterleave(String s1, String s2, String s3) {\n    \n  }\n}", "golang": "func isInterleave(s1 string, s2 string, s3 string) bool {\n    \n}", "ruby": "# @param {String} s1\n# @param {String} s2\n# @param {String} s3\n# @return {Boolean}\ndef is_interleave(s1, s2, s3)\n    \nend", "scala": "object Solution {\n    def isInterleave(s1: String, s2: String, s3: String): Boolean = {\n        \n    }\n}", "rust": "impl Solution {\n    pub fn is_interleave(s1: String, s2: String, s3: String) -> bool {\n        \n    }\n}", "racket": "(define/contract (is-interleave s1 s2 s3)\n  (-> string? string? string? boolean?)\n  )", "erlang": "-spec is_interleave(S1 :: unicode:unicode_binary(), S2 :: unicode:unicode_binary(), S3 :: unicode:unicode_binary()) -> boolean().\nis_interleave(S1, S2, S3) ->\n  .", "elixir": "defmodule Solution do\n  @spec is_interleave(s1 :: String.t, s2 :: String.t, s3 :: String.t) :: boolean\n  def is_interleave(s1, s2, s3) do\n    \n  end\nend"};
+        initializeSnippetManager(snippets);
+    </script>
+</body>
+</html>

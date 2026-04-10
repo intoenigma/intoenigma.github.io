@@ -10,17 +10,8 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="shared/hindi-base.css">
     <style>
-        /* Hero Banner */
-        .hindi-hero {
-            background: linear-gradient(135deg, #131921 0%, #1a2a4a 50%, #1b3a5c 100%);
-            border-radius: 12px;
-            padding: 32px 36px;
-            margin-bottom: 22px;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-        }
-        .hindi-hero::before {
+        /* Hero Watermark */
+        .amz-hero::after {
             content: 'ह';
             position: absolute;
             right: 40px; top: -20px;
@@ -30,19 +21,6 @@
             font-weight: 700;
             pointer-events: none;
             line-height: 1;
-        }
-        .hindi-hero h1 {
-            font-size: 26px;
-            font-weight: 800;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-        .hindi-hero p {
-            font-size: 14px;
-            color: rgba(255,255,255,.75);
-            max-width: 600px;
-            line-height: 1.7;
-            margin-bottom: 18px;
         }
         .hero-badges { display: flex; gap: 8px; flex-wrap: wrap; }
         .hero-badge {
@@ -93,10 +71,10 @@
         <div id="enigma-breadcrumbs"></div>
 
         <!-- Hero -->
-        <div class="hindi-hero">
-            <h1>🔤 हिन्दी यूनिकोड कन्वर्टर टूलकिट</h1>
+        <div class="amz-hero">
+            <h1> हिन्दी यूनिकोड कन्वर्टर टूलकिट</h1>
             <p>Professional-grade Hindi Unicode conversion and text processing. Convert between Unicode and 20+ legacy fonts (Kruti Dev, Chanakya, Shusha, DevLys…). Fully browser-based — no data leaves your device.</p>
-            <div class="hero-badges">
+            <div class="hero-badges" style="margin-top: 15px;">
                 <span class="hero-badge"><i class="fas fa-shield-alt"></i> 100% Private</span>
                 <span class="hero-badge"><i class="fas fa-bolt"></i> Instant Conversion</span>
                 <span class="hero-badge"><i class="fas fa-tools"></i> 20+ Tools</span>
@@ -115,7 +93,7 @@
                     <div class="cat-label" style="color:#b12704;"><i class="fas fa-exchange-alt" style="color:#b12704;"></i> Core Font Converters</div>
                     <div class="conv-grid">
                         <a href="unicode to Non-Unicode convertor/index.html" class="converter-card primary">
-                            <div class="conv-icon">🔠</div>
+                            <div class="conv-icon"></div>
                             <div>
                                 <div class="conv-title">Unicode → Non-Unicode</div>
                                 <div class="conv-desc">Devanagari → Kruti Dev, Chanakya, Shusha, DevLys & 13 more legacy fonts</div>
@@ -123,7 +101,7 @@
                             <i class="fas fa-chevron-right" style="margin-left:auto; color:#e47911;"></i>
                         </a>
                         <a href="Non-Unicode to unicode convertor/index.html" class="converter-card secondary">
-                            <div class="conv-icon">🔡</div>
+                            <div class="conv-icon"></div>
                             <div>
                                 <div class="conv-title">Non-Unicode → Unicode</div>
                                 <div class="conv-desc">Kruti Dev, Chanakya, Shusha, DevLys & more → Standard Devanagari</div>
@@ -138,42 +116,42 @@
                     <div class="cat-label" style="color:#007185;"><i class="fas fa-edit" style="color:#007185;"></i> Text Editing Tools</div>
                     <div class="tool-grid">
                         <a href="Hindi Word Counter/index.html" class="tool-card">
-                            <div class="tool-icon">📊</div>
+                            <div class="tool-icon"></div>
                             <div class="tool-card-body">
                                 <div class="tool-card-title">Word Counter</div>
                                 <div class="tool-card-desc">Words, sentences, reading time</div>
                             </div>
                         </a>
                         <a href="Hindi Character Counter/index.html" class="tool-card">
-                            <div class="tool-icon">🔢</div>
+                            <div class="tool-icon"></div>
                             <div class="tool-card-body">
                                 <div class="tool-card-title">Character Counter</div>
                                 <div class="tool-card-desc">Vowels, consonants, matras</div>
                             </div>
                         </a>
                         <a href="Hindi Find & Replace Tool/index.html" class="tool-card">
-                            <div class="tool-icon">🔍</div>
+                            <div class="tool-icon"></div>
                             <div class="tool-card-body">
                                 <div class="tool-card-title">Find &amp; Replace</div>
                                 <div class="tool-card-desc">Plain text + RegEx support</div>
                             </div>
                         </a>
                         <a href="Hindi Text Cleaner (remove extra spaces, junk chars)/index.html" class="tool-card">
-                            <div class="tool-icon">🧹</div>
+                            <div class="tool-icon"></div>
                             <div class="tool-card-body">
                                 <div class="tool-card-title">Text Cleaner</div>
                                 <div class="tool-card-desc">Remove junk, fix spaces</div>
                             </div>
                         </a>
                         <a href="Hindi Text Formatter (paragraph, spacing, alignment)/index.html" class="tool-card">
-                            <div class="tool-icon">📝</div>
+                            <div class="tool-icon"></div>
                             <div class="tool-card-body">
                                 <div class="tool-card-title">Text Formatter</div>
                                 <div class="tool-card-desc">Indent, spacing, alignment</div>
                             </div>
                         </a>
                         <a href="Hindi Text Compare (diff checker)/index.html" class="tool-card">
-                            <div class="tool-icon">🔀</div>
+                            <div class="tool-icon"></div>
                             <div class="tool-card-body">
                                 <div class="tool-card-title">Text Compare</div>
                                 <div class="tool-card-desc">Word-level diff checker</div>
@@ -187,42 +165,42 @@
                     <div class="cat-label" style="color:#007185;"><i class="fas fa-brain" style="color:#007185;"></i> Language &amp; NLP Tools</div>
                     <div class="tool-grid">
                         <a href="Hindi Grammar Checker/index.html" class="tool-card">
-                            <div class="tool-icon">✅</div>
+                            <div class="tool-icon"></div>
                             <div class="tool-card-body">
                                 <div class="tool-card-title">Grammar Checker</div>
                                 <div class="tool-card-desc">Rule-based error detection</div>
                             </div>
                         </a>
                         <a href="Hindi Spell Checker/index.html" class="tool-card">
-                            <div class="tool-icon">🔤</div>
+                            <div class="tool-icon"></div>
                             <div class="tool-card-body">
                                 <div class="tool-card-title">Spell Checker</div>
                                 <div class="tool-card-desc">Dictionary-based correction</div>
                             </div>
                         </a>
                         <a href="Hindi Stop Words Remover/index.html" class="tool-card">
-                            <div class="tool-icon">🚫</div>
+                            <div class="tool-icon"></div>
                             <div class="tool-card-body">
                                 <div class="tool-card-title">Stop Words Remover</div>
                                 <div class="tool-card-desc">NLP preprocessing tool</div>
                             </div>
                         </a>
                         <a href="Hindi Synonym Finder/index.html" class="tool-card">
-                            <div class="tool-icon">📖</div>
+                            <div class="tool-icon"></div>
                             <div class="tool-card-body">
                                 <div class="tool-card-title">Synonym Finder</div>
                                 <div class="tool-card-desc">पर्यायवाची शब्दकोश</div>
                             </div>
                         </a>
                         <a href="Hindi Keyword Density Checker/index.html" class="tool-card">
-                            <div class="tool-icon">📈</div>
+                            <div class="tool-icon"></div>
                             <div class="tool-card-body">
                                 <div class="tool-card-title">Keyword Density</div>
                                 <div class="tool-card-desc">SEO content analysis</div>
                             </div>
                         </a>
                         <a href="Hindi Transliteration Tool (Hinglish → Hindi)/index.html" class="tool-card">
-                            <div class="tool-icon">🔁</div>
+                            <div class="tool-icon"></div>
                             <div class="tool-card-body">
                                 <div class="tool-card-title">Hinglish → Hindi</div>
                                 <div class="tool-card-desc">Roman to Devanagari</div>
@@ -236,42 +214,42 @@
                     <div class="cat-label" style="color:#007185;"><i class="fas fa-cog" style="color:#007185;"></i> Advanced Tools</div>
                     <div class="tool-grid">
                         <a href="Hindi Unicode Normalizer/index.html" class="tool-card">
-                            <div class="tool-icon">⚙️</div>
+                            <div class="tool-icon"></div>
                             <div class="tool-card-body">
                                 <div class="tool-card-title">Unicode Normalizer</div>
                                 <div class="tool-card-desc">NFC / NFD / NFKC / NFKD</div>
                             </div>
                         </a>
                         <a href="Hindi Slug Generator (URL friendly text)/index.html" class="tool-card">
-                            <div class="tool-icon">🔗</div>
+                            <div class="tool-icon"></div>
                             <div class="tool-card-body">
                                 <div class="tool-card-title">Slug Generator</div>
                                 <div class="tool-card-desc">SEO-friendly URL text</div>
                             </div>
                         </a>
                         <a href="Hindi Font Preview Tool/index.html" class="tool-card">
-                            <div class="tool-icon">🎨</div>
+                            <div class="tool-icon"></div>
                             <div class="tool-card-body">
                                 <div class="tool-card-title">Font Preview</div>
                                 <div class="tool-card-desc">Compare 11 Hindi fonts</div>
                             </div>
                         </a>
                         <a href="Hindi Typing Practice Tool/index.html" class="tool-card">
-                            <div class="tool-icon">⌨️</div>
+                            <div class="tool-icon"></div>
                             <div class="tool-card-body">
                                 <div class="tool-card-title">Typing Practice</div>
                                 <div class="tool-card-desc">WPM, accuracy, live feedback</div>
                             </div>
                         </a>
                         <a href="Hindi Text to Speech (TTS)/index.html" class="tool-card">
-                            <div class="tool-icon">🔊</div>
+                            <div class="tool-icon"></div>
                             <div class="tool-card-body">
                                 <div class="tool-card-title">Text to Speech</div>
                                 <div class="tool-card-desc">Hindi TTS via Web API</div>
                             </div>
                         </a>
                         <a href="Hindi Speech to Text (STT)/index.html" class="tool-card">
-                            <div class="tool-icon">🎤</div>
+                            <div class="tool-icon"></div>
                             <div class="tool-card-body">
                                 <div class="tool-card-title">Speech to Text</div>
                                 <div class="tool-card-desc">Live Hindi dictation</div>

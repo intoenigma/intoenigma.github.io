@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combination Sum II - LeetCode Master | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../leetcode-style.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div style="margin-bottom: 25px;">
+                    <a href="../index.html" style="color: #007185; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-arrow-left-long"></i> Back to Hub
+                    </a>
+                </div>
+
+                <div class="lab-card">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <span class="badge Medium"><i class="fas fa-shield-halved"></i> Medium</span>
+                            <h1 style="font-size: 32px; font-weight: 800; margin-top: 15px; color: #232f3e;">#40 Combination Sum II</h1>
+                        </div>
+                        <div class="tag-container"><span class="topic-tag">Array</span><span class="topic-tag">Backtracking</span></div>
+                    </div>
+
+                    <div class="h-title" style="margin-top: 40px;"><i class="fas fa-align-left" style="color: #007185;"></i> Problem Context</div>
+                    <div style="font-size: 16px; color: #232f3e; line-height: 1.8; white-space: pre-wrap;">Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.
+Each number in candidates may only be used once in the combination.
+Note: The solution set must not contain duplicate combinations.
+Example 1:
+Example 2:
+Constraints:</div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-flask-vial" style="color: #e47911;"></i> Technical Logic & Constraints</div>
+                    <div class="example-box"><strong style="color: #007185;">Example 1:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: candidates = [10,1,2,7,6,1,5], target = 8
+Output: 
+[
+[1,1,6],
+[1,2,5],
+[1,7],
+[2,6]
+]</pre></div><div class="example-box"><strong style="color: #007185;">Example 2:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: candidates = [2,5,2,1,2], target = 5
+Output: 
+[
+[1,2,2],
+[5]
+]</pre></div>
+                    <div style="margin-top: 25px; background: #fffbe6; padding: 20px; border-radius: 12px; border: 1px solid #ffe58f;">
+                        <strong style="color: #856404;"><i class="fas fa-triangle-exclamation"></i> Constraints:</strong>
+                        <ul style="margin-top: 12px; line-height: 1.6; color: #856404;">
+                            <li>1 <= candidates.length <= 100</li><li>1 <= candidates[i] <= 50</li><li>1 <= target <= 30</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-brain" style="color: #ffd814;"></i> Solution Deep-Dive</div>
+                    <div style="font-size: 15px; line-height: 1.8; color: #444; white-space: pre-wrap;">[TOC]  
+
+## Solution
+
+---
+
+### Overview
+
+This is one of the problems in the series of combination sums. All these problems can be solved with the same backtracking algorithm.
+
+We recommend trying these similar problems before tackling this one: [Combination Sum](https://leetcode.com/problems/combination-sum/description/) and [Combination Sum III](https://leetcode.com/problems/combination-sum-iii/description/), which are arguably easier and one can tweak the solution a bit to solve this problem.
+
+We also listed some follow-up problems at the end of the article if you are interested in exploring the bactracking algorithm further.
+
+---
+
+### Approach: Backtracking
+
+#### Intuition
+
+In this problem, we need to generate unique combinations with the given sum value. In the worst case, we might need to generate the sum of all combinations in the array. Backtracking can be effectively used to generate all the possible combinations recursively. Backtracking incrementally builds candidates to the solutions and abandons a candidate (backtracks) as soon as it determines that this candidate can't lead to a final solution. For example, in the given problem, we can discard the candidate solution when it exceeds the sum value, provided the array contains non-negative values. Refer to this [backtracking explore card](https://leetcode.com/explore/learn/card/recursion-ii/472/backtracking/2654/) to read more about backtracking.
+
+Using backtracking, we could incrementally build the combinations. When we find the current combination is not valid, we backtrack and try another option. For the first option, we add the current array element to the current combination array and move this combination to the next index recursively. Similarly, for the second option, we remove the element from the current combination array and move this combination to the next index. Therefore, for every index, we explored two possibilities of including and excluding that value and calculated the combination sum of the maintained combination array. If the desired sum is reached, we can append the list to the answer list. To demonstrate the idea, we showcase how it works with a concrete example in the following tree:
+
+![fig](../Figures/40/40.png)
+
+Are there any optimizations to reduce the backtracking calls? Since we need to return unique combinations, we can group equal values of the array together. The simplest way to group all elements together is by sorting them. Now, suppose the frequency of an element is `freq`, and you need to make backtracking calls for all its possible frequencies between `0` and `freq`, then we can simply pick them from the beginning of its group in the sorted array.
+
+#### Algorithm
+
+- Create a list `list` to store all the unique combinations that sum up to the target.
+- Sort the `candidates` array to handle duplicates and facilitate the backtracking process.
+- Call the `backtrack` function with the following parameters:
+  - `answer`: List to store the final combinations.
+  - `tempList`: Temporary list to store the current combination.
+  - `candidates`: Input array of numbers.
+  - `totalLeft`: Remaining sum to reach the target.
+  - `index`: Starting index for the current recursion.
+
+- Within the `backtrack` function:
+  - If `totalLeft` is less than 0, return immediately (invalid path).
+  - If `totalLeft` equals 0:
+    - Add a copy of `tempList` to `answer` (valid combination found).
+  - Otherwise:
+    - Iterate over `candidates` starting from `index`:
+      - Skip duplicate numbers by checking if `candidates[i] == candidates[i - 1]` for `i > index`.
+      - Add `candidates[i]` to `tempList`.
+      - Recursively call `backtrack` with:
+        - Updated `totalLeft` reduced by `candidates[i]`.
+        - Updated `index` as `i + 1` to avoid reusing the same element.
+      - Remove the last element from `tempList` to backtrack and explore other possibilities.
+
+- Return `list` containing all unique combinations after the recursive calls complete.
+
+#### Implementation#### Complexity Analysis
+
+Let $N$ be the number of $candidates$ in the array.
+
+- Time complexity: $O(2^N)$
+
+    In the worst case, our algorithm will exhaust all possible combinations from the input array. Again, in the worst case, let us assume that each number is unique. The number of combinations for an array of size $N$ would be $2^N$, i.e. each number is included or excluded in a combination. 
+    
+    Additionally, it takes $O(N)$ time to build a counter table out of the input array.
+    
+    Therefore, the overall time complexity of the algorithm is dominated by the backtracking process, which is $O(2^N)$.
+
+    You must think about how the solution passes the test cases when the value of $N$ goes up to 100. [Pruning](https://en.wikipedia.org/wiki/Decision_tree_pruning) is the process of writing some additional conditions within our recursion code that help us to reduce the size of our recursion trees by removing redundant sections. For example, in this problem, the maximum value of any `candidates` element is given by 50, whereas the maximum `target` value is 30. So, we can stop the recursion when the value of candidates exceeds the `target` value. Sorting the array is another way to prune the recursion tree. Checkout the image for an explanation:
+
+    ![fig](../Figures/40/image.png)
+   
+- Space complexity: $O(N)$
+   
+    We first create a `tempList`, which in the worst case will consume $O(N)$ space to keep track of the combinations. In addition, we apply recursion in the algorithm, which will incur additional memory consumption in the function call stack. In the worst case, the stack will pile up to $O(N)$ space.
+
+    To sum up, the overall space complexity of the algorithm is $O(N)$.
+
+    Note: we did not take into account the space needed to hold the final results of the combination in the above analysis.
+
+---
+
+Here are a series of problems you can solve, with some tweaks of the backtracking algorithm presented in this article.
+
+[Subsets](https://leetcode.com/problems/subsets/description/)
+[Subsets II](https://leetcode.com/problems/subsets-ii/description/)
+[Permutations](https://leetcode.com/problems/permutations/description/)
+[Permutations II](https://leetcode.com/problems/permutations-ii/description/)
+[Combinations](https://leetcode.com/problems/combinations/description/)
+[Combination Sum](https://leetcode.com/problems/combination-sum/description/)
+[Combination Sum III](https://leetcode.com/problems/combination-sum-iii/description/)
+[Palindrome Partition](https://leetcode.com/problems/palindrome-partitioning/description/)
+
+---</div>
+                </div>
+
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="lang-tabs">
+                            <button class="tab-btn active" onclick="switchLang('python3')">Python3</button>
+                            <button class="tab-btn" onclick="switchLang('java')">Java</button>
+                            <button class="tab-btn" onclick="switchLang('cpp')">C++</button>
+                        </div>
+                        <span style="font-size: 12px; color: #666; font-weight: 700;"><i class="fas fa-terminal"></i> CODE LAB</span>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copy</button>
+                        <pre><code id="code-display">class Solution:
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../js/main.js"></script>
+    <script src="../leetcode-core.js"></script>
+    <script>
+        const snippets = {"cpp": "class Solution {\npublic:\n    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {\n        \n    }\n};", "java": "class Solution {\n    public List<List<Integer>> combinationSum2(int[] candidates, int target) {\n        \n    }\n}", "python": "class Solution(object):\n    def combinationSum2(self, candidates, target):\n        \"\"\"\n        :type candidates: List[int]\n        :type target: int\n        :rtype: List[List[int]]\n        \"\"\"\n        ", "python3": "class Solution:\n    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:\n        ", "c": "/**\n * Return an array of arrays of size *returnSize.\n * The sizes of the arrays are returned as *returnColumnSizes array.\n * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().\n */\nint** combinationSum2(int* candidates, int candidatesSize, int target, int* returnSize, int** returnColumnSizes) {\n    \n}", "csharp": "public class Solution {\n    public IList<IList<int>> CombinationSum2(int[] candidates, int target) {\n        \n    }\n}", "javascript": "/**\n * @param {number[]} candidates\n * @param {number} target\n * @return {number[][]}\n */\nvar combinationSum2 = function(candidates, target) {\n    \n};", "typescript": "function combinationSum2(candidates: number[], target: number): number[][] {\n    \n};", "php": "class Solution {\n\n    /**\n     * @param Integer[] $candidates\n     * @param Integer $target\n     * @return Integer[][]\n     */\n    function combinationSum2($candidates, $target) {\n        \n    }\n}", "swift": "class Solution {\n    func combinationSum2(_ candidates: [Int], _ target: Int) -> [[Int]] {\n        \n    }\n}", "kotlin": "class Solution {\n    fun combinationSum2(candidates: IntArray, target: Int): List<List<Int>> {\n        \n    }\n}", "dart": "class Solution {\n  List<List<int>> combinationSum2(List<int> candidates, int target) {\n    \n  }\n}", "golang": "func combinationSum2(candidates []int, target int) [][]int {\n    \n}", "ruby": "# @param {Integer[]} candidates\n# @param {Integer} target\n# @return {Integer[][]}\ndef combination_sum2(candidates, target)\n    \nend", "scala": "object Solution {\n    def combinationSum2(candidates: Array[Int], target: Int): List[List[Int]] = {\n        \n    }\n}", "rust": "impl Solution {\n    pub fn combination_sum2(candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {\n        \n    }\n}", "racket": "(define/contract (combination-sum2 candidates target)\n  (-> (listof exact-integer?) exact-integer? (listof (listof exact-integer?)))\n  )", "erlang": "-spec combination_sum2(Candidates :: [integer()], Target :: integer()) -> [[integer()]].\ncombination_sum2(Candidates, Target) ->\n  .", "elixir": "defmodule Solution do\n  @spec combination_sum2(candidates :: [integer], target :: integer) :: [[integer]]\n  def combination_sum2(candidates, target) do\n    \n  end\nend"};
+        initializeSnippetManager(snippets);
+    </script>
+</body>
+</html>

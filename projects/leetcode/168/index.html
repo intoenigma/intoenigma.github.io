@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Sheet Column Title - LeetCode Master | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../leetcode-style.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div style="margin-bottom: 25px;">
+                    <a href="../index.html" style="color: #007185; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-arrow-left-long"></i> Back to Hub
+                    </a>
+                </div>
+
+                <div class="lab-card">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <span class="badge Easy"><i class="fas fa-shield-halved"></i> Easy</span>
+                            <h1 style="font-size: 32px; font-weight: 800; margin-top: 15px; color: #232f3e;">#168 Excel Sheet Column Title</h1>
+                        </div>
+                        <div class="tag-container"><span class="topic-tag">Math</span><span class="topic-tag">String</span></div>
+                    </div>
+
+                    <div class="h-title" style="margin-top: 40px;"><i class="fas fa-align-left" style="color: #007185;"></i> Problem Context</div>
+                    <div style="font-size: 16px; color: #232f3e; line-height: 1.8; white-space: pre-wrap;">Given an integer columnNumber, return its corresponding column title as it appears in an Excel sheet.
+For example:
+Example 1:
+Example 2:
+Example 3:
+Constraints:</div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-flask-vial" style="color: #e47911;"></i> Technical Logic & Constraints</div>
+                    <div class="example-box"><strong style="color: #007185;">Example 1:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">A -> 1
+B -> 2
+C -> 3
+...
+Z -> 26
+AA -> 27
+AB -> 28 
+...</pre></div><div class="example-box"><strong style="color: #007185;">Example 2:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: columnNumber = 1
+Output: "A"</pre></div><div class="example-box"><strong style="color: #007185;">Example 3:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: columnNumber = 28
+Output: "AB"</pre></div><div class="example-box"><strong style="color: #007185;">Example 4:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: columnNumber = 701
+Output: "ZY"</pre></div>
+                    <div style="margin-top: 25px; background: #fffbe6; padding: 20px; border-radius: 12px; border: 1px solid #ffe58f;">
+                        <strong style="color: #856404;"><i class="fas fa-triangle-exclamation"></i> Constraints:</strong>
+                        <ul style="margin-top: 12px; line-height: 1.6; color: #856404;">
+                            <li>1 <= columnNumber <= 231 - 1</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-brain" style="color: #ffd814;"></i> Solution Deep-Dive</div>
+                    <div style="font-size: 15px; line-height: 1.8; color: #444; white-space: pre-wrap;">[TOC]
+
+## Solution
+
+---
+
+### Approach: Convert
+
+#### Intuition
+
+In Excel, the columns are letters that correspond to numbers. We start with `A = 1`. Similarly, `2` corresponds to `B`  until `26` for `Z`. Once we run out of letters, we start appending them. `27` will correspond to `AA`, `28` for `AB`, and so on. In this problem, we are given the integer which is the column number and we need to return the corresponding letters for it.
+
+At first glance, it might be tempting to say that these numbers are just base 26, but the catch is that in a base 26 system, the numbers would start from `0`. The mapping would be like below:
+
+![fig](../Figures/168/168A_resize.png)
+
+However, in the problem, we have the number starting from `1`, not `0`. But we can change them to process them like base 26 numbers. The important point to observe here is that every column title has the corresponding column number as a number in base 26 plus one. For example, let's convert the number `2002` to the letters `BXZ` by representing it as a number in base 26. Note that each part will have an extra `1` added to compensate for the fact that we are starting from `1` in our system. See the below example for a better understanding of the algorithm:
+
+`N = 2002` corresponds to `BXZ`.
+
+In terms of base 26:
+
+$N = (B + 1) \cdot 26^2 + (X + 1) \cdot 26^1 + (Z + 1) * 26^0$
+
+$N = (1 + 1) \cdot 676 + (23 + 1) \cdot 26 + (25 + 1) \cdot 1 = 2002$
+
+Steps to get the letters:
+
+1. Subtract `1` from `N`. Now, `N = 2001`. Take N modulo 26 and convert the result to the corresponding position in the alphabet. `2001 % 26 = 25`, which corresponds to `Z`, since we start with `A = 0`.
+2. Divide `N` by 26. We have $N = \frac{2001}{26} = 76$.
+3. Repeat the process until `N = 0`. We subtract `1`, so now `N = 75`. Take it modulo 26: `75 % 26 = 23`. This corresponds to `X`.
+4. Divide `N` by 26. We have $N = \frac{75}{26} = 2$.
+5. Subtract `1`, so now `N = 1`. Take it modulo 26: `1 % 26 = 1`. This corresponds to `B`.
+
+Finally, we are done, because $\frac{N}{26} = 0$. The result is `BXZ`, the reverse order in which we found the letters.
+
+#### Algorithm
+
+1. Initialize an empty string `ans` which would store the column title.
+2. Do the following as long as `columnNumber` is greater than `0`:
+
+    1. Subtract `1` from the `columnNumber`
+    2. Find the character corresponding to `columnNumber % 26` and append it to the `ans` in the end.
+    3. Assign `columnNumber` to `columnNumber / 26`.
+3. Reverse the string `columnNumber` and return it.
+
+#### Implementation#### Complexity Analysis
+
+Here, $N$ is the column number given in the problem.
+
+* Time complexity: $O(\log N)$
+
+  The number of operations would be equal to the number of while loop iterations. In each iteration, the number $N$ gets divided by $26$. Hence the time complexity would be $O(\log{_{26}}{N})$. Note that the base of the logarithm is not relevant when it comes to big O, since all logarithms are related by a constant factor.
+
+* Space complexity: $O(1)$
+
+  We only need one string to store the output, but generally the space to store the output is not considered as part of space complexity and hence the space complexity is constant.---</div>
+                </div>
+
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="lang-tabs">
+                            <button class="tab-btn active" onclick="switchLang('python3')">Python3</button>
+                            <button class="tab-btn" onclick="switchLang('java')">Java</button>
+                            <button class="tab-btn" onclick="switchLang('cpp')">C++</button>
+                        </div>
+                        <span style="font-size: 12px; color: #666; font-weight: 700;"><i class="fas fa-terminal"></i> CODE LAB</span>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copy</button>
+                        <pre><code id="code-display">class Solution:
+    def convertToTitle(self, columnNumber: int) -> str:
+        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../js/main.js"></script>
+    <script src="../leetcode-core.js"></script>
+    <script>
+        const snippets = {"cpp": "class Solution {\npublic:\n    string convertToTitle(int columnNumber) {\n        \n    }\n};", "java": "class Solution {\n    public String convertToTitle(int columnNumber) {\n        \n    }\n}", "python": "class Solution(object):\n    def convertToTitle(self, columnNumber):\n        \"\"\"\n        :type columnNumber: int\n        :rtype: str\n        \"\"\"\n        ", "python3": "class Solution:\n    def convertToTitle(self, columnNumber: int) -> str:\n        ", "c": "char* convertToTitle(int columnNumber) {\n    \n}", "csharp": "public class Solution {\n    public string ConvertToTitle(int columnNumber) {\n        \n    }\n}", "javascript": "/**\n * @param {number} columnNumber\n * @return {string}\n */\nvar convertToTitle = function(columnNumber) {\n    \n};", "typescript": "function convertToTitle(columnNumber: number): string {\n    \n};", "php": "class Solution {\n\n    /**\n     * @param Integer $columnNumber\n     * @return String\n     */\n    function convertToTitle($columnNumber) {\n        \n    }\n}", "swift": "class Solution {\n    func convertToTitle(_ columnNumber: Int) -> String {\n        \n    }\n}", "kotlin": "class Solution {\n    fun convertToTitle(columnNumber: Int): String {\n        \n    }\n}", "dart": "class Solution {\n  String convertToTitle(int columnNumber) {\n    \n  }\n}", "golang": "func convertToTitle(columnNumber int) string {\n    \n}", "ruby": "# @param {Integer} column_number\n# @return {String}\ndef convert_to_title(column_number)\n    \nend", "scala": "object Solution {\n    def convertToTitle(columnNumber: Int): String = {\n        \n    }\n}", "rust": "impl Solution {\n    pub fn convert_to_title(column_number: i32) -> String {\n        \n    }\n}", "racket": "(define/contract (convert-to-title columnNumber)\n  (-> exact-integer? string?)\n  )", "erlang": "-spec convert_to_title(ColumnNumber :: integer()) -> unicode:unicode_binary().\nconvert_to_title(ColumnNumber) ->\n  .", "elixir": "defmodule Solution do\n  @spec convert_to_title(column_number :: integer) :: String.t\n  def convert_to_title(column_number) do\n    \n  end\nend"};
+        initializeSnippetManager(snippets);
+    </script>
+</body>
+</html>

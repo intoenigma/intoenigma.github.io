@@ -1,183 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Add Two Numbers | LeetCode Revision</title>
-<link rel="stylesheet" href="../../assets/common.css">
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-
-  body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
-    margin: 0;
-    padding: 20px;
-    color: #222;
-  }
-
-  .container {
-    max-width: 900px;
-    margin: auto;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-  }
-
-  a.back-btn {
-    display: inline-block;
-    margin-bottom: 20px;
-    padding: 8px 16px;
-    background: rgba(255,255,255,0.3);
-    color: #0077cc;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-    backdrop-filter: blur(10px);
-  }
-  a.back-btn:hover {
-    background: rgba(255,255,255,0.5);
-  }
-
-  h1 { font-size: 2em; margin-bottom: 15px; text-align:center; }
-
-  .card {
-    background: rgba(255,255,255,0.25);
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  }
-
-  h3 { margin-top: 15px; color: #0077cc; }
-
-  pre {
-    background: rgba(255,255,255,0.1);
-    padding: 15px;
-    border-radius: 10px;
-    overflow-x: auto;
-    font-family: 'Courier New', monospace;
-  }
-
-  .tags span {
-    display: inline-block;
-    background: rgba(255,255,255,0.3);
-    margin: 3px 5px;
-    padding: 4px 10px;
-    border-radius: 8px;
-    font-size: 0.85em;
-    backdrop-filter: blur(5px);
-  }
-
-  /* Tabs */
-  .tabs { display:flex; margin-top: 15px; border-bottom:1px solid rgba(255,255,255,0.3);}
-  .tab { padding:10px 20px; cursor:pointer; font-weight:600; transition:0.3s; border-radius:10px 10px 0 0; margin-right:5px; }
-  .tab.active { background: rgba(255,255,255,0.35); }
-  .tab-content { display:none; margin-top:15px; }
-  .tab-content.active { display:block; }
-
-  @media(max-width:600px){
-    body { padding:10px; }
-    h1 { font-size:1.5em; }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Two Numbers - LeetCode Master | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../leetcode-style.css">
 </head>
 <body>
-<div class="container">
-  <a href="/leetcode" class="back-btn">⬅ Back to Search</a>
-  <h1 id="title">Loading...</h1>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div style="margin-bottom: 25px;">
+                    <a href="../index.html" style="color: #007185; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-arrow-left-long"></i> Back to Hub
+                    </a>
+                </div>
 
-  <div class="card">
-    <h3>🧠 Pattern & Difficulty</h3>
-    <p id="pattern"></p>
-    <p id="difficulty"></p>
-    <div class="tags" id="tags"></div>
-  </div>
+                <div class="lab-card">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <span class="badge Medium"><i class="fas fa-shield-halved"></i> Medium</span>
+                            <h1 style="font-size: 32px; font-weight: 800; margin-top: 15px; color: #232f3e;">#2 Add Two Numbers</h1>
+                        </div>
+                        <div class="tag-container"><span class="topic-tag">Linked List</span><span class="topic-tag">Math</span><span class="topic-tag">Recursion</span></div>
+                    </div>
 
-  <div class="card">
-    <h3>📝 Summary</h3>
-    <p id="summary"></p>
-  </div>
+                    <div class="h-title" style="margin-top: 40px;"><i class="fas fa-align-left" style="color: #007185;"></i> Problem Context</div>
+                    <div style="font-size: 16px; color: #232f3e; line-height: 1.8; white-space: pre-wrap;">You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+Example 1:
+Example 2:
+Example 3:
+Constraints:</div>
+                </div>
 
-  <!-- Tabs for different sections -->
-  <div class="card">
-    <div class="tabs">
-      <div class="tab active" data-tab="hinglish">Hinglish</div>
-      <div class="tab" data-tab="english">English</div>
-      <div class="tab" data-tab="logic">Logic</div>
-      <div class="tab" data-tab="constraints">Constraints</div>
-      <div class="tab" data-tab="code">Code</div>
-      <div class="tab" data-tab="examples">Examples</div>
-    </div>
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-flask-vial" style="color: #e47911;"></i> Technical Logic & Constraints</div>
+                    <div class="example-box"><strong style="color: #007185;">Example 1:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: l1 = [2,4,3], l2 = [5,6,4]
+Output: [7,0,8]
+Explanation: 342 + 465 = 807.</pre></div><div class="example-box"><strong style="color: #007185;">Example 2:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: l1 = [0], l2 = [0]
+Output: [0]</pre></div><div class="example-box"><strong style="color: #007185;">Example 3:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+Output: [8,9,9,9,0,0,0,1]</pre></div>
+                    <div style="margin-top: 25px; background: #fffbe6; padding: 20px; border-radius: 12px; border: 1px solid #ffe58f;">
+                        <strong style="color: #856404;"><i class="fas fa-triangle-exclamation"></i> Constraints:</strong>
+                        <ul style="margin-top: 12px; line-height: 1.6; color: #856404;">
+                            <li>The number of nodes in each linked list is in the range [1, 100].</li><li>0 <= Node.val <= 9</li><li>It is guaranteed that the list represents a number that does not have leading zeros.</li>
+                        </ul>
+                    </div>
+                </div>
 
-    <div id="hinglish" class="tab-content active"></div>
-    <div id="english" class="tab-content"></div>
-    <div id="logic" class="tab-content"><pre id="logicContent"></pre></div>
-    <div id="constraints" class="tab-content"><ul id="constraintsContent"></ul></div>
-    <div id="code" class="tab-content">
-      <h4>Python</h4><pre id="pythonCode"></pre>
-      <h4>Java</h4><pre id="javaCode"></pre>
-      <h4>JavaScript</h4><pre id="jsCode"></pre>
-    </div>
-    <div id="examples" class="tab-content"><pre id="examplesContent"></pre></div>
-  </div>
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-brain" style="color: #ffd814;"></i> Solution Deep-Dive</div>
+                    <div style="font-size: 15px; line-height: 1.8; color: #444; white-space: pre-wrap;">## Video Solution
+---## Solution Article
 
-</div>
+---
 
-<script>
-async function loadData() {
-  try {
-    const res = await fetch('data.json');
-    if(!res.ok) throw new Error('Cannot load data.json');
-    const data = await res.json();
+### Approach 1: Elementary Math
 
-    document.getElementById('title').textContent = `${data.id}. ${data.title}`;
-    document.getElementById('pattern').textContent = `Pattern: ${data.pattern}`;
-    document.getElementById('difficulty').textContent = `Difficulty: ${data.difficulty}`;
-    document.getElementById('summary').textContent = data.summary;
+**Intuition**
 
-    // Tags
-    const tagsDiv = document.getElementById('tags');
-    if(data.tags) data.tags.forEach(t=>{
-      const span = document.createElement('span'); span.textContent = t; tagsDiv.appendChild(span);
-    });
+Keep track of the carry using a variable and simulate digits-by-digits sum starting from the head of list, which contains the least-significant digit.
 
-    // Tabs content
-    document.getElementById('hinglish').textContent = data.hinglish;
-    document.getElementById('english').textContent = data.english;
-    document.getElementById('logicContent').textContent = data.logic.join('\n');
-    const constraintsUl = document.getElementById('constraintsContent');
-    if(data.constraints) data.constraints.forEach(c=>{
-      const li = document.createElement('li'); li.textContent=c; constraintsUl.appendChild(li);
-    });
-    document.getElementById('pythonCode').textContent = data.code_snippets.python;
-    document.getElementById('javaCode').textContent = data.code_snippets.java;
-    document.getElementById('jsCode').textContent = data.code_snippets.javascript;
-    document.getElementById('examplesContent').textContent = data.example_io.map(e=>`Input: ${e.input}\nOutput: ${e.output}`).join('\n\n');
+![Illustration of Adding two numbers](../Figures/2_add_two_numbers.svg){:width="539px"}
 
-    // Tabs switching
-    const tabs = document.querySelectorAll('.tab');
-    tabs.forEach(tab=>{
-      tab.addEventListener('click', ()=>{
-        tabs.forEach(t=>t.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.tab).classList.add('active');
-      });
-    });
 
-  } catch(err){
-    document.body.innerHTML = `<h1>Error</h1><p>${err.message}</p><a href="/leetcode" class="back-btn">⬅ Back</a>`;
-    console.error(err);
-  }
-}
+*Figure 1. Visualization of the addition of two numbers: $$342 + 465 = 807$$.  
+Each node contains a single digit and the digits are stored in reverse order.*
 
-loadData();
-</script>
 
+**Algorithm**
+
+Just like how you would sum two numbers on a piece of paper, we begin by summing the least-significant digits, which is the head of $$l1$$ and $$l2$$. Since each digit is in the range of $$0 \ldots 9$$, summing two digits may "overflow". For example $$5 + 7 = 12$$. In this case, we set the current digit to $$2$$ and bring over the $$carry = 1$$ to the next iteration. $$carry$$ must be either $$0$$ or $$1$$ because the largest possible sum of two digits (including the carry) is $$9 + 9 + 1 = 19$$.
+
+The pseudocode is as following:
+
+* Initialize current node to dummy head of the returning list.
+* Initialize carry to $$0$$.
+* Loop through lists $$l1$$ and $$l2$$ until you reach both ends and carry is $$0$$.
+    * Set $$x$$ to node $$l1$$'s value. If $$l1$$ has reached the end of $$l1$$, set to $$0$$.
+    * Set $$y$$ to node $$l2$$'s value. If $$l2$$ has reached the end of $$l2$$, set to $$0$$.
+    * Set $$sum = x + y + carry$$.
+    * Update $$carry = sum / 10$$.
+    * Create a new node with the digit value of $$(sum \bmod 10)$$ and set it to current node's next, then advance current node to next.
+    * Advance both $$l1$$ and $$l2$$.
+* Return dummy head's next node.
+
+Note that we use a dummy head to simplify the code. Without a dummy head, you would have to write extra conditional statements to initialize the head's value.
+
+Take extra caution of the following cases:
+
+| Test case | Explanation |
+| ------------- | ---------------- |
+| $$l1=[0,1]$$$$l2=[0,1,2]$$ | When one list is longer than the other. |
+| $$l1=[]$$$$l2=[0,1]$$ | When one list is null, which means an empty list. |
+| $$l1=[9,9]$$$$l2=[1]$$ | The sum could have an extra carry of one at the end, which is easy to forget. |
+
+**Implementation****Complexity Analysis**
+
+* Time complexity : $$O(\max(m, n))$$. Assume that $$m$$ and $$n$$ represents the length of $$l1$$ and $$l2$$ respectively, the algorithm above iterates at most $$\max(m, n)$$ times.
+
+* Space complexity : $$O(1)$$. The length of the new list is at most $$\max(m,n) + 1$$ However, we don't count the answer as part of the space complexity.
+
+**Follow up**
+
+What if the the digits in the linked list are stored in non-reversed order? For example:
+
+$$
+(3 \to 4 \to 2) + (4 \to 6 \to 5) = 8 \to 0 \to 7
+$$</div>
+                </div>
+
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="lang-tabs">
+                            <button class="tab-btn active" onclick="switchLang('python3')">Python3</button>
+                            <button class="tab-btn" onclick="switchLang('java')">Java</button>
+                            <button class="tab-btn" onclick="switchLang('cpp')">C++</button>
+                        </div>
+                        <span style="font-size: 12px; color: #666; font-weight: 700;"><i class="fas fa-terminal"></i> CODE LAB</span>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copy</button>
+                        <pre><code id="code-display"># Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../js/main.js"></script>
+    <script src="../leetcode-core.js"></script>
+    <script>
+        const snippets = {"cpp": "/**\n * Definition for singly-linked list.\n * struct ListNode {\n *     int val;\n *     ListNode *next;\n *     ListNode() : val(0), next(nullptr) {}\n *     ListNode(int x) : val(x), next(nullptr) {}\n *     ListNode(int x, ListNode *next) : val(x), next(next) {}\n * };\n */\nclass Solution {\npublic:\n    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {\n        \n    }\n};", "java": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode() {}\n *     ListNode(int val) { this.val = val; }\n *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n * }\n */\nclass Solution {\n    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {\n        \n    }\n}", "python": "# Definition for singly-linked list.\n# class ListNode(object):\n#     def __init__(self, val=0, next=None):\n#         self.val = val\n#         self.next = next\nclass Solution(object):\n    def addTwoNumbers(self, l1, l2):\n        \"\"\"\n        :type l1: Optional[ListNode]\n        :type l2: Optional[ListNode]\n        :rtype: Optional[ListNode]\n        \"\"\"\n        ", "python3": "# Definition for singly-linked list.\n# class ListNode:\n#     def __init__(self, val=0, next=None):\n#         self.val = val\n#         self.next = next\nclass Solution:\n    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:\n        ", "c": "/**\n * Definition for singly-linked list.\n * struct ListNode {\n *     int val;\n *     struct ListNode *next;\n * };\n */\nstruct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {\n    \n}", "csharp": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     public int val;\n *     public ListNode next;\n *     public ListNode(int val=0, ListNode next=null) {\n *         this.val = val;\n *         this.next = next;\n *     }\n * }\n */\npublic class Solution {\n    public ListNode AddTwoNumbers(ListNode l1, ListNode l2) {\n        \n    }\n}", "javascript": "/**\n * Definition for singly-linked list.\n * function ListNode(val, next) {\n *     this.val = (val===undefined ? 0 : val)\n *     this.next = (next===undefined ? null : next)\n * }\n */\n/**\n * @param {ListNode} l1\n * @param {ListNode} l2\n * @return {ListNode}\n */\nvar addTwoNumbers = function(l1, l2) {\n    \n};", "typescript": "/**\n * Definition for singly-linked list.\n * class ListNode {\n *     val: number\n *     next: ListNode | null\n *     constructor(val?: number, next?: ListNode | null) {\n *         this.val = (val===undefined ? 0 : val)\n *         this.next = (next===undefined ? null : next)\n *     }\n * }\n */\n\nfunction addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {\n    \n};", "php": "/**\n * Definition for a singly-linked list.\n * class ListNode {\n *     public $val = 0;\n *     public $next = null;\n *     function __construct($val = 0, $next = null) {\n *         $this->val = $val;\n *         $this->next = $next;\n *     }\n * }\n */\nclass Solution {\n\n    /**\n     * @param ListNode $l1\n     * @param ListNode $l2\n     * @return ListNode\n     */\n    function addTwoNumbers($l1, $l2) {\n        \n    }\n}", "swift": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     public var val: Int\n *     public var next: ListNode?\n *     public init() { self.val = 0; self.next = nil; }\n *     public init(_ val: Int) { self.val = val; self.next = nil; }\n *     public init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }\n * }\n */\nclass Solution {\n    func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {\n        \n    }\n}", "kotlin": "/**\n * Example:\n * var li = ListNode(5)\n * var v = li.`val`\n * Definition for singly-linked list.\n * class ListNode(var `val`: Int) {\n *     var next: ListNode? = null\n * }\n */\nclass Solution {\n    fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {\n        \n    }\n}", "dart": "/**\n * Definition for singly-linked list.\n * class ListNode {\n *   int val;\n *   ListNode? next;\n *   ListNode([this.val = 0, this.next]);\n * }\n */\nclass Solution {\n  ListNode? addTwoNumbers(ListNode? l1, ListNode? l2) {\n    \n  }\n}", "golang": "/**\n * Definition for singly-linked list.\n * type ListNode struct {\n *     Val int\n *     Next *ListNode\n * }\n */\nfunc addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {\n    \n}", "ruby": "# Definition for singly-linked list.\n# class ListNode\n#     attr_accessor :val, :next\n#     def initialize(val = 0, _next = nil)\n#         @val = val\n#         @next = _next\n#     end\n# end\n# @param {ListNode} l1\n# @param {ListNode} l2\n# @return {ListNode}\ndef add_two_numbers(l1, l2)\n    \nend", "scala": "/**\n * Definition for singly-linked list.\n * class ListNode(_x: Int = 0, _next: ListNode = null) {\n *   var next: ListNode = _next\n *   var x: Int = _x\n * }\n */\nobject Solution {\n    def addTwoNumbers(l1: ListNode, l2: ListNode): ListNode = {\n        \n    }\n}", "rust": "// Definition for singly-linked list.\n// #[derive(PartialEq, Eq, Clone, Debug)]\n// pub struct ListNode {\n//   pub val: i32,\n//   pub next: Option<Box<ListNode>>\n// }\n// \n// impl ListNode {\n//   #[inline]\n//   fn new(val: i32) -> Self {\n//     ListNode {\n//       next: None,\n//       val\n//     }\n//   }\n// }\nimpl Solution {\n    pub fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {\n        \n    }\n}", "racket": "; Definition for singly-linked list:\n#|\n\n; val : integer?\n; next : (or/c list-node? #f)\n(struct list-node\n  (val next) #:mutable #:transparent)\n\n; constructor\n(define (make-list-node [val 0])\n  (list-node val #f))\n\n|#\n\n(define/contract (add-two-numbers l1 l2)\n  (-> (or/c list-node? #f) (or/c list-node? #f) (or/c list-node? #f))\n  )", "erlang": "%% Definition for singly-linked list.\n%%\n%% -record(list_node, {val = 0 :: integer(),\n%%                     next = null :: 'null' | #list_node{}}).\n\n-spec add_two_numbers(L1 :: #list_node{} | null, L2 :: #list_node{} | null) -> #list_node{} | null.\nadd_two_numbers(L1, L2) ->\n  .", "elixir": "# Definition for singly-linked list.\n#\n# defmodule ListNode do\n#   @type t :: %__MODULE__{\n#           val: integer,\n#           next: ListNode.t() | nil\n#         }\n#   defstruct val: 0, next: nil\n# end\n\ndefmodule Solution do\n  @spec add_two_numbers(l1 :: ListNode.t | nil, l2 :: ListNode.t | nil) :: ListNode.t | nil\n  def add_two_numbers(l1, l2) do\n    \n  end\nend"};
+        initializeSnippetManager(snippets);
+    </script>
 </body>
 </html>

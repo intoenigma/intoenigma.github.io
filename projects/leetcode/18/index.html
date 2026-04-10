@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4Sum - LeetCode Master | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../leetcode-style.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div style="margin-bottom: 25px;">
+                    <a href="../index.html" style="color: #007185; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-arrow-left-long"></i> Back to Hub
+                    </a>
+                </div>
+
+                <div class="lab-card">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <span class="badge Medium"><i class="fas fa-shield-halved"></i> Medium</span>
+                            <h1 style="font-size: 32px; font-weight: 800; margin-top: 15px; color: #232f3e;">#18 4Sum</h1>
+                        </div>
+                        <div class="tag-container"><span class="topic-tag">Array</span><span class="topic-tag">Two Pointers</span><span class="topic-tag">Sorting</span></div>
+                    </div>
+
+                    <div class="h-title" style="margin-top: 40px;"><i class="fas fa-align-left" style="color: #007185;"></i> Problem Context</div>
+                    <div style="font-size: 16px; color: #232f3e; line-height: 1.8; white-space: pre-wrap;">Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
+You may return the answer in any order.
+Example 1:
+Example 2:
+Constraints:</div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-flask-vial" style="color: #e47911;"></i> Technical Logic & Constraints</div>
+                    <div class="example-box"><strong style="color: #007185;">Example 1:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: nums = [1,0,-1,0,-2,2], target = 0
+Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]</pre></div><div class="example-box"><strong style="color: #007185;">Example 2:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: nums = [2,2,2,2,2], target = 8
+Output: [[2,2,2,2]]</pre></div>
+                    <div style="margin-top: 25px; background: #fffbe6; padding: 20px; border-radius: 12px; border: 1px solid #ffe58f;">
+                        <strong style="color: #856404;"><i class="fas fa-triangle-exclamation"></i> Constraints:</strong>
+                        <ul style="margin-top: 12px; line-height: 1.6; color: #856404;">
+                            <li>1 <= nums.length <= 200</li><li>-109 <= nums[i] <= 109</li><li>-109 <= target <= 109</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-brain" style="color: #ffd814;"></i> Solution Deep-Dive</div>
+                    <div style="font-size: 15px; line-height: 1.8; color: #444; white-space: pre-wrap;">[TOC]
+
+## Solution
+
+This problem is a follow-up of [3Sum](https://leetcode.com/articles/3sum/), so take a look at that problem first if you haven't. 4Sum and 3Sum are very similar; the difference is that we are looking for unique quadruplets instead of triplets.
+
+As you see, 3Sum just wraps Two Sum in an outer loop. As it iterates through each value `v`, it finds all pairs whose sum is equal to `target - v` using one of these approaches:
+
+1. [Two Sum](https://leetcode.com/articles/two-sum/) uses a hash set to check for a matching value.
+2. [Two Sum II](https://leetcode.com/articles/two-sum-ii-input-array-is-sorted/) uses the two pointers pattern in a sorted array.
+
+Following a similar logic, we can implement 4Sum by wrapping 3Sum in another loop. But wait - there is a catch. If an interviewer asks you to solve 4Sum, they can follow-up with 5Sum, 6Sum, and so on. What they are really expecting at this point is a kSum solution. Therefore, we will focus on a generalized implementation here.
+
+---
+
+### Approach 1: Two Pointers
+
+**Intuition**
+
+The two pointers pattern requires the array to be sorted, so we do that first.  Also, it's easier to deal with duplicates if the array is sorted: repeated values are next to each other and easy to skip.
+
+For 3Sum, we enumerate each value in a single loop, and use the two pointers pattern for the rest of the array. For kSum, we will have `k - 2` nested loops to enumerate all combinations of `k - 2` values.
+
+!?!../Documents/18_4Sum.json:1200,440!?!
+
+**Algorithm**
+
+We can implement `k - 2` loops using a recursion. We will pass the starting point and `k` as the parameters. When `k == 2`, we will call `twoSum`, terminating the recursion.
+
+1. For the main function:
+    - Sort the input array `nums`.
+    - Call `kSum` with `start = 0`, `k = 4`, and `target`, and return the result.
+
+2. For `kSum` function:
+    - At the start of the `kSum` function, we will check three conditions:
+      1. Have we run out of numbers to choose from?
+      2. Is the smallest number remaining greater than `target / k`?If so, then any `k` numbers we choose will be too large.
+      3. Is the largest number remaining smaller than `target / k`?If so, then any `k` numbers we choose will be too small.
+      - If any of these conditions is true, there is no need to continue as no combination of the remaining elements can sum to `target`.
+    - If `k` equals `2`, call `twoSum` and return the result.
+    - Iterate `i` through the array from `start`:
+        - If the current value is the same as the one before, skip it.
+        - Recursively call `kSum` with `start = i + 1`, `k = k - 1`, and `target - nums[i]`.
+        - For each returned `subset` of values:
+            - Include the current value `nums[i]` into `subset`.
+            - Add `subset` to the result `res`.
+    - Return the result `res`.
+
+3. For `twoSum` function:
+    - Set the low pointer `lo` to `start`, and high pointer `hi` to the last index.
+    - While low pointer is smaller than high:
+        - If the sum of `nums[lo]` and `nums[hi]` is less than `target`, increment `lo`.
+            - Also increment `lo` if the value is the same as for `lo - 1`.
+        - If the sum is greater than `target`, decrement `hi`.
+            - Also decrement `hi` if the value is the same as for `hi + 1`.
+        - Otherwise, we found a pair:
+            - Add it to the result `res`.
+            - Decrement `hi` and increment `lo`.
+    - Return the result `res`.
+
+**Implementation****Complexity Analysis**
+
+- Time Complexity: $$O(n^{k - 1})$$, or $$O(n^3)$$ for 4Sum. We have $$k - 2$$ loops, and `twoSum` is $$O(n)$$.
+
+    Note that for $$k > 2$$, sorting the array does not change the overall time complexity.
+
+- Space Complexity: $$O(n)$$. We need $$O(k)$$ space for the recursion. $$k$$ can be the same as $$n$$ in the worst case for the generalized algorithm.
+
+    Note that, for the purpose of complexity analysis, we ignore the memory required for the output.
+
+---
+
+### Approach 2: Hash Set
+    
+**Intuition**
+
+Since elements must sum up to the exact target value, we can also use the [Two Sum: One-pass Hash Table](https://leetcode.com/articles/two-sum/#approach-3-one-pass-hash-table) approach.
+
+In [3Sum: Hash Set](https://leetcode.com/articles/3sum/#approach-2-hash-set), we solved the problem without sorting the array. To do that, we needed to sort values within triplets, and track them in a hash set. Doing the same for k values could be impractical.
+
+So, for this approach, we will also sort the array and skip duplicates the same way as in the Two Pointers approach above. Thus, the code will only differ in the `twoSum` implementation.
+
+**Algorithm**
+
+`twoSum` implementation here is almost the same as in [Two Sum: One-pass Hash Table](https://leetcode.com/articles/two-sum/#approach-3-one-pass-hash-table). The only difference is the check to avoid duplicates. Since the array is sorted, we can just compare the found pair with the last one in the result `res`.
+    
+**Implementation****Complexity Analysis**
+
+- Time Complexity: $$O(n^{k - 1})$$, or $$O(n^3)$$ for 4Sum. We have $$k - 2$$ loops iterating over $$n$$ elements, and `twoSum` is $$O(n)$$.
+
+    Note that for $$k > 2$$, sorting the array does not change the overall time complexity.
+
+- Space Complexity: $$O(n)$$ for the hash set. The space needed for the recursion will not exceed $$O(n)$$.</div>
+                </div>
+
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="lang-tabs">
+                            <button class="tab-btn active" onclick="switchLang('python3')">Python3</button>
+                            <button class="tab-btn" onclick="switchLang('java')">Java</button>
+                            <button class="tab-btn" onclick="switchLang('cpp')">C++</button>
+                        </div>
+                        <span style="font-size: 12px; color: #666; font-weight: 700;"><i class="fas fa-terminal"></i> CODE LAB</span>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copy</button>
+                        <pre><code id="code-display">class Solution:
+    def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
+        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../js/main.js"></script>
+    <script src="../leetcode-core.js"></script>
+    <script>
+        const snippets = {"cpp": "class Solution {\npublic:\n    vector<vector<int>> fourSum(vector<int>& nums, int target) {\n        \n    }\n};", "java": "class Solution {\n    public List<List<Integer>> fourSum(int[] nums, int target) {\n        \n    }\n}", "python": "class Solution(object):\n    def fourSum(self, nums, target):\n        \"\"\"\n        :type nums: List[int]\n        :type target: int\n        :rtype: List[List[int]]\n        \"\"\"\n        ", "python3": "class Solution:\n    def fourSum(self, nums: List[int], target: int) -> List[List[int]]:\n        ", "c": "/**\n * Return an array of arrays of size *returnSize.\n * The sizes of the arrays are returned as *returnColumnSizes array.\n * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().\n */\nint** fourSum(int* nums, int numsSize, int target, int* returnSize, int** returnColumnSizes) {\n    \n}", "csharp": "public class Solution {\n    public IList<IList<int>> FourSum(int[] nums, int target) {\n        \n    }\n}", "javascript": "/**\n * @param {number[]} nums\n * @param {number} target\n * @return {number[][]}\n */\nvar fourSum = function(nums, target) {\n    \n};", "typescript": "function fourSum(nums: number[], target: number): number[][] {\n    \n};", "php": "class Solution {\n\n    /**\n     * @param Integer[] $nums\n     * @param Integer $target\n     * @return Integer[][]\n     */\n    function fourSum($nums, $target) {\n        \n    }\n}", "swift": "class Solution {\n    func fourSum(_ nums: [Int], _ target: Int) -> [[Int]] {\n        \n    }\n}", "kotlin": "class Solution {\n    fun fourSum(nums: IntArray, target: Int): List<List<Int>> {\n        \n    }\n}", "dart": "class Solution {\n  List<List<int>> fourSum(List<int> nums, int target) {\n    \n  }\n}", "golang": "func fourSum(nums []int, target int) [][]int {\n    \n}", "ruby": "# @param {Integer[]} nums\n# @param {Integer} target\n# @return {Integer[][]}\ndef four_sum(nums, target)\n    \nend", "scala": "object Solution {\n    def fourSum(nums: Array[Int], target: Int): List[List[Int]] = {\n        \n    }\n}", "rust": "impl Solution {\n    pub fn four_sum(nums: Vec<i32>, target: i32) -> Vec<Vec<i32>> {\n        \n    }\n}", "racket": "(define/contract (four-sum nums target)\n  (-> (listof exact-integer?) exact-integer? (listof (listof exact-integer?)))\n  )", "erlang": "-spec four_sum(Nums :: [integer()], Target :: integer()) -> [[integer()]].\nfour_sum(Nums, Target) ->\n  .", "elixir": "defmodule Solution do\n  @spec four_sum(nums :: [integer], target :: integer) :: [[integer]]\n  def four_sum(nums, target) do\n    \n  end\nend"};
+        initializeSnippetManager(snippets);
+    </script>
+</body>
+</html>

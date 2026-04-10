@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subsets - LeetCode Master | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../leetcode-style.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div style="margin-bottom: 25px;">
+                    <a href="../index.html" style="color: #007185; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-arrow-left-long"></i> Back to Hub
+                    </a>
+                </div>
+
+                <div class="lab-card">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <span class="badge Medium"><i class="fas fa-shield-halved"></i> Medium</span>
+                            <h1 style="font-size: 32px; font-weight: 800; margin-top: 15px; color: #232f3e;">#78 Subsets</h1>
+                        </div>
+                        <div class="tag-container"><span class="topic-tag">Array</span><span class="topic-tag">Backtracking</span><span class="topic-tag">Bit Manipulation</span></div>
+                    </div>
+
+                    <div class="h-title" style="margin-top: 40px;"><i class="fas fa-align-left" style="color: #007185;"></i> Problem Context</div>
+                    <div style="font-size: 16px; color: #232f3e; line-height: 1.8; white-space: pre-wrap;">Given an integer array nums of unique elements, return all possible subsets (the power set).
+The solution set must not contain duplicate subsets. Return the solution in any order.
+Example 1:
+Example 2:
+Constraints:</div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-flask-vial" style="color: #e47911;"></i> Technical Logic & Constraints</div>
+                    <div class="example-box"><strong style="color: #007185;">Example 1:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: nums = [1,2,3]
+Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]</pre></div><div class="example-box"><strong style="color: #007185;">Example 2:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input: nums = [0]
+Output: [[],[0]]</pre></div>
+                    <div style="margin-top: 25px; background: #fffbe6; padding: 20px; border-radius: 12px; border: 1px solid #ffe58f;">
+                        <strong style="color: #856404;"><i class="fas fa-triangle-exclamation"></i> Constraints:</strong>
+                        <ul style="margin-top: 12px; line-height: 1.6; color: #856404;">
+                            <li>1 <= nums.length <= 10</li><li>-10 <= nums[i] <= 10</li><li>All the numbers of nums are unique.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-brain" style="color: #ffd814;"></i> Solution Deep-Dive</div>
+                    <div style="font-size: 15px; line-height: 1.8; color: #444; white-space: pre-wrap;">[TOC]
+
+## Video Solution
+---## Solution Article
+
+---
+
+### Overview: Solution Pattern
+
+Let us first review the problems of Permutations / Combinations / Subsets, since they are quite similar to each other and there are some common strategies to solve them.
+
+First, their solution space is often quite large:
+
+- [Permutations](https://en.wikipedia.org/wiki/Permutation#k-permutations_of_n): $$N!$$. 
+
+- [Combinations](https://en.wikipedia.org/wiki/Combination#Number_of_k-combinations): $$C_N^k = \frac{N!}{(N - k)! k!}$$
+
+- Subsets: $$2^N$$, since each element could be absent or present. 
+
+Given their exponential solution space, it is tricky to ensure that the generated solutions are _**complete**_ and _**non-redundant**_. It is essential to have a clear and easy-to-reason strategy.
+
+There are generally three strategies to do it:
+
+- Iterative
+
+- Recursion/Backtracking
+
+- Lexicographic generation based on the mapping between binary bitmasks and the corresponding permutations / combinations / subsets.
+
+As one would see later, the third method could be a good candidate for the interview because it simplifies the problem to the generation of binary numbers, therefore it is easy to implement and verify that no solution is missing.
+
+Besides, as a bonus, it generates lexicographically sorted output for the sorted inputs.
+
+
+---
+### Approach 1: Cascading
+
+#### Intuition
+
+Let's start from an empty subset in the output list. At each step, one takes a new integer into consideration and generates new subsets from the existing ones. 
+
+![diff](../Figures/78/recursion.png)
+
+#### Implementation#### Complexity Analysis
+
+* Time complexity: $$\mathcal{O}(N \times 2^N)$$ to generate all subsets and then copy them into the output list. 
+    
+* Space complexity: $$\mathcal{O}(N \times 2^N)$$. This is exactly the number of solutions for subsets multiplied by the number $$N$$ of elements to keep for each subset.  
+    - For a given number, it could be present or absent (_i.e._ binary choice) in a subset solution. As a result, for $$N$$ numbers, we would have in total $$2^N$$ choices (solutions).---
+### Approach 2: Backtracking
+
+#### Algorithm
+
+>Power set is all possible combinations of all possible _lengths_, from 0 to n.
+
+Given the definition, the problem can also be interpreted as finding the _power set_ from a sequence.
+
+So, this time let us loop over the length of combination, rather than the candidate numbers, and generate all combinations for a given length with the help of _backtracking_ technique.
+
+![diff](../Figures/78/combinations.png)
+
+>[Backtracking](https://leetcode.com/explore/learn/card/recursion-ii/472/backtracking/2654/) is an algorithm for finding all solutions by exploring all potential candidates. If the solution candidate turns out to be _not_ a solution (or at least not the _last_ one), the backtracking algorithm discards it by making some changes on the previous step, *i.e.* _backtracks_ and then tries again.
+
+![diff](../Figures/78/backtracking.png)
+
+#### Algorithm
+
+We define a backtrack function named `backtrack(first, curr)` that takes the index of the first element to add and a current combination as arguments.
+
+- If the current combination is done, we add the combination to the final output.
+
+- Otherwise, we iterate over the indexes `i` from `first` to the length of the entire sequence `n`.
+
+    - Add integer `nums[i]` into the current combination `curr`.
+
+    - Proceed to add more integers into the combination: `backtrack(i + 1, curr)`.
+
+    - Backtrack by removing `nums[i]` from `curr`.
+
+#### Implementation#### Complexity Analysis
+
+* Time complexity: $$\mathcal{O}(N \times 2^N)$$ to generate all subsets and then copy them into the output list.
+ 
+* Space complexity: $$\mathcal{O}(N)$$. We are using $$O(N)$$ space to maintain `curr`, and are modifying `curr` in-place with backtracking. Note that for space complexity analysis, we do not count space that is *only* used for the purpose of returning output, so the `output` array is ignored.
+
+
+---
+### Approach 3: Lexicographic (Binary Sorted) Subsets
+
+#### Intuition
+
+The idea of this solution is originated from [Donald E. Knuth](https://www-cs-faculty.stanford.edu/~knuth/taocp.html).
+
+>The idea is that we map each subset to a bitmask of length n,
+where `1` on the i*th* position in bitmask means the presence of `nums[i]`
+in the subset, and `0` means its absence. 
+
+![diff](../Figures/78/bitmask4.png)
+
+For instance, the bitmask `0..00` (all zeros) corresponds to an empty subset, 
+and the bitmask `1..11` (all ones) corresponds to the entire input array `nums`. 
+
+Hence to solve the initial problem, we just need to generate n bitmasks
+from `0..00` to `1..11`. 
+
+It might seem simple at first glance to generate binary numbers, but 
+the real problem here is how to deal with 
+[zero left padding](https://en.wikipedia.org/wiki/Padding_(cryptography)#Zero_padding),
+because one has to generate bitmasks of fixed length, _i.e._ `001` and not just `1`.
+For that one could use standard bit manipulation trick:or keep it simple stupid and shift iteration limits:#### Algorithm
+
+- Generate all possible binary bitmasks of length n.
+
+- Map a subset to each bitmask: 
+`1` on the i*th* position in bitmask means the presence of `nums[i]`
+in the subset, and `0` means its absence. 
+
+- Return output list.
+
+#### Implementation#### Complexity Analysis
+
+* Time complexity: $$\mathcal{O}(N \times 2^N)$$ to generate all subsets 
+and then copy them into output list.
+    
+* Space complexity: $$\mathcal{O}(N)$$ to store the bitset
+of length $$N$$. Note that for space complexity analysis, we do not count space that is *only* used for the purpose of returning output, so the `output` array is ignored.</div>
+                </div>
+
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="lang-tabs">
+                            <button class="tab-btn active" onclick="switchLang('python3')">Python3</button>
+                            <button class="tab-btn" onclick="switchLang('java')">Java</button>
+                            <button class="tab-btn" onclick="switchLang('cpp')">C++</button>
+                        </div>
+                        <span style="font-size: 12px; color: #666; font-weight: 700;"><i class="fas fa-terminal"></i> CODE LAB</span>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copy</button>
+                        <pre><code id="code-display">class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../js/main.js"></script>
+    <script src="../leetcode-core.js"></script>
+    <script>
+        const snippets = {"cpp": "class Solution {\npublic:\n    vector<vector<int>> subsets(vector<int>& nums) {\n        \n    }\n};", "java": "class Solution {\n    public List<List<Integer>> subsets(int[] nums) {\n        \n    }\n}", "python": "class Solution(object):\n    def subsets(self, nums):\n        \"\"\"\n        :type nums: List[int]\n        :rtype: List[List[int]]\n        \"\"\"\n        ", "python3": "class Solution:\n    def subsets(self, nums: List[int]) -> List[List[int]]:\n        ", "c": "/**\n * Return an array of arrays of size *returnSize.\n * The sizes of the arrays are returned as *returnColumnSizes array.\n * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().\n */\nint** subsets(int* nums, int numsSize, int* returnSize, int** returnColumnSizes) {\n    \n}", "csharp": "public class Solution {\n    public IList<IList<int>> Subsets(int[] nums) {\n        \n    }\n}", "javascript": "/**\n * @param {number[]} nums\n * @return {number[][]}\n */\nvar subsets = function(nums) {\n    \n};", "typescript": "function subsets(nums: number[]): number[][] {\n    \n};", "php": "class Solution {\n\n    /**\n     * @param Integer[] $nums\n     * @return Integer[][]\n     */\n    function subsets($nums) {\n        \n    }\n}", "swift": "class Solution {\n    func subsets(_ nums: [Int]) -> [[Int]] {\n        \n    }\n}", "kotlin": "class Solution {\n    fun subsets(nums: IntArray): List<List<Int>> {\n        \n    }\n}", "dart": "class Solution {\n  List<List<int>> subsets(List<int> nums) {\n    \n  }\n}", "golang": "func subsets(nums []int) [][]int {\n    \n}", "ruby": "# @param {Integer[]} nums\n# @return {Integer[][]}\ndef subsets(nums)\n    \nend", "scala": "object Solution {\n    def subsets(nums: Array[Int]): List[List[Int]] = {\n        \n    }\n}", "rust": "impl Solution {\n    pub fn subsets(nums: Vec<i32>) -> Vec<Vec<i32>> {\n        \n    }\n}", "racket": "(define/contract (subsets nums)\n  (-> (listof exact-integer?) (listof (listof exact-integer?)))\n  )", "erlang": "-spec subsets(Nums :: [integer()]) -> [[integer()]].\nsubsets(Nums) ->\n  .", "elixir": "defmodule Solution do\n  @spec subsets(nums :: [integer]) :: [[integer]]\n  def subsets(nums) do\n    \n  end\nend"};
+        initializeSnippetManager(snippets);
+    </script>
+</body>
+</html>

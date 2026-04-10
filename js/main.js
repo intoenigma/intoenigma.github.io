@@ -4,6 +4,71 @@
  */
 
 const TOOL_REGISTRY = {
+    'visual-effects': [
+        { name: '3D Card Hover', path: '3d-card-hover/index.html' },
+        { name: '3D Text Rotating', path: '3d-text-rotating/index.html' },
+        { name: 'Border Radius Ui', path: 'border-radius-ui/index.html' },
+        { name: 'Bouncing Balls', path: 'bouncing-balls/index.html' },
+        { name: 'Color Harmony', path: 'color-harmony/index.html' },
+        { name: 'Confetti Pop', path: 'confetti-pop/index.html' },
+        { name: 'Css Art Gallery', path: 'css-art-gallery/index.html' },
+        { name: 'Css Button Library', path: 'css-button-library/index.html' },
+        { name: 'Css Clip Path Maker', path: 'css-clip-path-maker/index.html' },
+        { name: 'Css Shadow Lib', path: 'css-shadow-lib/index.html' },
+        { name: 'Day Night Cycle', path: 'day-night-cycle/index.html' },
+        { name: 'Firework Sim', path: 'firework-sim/index.html' },
+        { name: 'Fog Effect', path: 'fog-effect/index.html' },
+        { name: 'Glass Layouts', path: 'glass-layouts/index.html' },
+        { name: 'Glassmorphism Generator', path: 'glassmorphism-generator/index.html' },
+        { name: 'Glitch Effect', path: 'glitch-effect/index.html' },
+        { name: 'Gradient Text', path: 'gradient-text/index.html' },
+        { name: 'Gravitational Art', path: 'gravitational-art/index.html' },
+        { name: 'Interactive Globe', path: 'interactive-globe/index.html' },
+        { name: 'Kaleidoscope', path: 'kaleidoscope/index.html' },
+        { name: 'Liquid Loader', path: 'liquid-loader/index.html' },
+        { name: 'Matrix Rain', path: 'matrix-rain/index.html' },
+        { name: 'Mirror Drawing', path: 'mirror-drawing/index.html' },
+        { name: 'Moving Clouds', path: 'moving-clouds/index.html' },
+        { name: 'Neon Text Maker', path: 'neon-text-maker/index.html' },
+        { name: 'Neumorphism Generator', path: 'neumorphism-generator/index.html' },
+        { name: 'Parallax Scroll', path: 'parallax-scroll/index.html' },
+        { name: 'Particle Text', path: 'particle-text/index.html' },
+        { name: 'Rainy Mood', path: 'rainy-mood/index.html' },
+        { name: 'Simple Paint', path: 'simple-paint/index.html' },
+        { name: 'Snowfall Animation', path: 'snowfall-animation/index.html' },
+        { name: 'Sorting Visualizer', path: 'sorting-visualizer/index.html' },
+        { name: 'Spirograph Generator', path: 'spirograph-generator/index.html' },
+        { name: 'Starfield Warp', path: 'starfield-warp/index.html' },
+        { name: 'Svg Path Builder', path: 'svg-path-builder/index.html' },
+        { name: 'Vanta Bg', path: 'vanta-bg/index.html' },
+        { name: 'Wave Animation', path: 'wave-animation/index.html' }
+    ],
+
+    'trackers': [
+        { name: 'Bmi History', path: 'bmi-history/index.html' },
+        { name: 'Calorie Counter', path: 'calorie-counter/index.html' },
+        { name: 'Gold Rate Track', path: 'gold-rate-track/index.html' },
+        { name: 'Habit Tracker', path: 'habit-tracker/index.html' },
+        { name: 'Period Tracker', path: 'period-tracker/index.html' },
+        { name: 'Step Counter', path: 'step-counter/index.html' },
+        { name: 'Step Goal Bar', path: 'step-goal-bar/index.html' },
+        { name: 'Workout Tracker', path: 'workout-tracker/index.html' }
+    ],
+
+    'converters': [
+        { name: 'Binary To Decimal', path: 'binary-to-decimal/index.html' },
+        { name: 'Case Converter', path: 'case-converter/index.html' },
+        { name: 'Emoji Translator', path: 'emoji-translator/index.html' },
+        { name: 'Image To Base64', path: 'image-to-base64/index.html' },
+        { name: 'Json To Csv', path: 'json-to-csv/index.html' },
+        { name: 'Morse Code', path: 'morse-code/index.html' },
+        { name: 'Multi Unit Converter', path: 'multi-unit-converter/index.html' },
+        { name: 'Roman Numeral', path: 'roman-numeral/index.html' },
+        { name: 'Speech To Text', path: 'speech-to-text/index.html' },
+        { name: 'Text To Speech', path: 'text-to-speech/index.html' },
+        { name: 'Time Zone Converter', path: 'time-zone-converter/index.html' }
+    ],
+
     'calculators': [
         { name: 'Age Calculator', path: 'age-calculator/index.html' },
         { name: 'BMI Analyzer', path: 'bmi-calculator/index.html' },
@@ -94,6 +159,12 @@ const TOOL_REGISTRY = {
         { name: 'Input Stream', path: 'typing-tutor/index.html' },
         { name: 'Lexicon Prime', path: 'vocabulary-builder/index.html' }
     ],
+    'leetcode': [
+        { name: 'Two Sum', path: '1/index.html' },
+        { name: 'Add Two Numbers', path: '2/index.html' },
+        { name: 'Longest Substring', path: '3/index.html' },
+        { name: 'Median Sorted Arrays', path: '4/index.html' }
+    ],
     'hindi-toolkit': [
         { name: 'Unicode → Non-Unicode', path: 'unicode to Non-Unicode convertor/index.html' },
         { name: 'Non-Unicode → Unicode', path: 'Non-Unicode to unicode convertor/index.html' },
@@ -160,8 +231,12 @@ function detectCategory() {
     if (path.includes('games')) return 'games';
     if (path.includes('utilities')) return 'utilities';
     if (path.includes('converters')) return 'converters';
+    if (path.includes('trackers')) return 'trackers';
+    if (path.includes('visual-effects')) return 'visual-effects';
+    if (path.includes('converters')) return 'converters';
     if (path.includes('quizzes')) return 'quizzes';
     if (path.includes('generators')) return 'generators';
+    if (path.includes('leetcode')) return 'leetcode';
     return null;
 }
 
@@ -212,15 +287,15 @@ function injectHeader(root) {
             </div>
         </div>
         <div class="header-sub">
-            <a href="${root}index.html#calculators">Calculators</a>
+            <a href="${root}projects/calculators/index.html">Calculators</a>
             <a href="${root}projects/converters/index.html">Converters</a>
             <a href="${root}projects/games/index.html">Games</a>
             <a href="${root}projects/generators/index.html">Generators</a>
-            <a href="${root}index.html#trackers">Trackers</a>
+            <a href="${root}projects/trackers/index.html">Trackers</a>
             <a href="${root}projects/utilities/index.html">Utilities</a>
             <a href="${root}projects/quizzes/index.html">Quizzes</a>
             <a href="${root}projects/Hindi Unicode Converter Toolkit/index.html">Hindi Tools</a>
-            <a href="${root}index.html#visuals">Visual Effects</a>
+            <a href="${root}projects/visual-effects/index.html">Visual Effects</a>
         </div>
     </header>`;
 }

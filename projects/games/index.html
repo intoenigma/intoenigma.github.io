@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Games | IntoEnigma</title>
+    <title>Classic Web Games Hub | IntoEnigma</title>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../css/style.css">
@@ -16,55 +16,47 @@
     <main class="container">
         <div id="enigma-breadcrumbs"></div>
 
-        <div class="banner">
-            <h2>Interactive Games</h2>
-            <p>Engage with 20+ high-fidelity digital entertainment protocols and arcade simulations.</p>
+        <div class="amz-hero">
+            <h1><i class="fas fa-gamepad" style="margin-right:10px;"></i> Classic Web Games Hub</h1>
+            <p>Play 20+ logic, puzzle, and reaction games entirely in your browser without any installations.</p>
         </div>
 
         <div class="content-layout">
-            <aside class="sidebar">
-                <h3>Game Categories</h3>
-                <ul>
-                    <li><a href="#arcade">Arcade Classics</a></li>
-                    <li><a href="#puzzle">Puzzle & Logic</a></li>
-                    <li><a href="#action">Action & Skill</a></li>
-                </ul>
-            </aside>
+            <aside class="sidebar" id="enigma-sidebar"></aside>
 
             <div class="main-content">
-                <section class="list-section">
-                    <h3>Game Library</h3>
+                <div class="card">
+                    <h2 class="category-heading">Available Tools</h2>
                     <div class="list-grid">
-                        <a href="alien-invaders/index.html" class="list-item">Xenon Invader (Space)</a>
-                        <a href="breakout-game/index.html" class="list-item">Kinetic Breaker</a>
-                        <a href="car-racing-2d/index.html" class="list-item">Neon Racer</a>
-                        <a href="coin-flip-3d/index.html" class="list-item">Quantum Flip (3D)</a>
-                        <a href="connect-four/index.html" class="list-item">Tactical Grid (Connect 4)</a>
-                        <a href="crossword-mini/index.html" class="list-item">Cryptic Cross</a>
-                        <a href="dino-run-clone/index.html" class="list-item">Cyber Runner</a>
-                        <a href="dodge-ball/index.html" class="list-item">Orbital Evasion</a>
-                        <a href="flappy-bird/index.html" class="list-item">Gravity Glide</a>
-                        <a href="hangman/index.html" class="list-item">Lexical Decryption</a>
-                        <a href="minesweeper/index.html" class="list-item">Grid Sweeper</a>
-                        <a href="number-guessing/index.html" class="list-item">Binary Search Game</a>
-                        <a href="platformer-game/index.html" class="list-item">Plane Navigator</a>
-                        <a href="pong/index.html" class="list-item">Cyber Tennis (Pong)</a>
-                        <a href="rock-paper-scissors/index.html" class="list-item">Tactical Selection</a>
-                        <a href="simon-says/index.html" class="list-item">Neural Link (Memory)</a>
-                        <a href="sudoku-generator/index.html" class="list-item">Logic Grid (Sudoku)</a>
-                        <a href="tetris/index.html" class="list-item">Neon Stack (Tetris)</a>
-                        <a href="tile-slide/index.html" class="list-item">Fractal Reassembly</a>
-                        <a href="trivia-crack/index.html" class="list-item">Knowledge Base Trivia</a>
-                        <a href="whack-a-mole/index.html" class="list-item">Glitch Stomp</a>
-                        <a href="wordle-clone/index.html" class="list-item">Lexical Decryptor (Wordle)</a>
+                        <a href="alien-invaders/index.html" class="list-item"><i class="fas fa-gamepad"></i> Xenon Invader (Space)</a>
+                        <a href="breakout-game/index.html" class="list-item"><i class="fas fa-gamepad"></i> Kinetic Breaker</a>
+                        <a href="car-racing-2d/index.html" class="list-item"><i class="fas fa-gamepad"></i> Neon Racer</a>
+                        <a href="coin-flip-3d/index.html" class="list-item"><i class="fas fa-gamepad"></i> Quantum Flip (3D)</a>
+                        <a href="connect-four/index.html" class="list-item"><i class="fas fa-gamepad"></i> Tactical Grid (Connect 4)</a>
+                        <a href="crossword-mini/index.html" class="list-item"><i class="fas fa-gamepad"></i> Cryptic Cross</a>
+                        <a href="dino-run-clone/index.html" class="list-item"><i class="fas fa-gamepad"></i> Cyber Runner</a>
+                        <a href="dodge-ball/index.html" class="list-item"><i class="fas fa-gamepad"></i> Orbital Evasion</a>
+                        <a href="flappy-bird/index.html" class="list-item"><i class="fas fa-gamepad"></i> Gravity Glide</a>
+                        <a href="hangman/index.html" class="list-item"><i class="fas fa-gamepad"></i> Lexical Decryption</a>
+                        <a href="minesweeper/index.html" class="list-item"><i class="fas fa-gamepad"></i> Grid Sweeper</a>
+                        <a href="number-guessing/index.html" class="list-item"><i class="fas fa-gamepad"></i> Binary Search Game</a>
+                        <a href="platformer-game/index.html" class="list-item"><i class="fas fa-gamepad"></i> Plane Navigator</a>
+                        <a href="pong/index.html" class="list-item"><i class="fas fa-gamepad"></i> Cyber Tennis (Pong)</a>
+                        <a href="rock-paper-scissors/index.html" class="list-item"><i class="fas fa-gamepad"></i> Tactical Selection</a>
+                        <a href="simon-says/index.html" class="list-item"><i class="fas fa-gamepad"></i> Neural Link (Memory)</a>
+                        <a href="sudoku-generator/index.html" class="list-item"><i class="fas fa-gamepad"></i> Logic Grid (Sudoku)</a>
+                        <a href="tetris/index.html" class="list-item"><i class="fas fa-gamepad"></i> Neon Stack (Tetris)</a>
+                        <a href="tile-slide/index.html" class="list-item"><i class="fas fa-gamepad"></i> Fractal Reassembly</a>
+                        <a href="trivia-crack/index.html" class="list-item"><i class="fas fa-gamepad"></i> Knowledge Base Trivia</a>
+                        <a href="whack-a-mole/index.html" class="list-item"><i class="fas fa-gamepad"></i> Glitch Stomp</a>
+                        <a href="wordle-clone/index.html" class="list-item"><i class="fas fa-gamepad"></i> Lexical Decryptor (Wordle)</a>
                     </div>
-                </section>
+                </div>
             </div>
         </div>
     </main>
 
     <div id="enigma-footer"></div>
-
     <script src="../../js/main.js"></script>
 </body>
 </html>

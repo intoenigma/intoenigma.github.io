@@ -9,20 +9,39 @@
     <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../converter-base.css">
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <div id="enigma-header"></div>
+
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+
+            <div class="main-content">
+                <div class="card" style="box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px;">
+                    <h2 style="font-size: 22px; font-weight: 800; border-bottom: 1px solid #d5d9d9; padding-bottom: 10px; margin-bottom: 20px;">
+                       <i class="fas fa-layer-group" style="color: #007185; margin-right: 8px;"></i> Voice Logger
+                    </h2>
+                    
+                    <!-- Tool Render Area -->
+                    <div style="position: relative; width: 100%; min-height: 50vh; display: flex; flex-direction: column; overflow: hidden; background: #fff;">
+
     <!-- Custom Cursor -->
     <div class="cursor-outer"></div>
     <div class="cursor-inner"></div>
 
     <!-- Background Elements -->
     <canvas id="particle-canvas"></canvas>
-    <div class="noise-overlay"></div>
+    
     <div class="bg-glow g1"></div>
     <div class="bg-glow g2"></div>
     <div class="bg-glow g3"></div>
 
-    <a href="../index.html" class="back-link magnetic">&larr; Converters</a>
+    
 
     <main class="main-content">
         <div class="converter-container glass hidden-scroll">
@@ -49,6 +68,16 @@
 
     <script src="../../../js/main.js"></script>
     <script src="script.js"></script>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="enigma-footer"></div>
+    <script src="../../../js/main.js"></script>
 </body>
 </html>
 

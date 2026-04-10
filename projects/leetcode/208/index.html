@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implement Trie (Prefix Tree) - LeetCode Master | IntoEnigma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../leetcode-style.css">
+</head>
+<body>
+    <div id="enigma-header"></div>
+    <main class="container">
+        <div id="enigma-breadcrumbs"></div>
+        <div class="content-layout">
+            <aside class="sidebar" id="enigma-sidebar"></aside>
+            <div class="main-content">
+                <div style="margin-bottom: 25px;">
+                    <a href="../index.html" style="color: #007185; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-arrow-left-long"></i> Back to Hub
+                    </a>
+                </div>
+
+                <div class="lab-card">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <span class="badge Medium"><i class="fas fa-shield-halved"></i> Medium</span>
+                            <h1 style="font-size: 32px; font-weight: 800; margin-top: 15px; color: #232f3e;">#208 Implement Trie (Prefix Tree)</h1>
+                        </div>
+                        <div class="tag-container"><span class="topic-tag">Hash Table</span><span class="topic-tag">String</span><span class="topic-tag">Design</span><span class="topic-tag">Trie</span></div>
+                    </div>
+
+                    <div class="h-title" style="margin-top: 40px;"><i class="fas fa-align-left" style="color: #007185;"></i> Problem Context</div>
+                    <div style="font-size: 16px; color: #232f3e; line-height: 1.8; white-space: pre-wrap;">A trie (pronounced as "try") or prefix tree is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker.
+Implement the Trie class:
+Example 1:
+Constraints:</div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-flask-vial" style="color: #e47911;"></i> Technical Logic & Constraints</div>
+                    <div class="example-box"><strong style="color: #007185;">Example 1:</strong><pre style="background:none; border:none; padding:0; color:inherit; font-size:13px; margin-top:10px; color: #555;">Input
+["Trie", "insert", "search", "search", "startsWith", "insert", "search"]
+[[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]]
+Output
+[null, null, true, false, true, null, true]
+
+Explanation
+Trie trie = new Trie();
+trie.insert("apple");
+trie.search("apple");   // return True
+trie.search("app");     // return False
+trie.startsWith("app"); // return True
+trie.insert("app");
+trie.search("app");     // return True</pre></div>
+                    <div style="margin-top: 25px; background: #fffbe6; padding: 20px; border-radius: 12px; border: 1px solid #ffe58f;">
+                        <strong style="color: #856404;"><i class="fas fa-triangle-exclamation"></i> Constraints:</strong>
+                        <ul style="margin-top: 12px; line-height: 1.6; color: #856404;">
+                            <li>1 <= word.length, prefix.length <= 2000</li><li>word and prefix consist only of lowercase English letters.</li><li>At most 3 * 104 calls in total will be made to insert, search, and startsWith.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="h-title"><i class="fas fa-brain" style="color: #ffd814;"></i> Solution Deep-Dive</div>
+                    <div style="font-size: 15px; line-height: 1.8; color: #444; white-space: pre-wrap;">Article not populated yet.</div>
+                </div>
+
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="lang-tabs">
+                            <button class="tab-btn active" onclick="switchLang('python3')">Python3</button>
+                            <button class="tab-btn" onclick="switchLang('java')">Java</button>
+                            <button class="tab-btn" onclick="switchLang('cpp')">C++</button>
+                        </div>
+                        <span style="font-size: 12px; color: #666; font-weight: 700;"><i class="fas fa-terminal"></i> CODE LAB</span>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copy</button>
+                        <pre><code id="code-display">class Trie:
+
+    def __init__(self):
+        
+
+    def insert(self, word: str) -> None:
+        
+
+    def search(self, word: str) -> bool:
+        
+
+    def startsWith(self, prefix: str) -> bool:
+        
+
+
+# Your Trie object will be instantiated and called as such:
+# obj = Trie()
+# obj.insert(word)
+# param_2 = obj.search(word)
+# param_3 = obj.startsWith(prefix)</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="enigma-footer"></div>
+    <script src="../../js/main.js"></script>
+    <script src="../leetcode-core.js"></script>
+    <script>
+        const snippets = {"cpp": "class Trie {\npublic:\n    Trie() {\n        \n    }\n    \n    void insert(string word) {\n        \n    }\n    \n    bool search(string word) {\n        \n    }\n    \n    bool startsWith(string prefix) {\n        \n    }\n};\n\n/**\n * Your Trie object will be instantiated and called as such:\n * Trie* obj = new Trie();\n * obj->insert(word);\n * bool param_2 = obj->search(word);\n * bool param_3 = obj->startsWith(prefix);\n */", "java": "class Trie {\n\n    public Trie() {\n        \n    }\n    \n    public void insert(String word) {\n        \n    }\n    \n    public boolean search(String word) {\n        \n    }\n    \n    public boolean startsWith(String prefix) {\n        \n    }\n}\n\n/**\n * Your Trie object will be instantiated and called as such:\n * Trie obj = new Trie();\n * obj.insert(word);\n * boolean param_2 = obj.search(word);\n * boolean param_3 = obj.startsWith(prefix);\n */", "python": "class Trie(object):\n\n    def __init__(self):\n        \n\n    def insert(self, word):\n        \"\"\"\n        :type word: str\n        :rtype: None\n        \"\"\"\n        \n\n    def search(self, word):\n        \"\"\"\n        :type word: str\n        :rtype: bool\n        \"\"\"\n        \n\n    def startsWith(self, prefix):\n        \"\"\"\n        :type prefix: str\n        :rtype: bool\n        \"\"\"\n        \n\n\n# Your Trie object will be instantiated and called as such:\n# obj = Trie()\n# obj.insert(word)\n# param_2 = obj.search(word)\n# param_3 = obj.startsWith(prefix)", "python3": "class Trie:\n\n    def __init__(self):\n        \n\n    def insert(self, word: str) -> None:\n        \n\n    def search(self, word: str) -> bool:\n        \n\n    def startsWith(self, prefix: str) -> bool:\n        \n\n\n# Your Trie object will be instantiated and called as such:\n# obj = Trie()\n# obj.insert(word)\n# param_2 = obj.search(word)\n# param_3 = obj.startsWith(prefix)", "c": "\n\n\ntypedef struct {\n    \n} Trie;\n\n\nTrie* trieCreate() {\n    \n}\n\nvoid trieInsert(Trie* obj, char* word) {\n    \n}\n\nbool trieSearch(Trie* obj, char* word) {\n    \n}\n\nbool trieStartsWith(Trie* obj, char* prefix) {\n    \n}\n\nvoid trieFree(Trie* obj) {\n    \n}\n\n/**\n * Your Trie struct will be instantiated and called as such:\n * Trie* obj = trieCreate();\n * trieInsert(obj, word);\n \n * bool param_2 = trieSearch(obj, word);\n \n * bool param_3 = trieStartsWith(obj, prefix);\n \n * trieFree(obj);\n*/", "csharp": "public class Trie {\n\n    public Trie() {\n        \n    }\n    \n    public void Insert(string word) {\n        \n    }\n    \n    public bool Search(string word) {\n        \n    }\n    \n    public bool StartsWith(string prefix) {\n        \n    }\n}\n\n/**\n * Your Trie object will be instantiated and called as such:\n * Trie obj = new Trie();\n * obj.Insert(word);\n * bool param_2 = obj.Search(word);\n * bool param_3 = obj.StartsWith(prefix);\n */", "javascript": "\nvar Trie = function() {\n    \n};\n\n/** \n * @param {string} word\n * @return {void}\n */\nTrie.prototype.insert = function(word) {\n    \n};\n\n/** \n * @param {string} word\n * @return {boolean}\n */\nTrie.prototype.search = function(word) {\n    \n};\n\n/** \n * @param {string} prefix\n * @return {boolean}\n */\nTrie.prototype.startsWith = function(prefix) {\n    \n};\n\n/** \n * Your Trie object will be instantiated and called as such:\n * var obj = new Trie()\n * obj.insert(word)\n * var param_2 = obj.search(word)\n * var param_3 = obj.startsWith(prefix)\n */", "typescript": "class Trie {\n    constructor() {\n        \n    }\n\n    insert(word: string): void {\n        \n    }\n\n    search(word: string): boolean {\n        \n    }\n\n    startsWith(prefix: string): boolean {\n        \n    }\n}\n\n/**\n * Your Trie object will be instantiated and called as such:\n * var obj = new Trie()\n * obj.insert(word)\n * var param_2 = obj.search(word)\n * var param_3 = obj.startsWith(prefix)\n */", "php": "class Trie {\n    /**\n     */\n    function __construct() {\n        \n    }\n  \n    /**\n     * @param String $word\n     * @return NULL\n     */\n    function insert($word) {\n        \n    }\n  \n    /**\n     * @param String $word\n     * @return Boolean\n     */\n    function search($word) {\n        \n    }\n  \n    /**\n     * @param String $prefix\n     * @return Boolean\n     */\n    function startsWith($prefix) {\n        \n    }\n}\n\n/**\n * Your Trie object will be instantiated and called as such:\n * $obj = Trie();\n * $obj->insert($word);\n * $ret_2 = $obj->search($word);\n * $ret_3 = $obj->startsWith($prefix);\n */", "swift": "\nclass Trie {\n\n    init() {\n        \n    }\n    \n    func insert(_ word: String) {\n        \n    }\n    \n    func search(_ word: String) -> Bool {\n        \n    }\n    \n    func startsWith(_ prefix: String) -> Bool {\n        \n    }\n}\n\n/**\n * Your Trie object will be instantiated and called as such:\n * let obj = Trie()\n * obj.insert(word)\n * let ret_2: Bool = obj.search(word)\n * let ret_3: Bool = obj.startsWith(prefix)\n */", "kotlin": "class Trie() {\n\n    fun insert(word: String) {\n        \n    }\n\n    fun search(word: String): Boolean {\n        \n    }\n\n    fun startsWith(prefix: String): Boolean {\n        \n    }\n\n}\n\n/**\n * Your Trie object will be instantiated and called as such:\n * var obj = Trie()\n * obj.insert(word)\n * var param_2 = obj.search(word)\n * var param_3 = obj.startsWith(prefix)\n */", "dart": "class Trie {\n\n  Trie() {\n    \n  }\n  \n  void insert(String word) {\n    \n  }\n  \n  bool search(String word) {\n    \n  }\n  \n  bool startsWith(String prefix) {\n    \n  }\n}\n\n/**\n * Your Trie object will be instantiated and called as such:\n * Trie obj = Trie();\n * obj.insert(word);\n * bool param2 = obj.search(word);\n * bool param3 = obj.startsWith(prefix);\n */", "golang": "type Trie struct {\n    \n}\n\n\nfunc Constructor() Trie {\n    \n}\n\n\nfunc (this *Trie) Insert(word string)  {\n    \n}\n\n\nfunc (this *Trie) Search(word string) bool {\n    \n}\n\n\nfunc (this *Trie) StartsWith(prefix string) bool {\n    \n}\n\n\n/**\n * Your Trie object will be instantiated and called as such:\n * obj := Constructor();\n * obj.Insert(word);\n * param_2 := obj.Search(word);\n * param_3 := obj.StartsWith(prefix);\n */", "ruby": "class Trie\n    def initialize()\n        \n    end\n\n\n=begin\n    :type word: String\n    :rtype: Void\n=end\n    def insert(word)\n        \n    end\n\n\n=begin\n    :type word: String\n    :rtype: Boolean\n=end\n    def search(word)\n        \n    end\n\n\n=begin\n    :type prefix: String\n    :rtype: Boolean\n=end\n    def starts_with(prefix)\n        \n    end\n\n\nend\n\n# Your Trie object will be instantiated and called as such:\n# obj = Trie.new()\n# obj.insert(word)\n# param_2 = obj.search(word)\n# param_3 = obj.starts_with(prefix)", "scala": "class Trie() {\n\n    def insert(word: String): Unit = {\n        \n    }\n\n    def search(word: String): Boolean = {\n        \n    }\n\n    def startsWith(prefix: String): Boolean = {\n        \n    }\n\n}\n\n/**\n * Your Trie object will be instantiated and called as such:\n * val obj = new Trie()\n * obj.insert(word)\n * val param_2 = obj.search(word)\n * val param_3 = obj.startsWith(prefix)\n */", "rust": "struct Trie {\n\n}\n\n\n/** \n * `&self` means the method takes an immutable reference.\n * If you need a mutable reference, change it to `&mut self` instead.\n */\nimpl Trie {\n\n    fn new() -> Self {\n        \n    }\n    \n    fn insert(&self, word: String) {\n        \n    }\n    \n    fn search(&self, word: String) -> bool {\n        \n    }\n    \n    fn starts_with(&self, prefix: String) -> bool {\n        \n    }\n}\n\n/**\n * Your Trie object will be instantiated and called as such:\n * let obj = Trie::new();\n * obj.insert(word);\n * let ret_2: bool = obj.search(word);\n * let ret_3: bool = obj.starts_with(prefix);\n */", "racket": "(define trie%\n  (class object%\n    (super-new)\n    \n    (init-field)\n    \n    ; insert : string? -> void?\n    (define/public (insert word)\n      )\n    ; search : string? -> boolean?\n    (define/public (search word)\n      )\n    ; starts-with : string? -> boolean?\n    (define/public (starts-with prefix)\n      )))\n\n;; Your trie% object will be instantiated and called as such:\n;; (define obj (new trie%))\n;; (send obj insert word)\n;; (define param_2 (send obj search word))\n;; (define param_3 (send obj starts-with prefix))", "erlang": "-spec trie_init_() -> any().\ntrie_init_() ->\n  .\n\n-spec trie_insert(Word :: unicode:unicode_binary()) -> any().\ntrie_insert(Word) ->\n  .\n\n-spec trie_search(Word :: unicode:unicode_binary()) -> boolean().\ntrie_search(Word) ->\n  .\n\n-spec trie_starts_with(Prefix :: unicode:unicode_binary()) -> boolean().\ntrie_starts_with(Prefix) ->\n  .\n\n\n%% Your functions will be called as such:\n%% trie_init_(),\n%% trie_insert(Word),\n%% Param_2 = trie_search(Word),\n%% Param_3 = trie_starts_with(Prefix),\n\n%% trie_init_ will be called before every test case, in which you can do some necessary initializations.", "elixir": "defmodule Trie do\n  @spec init_() :: any\n  def init_() do\n    \n  end\n\n  @spec insert(word :: String.t) :: any\n  def insert(word) do\n    \n  end\n\n  @spec search(word :: String.t) :: boolean\n  def search(word) do\n    \n  end\n\n  @spec starts_with(prefix :: String.t) :: boolean\n  def starts_with(prefix) do\n    \n  end\nend\n\n# Your functions will be called as such:\n# Trie.init_()\n# Trie.insert(word)\n# param_2 = Trie.search(word)\n# param_3 = Trie.starts_with(prefix)\n\n# Trie.init_ will be called before every test case, in which you can do some necessary initializations."};
+        initializeSnippetManager(snippets);
+    </script>
+</body>
+</html>
